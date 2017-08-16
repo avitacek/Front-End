@@ -21,6 +21,7 @@
     "browserify-shim": "^3.8.13",
     "compass": "^0.1.1",
     "datatables.net": "^1.10.15",
+    "font-awesome": "^4.7.0",
     "get-config": "^0.6.15",
     "get-env": "^0.5.10",
     "gsap": "^1.19.1",

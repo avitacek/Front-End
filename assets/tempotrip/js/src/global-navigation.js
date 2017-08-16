@@ -18,9 +18,11 @@ $(document).ready(function(){
 	});
 	$("#adminAccordian").click(function(){
     	$("#adminNav").toggleClass("open");
+    	$(this).toggleClass("open");
 	});
 	$("#travellerAccordian").click(function(){
     	$("#travellerNav").toggleClass("open");
+    	$(this).toggleClass("open");
 	});
 
 	//Dynamic admin menu creation//
@@ -79,8 +81,11 @@ $(document).ready(function(){
             getMenuItem(this)
         );
     });
-   $menu.menu();
-   $menu.addClass('open');
+   //$menu.menu();
+   //$menu.addClass('open');
+
+   $( "#adminAccordian" ).trigger( "click" );
+   $( "#travellerAccordian" ).trigger( "click" );
 });
 
 //Global Navigation JS File//
