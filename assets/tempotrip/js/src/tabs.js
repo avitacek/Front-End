@@ -52,5 +52,5 @@ $( document ).ready(function() {
             getMenuItem(this)
         );
     });
-   // $menu.menu();
+   $menu.menu();
 });

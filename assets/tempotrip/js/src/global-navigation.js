@@ -22,6 +22,65 @@ $(document).ready(function(){
 	$("#travellerAccordian").click(function(){
     	$("#travellerNav").toggleClass("open");
 	});
+
+	//Dynamic admin menu creation//
+	var data = {
+        menu: [{
+            name: 'Overview',
+            link: '0',
+            sub: null
+        }, {
+            name: 'Travellers',
+            link: '1',
+            sub: null
+        }, {
+            name: 'Reports',
+            link: '2',
+            sub: null
+        }, {
+            name: 'Booking Sites',
+            link: '3',
+            sub: null
+        },{
+            name: 'Trips',
+            link: '4',
+            sub: null
+        }, {
+            name: 'Settings',
+            link: '5',
+            sub: null
+        },
+        {
+            name: 'Support',
+            link: '6',
+            sub: null
+        }]
+    };
+    var getMenuItem = function (itemData) {
+        var item = $("<li>")
+            .append(
+        $("<a>", {
+            href: '#' + itemData.link,
+            html: itemData.name
+        }));
+        if (itemData.sub) {
+            var subList = $("<ul>");
+            $.each(itemData.sub, function () {
+                subList.append(getMenuItem(this));
+            });
+            item.append(subList);
+        }
+        return item;
+    };
+    
+    var $menu = $("#dynamic-menu");
+    $.each(data.menu, function () {
+        $menu.append(
+            getMenuItem(this)
+        );
+    });
+   $menu.menu();
+   $menu.addClass('open');
 });
 
 //Global Navigation JS File//
