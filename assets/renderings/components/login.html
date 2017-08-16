@@ -1,0 +1,99 @@
+<div class="row" id="flip-form">
+	<div class="col-sm-8" id="landing-login">
+		<div class="logo"></div>
+		<h4>Log in</h4>
+		<form action="" id="login-form">
+		  	<div class="container-fluid">
+		    	<label><b>Username</b></label>
+		    	<input type="text" placeholder="Enter Username" name="uname" class="username" >
+
+		    	<label><b>Password</b></label>
+		    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
+		        
+		    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
+		    	<div id="login" data-toggle="modal" data-target="#password-modal">Login</div>
+		  	</div>
+
+		  	<div class="container-fluid">
+		   		<span style="display:none;"><input type="checkbox">Remember me</span>
+		   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
+		    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
+		  	</div>
+		</form>
+	</div>
+	<div class="col-sm-4" id="register-login">
+		<h4>Not Registered?</h4>
+		<button id="register" data-toggle="modal" data-target="#register-modal">REGISTER</button>
+	</div>	
+</div>
+<div class="row">
+	<div class="col-sm-12 image-bg">
+		<div class="color-overlay"></div>
+	</div>	
+</div>
+<div class="row">
+	<!--Register form modal-->
+	<div class="modal" id="register-modal">
+		<div class="modal-box">
+			<form action="" id="register-form">
+			  	<div class="container-fluid">
+			  		<h5>Register</h5>
+			    	<label><b>First name</b></label>
+			    	<input type="text" placeholder="Enter your firstname" name="fname" class="firstname" >
+			    	<label><b>last name</b></label>
+			    	<input type="text" placeholder="Enter your lastname" name="lname" class="lastname" >
+			    	<label><b>Email address</b></label>
+			    	<input type="text" placeholder="Enter your lastname" name="email" class="email" >
+
+			    	<label><b>Password *</b></label>
+			    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
+			    	<label><b>Comfirm Password *</b></label>
+			    	<input type="password" placeholder="Confirm Password" name="cpsw" class="confirm-password" >
+			        
+			    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
+			    	<a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			    	
+			  	</div>
+			</form>
+		</div>
+
+	</div>
+	<!--change password modal-->
+	<div class="modal" id="password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Change Password</h5>
+			<form method="post"  id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username" >
+			    <input type="password" name="password1" class="password" placeholder="New Password" >
+			    <input type="password" name="password2" class="password" placeholder="Confirm password" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+	<!--forgot-password-modal-->
+	<div class="modal" id="forgot-password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Forgot Password</h5>
+			<form method="post"  id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username">
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			</form>
+		</div>
+	</div>
+	<!--forgot username modal-->
+	<div class="modal" id="username-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Forgot Username</h5>
+			<form method="post" action="" id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Email Address" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TempoTrip - Landing</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+    <link href="../tempotrip/css/tempotrip.css" rel="stylesheet">
+  </head>
+
+  <body id="landing-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Profile ============================== -->
+            <div class="col-sm-12" id="global-header">
+	<!-- Desktop Nav-->
+	<div class="navbar-wrapper desktop-nav" id="nav-wrapper">
+		<header id="header">
+			<nav>
+				<!--Desktop Nav-->
+					<div class="nav" id="main-nav">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="logo">Tempo<span>Trip</span></div>
+							</div>
+							<div class="col-sm-6"></div>
+							<div class="col-sm-3">
+								<div class="dropdown">
+    								<button class="btn dropdown-toggle account" type="button" data-toggle="dropdown">
+							    	<span class="caret"></span></button>
+								    <ul class="dropdown-menu">
+								      <!-- Add header here -->
+								      <li><a href="#">My Trips</a></li>
+								      <li><a href="#">Profile</a></li>
+								      <li><a href="#">Contacts</a></li>
+								      <li><a href="#">Log Out</a></li>
+								    </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+			</nav>
+		</header>
+	</div>
+	<!-- /Desktop Nav-->
+</div>
+
+            <!-- / Profile ============================ --> 
+        </div>
+    </div>
+    <div class="container-fluid" id="landing-page">
+        <div class="row">
+            <!-- Left Side bar ============================== -->
+            <div class="col-sm-6" id="landing-sidebar">
+	<div class="logo">Tempo<span>Trip</span></div>
+	<h1>Welcome to TempoTrip</h1>
+	<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+            <!-- / Left Side Bar ============================ --> 
+            <!-- Left Side bar ============================== -->
+            <div class="col-sm-6" id="landing-login">
+	<h4>Log in to your account or <span><a href="">Register</a></span></h4>
+	<form action="" id="login-form">
+	  	<div class="container-fluid">
+	    	<label><b>Email</b></label>
+	    	<input type="text" placeholder="Enter Username" name="uname" class="username" >
+
+	    	<label><b>Password</b></label>
+	    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
+	        
+	    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
+	    	<div id="login" data-toggle="modal" data-target="#password-modal">Login</div>
+	  	</div>
+
+	  	<div class="container-fluid">
+	   		<input type="checkbox" >Remember me
+	   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
+	    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
+	  	</div>
+	</form>
+	<div class="modal" id="password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<div class="logo">Tempo<span>Trip</span></div>
+			<h5>Set Password</h5>
+			<form method="post"  id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username" >
+			    <input type="password" name="password1" class="password" placeholder="New Password" >
+			    <input type="password" name="password2" class="password" placeholder="Confirm password" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+	<div class="modal" id="forgot-password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<div class="logo">Tempo<span>Trip</span></div>
+			<h5>Forgot Password</h5>
+			<form method="post"  id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username">
+			    <input type="password" name="temppassword" class="password" placeholder="Temporary Password" >
+			    <input type="password" name="password1" class="password" placeholder="New Password" >
+			    <input type="password" name="password2" class="password" placeholder="Confirm password" >
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			</form>
+		</div>
+	</div>
+	<div class="modal" id="username-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<div class="logo">Tempo<span>Trip</span></div>
+			<h5>Forgot Username</h5>
+			<form method="post" action="" id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+	<!-- <p>Don't have an account?</p><a href="">Create an account</a>-->
+</div>
+
+            <!-- / Left Side Bar ============================ --> 
+        </div>
+    </div>
+    
+    <!-- JS ============================== -->
+    <script src="../tempotrip/js/dist/tempotrip.globals.js"></script>
+     <script src="../tempotrip/js/dist/tempotrip.modules.js"></script>
+    <!-- / JS ============================ -->
+  </body>
+</html>

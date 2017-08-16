@@ -1,0 +1,321 @@
+﻿@import "../../globals/variables";
+@import "../../globals/mixins";
+body{
+	#global-header{
+		padding:0px;
+		& #header {
+			background: $white;
+			border-bottom:1px solid #dfe2e5;
+			height:auto;
+			width:100%;
+			padding:0px 0px;
+			position:absolute;
+			z-index: 9999;
+			& .nav{
+				font-family: $Marvel-Regular;
+				font-size:20px;
+				letter-spacing:0.3px;
+				color:$black;
+				padding:10px 0px;
+				position:relative;
+				left:0%;
+				-webkit-transition-property:all;
+			    -moz-transition-property: all;
+			    transition-property: all;
+			    -webkit-transition-duration: 0.5s;
+			    -moz-transition-duration: 0.5s;
+			    transition-duration: 0.5s;
+		    	& .row{
+			    	padding-left:10px;
+			    	padding-right:10px;
+					margin:0px auto;
+					max-width:100%;
+					& .col-sm-3, & .col-sm-6{
+						padding-left:0px;
+						float:left;
+						& .logo{
+							font-size:2.25em;
+							width:auto;
+							line-height:1;
+							height:50px;
+							padding-left:185px;
+							float:left;
+							&:before{
+								top:0%
+							}
+						}
+						/*Hamburger Button*/
+						& .navCase{
+						    float:left;
+						    width:35px;
+						    height:35px;
+						    margin-top:8px;
+						    z-index: 9995;
+						    padding:6px 10px 10px 2px;
+						    border-radius:50%;
+						    display:block;
+						    border:0px solid #a5aab2;
+						    -webkit-transition-property:all;
+						    -moz-transition-property: all;
+						    transition-property: all;
+						    -webkit-transition-duration: 0.5s;
+						    -moz-transition-duration: 0.5s;
+						    transition-duration: 0.5s;
+						}
+						& .navToggle{
+						    display: block;
+						    width: 30px;
+						    height: 30px;
+						    padding: 0px;
+						    -webkit-transition-property:all;
+						    -moz-transition-property: all;
+						    transition-property: all;
+						    -webkit-transition-duration: 0.5s;
+						    -moz-transition-duration: 0.5s;
+						    transition-duration: 0.5s;
+						    & span {
+							    font-size: 0;
+							    color: transparent;
+							    margin: 8px 0;
+							    -webkit-transform-origin: center;
+							    -moz-transform-origin: center;
+							    -ms-transform-origin: center;
+							    -o-transform-origin: center;
+							    transform-origin: center;
+							    -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+							    -moz-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+							    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+							}
+							& span, &:before, &:after {
+							    content: "";
+							    display: block;
+							    height: 2px;
+							    background:#a5aab2;
+							    -webkit-transform-origin: center;
+							    -moz-transform-origin: center;
+							    -ms-transform-origin: center;
+							    -o-transform-origin: center;
+							    transform-origin: center;
+							    -webkit-transition-property:all;
+							    -moz-transition-property: all;
+							    transition-property: all;
+							    -webkit-transition-duration: 0.5s;
+							    -moz-transition-duration: 0.5s;
+							    transition-duration: 0.5s;
+							}
+						}
+						
+					}
+			   		& .col-sm-6{
+			   			& .dropdown{
+			   				float:right;
+			   				margin:0px 0px 0px 20px;
+			   				& .btn{
+				   				padding:0px;
+				   				margin:0px;
+			   					&:active{
+			   						box-shadow:none;
+			   					}
+			   					&.account{
+									width:50px;
+							   		height:50px;
+							   		float:right;
+							   		padding-left:0px;
+							   		background:url('../images/global/account-icon-2.svg') center center no-repeat;
+							   		background-size:85% auto;
+							   		border:none;
+						   			outline:none;
+						   			margin-right:10px;
+						   			opacity:0.8;
+								}
+			   				}
+			   			}
+			   			& .dropdown-menu{
+			   				left:auto;
+			   				right:-25px;
+			   				top:60px;
+			   				min-width:120px;
+			   				box-shadow:none;
+			   				border-left-color:#dfe2e5;
+			   				border-right-color:#dfe2e5;
+			   				border-bottom-color:#dfe2e5;
+			   				border-top-color:#ffffff;
+			   				background-color:#ffffff;
+			   				margin-top:0px;
+			   				border-top:0px;
+			   				border-radius: 0px;
+			   				padding-top:0px;
+			   				padding-bottom:0px;
+			   				& li{
+			   					color:#1a4666;
+			   					& a{
+			   						padding:5px 20px;
+			   						text-align:center;
+			   						color:#a5aab2;
+			   						text-transform:uppercase;
+			   						&:hover{
+			   							background-color:#ffffff;
+			   							color:#1a4666;
+			   						}
+			   					}
+			   				}
+			   			}
+			   		}
+		   		}
+			}
+		}
+		& .caret {
+	  		position: relative;
+	  		&:before {
+			  content: '';
+			  position: absolute;
+			  top: 0;
+			  left: 23px;
+			  border-top: 7px solid #a5aab2;
+			  border-left: 7px solid transparent;
+			  border-right: 7px solid transparent;
+			}
+			&:after {
+			  content: '';
+			  position: absolute;
+			  left: 25px;
+			  top: 0;
+			  border-top: 5px solid #ffffff;
+			  border-left: 5px solid transparent;
+			  border-right: 5px solid transparent;
+			}
+		}
+		& .btn:hover, & .btn:focus{
+			color:transparent;
+		}
+		/*SidebarNav*/
+		.sideBarNav {
+		    height: 100%; /* 100% Full-height */
+		    width: 250px; /* 0 width - change this with JavaScript */
+		    position: fixed; /* Stay in place */
+		    z-index: 1; /* Stay on top */
+		    top: 70px;
+		    left: -250px;
+		    border-right:1px solid #dfe2e5;
+		    background-color: #ffffff;
+		    overflow:hidden; 
+		    padding:30px 15px; 
+		    transition: 0.5s;
+		    & p{
+		    	color:#7f8fa4;
+		    	text-transform:uppercase;
+		    	font-size:12px;
+		    	position:relative;
+		    	border-bottom:1px solid #dfe2e5;
+		    	border-top:1px solid #dfe2e5;
+		    	display:inline-block;
+		    	padding:5px 0px;
+		    	width:100%;
+		    	margin:10px 0px 0px;
+		    }
+		    & a#adminAccordian, & a#travellerAccordian, & a#logOut{
+		    	color:#7f8fa4;
+		    	text-transform:uppercase;
+		    	font-size:12px;
+		    	position:relative;
+		    	border-bottom:1px solid #dfe2e5;
+		    	border-top:1px solid #dfe2e5;
+		    	display:inline-block;
+		    	padding:5px 0px;
+		    	width:100%;
+		    	&:before {
+				  content: '';
+				  position: absolute;
+				  top: 9px;
+				  right: 0px;
+				  border-top: 7px solid #a5aab2;
+				  border-left: 7px solid transparent;
+				  border-right: 7px solid transparent;
+				}
+				&:after {
+				  content: '';
+				  position: absolute;
+				  right: 2px;
+				  top: 9px;
+				  border-top: 5px solid #ffffff;
+				  border-left: 5px solid transparent;
+				  border-right: 5px solid transparent;
+				}  	
+		    }
+		    & a#logOut{
+		    	display:none;
+		    }
+		    & ul{
+		    	padding:0px 0px 10px 0px;
+		    	margin:10px 0px 10px 0px;
+		    	list-style-type:none;
+		    	float:left;
+		    	width:100%;
+		    	height:auto;
+		    	overflow:hidden;
+		    	transition: 0.5s;
+		    	& li{
+		    		float:left;
+		    		clear:both;
+		    		width:100%;
+		    		padding:5px 0px;
+		    		& a {
+					    color:#7f8fa4;
+					    text-transform:uppercase;
+					    font-size:12px;
+					    margin-left:0px;
+					    transition: 0.3s;
+					    &:hover{
+
+					    }
+					}
+					&:last-child{
+						padding-bottom:10px;
+					}
+		    	}
+		    }
+		    & #adminNav, #travellerNav{
+		    	height:0px;
+		    	transition: 0.5s;
+		    	overflow:hidden;
+		    		&.open{
+		    			height:auto!important;
+		    		}
+		    }
+		    & #travellerAccordian{
+		    	margin-top:10px;
+		    }
+		}
+	}
+	&.hamburgerNavActive .navCase{
+	    border:1px solid #a5aab2!important;
+	    border-radius:50%!important;
+	    top:8px;
+	    right:2px;
+	    width:20px;
+	    height:20px;
+	    padding:6px 8px 8px 8px;
+	}
+	&.hamburgerNavActive .navToggle{width:20px; height:20px;}
+	&.hamburgerNavActive .navToggle:before {
+	    -webkit-transform: translateY(10px) rotate(45deg);
+	    -moz-transform: translateY(10px) rotate(45deg);
+	    -ms-transform: translateY(10px) rotate(45deg);
+	    -o-transform: translateY(10px) rotate(45deg);
+	    transform: translateY(10px) rotate(45deg);
+	}
+	&.hamburgerNavActive .navToggle span {
+	    -webkit-transform: translateY(0px) rotate(-45deg);
+	    -moz-transform: translateY(0px) rotate(-45deg);
+	    -ms-transform: translateY(0px) rotate(-45deg);
+	    -o-transform: translateY(0px) rotate(-45deg);
+	    transform: translateY(0px) rotate(-45deg);
+	}
+	&.hamburgerNavActive .navToggle:after {
+	    opacity: 0;
+	}
+	&.hamburgerNavActive .sideBarNav{
+		left:0px!important;
+	}
+}
+@import "mobile/global-header-mobile";

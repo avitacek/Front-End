@@ -1,0 +1,66 @@
+{
+  "name": "umn-gilead-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "browser-sync": "^2.12.5",
+    "browserify": "^14.0.0",
+    "browserify-shim": "^3.8.13",
+    "compass": "^0.1.1",
+    "datatables.net": "^1.10.15",
+    "get-config": "^0.6.15",
+    "get-env": "^0.5.10",
+    "gsap": "^1.19.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-file-include": "^1.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-jshint": "^2.0.3",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.8",
+    "iscroll": "^5.2.0",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.2.0",
+    "selectize": "^0.12.4",
+    "video.js": "^5.19.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "jshintConfig": {
+    "globals": {
+      "asi": true
+    }
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass"
+  },
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "2.1.4",
+    "knockout": "^3.4.2",
+    "knockout-mapping": "^2.6.0"
+  }
+}

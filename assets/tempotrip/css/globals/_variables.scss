@@ -1,0 +1,60 @@
+﻿@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+// BREAKPOINTS (Media Queries) =============================================== *
+$breakpoints: (
+	'xs' :320px,
+  	'small'  : 414px,
+  	'smallMedium' : 685px,
+  	'medium' : 768px,
+  	'mediumLarge'  : 992px,
+  	'large'  : 1024px,
+  	'xl'  : 1280px
+);
+
+/*colors*/
+
+$yellow: #bea847;
+$teal:#47be65;
+$beige:#f2f2e1;
+$skyblue:#47a0be;
+$skyblue-mono:#5e93a5;
+$purple:#5747be;
+$brick:#e0dcc9;
+$pink:#be4772;
+$orange:#d84f34;
+
+/*Blue*/
+$blue:#293145;
+$blue-05:rgba(41, 49, 69, 0.05);
+$blue-125:rgba(41, 49, 69, 0.125);
+$blue-25:rgba(41, 49, 69, 0.25);
+$blue-5:rgba(41, 49, 69, 0.5);
+$blue-75:rgba(41, 49, 69, 0.75);
+
+
+$grey:#2d2d2a;
+$slate-grey: #54565b;
+
+/*White Fades*/
+$white:#ffffff;
+$white-05:rgba(255,255,255,0.05);
+$white-125:rgba(255,255,255,0.125);
+$white-25:rgba(255,255,255,0.25);
+$white-50:rgba(255,255,255,0.5);
+$white-75:rgba(255,255,255,0.75);
+/*Black fades*/
+$black-05: rgba(0, 0, 0, 0.05);
+$black-125: rgba(0, 0, 0, 0.125);
+$black-25: rgba(0, 0, 0, 0.25);
+$black-50: rgba(0,0,0,0.5);
+$black-75: rgba(0, 0, 0, 0.75);
+$black: #333333;
+
+/*Fonts*/
+$Marvel-Regular: 'Marvel-Regular', Helvetica, Arial, sans-serif;
+$Marvel-Light: 'Marvel-Light', Helvetica, Arial, sans-serif;
+$Marvel-ExtraLight: 'Marvel-ExtraLight', Helvetica, Arial, sans-serif;
+$Marvel-Medium: 'Marvel-Medium', Helvetica, Arial, sans-serif;
+$Marvel-SemiBold: 'Marvel-SemiBold', Helvetica, Arial, sans-serif;
+$Marvel-Bold: 'Marvel-Bold', Helvetica, Arial, sans-serif;
+$Marvel-ExtraBold: 'Marvel-ExtraBold', Helvetica, Arial, sans-serif;

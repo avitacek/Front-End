@@ -1,0 +1,158 @@
+/* -----------------------------------------------------------------------------
+Text Styles & Atomic Classes
+----------------------------------------------------------------------------- */
+@import "variables";
+@import "mixins";
+
+ /*Atomic Classes*/
+ /*----------------------------*/
+	 /*Fonts*/
+		.Marvel{
+			font-family:$Marvel-Regular;
+			font-weight:300;
+		}
+		.Marvel-Light{
+			font-family:$Marvel-ExtraLight;
+			font-weight:300;
+		}
+		.Marvel-Light{
+			font-family:$Marvel-Light;
+			font-weight:300;
+		}
+		.Marvel-Medium{
+			font-family :$Marvel-Medium;
+			font-weight:normal;
+		}
+		.Marvel-SemiBold{
+			font-family:$Marvel-SemiBold;
+			font-style: italic;
+		}
+		.is-medium{
+			font-family:$Marvel-Bold;
+			font-weight:500;
+		}
+		.is-bold{
+			font-family:$Marvel-ExtraBold;
+			font-weight:bold;
+		}
+	/*colors*/
+		.yellow{
+			color:$yellow;
+		}
+		.skyblue{
+			color:$skyblue;
+		}
+		.teal{
+			color:$teal;
+		}
+		.slate-grey{
+			color: $slate-grey;
+		}
+		.black{
+			color:$black;
+		}
+		.disabled{
+			opacity:0.5;
+		}
+	/*Font-Weight-Styles*/
+		.book{
+			font-weight:normal;
+			letter-spacing: 0.25px;
+		}
+		.medium{
+			font-weight:500;
+		  	letter-spacing: .5px;
+		}
+		.uppercase{
+			text-transform:uppercase;
+		}
+		.lowercase{
+			text-transform:lowercase
+		}
+		.capitalize{
+			text-transform:uppercase;
+		}
+	/*Font Size*/
+		.fs40{
+			font-size:40px;
+			line-height: 1.25;
+		  	letter-spacing: 1.3px;
+
+		}
+		.fs36{
+			font-size:36px;
+		  	line-height: 1.20;
+		  	letter-spacing: 0.8px;
+		}
+		.fs32{
+			font-size: 32px;
+			line-height: 1.15;
+			letter-spacing: 0.3px;
+		}
+		.fs30{
+			font-size:30px;
+			line-height: 1.10;
+		  	letter-spacing: 0.5px;
+		}
+		.fs24{
+			font-size:24px;
+		  	line-height: 1.05;
+		  	letter-spacing: 0.5px;
+		}
+		.fs22{
+			font-size:22px;
+			line-height: 1.0;
+		  	letter-spacing: 0.3px;
+		}
+		.fs20{
+			font-size:20px;
+			line-height:1;
+		}
+		.fs18{
+			font-size:18px;
+			line-height: 1.15;
+		  	letter-spacing: 0.3px;
+		}
+		.fs16{
+			font-size:16px;
+			line-height: 1.15;
+		  	letter-spacing: 0.3px;
+		}
+		.fs14{
+			font-size:14px;
+			line-height: 1.0;
+		  	letter-spacing: 0.3px;
+		}
+		.fs12{
+			font-size:12px;
+			line-height:1.0;
+		  	letter-spacing: 0.3px;
+		}
+
+/*Hover Images*/
+.image-container{
+	position:absolute;
+	width:100%;
+	top:0px;left:0px;
+	display:block;
+	overflow:hidden;
+}
+	.image-hover{
+		position:relative;
+		width:100%;
+		height:100%;
+		top:0px;
+		left:0px;
+		padding:0px;
+		transition:all .5s 0s linear;
+		transform:scale(1);
+		& img{
+			width:100%;
+			height:auto;
+		}
+	}
+	.image-hover:hover{
+		transform:scale(1.05);
+	}
+
+

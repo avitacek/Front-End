@@ -1,0 +1,60 @@
+@import "../../globals/variables";
+@import "../../globals/mixins";
+/* -----------------------------------------------------
+	admin-dashboard
+-------------------------------------------------------*/
+#admin-page{
+	#dashboard{
+		& h3{
+			width:100%;
+			text-align:center;
+			color:$orange;
+			text-transform:uppercase;
+		}
+		& #recent-flights{
+			& .row{
+				& .col-sm-8{
+					padding:0px;
+					margin:10px 16.66667%;
+					& .results-table{
+						width:100%;
+						display:block;
+						background:$blue-05;
+						& table{
+							float:left;
+							padding:0px;
+							margin:0px;
+							display:table;
+						    width:100%;
+						    box-sizing:border-box;
+						    -moz-box-sizing:border-box;
+						    -webkit-box-sizing:border-box;
+						    border:1px solid $blue;
+						    background:$blue-25;
+							& td{
+								color:$blue;
+								list-style-type:none;
+								text-align:center;
+								padding:5px 10px;
+								display:table-cell;
+								border-right:1px solid $blue-25;
+								&:last-child{
+									border-right:0px solid transparent;
+									border-left:1px solid $blue-25;
+								}
+							}
+						}
+					}
+					& #dashboardData{
+						background:$white;
+						& li{
+
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+@import "mobile/admin-mobile";
