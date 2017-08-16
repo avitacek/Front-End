@@ -191,11 +191,11 @@ body{
 		/*SidebarNav*/
 		& .sideBarNav {
 		    height: 100%; /* 100% Full-height */
-		    width: 250px; /* 0 width - change this with JavaScript */
+		    width: 50px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
 		    z-index: 1; /* Stay on top */
 		    top: 70px;
-		    left: -250px;
+		    left: 0px;
 		    border-right:1px solid #dfe2e5;
 		    background-color: #ffffff;
 		    overflow:hidden; 
@@ -222,7 +222,9 @@ body{
 		    	border-top:1px solid #dfe2e5;
 		    	display:inline-block;
 		    	padding:5px 0px;
-		    	width:100%;
+		    	width:150px;
+		    	margin-left:50px;
+		    	transition: 0.3s;
 		    	&:before {
 				  content: '';
 				  position: absolute;
@@ -242,49 +244,23 @@ body{
 				  border-right: 5px solid transparent;
 				}  	
 		    }
-		    & a#adminAccordian.open, & a#travellerAccordian.open, & a#logOut.open{
-		    	color:#7f8fa4;
-		    	text-transform:uppercase;
-		    	font-size:12px;
-		    	position:relative;
-		    	border-bottom:1px solid #dfe2e5;
-		    	border-top:1px solid #dfe2e5;
-		    	display:inline-block;
-		    	padding:5px 0px;
-		    	width:100%;
-		    	&:before {
-				  content: '';
-				  position: absolute;
-				  top: 3px;
-				  right: 0px;
-				  border-top: 7px solid transparent;
-				  border-left: 7px solid transparent;
-				  border-right: 7px solid transparent;
-				  border-bottom: 7px solid #a5aab2;
-				}
-				&:after {
-				  content: '';
-				  position: absolute;
-				  right: 2px;
-				  top: 7px;
-				  border-top: 5px solid transparent;
-				  border-left: 5px solid transparent;
-				  border-right: 5px solid transparent;
-				  border-bottom: 5px solid #ffffff;
-				}  	
-		    }
 		    & a#logOut{
 		    	display:none;
 		    }
 		    & ul{
-		    	padding:0px 0px 10px 0px;
+		    	padding:0px 0px 10px 14px;
 		    	margin:10px 0px 10px 0px;
 		    	list-style-type:none;
 		    	float:left;
-		    	width:100%;
+		    	width:200px;
 		    	height:auto;
-		    	overflow:hidden;
 		    	transition: 0.5s;
+		    	& i{
+		    		color:#7f8fa4;
+		    		margin-right:10px;
+		    		float:left;
+		    		margin-left:-14px;
+		    	}
 		    	& li{
 		    		float:left;
 		    		clear:both;
@@ -306,7 +282,6 @@ body{
 		    	}
 		    }
 		    & #adminNav, #travellerNav{
-		    	height:0px;
 		    	transition: 0.5s;
 		    	overflow:hidden;
 		    		&.open{
@@ -346,8 +321,14 @@ body{
 	    opacity: 0;
 	}
 	&.hamburgerNavActive .sideBarNav{
-		left:0px!important;
+		width:200px!important;
 	}
+	&.hamburgerNavActive .sideBarNav{
+		width:200px!important;
+	}
+	&.hamburgerNavActive a#adminAccordian, &.hamburgerNavActive a#travellerAccordian, &.hamburgerNavActive a#logOut{
+    	margin-left:20px!important;
+    }
 }
 /*Body content slider*/
 .body-content{

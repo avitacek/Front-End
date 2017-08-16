@@ -30,41 +30,51 @@ $(document).ready(function(){
         menu: [{
             name: 'Overview',
             link: '0',
+            fontA:'fa fa-home',
             sub: null
         }, {
             name: 'Travellers',
             link: '1',
+            fontA:'fa fa-users',
             sub: null
         }, {
             name: 'Reports',
             link: '2',
+            fontA:'fa fa-bar-chart',
             sub: null
         }, {
             name: 'Booking Sites',
             link: '3',
+            fontA:'fa fa-plane',
             sub: null
         },{
             name: 'Trips',
             link: '4',
+            fontA:'fa fa-briefcase',
             sub: null
         }, {
             name: 'Settings',
             link: '5',
+            fontA: 'fa fa-cog',
             sub: null
         },
         {
             name: 'Support',
             link: '6',
+            fontA: 'fa fa-life-ring',
             sub: null
         }]
     };
     var getMenuItem = function (itemData) {
         var item = $("<li>")
             .append(
-        $("<a>", {
-            href: '#' + itemData.link,
-            html: itemData.name
-        }));
+            	$("<i>",{
+            		class: itemData.fontA
+            	}),
+		        $("<a>", {
+		            href: '#' + itemData.link,
+		            html: itemData.name
+		        }));
         if (itemData.sub) {
             var subList = $("<ul>");
             $.each(itemData.sub, function () {
@@ -81,11 +91,6 @@ $(document).ready(function(){
             getMenuItem(this)
         );
     });
-   //$menu.menu();
-   //$menu.addClass('open');
-
-   $( "#adminAccordian" ).trigger( "click" );
-   $( "#travellerAccordian" ).trigger( "click" );
 });
 
 //Global Navigation JS File//
