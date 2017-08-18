@@ -4,11 +4,15 @@
 		<h4>Log in</h4>
 		<form action="" id="login-form">
 		  	<div class="container-fluid">
-		    	<label><b>Username</b></label>
-		    	<input type="text" placeholder="Enter Username" name="uname" class="username" >
+		  		<div class="row">
+		  			<div class="col-sm-12">
+		  				<label><b>Username</b></label>
+		    			<input type="text" placeholder="Enter Username" name="uname" class="username" >
 
-		    	<label><b>Password</b></label>
-		    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
+				    	<label><b>Password</b></label>
+				    	<input type="password" placeholder="Enter Password" name="psw" class="password" >	
+		  			</div>
+		  		</div>
 		        
 		    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
 		    	<div id="login" data-toggle="modal" data-target="#password-modal">Login</div>
@@ -21,10 +25,45 @@
 		  	</div>
 		</form>
 	</div>
-	<div class="col-sm-4" id="register-login">
-		<h4>Not Registered?</h4>
-		<button id="register" data-toggle="modal" data-target="#register-modal">REGISTER</button>
-	</div>	
+	<div class="col-sm-4" id="login-slider">
+		
+	</div>
+	<div class="col-sm-4" id="landing-register">
+		<div class="register-title">
+			<div class="text-hide"><h4>Not</h4></div>
+			<div class="text-stay"><h4>Registered</h4></div>
+		</div>
+		<div class="button-switch">
+			<button id="register">REGISTER</button>
+			<button id="submit">SUBMIT</button>	
+		</div>
+	</div>
+	<div class="col-sm-8" id="register-slider">
+		<!--Register form modal-->
+		<form action="" id="register-form">
+			  	<div class="container-fluid">
+			  		<div class="row">
+			  			<div class="col-sm-12">
+					    	<label><b>First name</b></label>
+					    	<input type="text" placeholder="Enter your firstname" name="fname" class="firstname" >
+					    	<label><b>last name</b></label>
+					    	<input type="text" placeholder="Enter your lastname" name="lname" class="lastname" >
+					    	<label><b>Email address</b></label>
+					    	<input type="text" placeholder="Enter your lastname" name="email" class="email" >
+
+					    	<label><b>Password *</b></label>
+					    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
+					    	<label><b>Comfirm Password *</b></label>
+					    	<input type="password" placeholder="Confirm Password" name="cpsw" class="confirm-password" >
+					        
+					    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
+					    	<a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			    		</div>
+			    	</div>
+			  	</div>
+		</form>		
+	</div>
+
 </div>
 <div class="row">
 	<div class="col-sm-12 image-bg">
@@ -32,32 +71,6 @@
 	</div>	
 </div>
 <div class="row">
-	<!--Register form modal-->
-	<div class="modal" id="register-modal">
-		<div class="modal-box">
-			<form action="" id="register-form">
-			  	<div class="container-fluid">
-			  		<h5>Register</h5>
-			    	<label><b>First name</b></label>
-			    	<input type="text" placeholder="Enter your firstname" name="fname" class="firstname" >
-			    	<label><b>last name</b></label>
-			    	<input type="text" placeholder="Enter your lastname" name="lname" class="lastname" >
-			    	<label><b>Email address</b></label>
-			    	<input type="text" placeholder="Enter your lastname" name="email" class="email" >
-
-			    	<label><b>Password *</b></label>
-			    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
-			    	<label><b>Comfirm Password *</b></label>
-			    	<input type="password" placeholder="Confirm Password" name="cpsw" class="confirm-password" >
-			        
-			    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
-			    	<a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
-			    	
-			  	</div>
-			</form>
-		</div>
-
-	</div>
 	<!--change password modal-->
 	<div class="modal" id="password-modal">
 		<div div class="modal-box">

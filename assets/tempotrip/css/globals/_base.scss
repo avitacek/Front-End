@@ -10,6 +10,8 @@ body {
     overflow-x: hidden;
 }
 .row{
+	margin:0px auto;
+	max-width:1280px;
 }
 p, ul { 
 	font-family:$Marvel-Regular;

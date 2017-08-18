@@ -29,73 +29,68 @@
 	margin:10% auto!important;
 	position:relative;
 	overflow:hidden;
-}
-#landing-login, #register-login{
-	padding:5% 5%;
-	background-color:transparent;
-	height:100%;
-	& h4{
-		color:#1a4666;
-		text-transform:uppercase;
-		& .logo{
-			width:auto;
-			padding:0px;
-			&:before{
-				float:left;
-				position:relative;
-				padding-left:0px;
-			}
-		}
-	}
-	@keyframes animatedBackground {
-		from { background-position: 0 0; }
-		to { background-position: 100% 0; }
-	}
-	& #login-form{
-		margin-top:20px;
-		.container-fluid{
-			padding:0px;
-			& input[type=text], & input[type=password] {
-			    &.username{
-			    	background:url('../images/global/user.svg') left top no-repeat;
-			    	padding-left:50px;
-			    	& :invalid{
-			 			background:url('../images/global/user.svg') left top no-repeat, url(../images/global/warning.svg) right top no-repeat ;
-			 		}
-			    }
-			    &.password{
-			    	background:url('../images/global/key.svg') left top no-repeat;
-			    	padding-left:50px;
-			    }
-			}
-			& input[type="checkbox"], & input[type="checkbox"]:checked{
-				background-color:white;
-			}
-			& button, & #login {
-			    background-color:#1a4666;
-			    color: white;
-			    padding: 14px 20px;
-			    margin: 8px 0;
-			    border: none;
-			    cursor: pointer;
-			    width: 100%;
-			    text-align:center;
-			    border-radius:2px;
-			    &:hover {
-		    		opacity: 0.8;
-				}
-				&:focus{
-					outline-color:white;
+	#landing-login, #landing-register{
+		padding:5% 5%;
+		background-color:transparent;
+		height:100%;
+		& h4{
+			color:#1a4666;
+			text-transform:uppercase;
+			& .logo{
+				width:auto;
+				padding:0px;
+				&:before{
+					float:left;
+					position:relative;
+					padding-left:0px;
 				}
 			}
-			& .container {
-			    padding: 16px;
-			}
-			& span.psw {
-			    float: right;
+		}
+		& #login-form{
+			margin-top:20px;
+			.container-fluid{
+				padding:0px;
+				& input[type=text], & input[type=password] {
+				    &.username{
+				    	background:url('../images/global/user.svg') left top no-repeat;
+				    	padding-left:50px;
+				    	& :invalid{
+				 			background:url('../images/global/user.svg') left top no-repeat, url(../images/global/warning.svg) right top no-repeat ;
+				 		}
+				    }
+				    &.password{
+				    	background:url('../images/global/key.svg') left top no-repeat;
+				    	padding-left:50px;
+				    }
+				}
+				& input[type="checkbox"], & input[type="checkbox"]:checked{
+					background-color:white;
+				}
+				& button, & #login {
+				    background-color:#1a4666;
+				    color: white;
+				    padding: 14px 20px;
+				    margin: 8px 0;
+				    border: none;
+				    cursor: pointer;
+				    width: 100%;
+				    text-align:center;
+				    border-radius:2px;
+				    &:hover {
+			    		opacity: 0.8;
+					}
+					&:focus{
+						outline-color:white;
+					}
+				}
+				& .container {
+				    padding: 16px;
+				}
+				& span.psw {
+				    float: right;
+				}
 			}
 		}
-	}
 	& .modal{
 		&#username-modal, &#forgot-password-modal{
 			& .modal-box{
@@ -128,6 +123,8 @@
 		}
 	}
 }
+}
+
 #landing-login{
 	& .logo{
 		height:55px;
