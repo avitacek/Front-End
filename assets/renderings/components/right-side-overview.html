@@ -1,23 +1,100 @@
 
 <style>
     #right-side-content{
-        position: absolute;
-  top: -50px;
-  bottom: 0;
- right: 0;
-  z-index: 1;
-  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-        width: 100%;
+        margin-top: 125px;
 }
+ .card-profile,
+.card-testimonial {
+  margin-top: 30px;
+  text-align: center;
+}
+   
+
     .wrapper {
     position: relative;
     top: 0;
     height: 100vh;
     background-color: #ffffff;
     }
+    #overview-accordian .item {
+    font-size: large;
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+    #overview-accordian .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid \9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    float: right;
+    margin-top: 7px;
+}
     </style>
 <div class="wrapper">
 <div id="right-side-content">
+<div class="card card-profile">
+    							<div class="card-avatar">
+    								<a href="#pablo">
+    									<img class="img" src="../assets/img/faces/marc.jpg">
+    								</a>
+    							</div>
+
+    							<div class="content">
+                                    <h4 class="card-title">Vince Bufalino</h4>
+    								<h6 class="category text-gray"> Traveler |<span>&nbsp; Status: Active</span></h6>
+    								<div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary btn-block">Edit Profile</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-default btn-block">Book Travel</button>
+                                </div>
+                                
+                            </div>
+                                    <div class="row">
+                                     <ul class="list-inline p-10 b-t-10 b-b-10 m-t-20">
+  <li class="list-inline-item p-10 m-r-20"><p class="card-text"> 0 </p>Trips Booked</li>
+  <li class="list-inline-item p-10 m-r-20"><p class="card-text"> 2 </p>Booking Sites</li>
+  <li class="list-inline-item p-10 m-r-20"><p class="card-text"> 0 </p>Groups</li>
+</ul>   
+
+                                    </div>
+    								<div class="card-content">
+                                    <div id="overview-accordian" data-children=".item">
+                                        <div class="item">
+                                            <a data-toggle="collapse" data-parent="#overview-accordian" href="#recent-travel" aria-expanded="true" aria-controls="recent-travel">
+                                          Recent Travel <div class="caret"></div>
+                                        </a>
+                                            <div id="recent-travel" class="collapse" role="tabpanel">
+                                                <p class="mb-3">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lorem non vestibulum scelerisque. Proin a vestibulum sem, eget tristique massa. Aliquam lacinia rhoncus nibh quis ornare.
+                                                </p>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="item">
+                                            <a data-toggle="collapse" data-parent="#overview-accordian" href="#current-booking-sites" aria-expanded="false" aria-controls="current-booking-sites">
+                                          Air Booking Sites
+                                              <div class="caret"></div>   
+                                        </a>
+                                            <div id="current-booking-sites" class="collapse" role="tabpanel">
+                                                <p class="mb-3">
+                                                    Donec at ipsum dignissim, rutrum turpis scelerisque, tristique lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec dui turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                                </p>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+    								</div>
+    								
+    							</div>
+    						</div>
 <div class="card" style="margin-top: 125px;">
                                         <div class="header">
                                             <h4 class="title">Overview Snapshot</h4>
