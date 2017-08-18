@@ -13,7 +13,7 @@ var START_EV = hasTouch ? 'touchstart' : 'mousedown',
 //Touch Click VARS END//
 
 $(document).ready(function(){
-	$(".navCase").click(function(){
+	$(".navCase, .sideBarNav").click(function(){
     	$("body").toggleClass("hamburgerNavActive");
 	});
 	$("#adminAccordian").click(function(){
@@ -30,38 +30,38 @@ $(document).ready(function(){
         menu: [{
             name: 'Overview',
             link: '0',
-            fontA:'fa fa-home',
+            fontA:'fa fa-home fa-lg',
             sub: null
         }, {
             name: 'Travellers',
             link: '1',
-            fontA:'fa fa-users',
+            fontA:'fa fa-users fa-lg',
             sub: null
         }, {
             name: 'Reports',
             link: '2',
-            fontA:'fa fa-bar-chart',
+            fontA:'fa fa-bar-chart fa-lg',
             sub: null
         }, {
             name: 'Booking Sites',
             link: '3',
-            fontA:'fa fa-plane',
+            fontA:'fa fa-plane fa-lg',
             sub: null
         },{
             name: 'Trips',
             link: '4',
-            fontA:'fa fa-briefcase',
+            fontA:'fa fa-briefcase fa-lg',
             sub: null
         }, {
             name: 'Settings',
             link: '5',
-            fontA: 'fa fa-cog',
+            fontA: 'fa fa-cog fa-lg',
             sub: null
         },
         {
             name: 'Support',
             link: '6',
-            fontA: 'fa fa-life-ring',
+            fontA: 'fa fa-life-ring fa-lg',
             sub: null
         }]
     };

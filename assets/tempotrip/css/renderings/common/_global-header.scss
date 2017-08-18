@@ -3,6 +3,9 @@
 body{
 	#global-header{
 		padding:0px;
+		& .row{
+			max-width:100%;
+		}
 		& #header {
 			background: $white;
 			border-bottom:1px solid #dfe2e5;
@@ -61,6 +64,9 @@ body{
 						    -webkit-transition-duration: 0.5s;
 						    -moz-transition-duration: 0.5s;
 						    transition-duration: 0.5s;
+						     -webkit-transition-delay: 0.5s;
+						    -moz-transition-delay: 0.5s;
+						    transition-delay: 0.5s;
 						}
 						& .navToggle{
 						    display: block;
@@ -216,7 +222,7 @@ body{
 		    & a#adminAccordian, & a#travellerAccordian, & a#logOut{
 		    	color:#7f8fa4;
 		    	text-transform:uppercase;
-		    	font-size:12px;
+		    	font-size:16px;
 		    	position:relative;
 		    	border-bottom:1px solid #dfe2e5;
 		    	border-top:1px solid #dfe2e5;
@@ -228,7 +234,7 @@ body{
 		    	&:before {
 				  content: '';
 				  position: absolute;
-				  top: 9px;
+				  top: 11px;
 				  right: 0px;
 				  border-top: 7px solid #a5aab2;
 				  border-left: 7px solid transparent;
@@ -238,7 +244,7 @@ body{
 				  content: '';
 				  position: absolute;
 				  right: 2px;
-				  top: 9px;
+				  top: 11px;
 				  border-top: 5px solid #ffffff;
 				  border-left: 5px solid transparent;
 				  border-right: 5px solid transparent;
@@ -252,7 +258,7 @@ body{
 		    	margin:10px 0px 10px 0px;
 		    	list-style-type:none;
 		    	float:left;
-		    	width:200px;
+		    	width:170px;
 		    	height:auto;
 		    	transition: 0.5s;
 		    	& i{
@@ -260,18 +266,24 @@ body{
 		    		margin-right:10px;
 		    		float:left;
 		    		margin-left:-14px;
+		    		font-size:20px;
+		    		width:20px;
 		    	}
 		    	& li{
 		    		float:left;
 		    		clear:both;
 		    		width:100%;
-		    		padding:5px 0px;
+		    		padding:10px 0px;
+		    		font-size:16px;
+		    		text-align:left;
 		    		& a {
 					    color:#7f8fa4;
 					    text-transform:uppercase;
-					    font-size:12px;
+					    font-size:16px;
 					    margin-left:0px;
 					    transition: 0.3s;
+					    line-height: 0.75em;
+    					vertical-align: 20%;
 					    &:hover{
 
 					    }
