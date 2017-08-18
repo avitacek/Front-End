@@ -4,7 +4,7 @@ body{
 	#global-header{
 		padding:0px;
 		& .row{
-			max-width:100%;
+			max-width:100%!important;
 		}
 		& #header {
 			background: $white;
