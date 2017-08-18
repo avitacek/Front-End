@@ -43,7 +43,7 @@ $(document).ready(function(){
             fontA:'fa fa-bar-chart fa-lg',
             sub: null
         }, {
-            name: 'Booking Sites',
+            name: 'Flights',
             link: '3',
             fontA:'fa fa-plane fa-lg',
             sub: null

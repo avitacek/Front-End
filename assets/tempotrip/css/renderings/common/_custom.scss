@@ -445,10 +445,11 @@ input#em-l-name {
 }
     input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
     width: 100%;
+    color:#1a4666;
     padding: 12px 20px;
-    margin: 0px;
+    margin: 0px 0px 10px;
     display: inline-block;
-    border: 1px solid $blue;
+    border: 1px solid #E3E3E3;
     box-sizing: border-box;
     border-radius:3px;
     }

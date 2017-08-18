@@ -50,11 +50,12 @@ p, ul {
 			padding:2% 5%;
 			margin:10% auto;
 			background:#ffffff;
-			box-shadow:2px 2px 20px #b3b3b3, -2px -2px 20px #b3b3b3;
+			border-radius:3px;
+			border:1px solid #e3e3e3;
+			box-shadow: none;
 			display:block;
 			width:40%;
 			height:auto;
-			min-height:55%;
 			& .logo{
 				width:58%;
 				height:60px;
@@ -72,12 +73,12 @@ p, ul {
 	height:30px;
 	border-radius:50%;
 	background:#ffffff;
-	border:2px solid #1a4666;
+	border:1px solid #1a4666;
 	position:absolute;
 	color:#1a4666;
 	top:-20px;
 	right:-10px;
-	padding:8px;
+	padding:11px 10px;
 	box-sizing:border-box;
 	line-height:7px;
 	cursor:pointer;
@@ -91,13 +92,14 @@ p, ul {
 & input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
     display: inline-block;
-    border: 1px solid $blue;
+   	border: 1px solid #E3E3E3;
+    color: #1a4666;
     box-sizing: border-box;
     border-radius:3px;
     letter-spacing: 1.2px;
     line-height: 1.5em;
+    margin-bottom:10px!important;
     &::after{
     	content:'';
     	position:absolute;
@@ -208,7 +210,7 @@ i{
 }
 
 a {
-	color:$blue;
+	color:#1a4666;
 	transition:all 0.25s 0s linear;
 	letter-spacing: 1.2px;
     line-height: 1.5em;
