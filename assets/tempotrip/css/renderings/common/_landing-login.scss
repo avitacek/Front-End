@@ -29,26 +29,31 @@
 	margin:10% auto!important;
 	position:relative;
 	overflow:hidden;
-	#landing-login, #landing-register{
+	& #landing-login{
 		padding:5% 5%;
 		background-color:transparent;
+		position:relative;
+		top:0px;
+		left:0px;
 		height:100%;
+		overflow: hidden;
+		border-right:5px solid #5db9be;
+		& .logo{
+			height:55px;
+			&:before{
+				top:0px;
+				left:-1px;
+			}
+		}
 		& h4{
 			color:#1a4666;
-			text-transform:uppercase;
-			& .logo{
-				width:auto;
-				padding:0px;
-				&:before{
-					float:left;
-					position:relative;
-					padding-left:0px;
-				}
-			}
 		}
 		& #login-form{
 			margin-top:20px;
 			.container-fluid{
+				& .col-sm-12{
+					padding:0px 0px;
+				}
 				padding:0px;
 				& input[type=text], & input[type=password] {
 				    &.username{
@@ -75,7 +80,7 @@
 				    cursor: pointer;
 				    width: 100%;
 				    text-align:center;
-				    border-radius:2px;
+				    border-radius:3px;
 				    &:hover {
 			    		opacity: 0.8;
 					}
@@ -87,81 +92,109 @@
 				    padding: 16px;
 				}
 				& span.psw {
-				    float: right;
 				}
 			}
 		}
-	& .modal{
-		&#username-modal, &#forgot-password-modal{
-			& .modal-box{
-				min-height:35%;
-			}
-		}
-		& .logo span{
-			color:$slate-grey;
-		}
-		& .modal-box{
+	}
+	& .col-sm-4{
+		height:100%;
+		position:absolute;
+		top:0px;
+		right:0px;
+		overflow:hidden;
+		padding:0% 0%;
+		border-left:5px solid #5db9be;
+	}
+	& #landing-register{
+		height:100%;
+		width:100%;
+		background:#1a4666;
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index: 2;
+		padding:15% 15%;
+		transition:all .5s 0.0s linear;
+		& .register-title{
 			& .logo{
-				margin-bottom:25px;
-				&::before{
-					top:0%
+				height:55px;
+				&:before{
+					background:none;
 				}
 			}
-			& input[type=text], & input[type=password] {
-			    &.username{
-			    	background:url('../images/global/user.svg') left top no-repeat;
-			    	padding-left:50px;
-			    }
-			    &.password{
-			    	background:url('../images/global/key.svg') left top no-repeat;
-			    	padding-left:50px;
-			    }
+			& h4{
+				color:#ffffff;
 			}
-			& .close-btn{
-
+			& p{
+				color:#ffffff;
+				letter-spacing: 1.2px;
+    			line-height: 1.5em;
 			}
 		}
-	}
-}
-}
-
-#landing-login{
-	& .logo{
-		height:55px;
-		&:before{
-			top:0px;
-			left:-1px;
+		& .button-switch{
+			& button{
+				background-color:#5db9be;
+			}
+		}
+		&.open{
+			left:100%;
+			
 		}
 	}
-}
-#register-login{
-	position:absolute;
-	height:100%;
-	background:#1a4666;
-	right:0px;
-	& h4{
-		color:#ffffff;
-	}
-	& button{
-		background-color:#5db9be;
-	}
-}
-#register-modal{
-	background-color:rgba(255,255,255,0.85);
-	& .modal-box{
-		width:60%;
-		background-color:#1a4666;
-		border-radius:5px;
-		label{
+	& #register-slider{
+		padding:5% 5%;
+		height:100%;
+		background:#1a4666;
+		position:absolute;
+		top:0px;
+		right:-100%;
+		width:100%;
+		transition:all .5s 0.0s linear;
+		&.open{
+			right:0%;
+			z-index: 2;
+		}
+		& h4{
 			color:#ffffff;
 		}
-		& button{
-			background-color: #5db9be;
+		& label{
+			color:#eff3f6;
+			text-transform:uppercase;
 		}
-		& h5{
-			color:#ffffff;
+		& .col-sm-12{
+			& button, & a{
+				background-color:#5db9be;
+			}
 		}
-
+	}
+	& #login-slider{
+		height:100%;
+		width:100%;
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index: 1;
+		padding:5% 15%;
+		& .register-title{
+			& .logo{
+				height:55px;
+			}
+			& h4{
+				color:#1a4666;
+			}
+			& p{
+				color:#1a4666;
+				letter-spacing: 1.2px;
+    			line-height: 1.5em;
+			}
+		}
+		& .button-switch{
+			& button{
+				background-color:#5db9be;
+			}
+		}
 	}
 }
+
+
 @import "mobile/landing-login-mobile";

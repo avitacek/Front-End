@@ -9,16 +9,14 @@ body {
     background-color:#eff3f6;
     overflow-x: hidden;
 }
-.row{
-	margin:0px auto;
-	max-width:1280px;
-}
 p, ul { 
 	font-family:$Marvel-Regular;
 	font-style: normal;
 	font-stretch: normal;
 	line-height:inherit;
 	letter-spacing:inherit;
+	letter-spacing: 1.2px;
+    line-height: 1.5em;
 	
 }
 .logo{
@@ -98,6 +96,8 @@ p, ul {
     border: 1px solid $blue;
     box-sizing: border-box;
     border-radius:3px;
+    letter-spacing: 1.2px;
+    line-height: 1.5em;
     &::after{
     	content:'';
     	position:absolute;
@@ -142,11 +142,13 @@ p, ul {
     width: 100%;
     display:inline-block;
     border-radius:2px;
+    letter-spacing: 1.2px;
+    line-height: 1.5em;
     &:hover {
 		opacity: 0.8;
 	}
 	&:focus{
-		outline-color:white;
+		outline:white;
 	}
 }
 /*Common Styles based on Style Guide*/
@@ -208,6 +210,8 @@ i{
 a {
 	color:$blue;
 	transition:all 0.25s 0s linear;
+	letter-spacing: 1.2px;
+    line-height: 1.5em;
     &:hover {
     	text-decoration:none;
     	color:$slate-grey;

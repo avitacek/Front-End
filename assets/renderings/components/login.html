@@ -15,54 +15,78 @@
 		  		</div>
 		        
 		    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
-		    	<div id="login" data-toggle="modal" data-target="#password-modal">Login</div>
+		    	<div id="login" data-toggle="modal" data-target="#password-modal">Log in</div>
 		  	</div>
 
 		  	<div class="container-fluid">
-		   		<span style="display:none;"><input type="checkbox">Remember me</span>
-		   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
-		    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
-		  	</div>
-		</form>
-	</div>
-	<div class="col-sm-4" id="login-slider">
-		
-	</div>
-	<div class="col-sm-4" id="landing-register">
-		<div class="register-title">
-			<div class="text-hide"><h4>Not</h4></div>
-			<div class="text-stay"><h4>Registered</h4></div>
-		</div>
-		<div class="button-switch">
-			<button id="register">REGISTER</button>
-			<button id="submit">SUBMIT</button>	
-		</div>
-	</div>
-	<div class="col-sm-8" id="register-slider">
-		<!--Register form modal-->
-		<form action="" id="register-form">
-			  	<div class="container-fluid">
 			  		<div class="row">
 			  			<div class="col-sm-12">
-					    	<label><b>First name</b></label>
-					    	<input type="text" placeholder="Enter your firstname" name="fname" class="firstname" >
-					    	<label><b>last name</b></label>
-					    	<input type="text" placeholder="Enter your lastname" name="lname" class="lastname" >
-					    	<label><b>Email address</b></label>
-					    	<input type="text" placeholder="Enter your lastname" name="email" class="email" >
-
-					    	<label><b>Password *</b></label>
-					    	<input type="password" placeholder="Enter Password" name="psw" class="password" >
-					    	<label><b>Comfirm Password *</b></label>
-					    	<input type="password" placeholder="Confirm Password" name="cpsw" class="confirm-password" >
-					        
-					    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
-					    	<a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
-			    		</div>
-			    	</div>
-			  	</div>
-		</form>		
+					   		<span style="display:none;"><input type="checkbox">Remember me</span>
+					   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
+					    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
+					    </div>
+					</div>
+		  	</div>
+		</form>
+		<div class="col-sm-8" id="register-slider">
+			<!--Register form modal-->
+			<form action="" id="register-form">
+				  	<div class="container-fluid">
+				  		<div class="row">
+				  			<div class="col-sm-12"><div class="text-stay"><h4>Register Now</h4></div></div>
+				  			<div class="col-sm-6">
+				  				<label><b>First name</b></label>
+						    	<input type="text" placeholder="Enter your first name" name="fname" class="firstname" >
+				  			</div>
+				  			<div class="col-sm-6">
+				  				<label><b>last name</b></label>
+						    	<input type="text" placeholder="Enter your last name" name="lname" class="lastname" >
+				  			</div>
+				  			<div class="col-sm-12">
+				  				<label><b>Email address</b></label>
+						    	<input type="text" placeholder="Enter your email" name="email" class="email" >
+				  			</div>
+				  			<div class="col-sm-6">
+				  				<label><b>Password *</b></label>
+						    	<input type="password" placeholder="Enter a password" name="psw" class="password" >
+						    </div>
+				  			<div class="col-sm-6">
+				  				<label><b>Comfirm Password *</b></label>
+						    	<input type="password" placeholder="Confirm password" name="cpsw" class="confirm-password" >
+				  			</div>
+				  			<div class="col-sm-12">
+				  				<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
+						    	<a href="profile.html" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+				  			</div>
+				    		
+				    	</div>
+				  	</div>
+			</form>		
+		</div>
 	</div>
+	<div class="col-sm-4">
+		<div id="landing-register">
+			<div class="register-title">
+				<div class="logo"></div>
+				<h4>Not Registered?</h4>
+				<p>Sign up is quick and easy and then you can start all your advanced travel arrangments.</p>
+			</div>
+			<div class="button-switch">
+				<button id="login-register">REGISTER</button>
+			</div>
+		</div>
+		<div id="login-slider">
+			<div class="register-title">
+				<div class="logo"></div>
+				<h4>Already Registered?</h4>
+				<p>Just login to see you travel arrangments.</p>
+			</div>
+			<div class="button-switch">
+				<button id="login-return">Login</button>
+			</div>
+		</div>
+	</div>
+	
 
 </div>
 <div class="row">

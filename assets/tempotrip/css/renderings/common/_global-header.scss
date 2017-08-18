@@ -3,9 +3,6 @@
 body{
 	#global-header{
 		padding:0px;
-		& .row{
-			max-width:100%!important;
-		}
 		& #header {
 			background: $white;
 			border-bottom:1px solid #dfe2e5;
@@ -347,6 +344,10 @@ body{
 	position:relative;
 	left:0px;
 	transition: 0.5s;
+	& .row{
+		max-width:1280px;
+		margin:0px auto;
+	}
 }
 &.hamburgerNavActive .body-content{
 	left:250px;
