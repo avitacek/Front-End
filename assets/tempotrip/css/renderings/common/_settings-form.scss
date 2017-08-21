@@ -1,7 +1,13 @@
     .content-settings-form {
     margin-top: 125px;
 }
+label.btn.btn-primary.toggler {
+    background-color: rgba(255, 255, 255, 0.15);
+}
 
+label.btn.btn-primary.toggler.active {
+    background-color: #337ab7;
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
