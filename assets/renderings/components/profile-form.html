@@ -1,3 +1,11 @@
+ <script type="text/javascript">
+$(document).ready(function(){
+
+// Method 1 - uses 'data-toggle' to initialize
+$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 <div class="content-profile-form">
             <div class="container-fluid">
                 <div class="row">
@@ -160,10 +168,34 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Special Assistance</label>
+                                                        <select class="form-control">
+                                                        <option value="None" selected="selected">None</option>
+                                                        <option value="BlindWDog">Blind With Dog</option>
+                                                        <option value="DeafWDog">Deaf With Dog</option>
+                                                        <option value="MeetAndAssist">Meet and Assist</option>
+                                                        <option value="WChairNoStairs">Wheelchair - Cannot Ascend/Descend Stairs</option>
+                                                        <option value="WChairStairOK">Wheelchair - Can Walk and Ascend/Descend Stairs</option>
+                                                        <option value="WChairImmobile">Wheelchair - Immobile</option>
+                                                        <option value="WithInfant">With Infant</option>
+                                                        <option value="HelpLang">Help - Language</option>
+                                                        <option value="WChairOnBoard">Wheelchair - On-Board Wheelchair</option>
+                                                        <option value="BlindNoDog">Blind</option>
+                                                        <option value="DeafNoDog">Deaf</option>
+                                                        <option value="BaggBulky">Baggage - Bulky</option>
+                                                        <option value="BaggFragile">Baggage - Fragile</option>
+                                                        <option value="BaggSportsEquip">Baggage - Sports Equipment</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <hr class="m-t-5">
                                             <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     
 
                                                     <div class="form-group">
@@ -172,19 +204,14 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    
+                                                <div class="col-sm-4">
                                                     <div class="form-group">
                                                     <label style="margin-bottom: 5px;">Passport Expiration Date</label>    
                                                         <input type="date" name="date" id="date" class="form-control" value="" required="required" title="date">
 
                                                     </div>
-
                                                 </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <label class="">Passport Issuing Country</label>
                                                     <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
                                                         <input type="hidden" name="" value="US">
@@ -444,11 +471,27 @@
                                                         <p class="help-block"></p>
                                                     </div>
                                                 </div>
+                                            </div>
+                                                <hr class="m-t-5">
+                                            <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="../../tempotrip/images/logos/precheck-logo-small.png"></label>
+                                                        <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="../../tempotrip/images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
+                                                        <!--TOOLTIP-->
+                                                        <!--<p>The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process).</p>-->
                                                         <input class="form-control" placeholder="Enter number">
-
+                                                        
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="">Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
+                                                        
+                                                        <!--TOOLTIP-->
+                                                        <!--<h5>Redress Number</h5><p>This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts.</p>
+                                                        -->
+                                                        <input class="form-control" placeholder="Enter number">
                                                     </div>
                                                 </div>
                                             </div>
@@ -493,4 +536,4 @@
                 
     </div>
 </div>
-        
+      
