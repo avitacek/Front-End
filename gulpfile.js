@@ -36,6 +36,10 @@ gulp.task('images', function() {
 gulp.task('fonts', function() {
    return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../www/content/fonts'));
 });
+gulp.task('data', function() {
+   return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/content/js/ajax'));
+});
+
 
 gulp.task('sass', function () {
   return gulp.src('./assets/tempotrip/css/**/*.scss')
@@ -99,6 +103,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.start('images', 'fonts', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
+    gulp.start('images', 'fonts', 'data', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
 });
 

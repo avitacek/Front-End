@@ -44,4 +44,13 @@ ul#tab-menu{
 		}
 	}
 }
+table.dataTable thead .sorting_desc{
+	background-image:url("../images/global/sort_desc.png")
+}
+table.dataTable thead .sorting_asc {
+    background-image: url(../images/global/sort_asc.png);
+}
+table.dataTable thead .sorting {
+    background-image: url(../images/global/sort_both.png);
+}
 @import "mobile/shared-mobile";

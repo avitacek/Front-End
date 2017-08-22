@@ -29,7 +29,7 @@ $(document).ready(function(){
 	var data = {
         menu: [{
             name: 'Overview',
-            link: '0',
+            link: '/profile.html',
             fontA:'fa fa-home fa-lg',
             sub: null
         }, {
@@ -49,7 +49,7 @@ $(document).ready(function(){
             sub: null
         },{
             name: 'Trips',
-            link: '4',
+            link: '/mytrips.html',
             fontA:'fa fa-briefcase fa-lg',
             sub: null
         }, {
@@ -72,7 +72,7 @@ $(document).ready(function(){
             		class: itemData.fontA
             	}),
 		        $("<a>", {
-		            href: '#' + itemData.link,
+		            href: itemData.link,
 		            html: itemData.name
 		        }));
         if (itemData.sub) {

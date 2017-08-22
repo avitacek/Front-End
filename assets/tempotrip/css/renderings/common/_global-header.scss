@@ -8,9 +8,9 @@ body{
 			border-bottom:1px solid #dfe2e5;
 			height:auto;
 			width:100%;
-			padding:0px 0px;
-			position:relative;
+			position:fixed;
 			z-index: 9999;
+			padding:0px 0px;
 			& .nav{
 				font-family: $Marvel-Regular;
 				font-size:20px;
@@ -191,13 +191,14 @@ body{
 		& .btn:hover, & .btn:focus{
 			color:transparent;
 		}
-		/*SidebarNav*/
+	}
+	/*SidebarNav*/
 		& .sideBarNav {
 		    height: 100%; /* 100% Full-height */
 		    width: 50px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
 		    z-index: 1; /* Stay on top */
-		    top: 70px;
+		    top:70px;
 		    left: 0px;
 		    border-right:1px solid #dfe2e5;
 		    background-color: #ffffff;
@@ -252,7 +253,7 @@ body{
 		    }
 		    & ul{
 		    	padding:0px 0px 10px 14px;
-		    	margin:10px 0px 10px 0px;
+		    	margin:0px 0px 10px 0px;
 		    	list-style-type:none;
 		    	float:left;
 		    	width:170px;
@@ -301,7 +302,6 @@ body{
 		    	margin-top:10px;
 		    }
 		}
-	}
 	&.hamburgerNavActive .navCase{
 	    border:1px solid #a5aab2!important;
 	    border-radius:50%!important;
@@ -344,6 +344,7 @@ body{
 	position:relative;
 	left:0px;
 	transition: 0.5s;
+	padding-top:130px;
 	& .row{
 		max-width:1280px;
 		margin:0px auto;
