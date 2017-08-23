@@ -146,11 +146,16 @@ function setTripsPage(){
         $('#departure-travel .departureTime .arrive .date').text(data[9]);
         $('#departure-travel .departureTime .arrive .time').text(data[10]);
 
-        $('.returnCity').text(data[1]);
-        $('.tripType').text(data[2]);
-        $('.deptDate').text(data[3]);
-        $('.returnDate').text(data[4]);
-        $('.costs').text(data[5]);
+        $('#return-travel .departureDetails .airline').text(data[14]);
+        $('#return-travel .departureDetails .flightNumber').text(data[15]);
+        $('#return-travel .departureDetails .duration').text(data[16]);
+        $('#return-travel .departureDetails .recordLocator').text(data[17]);
+
+        $('#return-travel .departureTime .leave .date').text(data[18]);
+        $('#return-travel .departureTime .leave .time').text(data[19]);
+        $('#return-travel .departureTime .arrive .date').text(data[20]);
+        $('#return-travel .departureTime .arrive .time').text(data[21]);
+
         console.log(data);
     });
     setTimeout(function(){

@@ -14,7 +14,7 @@
     			padding:.9375rem;
 			}
 			& table.dataTable tbody tr.selected{
-				background-color:#5db9be;
+				background-color:#eceff1;
 			}
 			& .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td{
 				border:0px solid #dddddd;
@@ -27,7 +27,7 @@
 			}
 			table.dataTable thead tr{
 				color:#ffffff;
-				background-color: #1a4666;
+				background-color: #a5aab2;
 			}
 			div.dataTables_wrapper div.dataTables_info{
 				padding:8px 10px;
@@ -96,7 +96,10 @@
 									}
 									& #departure-travel, & #return-travel{
 										background-color: #ffffff;
-										& #departureDetails{
+										& .list-group{
+											margin-bottom:0px;
+										}
+										& .departureDetails{
 											& ul{
 												width:100%;
 												display:table;
@@ -119,8 +122,71 @@
 												}
 											}
 										}
+										& .departureTime{
+											& ul{
+												width:100%;
+												display:block;
+												margin:0px;
+												padding:0px;
+												list-style-type: none;
+												font-size:10px;
+												border-bottom:none;
+												& li{
+													display:block;
+													padding:0px;
+														& ul{
+														width:100%;
+														display:table;
+														margin:0px;
+														padding:0px;
+														list-style-type: none;
+														font-size:10px;
+														& li{
+															display:table-cell;
+															padding:5px;
+															text-align:center;
+															font-family: "Marvel-Regular", Helvetica, Arial, sans-serif;
+    														font-size: 14px;
+    														color: #54565b;
+															& p{
+																margin-top:10px;
+															}
+														}
+													}
+													&.arrive{
+														& ul{
+															border-bottom:1px solid #a5aab2;
+														}
+													}
+
+												}
+											}
+										}
 									}
 								}
+							}
+						}
+					}
+					& ul{
+						width:100%;
+						display:table;
+						margin:0px;
+						padding:0px;
+						list-style-type: none;
+						font-size:10px;
+						border-bottom:1px solid #a5aab2;
+						& li{
+							display:table-cell;
+							padding:5px;
+							text-align:center;
+							&:last-child{
+								border-right:0px solid #a5aab2;
+							}
+							& p{
+								margin-top:10px;
+							}
+							& a{
+								font-size:12px;
 							}
 						}
 					}
