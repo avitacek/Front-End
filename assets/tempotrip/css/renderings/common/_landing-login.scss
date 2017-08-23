@@ -8,20 +8,6 @@
 		max-width:1024px;
 		margin:0px auto;
 	}
-	& .image-bg{
-		background: url(../images/photos/AdobeStock_4202599.jpeg) center center;
-		background-size:100% auto;
-		& .color-overlay{
-			position:absolute;
-			top:0px;
-			left:0px;
-			right:0px;
-			bottom:0px;
-			background-color:rgba(239,243,236,0.75);
-			width:100%;
-			height:100%;
-		}
-	}
 }
 #flip-form{
 	background-color:rgba(255,255,255,0.85);

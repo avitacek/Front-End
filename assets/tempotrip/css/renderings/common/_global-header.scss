@@ -51,24 +51,39 @@ body{
 						    height:35px;
 						    margin-top:8px;
 						    z-index: 9995;
-						    padding:6px 10px 10px 2px;
 						    border-radius:50%;
 						    display:block;
+						    position: relative;
 						    border:0px solid #a5aab2;
 						    -webkit-transition-property:all;
 						    -moz-transition-property: all;
 						    transition-property: all;
-						    -webkit-transition-duration: 0.5s;
-						    -moz-transition-duration: 0.5s;
-						    transition-duration: 0.5s;
-						     -webkit-transition-delay: 0.5s;
-						    -moz-transition-delay: 0.5s;
-						    transition-delay: 0.5s;
+						    -webkit-transition-duration: 0.45s;
+						    -moz-transition-duration: 0.45s;
+						    transition-duration: 0.45s;
+						    & .circle{
+						    	width:35px;
+						    	height:35px;
+						    	position: absolute;
+						    	top:0px;
+						    	left:0px;
+						    	z-index: 1;
+						    	& .circlePath{
+						    		stroke-dasharray: 120;
+  									stroke-dashoffset:120;
+  									 -webkit-transition-property:all;
+								    -moz-transition-property: all;
+								    transition-property: all;
+								    -webkit-transition-duration: 1s;
+								    -moz-transition-duration: 1s;
+								    transition-duration: 1s;
+						    	}
+						    }
 						}
 						& .navToggle{
 						    display: block;
-						    width: 30px;
-						    height: 30px;
+						    width: 25px;
+						    height: 25px;
 						    padding: 0px;
 						    -webkit-transition-property:all;
 						    -moz-transition-property: all;
@@ -76,6 +91,9 @@ body{
 						    -webkit-transition-duration: 0.5s;
 						    -moz-transition-duration: 0.5s;
 						    transition-duration: 0.5s;
+						    position:absolute;
+						    top:7px;
+						    left:5px;
 						    & span {
 							    font-size: 0;
 							    color: transparent;
@@ -303,15 +321,13 @@ body{
 		    }
 		}
 	&.hamburgerNavActive .navCase{
-	    border:1px solid #a5aab2!important;
-	    border-radius:50%!important;
-	    top:8px;
-	    right:2px;
-	    width:20px;
-	    height:20px;
-	    padding:6px 8px 8px 8px;
+	    & .circle{
+	    	& .circlePath{
+	    		stroke-dashoffset: 0!important;
+	    	}
+	    }
 	}
-	&.hamburgerNavActive .navToggle{width:20px; height:20px;}
+	&.hamburgerNavActive .navToggle{width:20px!important; height:20px!important;left:8px!important;}
 	&.hamburgerNavActive .navToggle:before {
 	    -webkit-transform: translateY(10px) rotate(45deg);
 	    -moz-transform: translateY(10px) rotate(45deg);

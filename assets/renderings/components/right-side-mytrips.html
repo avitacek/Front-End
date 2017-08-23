@@ -1,35 +1,98 @@
 <div class="wrapper">
     <div id="right-side-content">
-        <div class="card card-profile">
-
-
-            <div class="content" style="text-align: left;">
-             <h4 class="card-title"><span class="deptCity"></span> <i class="fa fa-plane"></i> <span class="returnCity"></span></h4>
-                <div class="">
-         <div class="card-block">
-            <h5 div class="tripType"></h5>
-            <h5 class="card-title">Depart Date: <span class="small deptDate"></span></h5>
-            <h5 class="card-title">Return Date: <span class="small returnDate"></span></h5>
-            <p class="card-text costs"></p>
-             
-         </div>
-</div>
-
-<!--
-             <div class="row">
-                 <div class="col-xs-5 col-sm-5"><div class=""><h4 class="text-center font-light">ORD<br><smaller>September 05</smaller></h4></div></div>
-                 <div class="col-xs-2 col-sm-2"><div class=""><h4 class="text-center font-light"><i class="fa fa-plane"></i></h4></div></div>      
-                 <div class="col-xs-5 col-sm-5"><div class=""><h4 class="text-center font-light">LAX</h4></div></div>
-                
-                    <div class="row">
-                        <div class="col-sm-12"></div>
-                        <div class="col-sm-6"><div class="">Departarture<div class="card"><h4 class="text-left">Sept</h4></div></div></div>
-                            <div class="col-sm-6"><div class="">Return</div></div>
+        <div class="card card-trips">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-6" id="deptHeader">
+                        <h4 class="card-title"><span class="City"></span></h4>
+                        <p class="CityCountry"></p>
+                        
+                    </div>
+                    <div class="col-sm-6" id="arrvHeader">
+                        <h4 class="card-title"><span class="City"></span></h4>
+                        <p class="CityCountry"></p>
+                        
                     </div>
                 </div>
--->
-                
-              
+                <div class="row" id="departureDetails">
+                    <div class="col-sm-12">
+                        <div id="itinerary-accordian" data-children=".item">
+                            <div class="item">
+                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">
+                                      Departure <i class="fa fa-angle-double-down float-right font-lg"></i>
+                                </a>
+                                <div id="departure-travel" class="collapse" role="tabpanel">
+                                    <div class="list-group">
+                                        <div class="departureDetails">
+                                            <ul>
+                                                <li>
+                                                    <p class="airline"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="flightNumber"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="duration"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="recordLocator"></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="departureTime">
+                                            <ul>
+                                                <li class="leave">Leave <p class="date"></p><p class="time"></p></li>
+                                                <li class="arrive">Arrive <p class="date"></p><p class="time"></p></li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start p-0">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="text-center m-t-5">Booked <small> 23 days ago</small></h6>
+                                            </div>
+                                            <div class="recent-flight-item">
+                                                <ul>
+                                                    <li>
+                                                        <span>Sep 12,2017</span>
+                                                        <strong>ORD</strong>
+                                                        <span>Depart</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Sep 15,2017</span>
+                                                        <strong>ATL</strong>
+                                                        <span>Return </span>
+                                                    </li>
+                                                    <li class="p-10">
+                                                        <strong>$200</strong>
+                                                        <span>RoundTrip</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
+                                </a>
+                                <div id="return-travel" class="collapse" role="tabpanel">
+                                    <p class="mb-3">
+                                        Donec at ipsum dignissim, rutrum turpis scelerisque, tristique lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec dui turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <h4 class="card-title"><span class="deptCity"></span> <i class="fa fa-plane"></i> <span class="returnCity"></span></h4>
+                <div class="">
+                    <div class="card-block">
+                        <h5 div class="tripType"></h5>
+                        <h5 class="card-title">Depart Date: <span class="small deptDate"></span></h5>
+                        <h5 class="card-title">Return Date: <span class="small returnDate"></span></h5>
+                        <p class="card-text costs"></p>
+                    </div>
+                </div>
             </div>
 
          </div>
