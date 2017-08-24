@@ -18,24 +18,33 @@
   <body id="myTrips-page">
     <div class="container-fluid">
         <div class="row">
-            <!-- Profile ============================== -->
+            <!-- Global Header ============================== -->
             @@include('../../renderings/components/global-header.html')
-            <!-- / Profile ============================ --> 
+            <!-- / Global Header ============================ --> 
         </div>
     </div>
     <div class="container-fluid body-content">
         <div class="row">
             <div class="col-sm-8">
-                <!-- Profile ============================== -->
+                <!-- Trips Table ============================== -->
                 @@include('../../renderings/components/mytrips-content.html')
-                <!-- / Profile ============================ --> 
+                <!-- / Trip Table ============================ --> 
             </div>
             <div class="col-sm-4">
-                <!-- Profile ============================== -->
+                <!-- Trips Side Bar Details ============================== -->
                 @@include('../../renderings/components/right-side-mytrips.html')
-                <!-- / Profile ============================ --> 
+                <!-- / Trips Side Bar Details ============================ --> 
             </div>
 
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-12" id="printContent"> 
+                <!-- Trips Side Bar Details ============================== -->
+                @@include('../../renderings/components/print-mytrips.html')
+                <!-- / Trips Side Bar Details ============================ --> 
+            </div>
         </div>
     </div> 
     <div class="container-fluid">

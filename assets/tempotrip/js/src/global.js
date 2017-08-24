@@ -138,7 +138,7 @@ function setTripsPage(){
 
         $('#departure-travel .departureDetails .airline').text(data[3]);
         $('#departure-travel .departureDetails .flightNumber').text(data[4]);
-        $('#departure-travel .departureDetails .duration').text(data[5]);
+        
         $('#departure-travel .departureDetails .recordLocator').text(data[6]);
 
         $('#departure-travel .departureTime .leave .date').text(data[7]);
@@ -156,12 +156,51 @@ function setTripsPage(){
         $('#return-travel .departureTime .arrive .date').text(data[20]);
         $('#return-travel .departureTime .arrive .time').text(data[21]);
 
+        //add print data//
+        $('.departureDetails .depart .City').text(data[0]);
+        $('.departureDetails .depart .time').text(data[8]);
+        $('.departureDetails .depart .CityCountry').text(data[1]);
+        $('.departureDetails .depart .airline').text(data[3]);
+        $('.departureDetails .depart .flightNumber').text(data[4]);
+        $('.departureDetails .depart .date').text(data[7]);
+        $('.departureDetails .arrive .City').text(data[11]);
+        $('.departureDetails .arrive .time').text(data[10]);
+        $('.departureDetails .arrive .CityCountry').text(data[12]);
+
+        $('.returnDetails .depart .City').text(data[11]);
+        $('.returnDetails .depart .time').text(data[19]);
+        $('.returnDetails .depart .CityCountry').text(data[12]);
+        $('.returnDetails .depart .airline').text(data[14]);
+        $('.returnDetails .depart .flightNumber').text(data[15]);
+        $('.returnDetails .depart .date').text(data[20]);
+        $('.returnDetails .arrive .City').text(data[0]);
+        $('.returnDetails .arrive .time').text(data[21]);
+        $('.returnDetails .arrive .CityCountry').text(data[1]);
+
         console.log(data);
+        switchDepartDuration(data[5]);
+        switchReturnDuration(data[16]);
     });
     setTimeout(function(){
     	var tableRow = $('#myTrips tbody tr:first-child');
     	$(tableRow).trigger('click');
     },10);
+    
+    function switchDepartDuration(a){
+        var dHours = Math.trunc(a/60);
+        var dMinutes = a % 60;
+        $('#departure-travel .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
+        $('.print-wrapper .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
+
+        console.log(dHours +"h "+ dMinutes + " m");
+    }
+    function switchReturnDuration(b){
+        var rHours = Math.trunc(b/60);
+        var rMinutes = b % 60;
+        $('#return-travel .departureDetails .duration').text(rHours +"h "+ rMinutes + "m");
+        $('.print-wrapper .returnDetails .duration').text(rHours +"h "+ rMinutes + "m");
+        console.log(rHours +" h "+ rMinutes + " m");
+    }
 }
 $(document).ready(function(){
 	checkPage()

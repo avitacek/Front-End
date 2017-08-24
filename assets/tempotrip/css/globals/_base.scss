@@ -8,6 +8,7 @@ Import BASE
 body {
     background-color:#eff3f6;
     overflow-x: hidden;
+    font-family:$Marvel-Regular;
 }
 p, ul { 
 	font-family:$Marvel-Regular;
@@ -151,6 +152,14 @@ p, ul {
 	}
 	&:focus{
 		outline:white;
+	}
+}
+.btn-primary{
+	background-color: #5DB9BE;
+	border-color:#5DB9BE;
+	&:hover{
+		background-color: #006E8D;
+		border-color:#006E8D;
 	}
 }
 /*Common Styles based on Style Guide*/

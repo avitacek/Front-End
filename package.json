@@ -21,6 +21,7 @@
     "browser-sync": "^2.12.5",
     "browserify": "^14.0.0",
     "browserify-shim": "^3.8.13",
+    "classie": "^1.0.0",
     "compass": "^0.1.1",
     "datatables-bootstrap": "0.0.1",
     "datatables.net": "^1.10.15",

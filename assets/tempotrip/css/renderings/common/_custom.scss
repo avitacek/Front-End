@@ -405,44 +405,7 @@ input:focus {
  .form-control + .form-control-feedback {
     margin-top: -8px;
   }
-input#f-name {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-input#m-name {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-    input#date {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-    }
-
-input#l-name {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-
-input#birth-date {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-
-input#email {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-
-input#em-f-name {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-
-input#em-l-name {
-    margin: 0px;
-    border: 1px solid #E3E3E3;
-}
-    input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
+input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
     width: 100%;
     color:#1a4666;
     padding: 12px 20px;
@@ -451,4 +414,4 @@ input#em-l-name {
     border: 1px solid #E3E3E3;
     box-sizing: border-box;
     border-radius:3px;
-    }
+}
