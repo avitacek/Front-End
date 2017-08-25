@@ -13,12 +13,12 @@
 	  position:relative;
 	  & input ~ label{
 	    position: absolute;
-	    left: 20px;
+	    left: 0px;
 	    width: 100%;
-	    top: 10px;
+	    top: 0px;
 	    font-size:14px;
 	    transition: 0.3s;
-	    z-index: -1;
+	    z-index: 1;
 	    letter-spacing: 1.2px;
 	    line-height: 1.5em;
 	    text-transform:none;
@@ -28,12 +28,16 @@
 	    margin-bottom:0px;
 	    position:relative;
 	    z-index: 5;
+	    transition: 0.3s;
+	    &:focus, &.has-content{
+				border-color:#5DB9BE !important;
+			}
 	  }
 	  & input:focus ~ label, & input.has-content ~ label {
 	    top: 0px;
 	    left: 0;
 	    font-size: 14px;
-	    color: #5DB9BE;
+	    color: #5DB9BE!important;
 	    transition: 0.3s;
 	    z-index: 1;
 	  }
@@ -42,9 +46,14 @@
 	    margin-top: 25px;
 	    margin-bottom: 0px;
 	    position: absolute;
+	    border-radius:3px;
 	    top: 0px;
 	    left: 0px;
 	    width: 100%;
+		    & input:focus ~ .focus-border i:after, & input.has-content ~ .focus-border i:after {
+			    left: auto;
+			    right: 0;
+		  }
 	  }
 	  & input ~ .focus-border:before, & input ~ .focus-border:after {
 	    content: "";
@@ -66,6 +75,7 @@
 	    background-color: #5DB9BE;
 	    transition: 0.6s;
 	}
+
 	  & input ~ .focus-border:after {
 	    top: auto;
 	    bottom: 0;
@@ -79,6 +89,11 @@
 	    top: -1px;
 	    height: 100%;
 	    transition: 0.6s;
+	  }
+	  & input:focus ~ .focus-border i:before, & input.has-content ~ .focus-border i:before {
+	    left: -1px;
+	    height:102%
+
 	  }
 	  & input:focus ~ .focus-border i:after, & input.has-content ~ .focus-border i:after {
 	    left: auto;
@@ -233,12 +248,43 @@
 		}
 		& input{
 			background-color:#ffffff!important;
+			transition: 0.3s;
+			&:focus, &.has-content{
+				border-color:#5DB9BE;
+			}
 		}
-		
+
 		& label{
 			color:#ffffff!important;
 		}
-		& 
+		& .focus-border{
+		    height: 50px;
+		    margin-top: 23px;
+		    margin-bottom: 0px;
+		    position: absolute;
+		    border-radius:3px;
+		    top: 0px;
+		    left: -2px;
+		    width: 100%;
+		  }
+		& input:focus ~ label, & input.has-content ~ label {
+		    top: 0px;
+		    left: 0;
+		    font-size: 14px;
+		    color: #5DB9BE!important;
+		    transition: 0.3s;
+		    z-index: 1;
+		}
+		& input:focus ~ .focus-border i:after, & input.has-content ~ .focus-border i:after {
+	    	left: auto;
+	    	right: -4px;
+	    	width:6px;
+	    	height:102%
+	  	}
+	  	& input:focus ~ .focus-border i:before, & input.has-content ~ .focus-border i:before {
+	    	left: 0px;
+	    	height:102%
+	  	}
 		& h4{
 			color:#ffffff;
 			font-weight:normal;
