@@ -29,6 +29,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'all-trips-page'){
         setAllTripsPage();
     }
+    else if ($('body').attr('id') === 'all-travellers-page'){
+        setAllTravellersPage();
+    }
 }
 function setTripsPage(){
      var table = $('#myTrips').DataTable({
@@ -209,7 +212,7 @@ function setAllTripsPage(){
      var table = $('#allTrips').DataTable({
         "ajax": '../js/ajax/all_trips.json',
         "select": true,
-        "order": [[ 0, "desc" ]],
+        "order": [[ 9, "desc" ]],
         "columnDefs": [
             {
                 "targets": [ 0 ],
@@ -389,6 +392,88 @@ function setAllTripsPage(){
         $('.print-wrapper .returnDetails .duration').text(rHours +"h "+ rMinutes + "m");
         console.log(rHours +" h "+ rMinutes + " m");
     }
+}
+function setAllTravellersPage(){
+     var table = $('#allTravellers').DataTable({
+        "ajax": '../js/ajax/travellers.json',
+        "select": true,
+        "order": [[ 0, "desc" ]],
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": true
+            },
+            {
+                "targets": [ 1 ],
+                "visible": true,
+            },
+            {
+                "targets": [ 2 ],
+                "visible": false
+            },
+            {
+                "targets": [ 3 ],
+                "visible": true
+            },
+            {
+                "targets": [ 4 ],
+                "visible": true
+            },
+            {
+                "targets": [ 5 ],
+                "visible": true
+            },
+            {
+                "targets": [ 6 ],
+                "visible": true
+            },
+            {
+                "targets": [ 7 ],
+                "visible": true,
+            }
+        ]
+    });
+    $('#allTravellers tbody').on('click', 'tr', function () {
+        var data = table.row( this ).data();
+        $('#allTravellers tbody tr').removeClass('selected');
+        $(this).addClass('selected')
+        $('.card-traveller .card-title').text(data[0]);
+        $('.card-traveller .card-email').text(data[1]);
+        $('.card-traveller .card-status').text(data[8]);
+        $('.card-traveller .card-phone').text(data[2]);
+        $('.card-traveller .card-dept').text(data[3]);
+        $('.card-traveller .card-costs').text(data[7]);
+        $('.card-traveller .quick-facts-box .totalTrips').text(data[4]);
+        $('.card-traveller .quick-facts-box .upcomingTrips').text(data[5]);
+        $('.card-traveller .quick-facts-box .approvalTrips').text(data[6]);
+
+         changeStatus(data[8]);
+         checkCosts(data[7]);
+
+        function changeStatus(a){
+            if(a < 1){
+               $('.card-traveller .card-status').text('Inactive').addClass('inactive'); 
+            }
+            else{
+               $('.card-traveller .card-status').text('Active').removeClass('inactive');  
+            }
+        }
+        function checkCosts(b){
+            if(b > 1000){
+               $('.card-traveller .card-costs').text('$'+data[7]).addClass('alert'); 
+               console.log('alert')
+            }
+            else{
+               $('.card-traveller .card-costs').text('$'+data[7]).removeClass('alert');  
+                console.log('alert off')
+            }
+        }
+        
+    });
+    setTimeout(function(){
+        var tableRow = $('#allTravellers tbody tr:first-child');
+        $(tableRow).trigger('click');
+    },500);
 }
 $(document).ready(function(){
 	checkPage()

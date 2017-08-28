@@ -35,7 +35,7 @@ $(document).ready(function(){
             sub: null
         }, {
             name: 'Travellers',
-            link: '',
+            link: '/alltravellers.php',
             fontA:'fa fa-users fa-lg',
             class:'active',
             sub: null

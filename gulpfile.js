@@ -83,8 +83,9 @@ gulp.task('js2', function () {
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "../../www/"
-        }
+          baseDir: "../../www/"
+        },
+        port: 8888
     });
 });
 
