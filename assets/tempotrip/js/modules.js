@@ -7,3 +7,4 @@ var sidebar = require ('./src/sidebar.js');
 var formSlider = require ('./src/form-slider.js');
 var profile = require ('./src/profile.js');
 var myTrips = require ('./src/myTrips.js');
+var myTrips = require ('./src/allTrips.js');

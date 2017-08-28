@@ -21,23 +21,23 @@ gulp.task('fileinclude', function() {
       prefix: '@@',
       basepath: './assets/renderings/components'
     }))
-    .pipe(gulp.dest('../../www/content'))
+    .pipe(gulp.dest('../../www/'))
     .pipe(notify({ message: "fileInclude tasks done."}) );
 });
 gulp.task('change', function() {
-  return gulp.src('../../www/content/*.html')
+  return gulp.src('../../www/*.html')
       .pipe(ext_replace('.php'))
-      .pipe(gulp.dest('../../www/content'))
+      .pipe(gulp.dest('../../www/'))
 });
 gulp.task('images', function() {
-   return gulp.src(['./assets/tempotrip/images/**/*']).pipe(gulp.dest('../../www/content/images'));
+   return gulp.src(['./assets/tempotrip/images/**/*']).pipe(gulp.dest('../../www/images'));
 });
 
 gulp.task('fonts', function() {
-   return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../www/content/fonts'));
+   return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../www/fonts'));
 });
 gulp.task('data', function() {
-   return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/content/js/ajax'));
+   return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/js/ajax'));
 });
 
 
@@ -52,7 +52,7 @@ gulp.task('sass', function () {
     }))
     .pipe(concat('tempotrip.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('../../www/content/css'))
+    .pipe(gulp.dest('../../www/css'))
     .pipe(notify({ message: "Sass compiled, Sourcemaps created."}) );
 });
 
@@ -64,7 +64,7 @@ gulp.task('js1', function () {
       gutil.log(e); 
     })
     .pipe(source('tempotrip.modules.js')) 
-    .pipe(gulp.dest('../../www/content/js'))
+    .pipe(gulp.dest('../../www/js'))
     .pipe(notify({ message: "JS bundled."}) ); 
 });
 
@@ -76,7 +76,7 @@ gulp.task('js2', function () {
       gutil.log(e); 
     })
     .pipe(source('tempotrip.globals.js')) 
-    .pipe(gulp.dest('../../www/content/js'))
+    .pipe(gulp.dest('../../www/js'))
     .pipe(notify({ message: "Global JS bundled."}) ); 
 });
 

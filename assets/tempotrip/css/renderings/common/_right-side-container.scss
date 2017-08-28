@@ -51,11 +51,14 @@
         border: 1px solid #cfd8dc;
     }
     
-    .quick-facts-box ul {
+    .quick-facts-box ul , .card-content ul{
         padding: 10px 0;
         list-style: none;
     }
-    
+    .card-content ul{
+        padding: 10px 10px;
+        list-style: none;
+    }
     .quick-facts-box ul li {
         display: block;
         float: left;

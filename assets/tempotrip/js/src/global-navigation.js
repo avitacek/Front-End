@@ -29,38 +29,38 @@ $(document).ready(function(){
 	var data = {
         menu: [{
             name: 'Overview',
-            link: '/profile.html',
+            link: '/profile.php',
             fontA:'fa fa-home fa-lg',
             sub: null
         }, {
             name: 'Travellers',
-            link: '1',
+            link: '',
             fontA:'fa fa-users fa-lg',
             sub: null
         }, {
             name: 'Reports',
-            link: '2',
+            link: '',
             fontA:'fa fa-bar-chart fa-lg',
             sub: null
         }, {
             name: 'Flights',
-            link: '3',
+            link: '',
             fontA:'fa fa-plane fa-lg',
             sub: null
         },{
             name: 'Trips',
-            link: '/mytrips.html',
+            link: '/alltrips.php',
             fontA:'fa fa-briefcase fa-lg',
             sub: null
         }, {
             name: 'Settings',
-            link: '5',
+            link: '',
             fontA: 'fa fa-cog fa-lg',
             sub: null
         },
         {
             name: 'Support',
-            link: '6',
+            link: '',
             fontA: 'fa fa-life-ring fa-lg',
             sub: null
         }]
