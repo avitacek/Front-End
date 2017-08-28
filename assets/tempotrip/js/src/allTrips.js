@@ -21,7 +21,7 @@ $(document).ready(function() {
         //mywindow.close();
         return true;
     }
-    $(".printButton").click(function(){
+    $(".printButton_alltrips").click(function(){
     	printbox();
 	});
 });

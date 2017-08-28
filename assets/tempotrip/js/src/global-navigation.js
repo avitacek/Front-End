@@ -31,37 +31,44 @@ $(document).ready(function(){
             name: 'Overview',
             link: '/profile.php',
             fontA:'fa fa-home fa-lg',
+            class:'active',
             sub: null
         }, {
             name: 'Travellers',
             link: '',
             fontA:'fa fa-users fa-lg',
+            class:'active',
             sub: null
         }, {
             name: 'Reports',
             link: '',
-            fontA:'fa fa-bar-chart fa-lg',
+            fontA:'fa fa-bar-chart fa-lg disabled',
+            class:'disabled',
             sub: null
         }, {
             name: 'Flights',
             link: '',
-            fontA:'fa fa-plane fa-lg',
+            fontA:'fa fa-plane fa-lg disabled',
+            class:'disabled',
             sub: null
         },{
             name: 'Trips',
             link: '/alltrips.php',
             fontA:'fa fa-briefcase fa-lg',
+            class:'active',
             sub: null
         }, {
             name: 'Settings',
             link: '',
-            fontA: 'fa fa-cog fa-lg',
+            fontA: 'fa fa-cog fa-lg disabled',
+            class:'disabled',
             sub: null
         },
         {
             name: 'Support',
             link: '',
-            fontA: 'fa fa-life-ring fa-lg',
+            fontA: 'fa fa-life-ring fa-lg disabled',
+            class:'disabled',
             sub: null
         }]
     };
@@ -72,6 +79,7 @@ $(document).ready(function(){
             		class: itemData.fontA
             	}),
 		        $("<a>", {
+                    class: itemData.class,
 		            href: itemData.link,
 		            html: itemData.name
 		        }));

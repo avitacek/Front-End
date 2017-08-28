@@ -83,7 +83,7 @@ gulp.task('js2', function () {
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "../../www/content/"
+            baseDir: "../../www/"
         }
     });
 });

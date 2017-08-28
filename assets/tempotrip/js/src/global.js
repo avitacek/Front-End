@@ -317,62 +317,64 @@ function setAllTripsPage(){
         var data = table.row( this ).data();
         $('#allTrips tbody tr').removeClass('selected');
         $(this).addClass('selected')
+        $('#travellerName .traveller_name').text(data[0]);
+        $('#travellerName .traveller_email').text(data[1]);
         $('#deptHeader .City').text(data[2]);
         $('#deptHeader .CityCountry').text(data[3]);
-        $('#arrvHeader .City').text(data[14]);
-        $('#arrvHeader .CityCountry').text(data[15]);
+        $('#arrvHeader .City').text(data[15]);
+        $('#arrvHeader .CityCountry').text(data[14]);
 
         $('#departure-travel .departureDetails .airline').text(data[5]);
         $('#departure-travel .departureDetails .flightNumber').text(data[6]);
-        
         $('#departure-travel .departureDetails .recordLocator').text(data[8]);
 
-        $('#departure-travel .departureTime .leave .date').text(data[10]);
-        $('#departure-travel .departureTime .leave .time').text(data[11]);
-        $('#departure-travel .departureTime .arrive .date').text(data[12]);
-        $('#departure-travel .departureTime .arrive .time').text(data[13]);
+        $('#departure-travel .departureTime .leave .date').text(data[11]);
+        $('#departure-travel .departureTime .leave .time').text(data[10]);
+        $('#departure-travel .departureTime .arrive .date').text(data[11]);
+        $('#departure-travel .departureTime .arrive .time').text(data[12]);
 
-        $('#return-travel .departureDetails .airline').text(data[17]);
-        $('#return-travel .departureDetails .flightNumber').text(data[18]);
-        $('#return-travel .departureDetails .duration').text(data[19]);
-        $('#return-travel .departureDetails .recordLocator').text(data[20]);
+        $('#return-travel .departureDetails .airline').text(data[16]);
+        $('#return-travel .departureDetails .flightNumber').text(data[17]);
+        $('#return-travel .departureDetails .duration').text(data[18]);
+        $('#return-travel .departureDetails .recordLocator').text(data[19]);
 
-        $('#return-travel .departureTime .leave .date').text(data[21]);
-        $('#return-travel .departureTime .leave .time').text(data[22]);
-        $('#return-travel .departureTime .arrive .date').text(data[23]);
-        $('#return-travel .departureTime .arrive .time').text(data[24]);
+        $('#return-travel .departureTime .leave .date').text(data[20]);
+        $('#return-travel .departureTime .leave .time').text(data[21]);
+        $('#return-travel .departureTime .arrive .date').text(data[22]);
+        $('#return-travel .departureTime .arrive .time').text(data[23]);
 
         //add print data//
+        $('.traveller').text(data[0]);
         $('.departureDetails .depart .City').text(data[3]);
         $('.departureDetails .depart .time').text(data[11]);
         $('.departureDetails .depart .CityCountry').text(data[4]);
-        $('.departureDetails .depart .airline').text(data[6]);
-        $('.departureDetails .depart .flightNumber').text(data[7]);
+        $('.departureDetails .depart .airline').text(data[5]);
+        $('.departureDetails .depart .flightNumber').text(data[6]);
         $('.departureDetails .depart .date').text(data[10]);
         $('.departureDetails .arrive .City').text(data[14]);
-        $('.departureDetails .arrive .time').text(data[13]);
+        $('.departureDetails .arrive .time').text(data[11]);
         $('.departureDetails .arrive .CityCountry').text(data[15]);
 
         $('.returnDetails .depart .City').text(data[14]);
         $('.returnDetails .depart .time').text(data[22]);
         $('.returnDetails .depart .CityCountry').text(data[15]);
-        $('.returnDetails .depart .airline').text(data[17]);
-        $('.returnDetails .depart .flightNumber').text(data[18]);
-        $('.returnDetails .depart .date').text(data[23]);
+        $('.returnDetails .depart .airline').text(data[16]);
+        $('.returnDetails .depart .flightNumber').text(data[17]);
+        $('.returnDetails .depart .date').text(data[21]);
         $('.returnDetails .arrive .City').text(data[3]);
         $('.returnDetails .arrive .time').text(data[4]);
         $('.returnDetails .arrive .CityCountry').text(data[3]);
 
         console.log(data);
-        switchDepartDuration(data[8]);
-        switchReturnDuration(data[19]);
+        changeDepartDuration(data[7]);
+        changeReturnDuration(data[18]);
     });
     setTimeout(function(){
         var tableRow = $('#allTrips tbody tr:first-child');
         $(tableRow).trigger('click');
     },500);
     
-    function switchDepartDuration(a){
+    function changeDepartDuration(a){
         var dHours = Math.trunc(a/60);
         var dMinutes = a % 60;
         $('#departure-travel .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
@@ -380,7 +382,7 @@ function setAllTripsPage(){
 
         console.log(dHours +"h "+ dMinutes + " m");
     }
-    function switchReturnDuration(b){
+    function changeReturnDuration(b){
         var rHours = Math.trunc(b/60);
         var rMinutes = b % 60;
         $('#return-travel .departureDetails .duration').text(rHours +"h "+ rMinutes + "m");
