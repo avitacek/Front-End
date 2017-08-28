@@ -53,7 +53,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 3 ],
-                "visible": true,
+                "visible": false,
             },
             {
                 "targets": [ 4 ],
@@ -73,7 +73,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 8 ],
-                "visible": true,
+                "visible": false,
             },
             {
                 "targets": [ 9 ],
@@ -97,7 +97,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 14 ],
-                "visible": true,
+                "visible": false,
             },
             {
                 "targets": [ 15 ],
@@ -117,7 +117,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 19 ],
-                "visible": true,
+                "visible": false,
             },
             {
                 "targets": [ 20 ],
@@ -130,10 +130,18 @@ function setTripsPage(){
             {
                 "targets": [ 22 ],
                 "visible": true
+            },
+            {
+                "targets": [ 23 ],
+                "visible": true
             }
         ]
     });
     $('#myTrips tbody').on('click', 'tr', function () {
+        $('.load_spinner').addClass('active');
+        setTimeout(function(){
+            $('.load_spinner').removeClass('active');
+        },1500)
         var data = table.row( this ).data();
         $('#myTrips tbody tr').removeClass('selected');
         $(this).addClass('selected')
@@ -183,9 +191,9 @@ function setTripsPage(){
         $('.returnDetails .arrive .time').text(data[21]);
         $('.returnDetails .arrive .CityCountry').text(data[1]);
 
-        console.log(data);
         switchDepartDuration(data[5]);
         switchReturnDuration(data[16]);
+        checkTripType(data[23]);
     });
     setTimeout(function(){
     	var tableRow = $('#myTrips tbody tr:first-child');
@@ -198,14 +206,24 @@ function setTripsPage(){
         $('#departure-travel .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
         $('.print-wrapper .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
 
-        console.log(dHours +"h "+ dMinutes + " m");
     }
     function switchReturnDuration(b){
         var rHours = Math.trunc(b/60);
         var rMinutes = b % 60;
         $('#return-travel .departureDetails .duration').text(rHours +"h "+ rMinutes + "m");
         $('.print-wrapper .returnDetails .duration').text(rHours +"h "+ rMinutes + "m");
-        console.log(rHours +" h "+ rMinutes + " m");
+        
+    }
+    function checkTripType(c){
+
+        if ( c === 'Oneway'){
+            $('#return-travel').addClass('hidden');
+            console.log(c)
+        }
+        else{
+            $('#return-travel').removeClass('hidden');
+            console.log(c)
+        }
     }
 }
 function setAllTripsPage(){
@@ -256,7 +274,7 @@ function setAllTripsPage(){
             },
             {
                 "targets": [ 10 ],
-                "visible": true,
+                "visible": false,
             },
             {
                 "targets": [ 11 ],
@@ -268,7 +286,7 @@ function setAllTripsPage(){
             },
             {
                 "targets": [ 13 ],
-                "visible": true
+                "visible": false
             },
             {
                 "targets": [ 14 ],
@@ -317,6 +335,10 @@ function setAllTripsPage(){
         ]
     });
     $('#allTrips tbody').on('click', 'tr', function () {
+        $('.load_spinner').addClass('active');
+        setTimeout(function(){
+            $('.load_spinner').removeClass('active');
+        },1500)
         var data = table.row( this ).data();
         $('#allTrips tbody tr').removeClass('selected');
         $(this).addClass('selected')
@@ -371,6 +393,7 @@ function setAllTripsPage(){
         console.log(data);
         changeDepartDuration(data[7]);
         changeReturnDuration(data[18]);
+        checkTripType(data[25]);
     });
     setTimeout(function(){
         var tableRow = $('#allTrips tbody tr:first-child');
@@ -391,6 +414,17 @@ function setAllTripsPage(){
         $('#return-travel .departureDetails .duration').text(rHours +"h "+ rMinutes + "m");
         $('.print-wrapper .returnDetails .duration').text(rHours +"h "+ rMinutes + "m");
         console.log(rHours +" h "+ rMinutes + " m");
+    }
+    function checkTripType(c){
+
+        if ( c === 'Oneway'){
+            $('#return-travel').addClass('hidden');
+            console.log(c)
+        }
+        else{
+            $('#return-travel').removeClass('hidden');
+            console.log(c)
+        }
     }
 }
 function setAllTravellersPage(){
@@ -434,6 +468,10 @@ function setAllTravellersPage(){
         ]
     });
     $('#allTravellers tbody').on('click', 'tr', function () {
+        $('.load_spinner').addClass('active');
+        setTimeout(function(){
+            $('.load_spinner').removeClass('active');
+        },1500)
         var data = table.row( this ).data();
         $('#allTravellers tbody tr').removeClass('selected');
         $(this).addClass('selected')
