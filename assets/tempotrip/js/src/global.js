@@ -53,7 +53,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 3 ],
-                "visible": false,
+                "visible": true,
             },
             {
                 "targets": [ 4 ],
@@ -97,7 +97,7 @@ function setTripsPage(){
             },
             {
                 "targets": [ 14 ],
-                "visible": false,
+                "visible": true,
             },
             {
                 "targets": [ 15 ],
@@ -230,7 +230,7 @@ function setAllTripsPage(){
      var table = $('#allTrips').DataTable({
         "ajax": '../js/ajax/all_trips.json',
         "select": true,
-        "order": [[ 24, "desc" ]],
+        "order": [[ 25, "desc" ]],
         "columnDefs": [
             {
                 "targets": [ 0 ],

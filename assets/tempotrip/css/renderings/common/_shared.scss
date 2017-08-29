@@ -73,7 +73,8 @@ table.dataTable tr > th:focus{
 	outline: none;
 }
 .table > thead > tr > th {
-    vertical-align: middle
+    vertical-align: middle;
+    padding:10px 10px;
 }
 .load_spinner{
 	position:absolute;
