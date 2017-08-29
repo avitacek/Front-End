@@ -10,7 +10,7 @@ $(document).ready(function(){
 	});
 });
 $(window).load(function(){
-    $("input").val("");
+    
     
     $("input").focusout(function(){
         if($(this).val() != ""){

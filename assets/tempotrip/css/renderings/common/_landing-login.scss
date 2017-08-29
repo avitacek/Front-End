@@ -99,6 +99,12 @@
 	    left: auto;
 	    right: 0;
 	  }
+	  &:last-child{
+	  	margin-bottom:0px;
+	  	& input{
+	  		margin-bottom:0px !important;
+	  	}
+	  }
 	}
 }
 #flip-form{
@@ -140,6 +146,9 @@
 			.container-fluid{
 				& .col-sm-12{
 					padding:0px 0px;
+					& .form-group{
+						margin-bottom:0px;
+					}
 				}
 				padding:0px;
 				& input[type=text], & input[type=password] {
@@ -171,6 +180,7 @@
 				    width: 100%;
 				    text-align:center;
 				    border-radius:3px;
+				    display:block;
 				    &:hover {
 			    		opacity: 0.8;
 					}
@@ -182,6 +192,14 @@
 				    padding: 16px;
 				}
 				& span.psw {
+				}
+				& .row:nth-child(2){
+					& .col-sm-12{
+						margin-top:20px;
+					}
+					& a{
+
+					}
 				}
 			}
 		}
@@ -245,6 +263,9 @@
 		&.open{
 			right:0%;
 			
+		}
+		& .form-group{
+			margin-bottom:15px;
 		}
 		& input{
 			background-color:#ffffff!important;
