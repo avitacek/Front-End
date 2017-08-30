@@ -17,4 +17,8 @@ $(document).ready(function() {
         e.preventDefault(); 
         $(this).closest('div.content-inner').remove(); x--;
     })
+    function openguest(){
+        console.log('toggle')
+        $('#traveler-3').addClass('in');
+    }
 });
