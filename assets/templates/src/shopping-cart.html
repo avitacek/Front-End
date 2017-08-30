@@ -16,14 +16,47 @@
   </head>
 
   <body id="shopping-cart-page">
-    <div class="container-fluid">
+    <div class="container-fluid header">
         <div class="row">
-            <!-- Profile ============================== -->
-            @@include('../../renderings/components/global-header.html')
-            <!-- / Profile ============================ --> 
+            <div class="col-sm-6">
+                <h1><a href="#!/search/flights" style="outline:none;border:none;"><img src="images/azdffm.logo.png"/></a></h1>
+            </div>
+            <div class="col-sm-6">
+                <ul class="dropdown">
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-btn">Flights<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <!-- Add header here -->
+                          <li>
+                                <a href="#!/search/flights">New Airline Search</a>
+                            </li>
+                            <li>
+                                <a href="https://apps.grasptechnologies.com/WebReporting/Public/login.aspx?small=1
+" target="_blank">Airline Reporting</a>
+                            </li>
+                            <!--<li>
+                                <a href="https://apps.grasptechnologies.com/WebReporting/Public/PrintInvoice.aspx?agency=3F41608197C14B4DB5F4F0066ED15F14" target="_blank">Airline Reservation</a>
+                            </li>-->
+                          <!--<li><a href="contacts">Contacts</a></li>
+                          <li><a href="index.html">Log Out</a></li>-->
+                        </ul>
+                    </li>
+                    <li><a href="https://azdffm.hotelplanner.com" target="_blank">Hotels</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="container-fluid body-content">
+        <div class="row" id="tabs">
+            <div class="col-sm-12">
+                
+            </div>
+        </div>
+        <div class="row" id="shopping-bg">
+            <div class="col-sm-12">
+                
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12">
                 <!-- Profile ============================== -->
@@ -32,8 +65,27 @@
             </div>
             
         </div>
+        <div class="row" id="customFields">
+            <div class="col-sm-12">
+                
+            </div>
+        </div>
+        <div class="row" id="paymentDetails">
+            <div class="col-sm-12">
+                
+            </div>
+            <div class="col-sm-12" id="submitpayment">
+                <a href="/alltrips.php" class="submit-payment">Submit Payment</a>
+            </div>
+        </div>
     </div>  
- 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 image-bg">
+                <div class="color-overlay"></div>
+            </div>
+        </div>
+    </div>  
     <!-- JS ============================== -->
     <script src="js/tempotrip.globals.js"></script>
     <!--PLUGIN JS-->

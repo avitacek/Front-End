@@ -4,12 +4,142 @@
 	profile-side
 -------------------------------------------------------*/
 #shopping-cart-page{
+	.image-bg{
+		background:url('../images/az-2.jpg');
+		& .color-overlay{
+			        background-color: rgba(31, 39, 70, .55);
+		}
+	}
+	& .header{
+		& .row{
+			max-width:1320px;
+			margin:0px auto;
+			padding-top:10px;
+		    .col-sm-6, .footer-basic-centered .row .col-sm-6{
+		            width: 50%;
+		            padding: 0px;
+		            margin: 0px;
+		            float: left;
+		    }
+		    .col-sm-6 img{
+		        width: 400px;
+		        height: 71px;
+		        margin: 0px auto;
+		    }
+		    .col-sm-6 ul{
+		        float: right;
+		        list-style-type: none;
+		    }
+		    .col-sm-6 ul li{
+		            color: white;
+		            width: auto;
+		            padding: 15px 10px 0px;
+		            text-align: center;
+		            float: left;
+		            line-height: 2.2em;
+		            position: relative;
+		    }
+		    .col-sm-6 ul li a{
+		            text-decoration: none;
+		            text-transform: uppercase;
+		            color: #ffffff;
+		            font-weight: bold;
+		            opacity: 1;
+		    }
+		    .col-sm-6 h1 {
+		        float: left;
+		        font-size:  28px; 
+		        font-family: 'Open Sans', sans-serif;
+		        font-weight: 300;
+		        color: #5e5e5e;
+		        line-height: 35px;
+		        margin: 0;
+		        width: 100%;
+		    }
+		    /*Heaer bootstrap drop menu customize*/
+		    .dropdown .dropdown-menu{
+		        left: auto;
+		        right: 0px;
+		        background-color: #1f2746;
+		        border-radius: 0px;
+		    }
+		    .dropdown .dropdown-menu li{
+		        padding: 0px;
+		    }
+		    .dropdown .dropdown-menu li a{
+		        color: #ffffff;
+		    }
+		    .dropdown .dropdown-menu li a:hover, .dropdown .dropdown-menu li a:focus{
+		        background-color: transparent;
+		        color: #f6861f;
+		    }
+		}
+	}
 	& .body-content{
 		& .row{
-		    padding-top: 0rem;
+		    padding-top: 15px;
+		    padding-bottom: 15px;
 			border: 1px solid #ffffff;
 			background: rgba(255,255,255,0.45);
 			margin-bottom: 20px;
+			&#tabs{
+				width:100%;
+				padding-left:15px;
+				padding-right:15px;
+				background: rgba(255,255,255,0.0);
+				border: 0px solid #ffffff;
+				padding-bottom: 0px;
+				margin-bottom:0px;
+				& .col-sm-12{
+					background:url('../images/shopping-tabs.png')top left no-repeat;
+					height:66px;
+				}
+			}
+			&#shopping-bg{
+				width:100%;
+				padding-left:15px;
+				padding-right:15px;
+				& .col-sm-12{
+					background:url('../images/orderDetails.png')top left no-repeat;
+					background-size: 100% auto;
+					height:585px;
+				}
+			}
+			&#customFields{
+				width:100%;
+				padding-left:15px;
+				padding-right:15px;
+				& .col-sm-12{
+					background:url('../images/customField.png')top left no-repeat;
+					height:221px;
+				}
+			}
+			&#paymentDetails{
+				width:100%;
+				padding-left:15px;
+				padding-right:15px;
+				& .col-sm-12{
+					background:url('../images/payment-details.png')top left no-repeat;
+					background-size: 100% auto;
+					height:564px;
+				}
+				& #submitpayment{
+					background:none;
+					height:42px;
+					padding-left:0px;
+					padding-right:0px;
+					& a{
+						width:100%;
+						height:42px;
+						padding:12px;
+						text-transform:uppercase;
+						color:#ffffff;
+						background:#f6861f;
+						display:block;
+						text-align:center;
+					}
+				}
+			}
 			#shopping-cart, #traveler-pref{
 				position: relative;
     			padding-left:0rem;

@@ -1,284 +1,280 @@
-<div class="col-sm-1"></div>
-<div class="col-sm-11" id="shopping-cart">
+<div class="col-sm-12" id="shopping-cart">
 	<div class="content-wrapper">
 	    <div class="content-outer traveler-block">
 	        <div class="label">
 	            <p>Traveler Manifest</p>
-	            <a href="#" class="add_field_button"><i class="fa fa-plus" aria-hidden="true"></i></a>
 	        </div>
 	        <div class="content-inner">
+				<div class="row">
+					<!--TRAVELER 1 DROPDOWN-->
 
-<div class="row">
-<!--TRAVELER 1 DROPDOWN-->
-
-<div class="col-sm-4 column">
-    <div class="sublabel">
-        <p><a data-toggle="collapse" data-parent="#" href="#traveler-1" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #1</a><span id="traveller-count"></span></p>
-        <select onchange="openbrett()">
-                <option>Select Traveler</option>
-                <option>Guest</option>
-                <option>Brett Buynack.</option>
-                <option>Jane Doe</option>
-                <option>John Smith</option>
-                <option>William Never</option>
-        </select>
-        <script>
-	    function openbrett() {
-	        ('toggle')
-	        $('#traveler-1').addClass('in');
-	    }
-	</script>
-    </div>
-    
-</div>
-                    
-<!--TRAVELER 2 DROPDOWN-->
-
-<div class="col-sm-4 column">
-                    <div class="sublabel">
-                        <p><a data-toggle="collapse" data-parent="#" href="#traveler-2" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #2</a><span id="traveller-count"></span></p>
-	                        <select onchange="openjohnsmith()">
-                                    <option>Select Traveler</option>
-                                    <option>Guest</option>
-					                <option>Brett Buynack</option>
-					                <option>Jane Doe</option>
-					                <option>John Smith.</option>
-					                <option>William Never</option>
-					        </select>
-                            <script>
-							    function openjohnsmith() {
-							        ('toggle')
-							        $('#traveler-2').addClass('in');
-							    }
-							</script>
-	                    </div>
-                    </div>
-
-<!--TRAVELER 3 DROPDOWN-->
-
-<div class="col-sm-4 column">
-                    <div class="sublabel">
-                        <p><a data-toggle="collapse" data-parent="#" href="#traveler-3" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #3</a><span id="traveller-count"></span></p>
-	                        <select onchange="openguest()">
-                                    <option>Select Traveler</option>
-                                    <option>Guest.</option>
-					                <option>Brett Buynack</option>
+					<div class="col-sm-4 column">
+					    <div class="sublabel">
+					        <p><a data-toggle="collapse" data-parent="#" href="#traveler-1" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #1</a><span id="traveller-count"></span></p>
+					        <select onchange="openbrett()">
+					                <option>Select Traveler</option>
+					                <option>Guest</option>
+					                <option>Brett Buynack.</option>
 					                <option>Jane Doe</option>
 					                <option>John Smith</option>
 					                <option>William Never</option>
-
 					        </select>
-                            <script>
-    function openguest() {
-        ('toggle')
-        $('#traveler-3').addClass('in');
-    }
-</script>
-	                    </div>
-                    </div>
+					        <script>
+						    function openbrett() {
+						        ('toggle')
+						        $('#traveler-1').addClass('in');
+						    }
+						</script>
+					    </div>
+					    
+					</div>
+					                    
+					<!--TRAVELER 2 DROPDOWN-->
 
-</div>
-                <div id="traveler-1" class="panel-collapse collapse" aria-expanded="true">
-	               <div class="row">
-	                <div class="col-sm-12 column">
-                        <h3 class="form-label">Traveler #1 Details&nbsp;&nbsp;<span><small class="font-xs p-15 pull-right"><a data-toggle="collapse" data-parent="#" href="#traveler-1" class="text-warning" aria-expanded="false"><u>Hide Traveler Details</u></a></small></span></h3>
-	                    <div class="form-group">
-	                        <p class="form-label">Full Legal Name</p>
-	                        <div class="row">
-	                            <div class="col-sm-12 col-md-4 columns">
-	                                <label>* First Name</label>
-	                                <input class="cart-input" name="first_name" type="text" placeholder="First" value="Brett">
-	                            </div>
-	                            <div class="col-sm-12 col-md-4 columns">
-	                                <label>Middle Name</label>
-	                                <input class="cart-input" name="middle_name" type="text" placeholder="Middle">
-	                            </div>
-	                            <div class="col-sm-12 col-md-4 columns">
-	                                <label>* Last Name</label>
-	                                <input class="cart-input" name="last_name" type="text" placeholder="Last" value="Buynack">
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	               <div class="row">
-	                <div class="col-sm-12 col-md-12 columns">
-	                    <div class="form-group">
-	                        <p class="form-label">Passenger Summary</p>
-	                        <div class="row">
-	                            <div class="col-sm-4 columns">
-	                                <label>* Month</label>
-	                                <select>
-	                                    <option>January</option>
-	                                    <option>Febuary</option>
-	                                    <option>March</option>
-	                                    <option>April</option>
-	                                    <option value="may" selected>May</option>
-	                                    <option>June</option>
-	                                    <option>July</option>
-	                                    <option>August</option>
-	                                    <option>September</option>
-	                                    <option>October</option>
-	                                    <option>November</option>
-	                                    <option>December</option>
+					<div class="col-sm-4 column">
+					                    <div class="sublabel">
+					                        <p><a data-toggle="collapse" data-parent="#" href="#traveler-2" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #2</a><span id="traveller-count"></span></p>
+						                        <select onchange="openjohnsmith()">
+					                                    <option>Select Traveler</option>
+					                                    <option>Guest</option>
+										                <option>Brett Buynack</option>
+										                <option>Jane Doe</option>
+										                <option>John Smith.</option>
+										                <option>William Never</option>
+										        </select>
+					                            <script>
+												    function openjohnsmith() {
+												        ('toggle')
+												        $('#traveler-2').addClass('in');
+												    }
+												</script>
+						                    </div>
+					                    </div>
 
-	                                </select>
-	                            </div>
-	                            <div class="col-sm-4 columns">
-	                                <label>* Day</label>
-	                                <select>
-	                                    <option>1</option>
-	                                    <option>2</option>
-	                                    <option>3</option>
-	                                    <option>4</option>
-	                                    <option>5</option>
-	                                    <option>6</option>
-	                                    <option>7</option>
-	                                    <option>8</option>
-	                                    <option>9</option>
-	                                    <option>10</option>
-	                                    <option value="11" selected>11</option>
-	                                    <option>12</option>
-	                                    <option>13</option>
-	                                    <option>14</option>
-	                                    <option>15</option>
-	                                    <option>16</option>
-	                                    <option>17</option>
-	                                    <option>18</option>
-	                                    <option>19</option>
-	                                    <option>20</option>
-	                                    <option>21</option>
-	                                    <option>22</option>
-	                                    <option>23</option>
-	                                    <option>24</option>
-	                                    <option>25</option>
-	                                    <option>26</option>
-	                                    <option>27</option>
-	                                    <option>28</option>
-	                                    <option>29</option>
-	                                    <option>30</option>
-	                                    <option>31</option>
-	                                </select>
-	                            </div>
-	                            <div class="col-sm-4 columns">
-	                                <label>* Year</label>
-	                                <select ng-model="traveler.dobYear" name="lname" >
-	                                    <option>2017</option>
-	                                    <option>2016</option>
-	                                    <option>2015</option>
-	                                    <option>2014</option>
-	                                    <option>2013</option>
-	                                    <option>2012</option>
-	                                    <option>2011</option>
-	                                    <option>2010</option>
-	                                    <option>2009</option>
-	                                    <option>2008</option>
-	                                    <option>2007</option>
-	                                    <option>2006</option>
-	                                    <option>2005</option>
-	                                    <option>2004</option>
-	                                    <option>2003</option>
-	                                    <option>2002</option>
-	                                    <option>2001</option>
-	                                    <option>2000</option>
-	                                    <option>1999</option>
-	                                    <option>1998</option>
-	                                    <option>1997</option>
-	                                    <option>1996</option>
-	                                    <option>1995</option>
-	                                    <option>1994</option>
-	                                    <option>1993</option>
-	                                    <option>1992</option>
-	                                    <option>1991</option>
-	                                    <option>1990</option>
-	                                    <option>1989</option>
-	                                    <option>1988</option>
-	                                    <option>1987</option>
-	                                    <option>1986</option>
-	                                    <option>1985</option>
-	                                    <option>1984</option>
-	                                    <option value="1983" selected>1983</option>
-	                                    <option>1982</option>
-	                                    <option>1981</option>
-	                                    <option>1980</option>
-	                                    <option>1979</option>
-	                                    <option>1978</option>
-	                                    <option>1977</option>
-	                                    <option>1976</option>
-	                                    <option>1975</option>
-	                                    <option>1974</option>
-	                                    <option>1973</option>
-	                                    <option>1972</option>
-	                                    <option>1971</option>
+					<!--TRAVELER 3 DROPDOWN-->
 
-	                                </select>
-	                                </div>
-	                            <div class="col-sm-12 columns">
-	                                <label>* Gender</label>
-	                                <select >
-	                                    <option value="Male" selected>Male</option>
-	                                    <option>Female</option>
-	                                </select>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	               <div class="row">
-	                <div class="col-sm-12 column">
-	                    <div class="form-group">
-	                        <p class="form-label">Contact Details</p>
-	                        <div class="row">
-	                            <div class="col-sm-12 col-mg-6 columns">
-	                                <label>* Phone</label>
-	                                <input class="cart-input" name="phone" type="tel" placeholder="Phone Number" value="(847) 654-8976">
-	                            </div>
-	                            <div class="col-sm-12 col-mg-6 columns">
-	                                <label>* E-mail</label>
-	                                <input class="cart-input" name="email" type="text" placeholder="Email" value="brett@optionstravel.com">
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-                    <div class="row" id="flyer-pref">
-	            	<div class="col-sm-12 column">
-					    <div class="form-group">
-					        <p class="form-label">Frequent Flyer, Redress, Known Traveler Numbers</p>
-					        <div class="row">
-					            <div class="col-sm-12 col-md-6 columns">
-					                <label>Frequent Flyer Number</label>
-					                <input class="cart-input"  name="ffnumber" type="text" placeholder="If you have one" value="AA23948122">
-					            </div>
-					            <div class="col-sm-12 col-md-6 columns">
-					                <label>Frequent Flyer Airline</label>
-					                <select>
-					                    <option ng-repeat="airline in airlines" value="American Airlines" selected>American Airlines</option>
-					                    <option ng-repeat="airline in airlines">Delta Airlines</option>
-					                    <option ng-repeat="airline in airlines">Spirit Airlines</option>
-					                    <option ng-repeat="airline in airlines">Frontier Airlines</option>
-					                    <option ng-repeat="airline in airlines">Southwest Airlines</option>
-					                    <option ng-repeat="airline in airlines">United Airlines</option>
-					                    <option ng-repeat="airline in airlines">Virgin Airlines</option>
-					                </select>
-					            </div>
-					        </div>
-					        <div class="row collapse">
-					            <div class="col-sm-12 col-md-6 columns">
-					                <label>Known Traveler Number <img src="https://api.militarytogo.com/images/misc/tsa.png" width="52" height="15"></label>
-					                <input class="cart-input" name="ktnumber" type="text" placeholder="If you have one">
-					            </div>
-					            <div class="col-sm-12 col-md-6 columns">
-					                <label>Redress Number</label>
-					                <input class="cart-input" name="rdnumber" type="text" placeholder="If you have one">
-					            </div>
+					<div class="col-sm-4 column">
+					    <div class="sublabel">
+					        <p><a data-toggle="collapse" data-parent="#" href="#traveler-3" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #3</a><span id="traveller-count"></span></p>
+					            <select onchange="openguest()">
+					                    <option>Select Traveler</option>
+					                    <option>Guest.</option>
+						                <option>Brett Buynack</option>
+						                <option>Jane Doe</option>
+						                <option>John Smith</option>
+						                <option>William Never</option>
 
-					        </div>
+						        </select>
+					            <script>
+								    function openguest() {
+								        ('toggle')
+								        $('#traveler-3').addClass('in');
+								    }
+								</script>
 					    </div>
 					</div>
-	            </div>
+
+				</div>
+                <div id="traveler-1" class="panel-collapse collapse" aria-expanded="true">
+		            <div class="row">
+		                <div class="col-sm-12 column">
+	                        <h3 class="form-label">Traveler #1 Details&nbsp;&nbsp;<span><small class="font-xs p-15 pull-right"><a data-toggle="collapse" data-parent="#" href="#traveler-1" class="text-warning" aria-expanded="false"><u>Hide Traveler Details</u></a></small></span></h3>
+		                    <div class="form-group">
+		                        <p class="form-label">Full Legal Name</p>
+		                        <div class="row">
+		                            <div class="col-sm-12 col-md-4 columns">
+		                                <label>* First Name</label>
+		                                <input class="cart-input" name="first_name" type="text" placeholder="First" value="Brett">
+		                            </div>
+		                            <div class="col-sm-12 col-md-4 columns">
+		                                <label>Middle Name</label>
+		                                <input class="cart-input" name="middle_name" type="text" placeholder="Middle">
+		                            </div>
+		                            <div class="col-sm-12 col-md-4 columns">
+		                                <label>* Last Name</label>
+		                                <input class="cart-input" name="last_name" type="text" placeholder="Last" value="Buynack">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+	               	<div class="row">
+		                <div class="col-sm-12 col-md-12 columns">
+		                    <div class="form-group">
+		                        <p class="form-label">Passenger Summary</p>
+		                        <div class="row">
+		                            <div class="col-sm-4 columns">
+		                                <label>* Month</label>
+		                                <select>
+		                                    <option>January</option>
+		                                    <option>Febuary</option>
+		                                    <option>March</option>
+		                                    <option>April</option>
+		                                    <option value="may" selected>May</option>
+		                                    <option>June</option>
+		                                    <option>July</option>
+		                                    <option>August</option>
+		                                    <option>September</option>
+		                                    <option>October</option>
+		                                    <option>November</option>
+		                                    <option>December</option>
+
+		                                </select>
+		                            </div>
+		                            <div class="col-sm-4 columns">
+		                                <label>* Day</label>
+		                                <select>
+		                                    <option>1</option>
+		                                    <option>2</option>
+		                                    <option>3</option>
+		                                    <option>4</option>
+		                                    <option>5</option>
+		                                    <option>6</option>
+		                                    <option>7</option>
+		                                    <option>8</option>
+		                                    <option>9</option>
+		                                    <option>10</option>
+		                                    <option value="11" selected>11</option>
+		                                    <option>12</option>
+		                                    <option>13</option>
+		                                    <option>14</option>
+		                                    <option>15</option>
+		                                    <option>16</option>
+		                                    <option>17</option>
+		                                    <option>18</option>
+		                                    <option>19</option>
+		                                    <option>20</option>
+		                                    <option>21</option>
+		                                    <option>22</option>
+		                                    <option>23</option>
+		                                    <option>24</option>
+		                                    <option>25</option>
+		                                    <option>26</option>
+		                                    <option>27</option>
+		                                    <option>28</option>
+		                                    <option>29</option>
+		                                    <option>30</option>
+		                                    <option>31</option>
+		                                </select>
+		                            </div>
+		                            <div class="col-sm-4 columns">
+		                                <label>* Year</label>
+		                                <select ng-model="traveler.dobYear" name="lname" >
+		                                    <option>2017</option>
+		                                    <option>2016</option>
+		                                    <option>2015</option>
+		                                    <option>2014</option>
+		                                    <option>2013</option>
+		                                    <option>2012</option>
+		                                    <option>2011</option>
+		                                    <option>2010</option>
+		                                    <option>2009</option>
+		                                    <option>2008</option>
+		                                    <option>2007</option>
+		                                    <option>2006</option>
+		                                    <option>2005</option>
+		                                    <option>2004</option>
+		                                    <option>2003</option>
+		                                    <option>2002</option>
+		                                    <option>2001</option>
+		                                    <option>2000</option>
+		                                    <option>1999</option>
+		                                    <option>1998</option>
+		                                    <option>1997</option>
+		                                    <option>1996</option>
+		                                    <option>1995</option>
+		                                    <option>1994</option>
+		                                    <option>1993</option>
+		                                    <option>1992</option>
+		                                    <option>1991</option>
+		                                    <option>1990</option>
+		                                    <option>1989</option>
+		                                    <option>1988</option>
+		                                    <option>1987</option>
+		                                    <option>1986</option>
+		                                    <option>1985</option>
+		                                    <option>1984</option>
+		                                    <option value="1983" selected>1983</option>
+		                                    <option>1982</option>
+		                                    <option>1981</option>
+		                                    <option>1980</option>
+		                                    <option>1979</option>
+		                                    <option>1978</option>
+		                                    <option>1977</option>
+		                                    <option>1976</option>
+		                                    <option>1975</option>
+		                                    <option>1974</option>
+		                                    <option>1973</option>
+		                                    <option>1972</option>
+		                                    <option>1971</option>
+
+		                                </select>
+		                                </div>
+		                            <div class="col-sm-12 columns">
+		                                <label>* Gender</label>
+		                                <select >
+		                                    <option value="Male" selected>Male</option>
+		                                    <option>Female</option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+	               	<div class="row">
+		                <div class="col-sm-12 column">
+		                    <div class="form-group">
+		                        <p class="form-label">Contact Details</p>
+		                        <div class="row">
+		                            <div class="col-sm-12 col-mg-6 columns">
+		                                <label>* Phone</label>
+		                                <input class="cart-input" name="phone" type="tel" placeholder="Phone Number" value="(847) 654-8976">
+		                            </div>
+		                            <div class="col-sm-12 col-mg-6 columns">
+		                                <label>* E-mail</label>
+		                                <input class="cart-input" name="email" type="text" placeholder="Email" value="brett@optionstravel.com">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+                    <div class="row" id="flyer-pref">
+		            	<div class="col-sm-12 column">
+						    <div class="form-group">
+						        <p class="form-label">Frequent Flyer, Redress, Known Traveler Numbers</p>
+						        <div class="row">
+						            <div class="col-sm-12 col-md-6 columns">
+						                <label>Frequent Flyer Number</label>
+						                <input class="cart-input"  name="ffnumber" type="text" placeholder="If you have one" value="AA23948122">
+						            </div>
+						            <div class="col-sm-12 col-md-6 columns">
+						                <label>Frequent Flyer Airline</label>
+						                <select>
+						                    <option ng-repeat="airline in airlines" value="American Airlines" selected>American Airlines</option>
+						                    <option ng-repeat="airline in airlines">Delta Airlines</option>
+						                    <option ng-repeat="airline in airlines">Spirit Airlines</option>
+						                    <option ng-repeat="airline in airlines">Frontier Airlines</option>
+						                    <option ng-repeat="airline in airlines">Southwest Airlines</option>
+						                    <option ng-repeat="airline in airlines">United Airlines</option>
+						                    <option ng-repeat="airline in airlines">Virgin Airlines</option>
+						                </select>
+						            </div>
+						        </div>
+						        <div class="row collapse">
+						            <div class="col-sm-12 col-md-6 columns">
+						                <label>Known Traveler Number <img src="https://api.militarytogo.com/images/misc/tsa.png" width="52" height="15"></label>
+						                <input class="cart-input" name="ktnumber" type="text" placeholder="If you have one">
+						            </div>
+						            <div class="col-sm-12 col-md-6 columns">
+						                <label>Redress Number</label>
+						                <input class="cart-input" name="rdnumber" type="text" placeholder="If you have one">
+						            </div>
+
+						        </div>
+						    </div>
+						</div>
+		            </div>
                 </div>
-                
                 <div id="traveler-2" class="panel-collapse collapse" aria-expanded="true">
 	               <div class="row">
 	                <div class="col-sm-12 column">
@@ -683,7 +679,6 @@
 	        
             </div>
 	    </div>
-        <a href="/alltrips.php" class="submit-payment">Submit Payment</a>
     </div>
 </div>
 
