@@ -26,18 +26,17 @@
     function openbrett() {
         ('toggle')
         $('#traveler-1').addClass('in');
-        $('#hide-show').addClass('show');
     }
 </script>
     </div>
-    <a data-toggle="collapse" data-parent="#" href="#traveler-1" class="text-warning hidden" aria-expanded="false" id="hide-show"><u>Hide/Show Traveler 1 Details</u></a>
+    
 </div>
                     
 <!--TRAVELER 2 DROPDOWN-->
 <!----------------------->
 <div class="col-sm-4 column">
                     <div class="sublabel">
-	                        <p class="text-uppercase">Traveler #2<span id="traveller-count"></span></p>
+                        <p><a data-toggle="collapse" data-parent="#" href="#traveler-2" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #2</a><span id="traveller-count"></span></p>
 	                        <select onchange="openjohnsmith()">
                                     <option>Select Traveler</option>
                                     <option>Guest</option>
@@ -59,7 +58,7 @@
 <!----------------------->
 <div class="col-sm-4 column">
                     <div class="sublabel">
-	                        <p>Traveler #3<span id="traveller-count"></span></p>
+                        <p><a data-toggle="collapse" data-parent="#" href="#traveler-3" class="text-uppercase" aria-expanded="false" style="color:white;">Traveler #3</a><span id="traveller-count"></span></p>
 	                        <select onchange="openguest()">
                                     <option>Select Traveler</option>
                                     <option>Guest.</option>
@@ -282,7 +281,7 @@
                 <div id="traveler-2" class="panel-collapse collapse" aria-expanded="true">
 	               <div class="row">
 	                <div class="col-sm-12 column">
-                        <h3 class="form-label">Traveler #2 Details</h3>
+                        <h3 class="form-label">Traveler #2 Details&nbsp;<span><small class="font-xs p-15 pull-right"><a data-toggle="collapse" data-parent="#" href="#traveler-2" class="text-warning" aria-expanded="false"><u>Hide Traveler Details</u></a></small></span></h3>
 	                    <div class="form-group">
 	                        <p class="form-label">Full Legal Name</p>
 	                        <div class="row">
@@ -483,7 +482,7 @@
                 <div id="traveler-3" class="panel-collapse collapse" aria-expanded="true">
                     <div class="row">
 	                <div class="col-sm-12 column">
-                        <h3 class="form-label">Traveler #3 Details</h3>
+                        <h3 class="form-label">Traveler #3 Details&nbsp;<span><small class="font-xs p-15 pull-right"><a data-toggle="collapse" data-parent="#" href="#traveler-3" class="text-warning" aria-expanded="false"><u>Hide Traveler Details</u></a></small></span></h3>
 	                    <div class="form-group">
 	                        <p class="form-label">Full Legal Name</p>
 	                        <div class="row">
