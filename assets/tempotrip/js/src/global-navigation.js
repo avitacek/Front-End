@@ -32,32 +32,37 @@ $(document).ready(function(){
             link: '/profile.php',
             fontA:'fa fa-home fa-lg',
             class:'active',
+            target:'',
             sub: null
         }, {
-            name: 'Travellers',
+            name: 'Travelers',
             link: '/alltravellers.php',
             fontA:'fa fa-users fa-lg',
             class:'active',
+            target:'',
             sub: null
         }, {
             name: 'Reports',
-            link: '',
-            fontA:'fa fa-bar-chart fa-lg disabled',
-            class:'disabled',
+            link: 'https://apps.grasptechnologies.com/WebReporting/Public/login.aspx?small=1',
+            fontA:'fa fa-bar-chart fa-lg',
+            class:'',
+            target:'_blank',
             sub: null
         }, {
-            name: 'Flights',
+            name: 'Approvals',
             link: '',
             fontA:'fa fa-plane fa-lg disabled',
             class:'disabled',
+            target:'',
             sub: null
         },{
             name: 'Trips',
             link: '/alltrips.php',
             fontA:'fa fa-briefcase fa-lg',
             class:'active',
+            target:'',
             sub: null
-        }, {
+        }/*, {
             name: 'Settings',
             link: '',
             fontA: 'fa fa-cog fa-lg disabled',
@@ -70,7 +75,7 @@ $(document).ready(function(){
             fontA: 'fa fa-life-ring fa-lg disabled',
             class:'disabled',
             sub: null
-        }]
+        }*/]
     };
     var getMenuItem = function (itemData) {
         var item = $("<li>")
@@ -80,6 +85,7 @@ $(document).ready(function(){
             	}),
 		        $("<a>", {
                     class: itemData.class,
+                    target: itemData.target,
 		            href: itemData.link,
 		            html: itemData.name
 		        }));

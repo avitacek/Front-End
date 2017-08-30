@@ -15,6 +15,7 @@ var browserSync = require('browser-sync').create();
 var env = process.env.NODE_ENV || 'dev';
 var config = require('./gulp/' + env);
 
+
 gulp.task('fileinclude', function() {
   return gulp.src('./assets/templates/src/**/*.html')
     .pipe(fileinclude({
@@ -39,7 +40,6 @@ gulp.task('fonts', function() {
 gulp.task('data', function() {
    return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/js/ajax'));
 });
-
 
 gulp.task('sass', function () {
   return gulp.src('./assets/tempotrip/css/**/*.scss')
@@ -84,8 +84,7 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
           baseDir: "../../www/"
-        },
-        port: 8888
+        }
     });
 });
 
@@ -96,7 +95,6 @@ gulp.task('watch', function() {
   
   // Watch .sass files
   gulp.watch('./assets/tempotrip/css/**/*.scss', ['sass', browserSync.reload]);
-  
   // Watch .js files
   gulp.watch('./assets/tempotrip/js/src/*.js', ['js1']);
   gulp.watch('./assets/tempotrip/js/src/*.js', ['js2']);
