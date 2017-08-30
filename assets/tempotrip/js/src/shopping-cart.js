@@ -17,4 +17,5 @@ $(document).ready(function() {
         e.preventDefault(); 
         $(this).closest('div.content-inner').remove(); x--;
     })
+
 });
