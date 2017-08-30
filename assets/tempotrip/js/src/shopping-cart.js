@@ -17,12 +17,10 @@ $(document).ready(function() {
         e.preventDefault(); 
         $(this).closest('div.content-inner').remove(); x--;
     })
-<<<<<<< HEAD
 
-=======
     function openguest(){
         console.log('toggle')
         $('#traveler-3').addClass('in');
     }
->>>>>>> refs/remotes/origin/master
+
 });
