@@ -16,7 +16,7 @@
 		width:100%;
 		height:100%;
 		z-index:-1;
-		background: url(../images/photos/AdobeStock_4202599.jpeg) center center;
+		background: url(../images/photos/AdobeStock_4202599.jpeg) center center no-repeat;
 		background-size:100% auto;
 		& .color-overlay{
 			position:absolute;
@@ -28,6 +28,17 @@
 			width:100%;
 			height:100%;
 		}
+}
+/*Body content slider*/
+.body-content{
+	position:relative;
+	left:0px;
+	transition:all 0.5s 0s linear;
+	padding-top:130px;
+	& .row{
+		max-width:1280px;
+		margin:0px auto;
+	}
 }
 ul#tab-menu{
 	display: flex; 

@@ -1,0 +1,47 @@
+@import "../../../globals/variables";
+@import "../../../globals/mixins";
+@include max-screen(small) {
+	#settings-page{
+		& .body-content{
+			padding-top:90px;
+			& .col-sm-8{
+				width:100%;
+				padding-left:0px;
+				padding-right:0px;
+				& .content-settings-form{
+					& .container-fluid{
+						padding-left:0px;
+						padding-right:0px;
+						& .col-md-12{
+							padding-left:0px;
+							padding-right:0px;
+							& .nav-tabs{
+								width:100%;
+								display:table;
+								& li{
+								display:table-cell;
+								float:none;
+									& a{
+										border-bottom-width:0px;
+									}
+								}
+							}
+							& .tab-content{
+								& .tab-pane{
+									& .card{
+										& .header{
+											& .title{
+												font-size:20px;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

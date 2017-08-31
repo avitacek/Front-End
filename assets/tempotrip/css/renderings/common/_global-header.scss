@@ -215,7 +215,7 @@ body{
 		    height: 100%; /* 100% Full-height */
 		    width: 50px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
-		    z-index: 1; /* Stay on top */
+		    z-index: 10; /* Stay on top */
 		    top:70px;
 		    left: 0px;
 		    border-right:1px solid #dfe2e5;
@@ -354,17 +354,6 @@ body{
 	&.hamburgerNavActive a#adminAccordian, &.hamburgerNavActive a#travellerAccordian, &.hamburgerNavActive a#logOut{
     	margin-left:35px!important;
     }
-}
-/*Body content slider*/
-.body-content{
-	position:relative;
-	left:0px;
-	transition: 0.5s;
-	padding-top:130px;
-	& .row{
-		max-width:1320px;
-		margin:0px auto;
-	}
 }
 &.hamburgerNavActive .body-content{
 	left:250px;
