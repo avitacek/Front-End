@@ -1,5 +1,5 @@
 {
-  "name": "umn-gilead-prototype",
+  "name": "umn-temptrip-prototype",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -25,6 +25,8 @@
     "compass": "^0.1.1",
     "datatables-bootstrap": "0.0.1",
     "datatables.net": "^1.10.15",
+    "datatables.net-responsive": "^2.1.1",
+    "datatables.net-responsive-dt": "^2.1.1",
     "font-awesome": "^4.7.0",
     "get-config": "^0.6.15",
     "get-env": "^0.5.10",

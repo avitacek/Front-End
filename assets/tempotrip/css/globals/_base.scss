@@ -55,8 +55,9 @@ p, ul {
 			border:1px solid #e3e3e3;
 			box-shadow: none;
 			display:block;
-			width:40%;
+			width:60%;
 			height:auto;
+			max-width:1024px;
 			& .logo{
 				width:58%;
 				height:60px;

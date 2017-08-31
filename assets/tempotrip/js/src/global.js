@@ -37,6 +37,11 @@ function setTripsPage(){
      var table = $('#myTrips').DataTable({
     	"ajax": '../js/ajax/my_trips.json',
     	"select": true,
+        "rowReorder": {
+            selector: 'td:nth-child(2)'
+        },
+        "responsive": true,
+        "scrollX": true,
     	"order": [[ 23, "desc" ]],
         "columnDefs": [
             {
@@ -230,6 +235,11 @@ function setAllTripsPage(){
      var table = $('#allTrips').DataTable({
         "ajax": '../js/ajax/all_trips.json',
         "select": true,
+        "rowReorder": {
+            selector: 'td:nth-child(2)'
+        },
+        "responsive": true,
+        "scrollX": true,
         "order": [[ 25, "desc" ]],
         "columnDefs": [
             {
@@ -431,6 +441,11 @@ function setAllTravellersPage(){
      var table = $('#allTravellers').DataTable({
         "ajax": '../js/ajax/travellers.json',
         "select": true,
+        "rowReorder": {
+            selector: 'td:nth-child(2)'
+        },
+        "responsive": true,
+        "scrollX": true,
         "order": [[ 0, "desc" ]],
         "columnDefs": [
             {

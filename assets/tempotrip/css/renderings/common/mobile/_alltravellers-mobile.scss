@@ -1,2 +1,40 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
+@include max-screen(large){
+	& .col-md-6{
+		padding-left:0px;
+		padding-right:0px;
+		&:first-child{
+			padding-right:10px;
+
+		}
+	}
+}
+@include max-screen(mediumLarge){
+	& .col-md-6{
+		padding-left:0px;
+		padding-right:0px;
+		&:fist-child{
+			padding-right:10px;
+
+		}
+	}
+}
+@include max-screen(small) {
+	#all-travellers-page{
+		& .body-content{
+			padding-top:90px;
+			& .col-sm-8, & .col-sm-4{
+				width:100%;
+				padding-right:0px;
+				padding-left:0px;
+			}
+			& #allTravellers_wrapper{
+				width:100%;
+				& .dataTables_length, & .dataTables_filter{
+					display:none;
+				}
+			}
+		}
+	}
+}
