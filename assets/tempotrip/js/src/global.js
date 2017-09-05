@@ -32,6 +32,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'all-travellers-page'){
         setAllTravellersPage();
     }
+    else if ($('body').attr('id') === 'approvals-page'){
+        setApprovalsPage();
+    }
 }
 function setTripsPage(){
      var table = $('#myTrips').DataTable({
@@ -400,7 +403,7 @@ function setAllTripsPage(){
         $('.returnDetails .arrive .time').text(data[4]);
         $('.returnDetails .arrive .CityCountry').text(data[3]);
 
-        console.log(data);
+        //console.log(data);
         changeDepartDuration(data[7]);
         changeReturnDuration(data[18]);
         checkTripType(data[25]);
@@ -416,7 +419,6 @@ function setAllTripsPage(){
         $('#departure-travel .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
         $('.print-wrapper .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
 
-        console.log(dHours +"h "+ dMinutes + " m");
     }
     function changeReturnDuration(b){
         var rHours = Math.trunc(b/60);
@@ -429,11 +431,11 @@ function setAllTripsPage(){
 
         if ( c === 'Oneway'){
             $('#return-travel').addClass('hidden');
-            console.log(c)
+            
         }
         else{
             $('#return-travel').removeClass('hidden');
-            console.log(c)
+            
         }
     }
 }
@@ -527,6 +529,237 @@ function setAllTravellersPage(){
         var tableRow = $('#allTravellers tbody tr:first-child');
         $(tableRow).trigger('click');
     },500);
+}
+function setApprovalsPage(){
+     var table = $('#approvals').DataTable({
+        "ajax": '../js/ajax/approvals.json',
+        "select": true,
+        "rowReorder": {
+            selector: 'td:nth-child(2)'
+        },
+        "responsive": true,
+        "scrollX": true,
+        "order": [[ 26, "asc" ]],
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": true
+            },
+            {
+                "targets": [ 1 ],
+                "visible": false
+            },
+            {
+                "targets": [ 2 ],
+                "visible": true
+            },
+            {
+                "targets": [ 3 ],
+                "visible": false
+            },
+            {
+                "targets": [ 4 ],
+                "visible": false
+            },
+            {
+                "targets": [ 5 ],
+                "visible": false
+            },
+            {
+                "targets": [ 6 ],
+                "visible": false
+            },
+            {
+                "targets": [ 7 ],
+                "visible": false,
+            },
+            {
+                "targets": [ 8 ],
+                "visible": false,
+            },
+            {
+                "targets": [ 9 ],
+                "visible": true
+            },
+            {
+                "targets": [ 10 ],
+                "visible": false,
+            },
+            {
+                "targets": [ 11 ],
+                "visible": false
+            },
+            {
+                "targets": [ 12 ],
+                "visible": false
+            },
+            {
+                "targets": [ 13 ],
+                "visible": true
+            },
+            {
+                "targets": [ 14 ],
+                "visible": false
+            },
+            {
+                "targets": [ 15 ],
+                "visible": false
+            },
+            {
+                "targets": [ 16 ],
+                "visible": false
+            },
+            {
+                "targets": [ 17 ],
+                "visible": false
+            },
+            {
+                "targets": [ 18 ],
+                "visible": false
+            },
+            {
+                "targets": [ 19 ],
+                "visible": false
+            },
+            {
+                "targets": [ 20 ],
+                "visible": false
+            },
+            {
+                "targets": [ 21 ],
+                "visible": false
+            },
+            {
+                "targets": [ 22 ],
+                "visible": false
+            },
+            {
+                "targets": [ 23 ],
+                "visible": false
+            },
+            {
+                "targets": [ 24 ],
+                "visible": true
+            },
+            {
+                "targets": [ 25 ],
+                "visible": false
+            },
+            {
+                "targets": [ 26 ],
+                "visible": true,
+                "class": "approvals"
+            }
+        ]
+    });
+
+    $('#approvals tbody').on('click', 'tr', function () {
+        $('.load_spinner').addClass('active');
+        setTimeout(function(){
+            $('.load_spinner').removeClass('active');
+        },1500)
+        var data = table.row( this ).data();
+        $('#approvals tbody tr').removeClass('selected');
+        $(this).addClass('selected')
+        $('#travellerName .traveller_name').text(data[0]);
+        $('#travellerName .traveller_email').text(data[1]);
+        $('#deptHeader .City').text(data[2]);
+        $('#deptHeader .CityCountry').text(data[3]);
+        $('#arrvHeader .City').text(data[15]);
+        $('#arrvHeader .CityCountry').text(data[14]);
+
+        $('#departure-travel .departureDetails .airline').text(data[5]);
+        $('#departure-travel .departureDetails .flightNumber').text(data[6]);
+        $('#departure-travel .departureDetails .recordLocator').text(data[8]);
+
+        $('#departure-travel .departureTime .leave .date').text(data[11]);
+        $('#departure-travel .departureTime .leave .time').text(data[10]);
+        $('#departure-travel .departureTime .arrive .date').text(data[11]);
+        $('#departure-travel .departureTime .arrive .time').text(data[12]);
+
+        $('#return-travel .departureDetails .airline').text(data[16]);
+        $('#return-travel .departureDetails .flightNumber').text(data[17]);
+        $('#return-travel .departureDetails .duration').text(data[18]);
+        $('#return-travel .departureDetails .recordLocator').text(data[19]);
+
+        $('#return-travel .departureTime .leave .date').text(data[20]);
+        $('#return-travel .departureTime .leave .time').text(data[21]);
+        $('#return-travel .departureTime .arrive .date').text(data[22]);
+        $('#return-travel .departureTime .arrive .time').text(data[23]);
+
+        //add print data//
+        $('.traveller').text(data[0]);
+        $('.departureDetails .depart .City').text(data[3]);
+        $('.departureDetails .depart .time').text(data[11]);
+        $('.departureDetails .depart .CityCountry').text(data[4]);
+        $('.departureDetails .depart .airline').text(data[5]);
+        $('.departureDetails .depart .flightNumber').text(data[6]);
+        $('.departureDetails .depart .date').text(data[10]);
+        $('.departureDetails .arrive .City').text(data[14]);
+        $('.departureDetails .arrive .time').text(data[11]);
+        $('.departureDetails .arrive .CityCountry').text(data[15]);
+
+        $('.returnDetails .depart .City').text(data[14]);
+        $('.returnDetails .depart .time').text(data[22]);
+        $('.returnDetails .depart .CityCountry').text(data[15]);
+        $('.returnDetails .depart .airline').text(data[16]);
+        $('.returnDetails .depart .flightNumber').text(data[17]);
+        $('.returnDetails .depart .date').text(data[21]);
+        $('.returnDetails .arrive .City').text(data[3]);
+        $('.returnDetails .arrive .time').text(data[4]);
+        $('.returnDetails .arrive .CityCountry').text(data[3]);
+
+        //console.log(data);
+        changeDepartDuration(data[7]);
+        changeReturnDuration(data[18]);
+        checkTripType(data[25]);
+        checkApprovals(data[26]);
+    });
+    setTimeout(function(){
+        var tableRow = $('#approvals tbody tr:first-child');
+        $(tableRow).trigger('click');
+    },500);
+    
+    function changeDepartDuration(a){
+        var dHours = Math.trunc(a/60);
+        var dMinutes = a % 60;
+        $('#departure-travel .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
+        $('.print-wrapper .departureDetails .duration').text(dHours +"h "+ dMinutes + "m");
+
+        console.log(dHours +"h "+ dMinutes + " m");
+    }
+    function changeReturnDuration(b){
+        var rHours = Math.trunc(b/60);
+        var rMinutes = b % 60;
+        $('#return-travel .departureDetails .duration').text(rHours +"h "+ rMinutes + "m");
+        $('.print-wrapper .returnDetails .duration').text(rHours +"h "+ rMinutes + "m");
+        console.log(rHours +" h "+ rMinutes + " m");
+    }
+    function checkTripType(c){
+
+        if ( c === 'Oneway'){
+            $('#return-travel').addClass('hidden');
+            console.log(c)
+        }
+        else{
+            $('#return-travel').removeClass('hidden');
+            console.log(c)
+        }
+    }
+    function checkApprovals(d){
+        if ( d === 'Approved'){
+            $(d).parent('approvals').addClass('approved')
+            console.log("approved")
+        }
+        else if (d === 'Denied'){
+            $(d).parent('approvals').addClass('denied')
+            console.log("denied")
+        }
+        else if (d === 'Waiting'){
+            $(this).parent('approvals').addClass('waiting')
+            console.log("waiting")     
+        }
+    }
 }
 $(document).ready(function(){
 	checkPage()
