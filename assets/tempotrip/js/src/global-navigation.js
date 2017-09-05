@@ -51,8 +51,8 @@ $(document).ready(function(){
         }, {
             name: 'Approvals',
             link: '',
-            fontA:'fa fa-plane fa-lg disabled',
-            class:'disabled',
+            fontA:'fa fa-plane fa-lg',
+            class:'',
             target:'',
             sub: null
         },{
