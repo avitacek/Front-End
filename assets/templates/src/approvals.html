@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TempoTrip - Profile</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+      
+    <link href="vendors/bootstrap-form-helpers/dist/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="css/tempotrip.css" rel="stylesheet">
+    
+      
+  </head>
+
+  <body id="approvals-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Global Header ============================== -->
+            @@include('../../renderings/components/global-header.html')
+            <!-- / Global Header ============================ --> 
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-8">
+                <!-- Trips Table ============================== -->
+                @@include('../../renderings/components/approvals-content.html')
+                <!-- / Trip Table ============================ --> 
+            </div>
+            <div class="col-sm-4">
+                <!-- Trips Side Bar Details ============================== -->
+                @@include('../../renderings/components/right-side-approvals.html')
+                <!-- / Trips Side Bar Details ============================ --> 
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 image-bg">
+                <div class="color-overlay"></div>
+            </div>
+        </div>
+    </div>    
+ 
+    <!-- JS ============================== -->
+    <script src="js/tempotrip.globals.js"></script>
+    <!--PLUGIN JS-->
+    <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <script src="js/tempotrip.modules.js"></script>
+    
+    <!-- / JS ============================ -->
+    <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    </body>
+</html>

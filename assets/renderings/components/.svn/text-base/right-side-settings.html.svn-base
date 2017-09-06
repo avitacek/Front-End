@@ -1,0 +1,50 @@
+<div class="wrapper">
+    <div id="right-side-content">
+        <div class="card card-profile">
+
+
+            <div class="content">
+                <h4 class="card-title">Account Settings</h4>
+<!--
+                <h6 class="category text-gray"> Traveler |<span>&nbsp; Status: Active</span></h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary btn-block">Edit Profile</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-default btn-block">Book Travel</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="quick-facts-box">
+
+                        <ul>
+                            <li>
+                                <strong>10</strong>
+                                <span>Trips Booked</span>
+                            </li>
+                            <li>
+                                <strong>2</strong>
+                                <span>Upcoming Trips</span>
+                            </li>
+                            <li>
+                                <strong>2</strong>
+                                <span>Waiting Approval</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+-->
+                <div class="row">
+
+
+
+                    
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</div>

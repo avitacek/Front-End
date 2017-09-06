@@ -1,0 +1,40 @@
+{
+   "travellers": [
+       {
+           "firstname": "John",
+           "middlename": "M",
+           "lastname":"Smith",
+           "dob":"01/01/1977",
+           "gender":"Male",
+           "email":"john_smith@az.gov",
+           "phone":"555-555-1111"
+       },
+       {
+           "firstname": "Jane",
+           "middlename": "N",
+           "lastname":"Smith",
+           "dob":"02/02/1978",
+           "gender":"Female",
+           "email":"jane_smith@az.gov",
+           "phone":"555-555-2222"
+       },
+       {
+           "firstname": "John",
+           "middlename": "O",
+           "lastname":"Doe",
+           "dob":"03/03/1979",
+           "gender":"Male",
+           "email":"john_doe@az.gov",
+           "phone":"555-555-3333"
+       },
+       {
+           "firstname": "Jane",
+           "middlename": "P",
+           "lastname":"Doe",
+           "dob":"01/01/1980",
+           "gender":"Female",
+           "email":"jane_doe@az.gov",
+           "phone":"555-555-4444"
+       },
+   ]
+}

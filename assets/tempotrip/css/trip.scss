@@ -1,0 +1,29 @@
+﻿@import "tempotrip-globals.scss";
+
+/* 
+RENDERINGS 
+**********************************************************************************
+/* -----------------------------------------------------------------------------
+
+1.1 (COMMON)
+
+----------------------------------------------------------------------------- */
+
+/* 1.1.1 - Header */
+@import "renderings/common/global-header";
+/* 1.1.2 - Footer */
+@import "renderings/common/global-footer";
+
+/* -----------------------------------------------------------------------------
+
+1.2 (HOME PAGE)
+
+----------------------------------------------------------------------------- */
+
+@import "renderings/common/shared";
+
+/* 1.2.1 -  */
+@import "renderings/common/landing-sidebar";
+@import "renderings/common/landing-login";
+@import "renderings/common/profile";
+@import "renderings/common/admin";

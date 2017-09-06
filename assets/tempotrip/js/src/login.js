@@ -10,8 +10,6 @@ $(document).ready(function(){
 	});
 });
 $(window).load(function(){
-    
-    
     $("input").focusout(function(){
         if($(this).val() != ""){
             $(this).addClass("has-content");
@@ -20,3 +18,4 @@ $(window).load(function(){
         }
     })
 });
+

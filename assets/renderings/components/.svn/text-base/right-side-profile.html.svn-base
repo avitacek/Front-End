@@ -1,0 +1,111 @@
+<div class="wrapper">
+    <div id="right-side-content">
+        <div class="card card-profile">
+            <div class="content">
+                <h4 class="card-title">Brett Buynack</h4>
+                <h6 class="category text-gray"> Traveler |<span>&nbsp; Status: Active</span></h6>
+                <div class="row">
+                    <div class="col-md-6">
+<!--                        <button class="btn btn-primary btn-block">Edit Profile</button>-->
+                    </div>
+                    <div class="col-md-6">
+<!--                        <button class="btn btn-default btn-block">Book Travel</button>-->
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="quick-facts-box">
+
+                        <ul>
+                            <li>
+                                <strong>10</strong>
+                                <span>Trips Booked</span>
+                            </li>
+                            <li>
+                                <strong>2</strong>
+                                <span>Upcoming Trips</span>
+                            </li>
+                            <li>
+                                <strong>2</strong>
+                                <span>Waiting Approval</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-content">
+                        <div id="overview-accordian" data-children=".item">
+                            <div class="item p-0">
+                                <a data-toggle="collapse" class="bg-grey-light p-15" data-parent="#overview-accordian" href="#recent-travel" aria-expanded="true" aria-controls="recent-travel">
+                                          Recent Travel <i class="fa fa-angle-double-down float-right font-lg"></i>
+                                </a>
+                                
+                                <div id="recent-travel" class="collapse in" role="tabpanel">
+                                    <div class="list-group p-0">
+                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start p-0">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="text-center m-t-5">Booked <small> 3 days ago</small></h6>
+                                            </div>
+                                            <div class="recent-flight-item">
+                                                <ul>
+                                                    <li>
+                                                        <span>Oct 02,2017</span>
+                                                        <strong>ORD</strong>
+                                                        <span>Depart</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Oct 05,2017</span>
+                                                        <strong>LAX</strong>
+                                                        <span>Return </span>
+                                                    </li>
+                                                    <li class="p-10">
+                                                        <strong>$200</strong>
+                                                        <span>RoundTrip</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start p-0">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="text-center m-t-5">Booked <small> 23 days ago</small></h6>
+                                            </div>
+                                            <div class="recent-flight-item">
+                                                <ul>
+                                                    <li>
+                                                        <span>Sep 12,2017</span>
+                                                        <strong>ORD</strong>
+                                                        <span>Depart</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>Sep 15,2017</span>
+                                                        <strong>ATL</strong>
+                                                        <span>Return </span>
+                                                    </li>
+                                                    <li class="p-10">
+                                                        <strong>$200</strong>
+                                                        <span>RoundTrip</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item p-0">
+                                <a data-toggle="collapse" class="bg-grey-light p-15"data-parent="#overview-accordian" href="#current-booking-sites" aria-expanded="false" aria-controls="current-booking-sites">Air Booking Sites <i class="fa fa-angle-double-down float-right font-lg"></i>   
+                                </a>
+                                <div id="current-booking-sites" class="collapse in" role="tabpanel">
+                                    <ul>
+                                        <li><a href="https://azdffm.tempotrip.com/" taget="_blank">https://azdffm.tempotrip.com/</a></li>
+                                        <li><a href="https://azsostate.tempotrip.com/" target="_blank">https://azsostate.tempotrip.com/</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</div>

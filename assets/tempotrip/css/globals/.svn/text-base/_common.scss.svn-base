@@ -1,0 +1,102 @@
+﻿/* -----------------------------------------------------------------------------
+Import COMMON
+----------------------------------------------------------------------------- */
+@import "variables";
+@import "mixins";
+
+// don't target this!
+// used to visually align content in adjacent columns by removing the top margin off first elements
+.flush-top-margin {
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+        margin-top: 0;
+        line-height: 1em;
+    }
+
+    > p:first-child {
+        margin-top: 0;
+    }
+}
+.container-fluid{
+    margin-left:auto;
+    margin-right:auto;
+}
+// Remove Column Gutter Utility Class
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+// Show Grid
+// .row [class*='col-'] {
+//     background-color: #ffeeee;
+//     background-clip: content-box;
+//     min-height: 20px;
+// }
+
+// Classes based on Style Guide//
+//Header Styles//
+.Header-1{
+    font-family:$Marvel-Bold;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: 1.2px;
+    color: $black;
+}
+.Header-2{
+    font-family:$Marvel-SemiBold;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.17;
+    letter-spacing: 0.8px;
+    color: $black;
+}
+.Header-3{
+    font-family:$Marvel-Medium;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0.2px;
+    color: $black;
+    margin-bottom:0px;
+
+}
+.Header-4{
+    font-family:$Marvel-Regular;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    color: $black;
+
+}
+.Header-5{
+    font-family:$Marvel-Regular;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.56;
+    letter-spacing: 0.25px;
+    color: $black;
+}
+//Subhead styles//
+.Subhead-1{
+    font-family: $Marvel-Light;
+    font-size: 24px;
+    line-height: 1.0;
+    letter-spacing: 1.5px;
+    color: $black;
+    text-transform: uppercase;
+}
+.Subhead-2{
+    font-family: $Marvel-Light;
+    font-size: 18px;
+    line-height: 1.67;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $black;
+}

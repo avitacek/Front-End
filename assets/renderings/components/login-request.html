@@ -1,0 +1,160 @@
+<div class="row" id="flip-form">
+	<div class="col-sm-8" id="landing-login-request">
+		<div class="logo"></div>
+		<h4>Log in</h4>
+        <div><?php echo $app->output->errorstr ?></div>
+		<form action="" id="login-form" method="POST">
+                    <input type="hidden" name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+		  	<div class="container-fluid">
+		  		<div class="row">
+		  			<div class="col-sm-12">
+		  				<div class="form-group">
+		    				<input value="<?php echo $app->constants->request['username'] ?>" type="text" placeholder="Enter Username" name="username" class="username" >
+		    				<label>Username</label>
+		    				<div class="userImage"></div>
+                        	<span class="focus-border"><i></i></span>
+                        </div>
+                        <div class="form-group">
+				    		<input value="<?php echo $app->constants->request['password'] ?>" type="password" placeholder="Enter Password" name="password" class="password" >
+				    		<label>Password</label>
+				    		<div class="passwordImage"></div>
+				    		<span class="focus-border"><i></i></span>
+				    	</div>
+		  			</div>
+		  		</div>
+		        
+		    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
+		    	<div class="row">
+		    		<button>Log in</button>
+		    	</div>
+		    	<div class="row">
+		  			<div class="col-sm-12">
+				   		<span style="display:none;"><input type="checkbox">Remember me</span>
+				   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
+				    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
+				    </div>
+				</div>
+		    	
+		  	</div>
+		</form>
+		<div class="col-sm-8" id="register-slider">
+			<!--Register form modal-->
+			<form action="" id="register-form">
+				  	<div class="container-fluid">
+				  		<div class="row">
+				  			<div class="col-sm-12">
+				  				<div class="text-stay">
+				  					<h4>Request Access</h4>
+				  					<p>Enter you name and email address and your admin will approve access.</p>
+				  				</div>
+				  			</div>
+				  			<div class="col-sm-6">
+				  				<div class="form-group">
+							    	<input type="text" placeholder="Enter your first name" name="fname" class="firstname" >
+							    	<label>First name</label>
+							    	<span class="focus-border"><i></i></span>
+						    	</div>
+				  			</div>
+				  			<div class="col-sm-6">
+				  				<div class="form-group">
+							    	<input type="text" placeholder="Enter your last name" name="lname" class="lastname" >
+							    	<label>Last name</label>
+							    	<span class="focus-border"><i></i></span>
+							    </div>
+				  			</div>
+				  			<div class="col-sm-12">
+				  				<div class="form-group">
+							    	<input type="text" placeholder="Enter your email" name="email" class="email" >
+							    	<label>Email address</label>
+							    	<span class="focus-border"><i></i></span>
+							    </div>
+				  			</div>
+				  			<div class="col-sm-12">
+				  				<button id="submit-request" data-toggle="modal" data-target="#request-modal">Submit Request</button>
+				  			</div>
+				    		
+				    	</div>
+				  	</div>
+			</form>		
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div id="landing-register">
+			<div class="register-title">
+				<div class="logo"></div>
+				<h4>Not Registered?</h4>
+				<p>Request access from your travel admin to get started.</p>
+			</div>
+			<div class="button-switch">
+				<button id="login-register">REGISTER</button>
+			</div>
+		</div>
+		<div id="login-slider">
+			<div class="register-title">
+				<div class="logo"></div>
+				<h4>Already Registered?</h4>
+				<p>Just login to see you travel arrangments.</p>
+			</div>
+			<div class="button-switch">
+				<button id="login-return">Login</button>
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+<div class="row">
+	<div class="col-sm-12 image-bg">
+		<div class="color-overlay"></div>
+	</div>	
+</div>
+<div class="row">
+	<!--change password modal-->
+	<div class="modal" id="password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Change Password</h5>
+			<form method="post"  id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Username" >
+			    <input type="password" name="password1" class="password" placeholder="New Password" >
+			    <input type="password" name="password2" class="password" placeholder="Confirm password" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="/?p=profile" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+	<!--forgot-password-modal-->
+	<div class="modal" id="forgot-password-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Forgot Password</h5>
+			<form method="post"  id="passord-form">
+                            <input type="hidden" name="p" class="username" value='resetpw'>
+			    <input type="text" name="email" class="username" placeholder="Username">
+                            <input type="hidden" name="request_reset" class="username" value='true'>
+			    <input name="submit" type="submit" id="submit" value="Submit">
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			</form>
+		</div>
+	</div>
+	<!--forgot username modal-->
+	<div class="modal" id="username-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Forgot Username</h5>
+			<form method="post" action="" id="passord-form">
+			    <input type="text" name="username" class="username" placeholder="Email Address" >
+			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
+			    <a href="/?p=profile" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			</form>
+		</div>
+	</div>
+	<!--Login request Modal-->
+	<div class="modal" id="request-modal">
+		<div div class="modal-box">
+			<button type="button" class="close-btn" data-dismiss="modal">X</button>
+			<h5>Login Request Sent</h5>
+			<p>We sent your admin a request to apprive your account and send you a login link with instructions to help get you started.</p>
+		</div>
+	</div>
+</div>

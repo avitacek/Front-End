@@ -1,0 +1,133 @@
+<div class="wrapper">
+    <div id="right-side-content">
+        <div class="card card-trips">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12" id="travellerName">
+                        <h4 class="card-title"><span class="traveller_name"></span></h4>
+                        <p class="traveller_email"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6" id="deptHeader">
+                        <h4 class="card-title"><span class="City"></span></h4>
+                        <p class="CityCountry"></p>
+                        
+                    </div>
+                    <div class="col-sm-6" id="arrvHeader">
+                        <h4 class="card-title"><span class="City"></span></h4>
+                        <p class="CityCountry"></p>
+                        
+                    </div>
+                </div>
+                <div class="row" id="departureDetails">
+                    <div class="col-sm-12">
+                        <div id="itinerary-accordian" data-children=".item">
+                            <div class="item">
+                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">
+                                      Departure <i class="fa fa-angle-double-down float-right font-lg"></i>
+                                </a>
+                                <div id="departure-travel" class="collapse in" role="tabpanel">
+                                    <div class="list-group">
+                                        <div class="departureDetails">
+                                            <ul>
+                                                <li>
+                                                    <p class="airline"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="flightNumber"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="duration"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="recordLocator"></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="departureTime">
+                                            <ul>
+                                                <li class="leave">
+                                                    <ul>
+                                                        <li>Leave</li>
+                                                        <li><p class="date"></p></li>
+                                                        <li><p class="time"></p></li>
+                                                    </ul>
+                                                <li class="arrive">
+                                                    <ul>
+                                                        <li>Arrive</li>
+                                                        <li><p class="date"></p></li>
+                                                        <li><p class="time"></p></li>
+                                                    </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
+                                </a>
+                                <div id="return-travel" class="collapse in" role="tabpanel">
+                                    <div class="list-group">
+                                        <div class="departureDetails">
+                                            <ul>
+                                                <li>
+                                                    <p class="airline"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="flightNumber"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="duration"></p>
+                                                </li>
+                                                <li>
+                                                    <p class="recordLocator"></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="departureTime">
+                                            <ul>
+                                                <li class="leave">
+                                                    <ul>
+                                                        <li>Leave</li>
+                                                        <li><p class="date"></p></li>
+                                                        <li><p class="time"></p></li>
+                                                    </ul>
+                                                <li class="arrive">
+                                                    <ul>
+                                                        <li>Arrive</li>
+                                                        <li><p class="date"></p></li>
+                                                        <li><p class="time"></p></li>
+                                                    </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email Itinerary</a>
+                        </li>
+                        <li>
+                            <a href="#" class="printButton_alltrips"><i class="fa fa-print" aria-hidden="true"></i> Print Itinerary</a>
+                        </li>
+                    </ul>
+                </div>
+            </div></div>
+        <div class="load_spinner">
+            <div class="row">
+                <div class="small-12 column">
+                    <div class="new-spinner">
+                        <i class="half-circle fa-spin" id="spin-outside"></i>
+                        <i class="half-circle fa-spin-reverse" id="spin-inside"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      

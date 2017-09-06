@@ -1,0 +1,20 @@
+@import "../../../globals/variables";
+@import "../../../globals/mixins";
+@include max-screen(xl) {
+    
+}
+@include max-screen(large) {
+
+}
+@include max-screen(mediumLarge){
+	
+}
+@include max-screen(medium) {
+
+}
+@include max-screen(smallMedium){
+
+}
+@include max-screen(small) {
+	
+}

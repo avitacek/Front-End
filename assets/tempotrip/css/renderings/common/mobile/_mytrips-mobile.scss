@@ -1,20 +1,2 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
-@include max-screen(small) {
-	#myTrips-page{
-		& .body-content{
-			padding-top:90px;
-			& .col-sm-8, & .col-sm-4{
-				width:100%;
-				padding-right:0px;
-				padding-left:0px;
-			}
-			& #myTrips_wrapper{
-				width:100%;
-				& .dataTables_length, & .dataTables_filter{
-					display:none;
-				}
-			}
-		}
-	}
-}
