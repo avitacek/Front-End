@@ -1,540 +1,538 @@
 <div class="content-profile-form">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div role="tabpanel">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#personal-info" aria-controls="home" role="tab" data-toggle="tab">Personal Information</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#traveler-preferences" aria-controls="tab" role="tab" data-toggle="tab">Traveler Preferences</a>
-                                </li>
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <!--PERSONAL INFORMATION TAB-->
-                                <div role="tabpanel" class="tab-pane active" id="personal-info">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h4 class="title">Personal Information</h4>
-                                            <hr class="p-o m-0">
-                                        </div>
-                                        <div class="content">
-                                            <form action="/?p=page" method="POST" role="form" enctype="multipart/form-data">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label>First Name</label>
-                                                            <input type="text" name="f-name" id="f-name" class="form-control" value="Brett" required="required" title="" placeholder="First Name">
-                                                            
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label for="input-id">Middle Name</label>
-                                                            <input type="text" name="" id="m-name" class="form-control" value="" title="" placeholder="Middle Name">
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label for="l-name">Last Name</label>
-                                                            <input type="text" name="" id="l-name" class="form-control" value="Buynack" required="required" title="" placeholder="Last Name">
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <fieldset class="form-group">
-                                                            <label for="birth-date">Date of Birth</label>
-                                                            <input type="date" name="date" id="birth-date" class="form-control form-control-sm" value="01/01/1988" required="required" title="date">
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <fieldset class="form-group">
-                                                            <label for="gender">Gender</label>
-                                                            <select name="" id="gender" class="form-control">
-	                                                           <option value=""></option>
-                                                               <option value="selected" selected>Male</option>
-                                                               <option value="">Female</option>
-                                                                </select>
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <fieldset class="form-group">
-                                                            <label for="email">Email Address</label>
-                                                            <input type="text" name="" id="email" class="form-control" value="brett@tempotrip.com" required="required" title="" placeholder="">
-<!--                                                            <small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <fieldset class="form-group">
-                                                            <label for="phone-number">Phone Number</label>
-                                                            <input type="tel" name="" id="phone" class="form-control" value="(847) 476-2478" required="required" title="" placeholder="Phone Number">
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                                <!-- EMERGENCY CONTACT INFORMATION -->
-                                                <div class="row">
-                                                        <div class="header">
-                                                            <h4 class="title">Emergency Contact Information</h4>
-                                                            <hr class="m-t-0">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label>First Name</label>
-                                                            <input type="text" name="" id="ec_f_name" class="form-control" value="Brady" pattern="" title="" placeholder="Contact First Name">
-                                                            <!--<small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label>Last Name</label>
-                                                            <input type="text" name="" id="ec_l_name" class="form-control" value="Buynack" pattern="" title="" placeholder="Contact Last Name">
-                                                            <!--<small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <fieldset class="form-group">
-                                                            <label for="phone-number">Contact Phone Number</label>
-                                                            <input type="tel" name="" id="ec_phone" class="form-control" value="(847) 476-0066"  title="" placeholder="Contact Phone Number">
-                                                            <!--<small class="text-muted">&nbsp;</small>-->
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </form>
-                                        </div>
-                                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" method="POST" role="form">
+                                        <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                        <input type='hidden' name='a' value="save_profile">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <div><?php echo $app->output->errorstr ?></div>
+                    <div><?php echo $app->output->successstr ?></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#personal-info" aria-controls="home" role="tab" data-toggle="tab">Personal Information</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#traveler-preferences" aria-controls="tab" role="tab" data-toggle="tab">Traveler Preferences</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <!--PERSONAL INFORMATION TAB-->
+                        <div role="tabpanel" class="tab-pane active" id="personal-info">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Personal Information</h4>
+                                    <hr class="p-o m-0">
                                 </div>
-                                <!--TRAVELER PREFERENCES TAB-->
-                                <div role="tabpanel" class="tab-pane" id="traveler-preferences">
-                                    <div class="card">
-                                        <div class="header">
-                                            <h4 class="title">Traveler Information | Preferences</h4>
-                                            <hr class="p-o m-0">
+                                <div class="content">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="f_name" id="f-name" class="form-control" value="<?php echo $app->constants->request['f_name'];?>" required="required" title="" placeholder="First Name">
+
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label for="input-id">Middle Name</label>
+                                                    <input type="text" name="m_initial" id="m-name" class="form-control" value="<?php echo $app->constants->request['m_initial'];?>" title="" placeholder="Middle Name">
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label for="l-name">Last Name</label>
+                                                    <input type="text" name="l_name" id="l-name" class="form-control" value="<?php echo $app->constants->request['l_name'];?>" required="required" title="" placeholder="Last Name">
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
                                         </div>
-                                        <div class="content">
-                                        <form action="/?p=page" method="POST" role="form" enctype="multipart/form-data">
-                                            <div class="form-group">
-
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <label>Role</label>
-                                                    <div class="form-group">
-                                                        <select id="roleselect" class="form-control" >
-                                                            <option value="">Traveler</option>
-                                                            <option value="">Approver</option>
-                                                            <option value="" selected>Arranger</option>
-                                                            <option value="">Admin</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8 clearfix">&nbsp;</div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <label for="birth-date">Date of Birth</label>
+                                                    <input type="date" name="dob" id="birth-date" class="form-control form-control-sm" value="<?php echo $app->constants->request['dob'];?>" required="required" title="date">
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Home Airport Code </label>
-                                                        <input class="form-control" id="home_airport" placeholder="Enter 3 letter airport code" value="ORD">
-                                                        <p class="help-block"> </p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Seat Preference</label> 
-                                                        <select class="form-control" id="seat_id">
-                                                            <option value="" id="">No Preference</option>
-                                                            <option value="" id="">Window</option>
-                                                            <option value="" id="" selected>Aisle</option>
-                                                            <option value="" id="">Exit Row</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Special Assistance</label>
-                                                        <select class="form-control">
-                                                        <option value="None" selected="selected">None</option>
-                                                        <option value="BlindWDog">Blind With Dog</option>
-                                                        <option value="DeafWDog">Deaf With Dog</option>
-                                                        <option value="MeetAndAssist">Meet and Assist</option>
-                                                        <option value="WChairNoStairs">Wheelchair - Cannot Ascend/Descend Stairs</option>
-                                                        <option value="WChairStairOK">Wheelchair - Can Walk and Ascend/Descend Stairs</option>
-                                                        <option value="WChairImmobile">Wheelchair - Immobile</option>
-                                                        <option value="WithInfant">With Infant</option>
-                                                        <option value="HelpLang">Help - Language</option>
-                                                        <option value="WChairOnBoard">Wheelchair - On-Board Wheelchair</option>
-                                                        <option value="BlindNoDog">Blind</option>
-                                                        <option value="DeafNoDog">Deaf</option>
-                                                        <option value="BaggBulky">Baggage - Bulky</option>
-                                                        <option value="BaggFragile">Baggage - Fragile</option>
-                                                        <option value="BaggSportsEquip">Baggage - Sports Equipment</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                    <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="input-id">Secondary Email&nbsp;<small></small></label>
-                                                        <input type="email" name="email" id="s_email" class="form-control form-control-sm" value="" title="Email">
-                                                        <p class="help-block small m-t-0">&nbsp;*(Additional email we will send itineraries too)</p>
-
-                                                        </div>
-                                                    </div>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <label for="gender">Gender</label>
+                                                    <select name="gender" id="gender" class="form-control">
+                                                        <option value=""></option>
+                                                        <option value='Male' <?php echo $app->constants->request['gendermaleselected'];?>>Male</option>
+                                                        <option value='Female' <?php echo $app->constants->request['genderfemaleselected'];?>>Female</option>
+                                                    </select>
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
                                             </div>
-                                            <hr class="m-t-5">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    
-
-                                                    <div class="form-group">
-                                                        <label>Passport Number</label>
-                                                        <input type="text" class="form-control m-t-0" placeholder="Passport Number">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                    <label style="margin-bottom: 5px;">Passport Expiration Date</label>    
-                                                        <input type="date" name="date" id="date" class="form-control" value="" required="required" title="date">
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <label class="">Passport Issuing Country</label>
-                                                    <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
-                                                        <input type="hidden" name="" value="US">
-                                                        <a class="bfh-selectbox-toggle form-control" role="button" data-toggle="bfh-selectbox" href="#">
-                                                            <span class="bfh-selectbox-option"><i class="glyphicon bfh-flag-US"></i>United States</span>
-                                                            <span class="caret selectbox-caret"></span></a>
-                                                        <div class="bfh-selectbox-options">
-                                                            <div role="listbox">
-                                                                <ul role="option">
-                                                                    <li>
-                                                                        <a tabindex="-1" href="#" data-option=""></a>
-                                                                    </li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AF"><i class="glyphicon bfh-flag-AF"></i>Afghanistan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AL"><i class="glyphicon bfh-flag-AL"></i>Albania</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DZ"><i class="glyphicon bfh-flag-DZ"></i>Algeria</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AS"><i class="glyphicon bfh-flag-AS"></i>American Samoa</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AD"><i class="glyphicon bfh-flag-AD"></i>Andorra</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AO"><i class="glyphicon bfh-flag-AO"></i>Angola</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AI"><i class="glyphicon bfh-flag-AI"></i>Anguilla</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AQ"><i class="glyphicon bfh-flag-AQ"></i>Antarctica</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AG"><i class="glyphicon bfh-flag-AG"></i>Antigua and Barbuda</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AR"><i class="glyphicon bfh-flag-AR"></i>Argentina</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AM"><i class="glyphicon bfh-flag-AM"></i>Armenia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AW"><i class="glyphicon bfh-flag-AW"></i>Aruba</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AU"><i class="glyphicon bfh-flag-AU"></i>Australia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AT"><i class="glyphicon bfh-flag-AT"></i>Austria</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AZ"><i class="glyphicon bfh-flag-AZ"></i>Azerbaijan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BH"><i class="glyphicon bfh-flag-BH"></i>Bahrain</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BD"><i class="glyphicon bfh-flag-BD"></i>Bangladesh</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BB"><i class="glyphicon bfh-flag-BB"></i>Barbados</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BY"><i class="glyphicon bfh-flag-BY"></i>Belarus</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BE"><i class="glyphicon bfh-flag-BE"></i>Belgium</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BZ"><i class="glyphicon bfh-flag-BZ"></i>Belize</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BJ"><i class="glyphicon bfh-flag-BJ"></i>Benin</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BM"><i class="glyphicon bfh-flag-BM"></i>Bermuda</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BT"><i class="glyphicon bfh-flag-BT"></i>Bhutan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BO"><i class="glyphicon bfh-flag-BO"></i>Bolivia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BA"><i class="glyphicon bfh-flag-BA"></i>Bosnia and Herzegovina</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BW"><i class="glyphicon bfh-flag-BW"></i>Botswana</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BV"><i class="glyphicon bfh-flag-BV"></i>Bouvet Island</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BR"><i class="glyphicon bfh-flag-BR"></i>Brazil</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IO"><i class="glyphicon bfh-flag-IO"></i>British Indian Ocean Territory</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VG"><i class="glyphicon bfh-flag-VG"></i>British Virgin Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BN"><i class="glyphicon bfh-flag-BN"></i>Brunei</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BG"><i class="glyphicon bfh-flag-BG"></i>Bulgaria</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BF"><i class="glyphicon bfh-flag-BF"></i>Burkina Faso</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BI"><i class="glyphicon bfh-flag-BI"></i>Burundi</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CI"><i class="glyphicon bfh-flag-CI"></i>Côte d'Ivoire</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KH"><i class="glyphicon bfh-flag-KH"></i>Cambodia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CM"><i class="glyphicon bfh-flag-CM"></i>Cameroon</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CA"><i class="glyphicon bfh-flag-CA"></i>Canada</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CV"><i class="glyphicon bfh-flag-CV"></i>Cape Verde</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KY"><i class="glyphicon bfh-flag-KY"></i>Cayman Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CF"><i class="glyphicon bfh-flag-CF"></i>Central African Republic</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TD"><i class="glyphicon bfh-flag-TD"></i>Chad</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CL"><i class="glyphicon bfh-flag-CL"></i>Chile</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CN"><i class="glyphicon bfh-flag-CN"></i>China</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CX"><i class="glyphicon bfh-flag-CX"></i>Christmas Island</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CC"><i class="glyphicon bfh-flag-CC"></i>Cocos (Keeling) Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CO"><i class="glyphicon bfh-flag-CO"></i>Colombia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KM"><i class="glyphicon bfh-flag-KM"></i>Comoros</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CG"><i class="glyphicon bfh-flag-CG"></i>Congo</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CK"><i class="glyphicon bfh-flag-CK"></i>Cook Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CR"><i class="glyphicon bfh-flag-CR"></i>Costa Rica</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HR"><i class="glyphicon bfh-flag-HR"></i>Croatia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CU"><i class="glyphicon bfh-flag-CU"></i>Cuba</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CY"><i class="glyphicon bfh-flag-CY"></i>Cyprus</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CZ"><i class="glyphicon bfh-flag-CZ"></i>Czech Republic</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CD"><i class="glyphicon bfh-flag-CD"></i>Democratic Republic of the Congo</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DK"><i class="glyphicon bfh-flag-DK"></i>Denmark</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DJ"><i class="glyphicon bfh-flag-DJ"></i>Djibouti</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DM"><i class="glyphicon bfh-flag-DM"></i>Dominica</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DO"><i class="glyphicon bfh-flag-DO"></i>Dominican Republic</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TP"><i class="glyphicon bfh-flag-TP"></i>East Timor</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="EC"><i class="glyphicon bfh-flag-EC"></i>Ecuador</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="EG"><i class="glyphicon bfh-flag-EG"></i>Egypt</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SV"><i class="glyphicon bfh-flag-SV"></i>El Salvador</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GQ"><i class="glyphicon bfh-flag-GQ"></i>Equatorial Guinea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ER"><i class="glyphicon bfh-flag-ER"></i>Eritrea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="EE"><i class="glyphicon bfh-flag-EE"></i>Estonia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ET"><i class="glyphicon bfh-flag-ET"></i>Ethiopia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FO"><i class="glyphicon bfh-flag-FO"></i>Faeroe Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FK"><i class="glyphicon bfh-flag-FK"></i>Falkland Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FJ"><i class="glyphicon bfh-flag-FJ"></i>Fiji</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FI"><i class="glyphicon bfh-flag-FI"></i>Finland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MK"><i class="glyphicon bfh-flag-MK"></i>Former Yugoslav Republic of Macedonia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FR"><i class="glyphicon bfh-flag-FR"></i>France</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FX"><i class="glyphicon bfh-flag-FX"></i>France, Metropolitan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GF"><i class="glyphicon bfh-flag-GF"></i>French Guiana</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PF"><i class="glyphicon bfh-flag-PF"></i>French Polynesia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TF"><i class="glyphicon bfh-flag-TF"></i>French Southern Territories</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GA"><i class="glyphicon bfh-flag-GA"></i>Gabon</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GE"><i class="glyphicon bfh-flag-GE"></i>Georgia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="DE"><i class="glyphicon bfh-flag-DE"></i>Germany</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GH"><i class="glyphicon bfh-flag-GH"></i>Ghana</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GI"><i class="glyphicon bfh-flag-GI"></i>Gibraltar</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GR"><i class="glyphicon bfh-flag-GR"></i>Greece</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GL"><i class="glyphicon bfh-flag-GL"></i>Greenland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GD"><i class="glyphicon bfh-flag-GD"></i>Grenada</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GP"><i class="glyphicon bfh-flag-GP"></i>Guadeloupe</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GU"><i class="glyphicon bfh-flag-GU"></i>Guam</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GT"><i class="glyphicon bfh-flag-GT"></i>Guatemala</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GN"><i class="glyphicon bfh-flag-GN"></i>Guinea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GW"><i class="glyphicon bfh-flag-GW"></i>Guinea-Bissau</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GY"><i class="glyphicon bfh-flag-GY"></i>Guyana</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HT"><i class="glyphicon bfh-flag-HT"></i>Haiti</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HM"><i class="glyphicon bfh-flag-HM"></i>Heard and Mc Donald Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HN"><i class="glyphicon bfh-flag-HN"></i>Honduras</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HK"><i class="glyphicon bfh-flag-HK"></i>Hong Kong</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="HU"><i class="glyphicon bfh-flag-HU"></i>Hungary</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IS"><i class="glyphicon bfh-flag-IS"></i>Iceland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IN"><i class="glyphicon bfh-flag-IN"></i>India</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ID"><i class="glyphicon bfh-flag-ID"></i>Indonesia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IR"><i class="glyphicon bfh-flag-IR"></i>Iran</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IQ"><i class="glyphicon bfh-flag-IQ"></i>Iraq</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IE"><i class="glyphicon bfh-flag-IE"></i>Ireland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IL"><i class="glyphicon bfh-flag-IL"></i>Israel</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="IT"><i class="glyphicon bfh-flag-IT"></i>Italy</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="JM"><i class="glyphicon bfh-flag-JM"></i>Jamaica</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="JP"><i class="glyphicon bfh-flag-JP"></i>Japan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="JO"><i class="glyphicon bfh-flag-JO"></i>Jordan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KZ"><i class="glyphicon bfh-flag-KZ"></i>Kazakhstan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KE"><i class="glyphicon bfh-flag-KE"></i>Kenya</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KI"><i class="glyphicon bfh-flag-KI"></i>Kiribati</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KW"><i class="glyphicon bfh-flag-KW"></i>Kuwait</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KG"><i class="glyphicon bfh-flag-KG"></i>Kyrgyzstan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LA"><i class="glyphicon bfh-flag-LA"></i>Laos</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LV"><i class="glyphicon bfh-flag-LV"></i>Latvia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LB"><i class="glyphicon bfh-flag-LB"></i>Lebanon</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LS"><i class="glyphicon bfh-flag-LS"></i>Lesotho</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LR"><i class="glyphicon bfh-flag-LR"></i>Liberia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LY"><i class="glyphicon bfh-flag-LY"></i>Libya</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LI"><i class="glyphicon bfh-flag-LI"></i>Liechtenstein</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LT"><i class="glyphicon bfh-flag-LT"></i>Lithuania</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LU"><i class="glyphicon bfh-flag-LU"></i>Luxembourg</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MO"><i class="glyphicon bfh-flag-MO"></i>Macau</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MG"><i class="glyphicon bfh-flag-MG"></i>Madagascar</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MW"><i class="glyphicon bfh-flag-MW"></i>Malawi</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MY"><i class="glyphicon bfh-flag-MY"></i>Malaysia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MV"><i class="glyphicon bfh-flag-MV"></i>Maldives</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ML"><i class="glyphicon bfh-flag-ML"></i>Mali</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MT"><i class="glyphicon bfh-flag-MT"></i>Malta</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MH"><i class="glyphicon bfh-flag-MH"></i>Marshall Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MQ"><i class="glyphicon bfh-flag-MQ"></i>Martinique</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MR"><i class="glyphicon bfh-flag-MR"></i>Mauritania</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MU"><i class="glyphicon bfh-flag-MU"></i>Mauritius</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="YT"><i class="glyphicon bfh-flag-YT"></i>Mayotte</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MX"><i class="glyphicon bfh-flag-MX"></i>Mexico</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="FM"><i class="glyphicon bfh-flag-FM"></i>Micronesia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MD"><i class="glyphicon bfh-flag-MD"></i>Moldova</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MC"><i class="glyphicon bfh-flag-MC"></i>Monaco</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MN"><i class="glyphicon bfh-flag-MN"></i>Mongolia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ME"><i class="glyphicon bfh-flag-ME"></i>Montenegro</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MS"><i class="glyphicon bfh-flag-MS"></i>Montserrat</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MA"><i class="glyphicon bfh-flag-MA"></i>Morocco</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MZ"><i class="glyphicon bfh-flag-MZ"></i>Mozambique</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MM"><i class="glyphicon bfh-flag-MM"></i>Myanmar</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NA"><i class="glyphicon bfh-flag-NA"></i>Namibia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NR"><i class="glyphicon bfh-flag-NR"></i>Nauru</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NP"><i class="glyphicon bfh-flag-NP"></i>Nepal</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NL"><i class="glyphicon bfh-flag-NL"></i>Netherlands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AN"><i class="glyphicon bfh-flag-AN"></i>Netherlands Antilles</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NC"><i class="glyphicon bfh-flag-NC"></i>New Caledonia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NZ"><i class="glyphicon bfh-flag-NZ"></i>New Zealand</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NI"><i class="glyphicon bfh-flag-NI"></i>Nicaragua</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NE"><i class="glyphicon bfh-flag-NE"></i>Niger</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NG"><i class="glyphicon bfh-flag-NG"></i>Nigeria</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NU"><i class="glyphicon bfh-flag-NU"></i>Niue</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NF"><i class="glyphicon bfh-flag-NF"></i>Norfolk Island</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KP"><i class="glyphicon bfh-flag-KP"></i>North Korea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="MP"><i class="glyphicon bfh-flag-MP"></i>Northern Marianas</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="NO"><i class="glyphicon bfh-flag-NO"></i>Norway</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="OM"><i class="glyphicon bfh-flag-OM"></i>Oman</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PK"><i class="glyphicon bfh-flag-PK"></i>Pakistan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PW"><i class="glyphicon bfh-flag-PW"></i>Palau</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PS"><i class="glyphicon bfh-flag-PS"></i>Palestine</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PA"><i class="glyphicon bfh-flag-PA"></i>Panama</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PG"><i class="glyphicon bfh-flag-PG"></i>Papua New Guinea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PY"><i class="glyphicon bfh-flag-PY"></i>Paraguay</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PE"><i class="glyphicon bfh-flag-PE"></i>Peru</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PH"><i class="glyphicon bfh-flag-PH"></i>Philippines</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PN"><i class="glyphicon bfh-flag-PN"></i>Pitcairn Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PL"><i class="glyphicon bfh-flag-PL"></i>Poland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PT"><i class="glyphicon bfh-flag-PT"></i>Portugal</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PR"><i class="glyphicon bfh-flag-PR"></i>Puerto Rico</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="QA"><i class="glyphicon bfh-flag-QA"></i>Qatar</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="RE"><i class="glyphicon bfh-flag-RE"></i>Reunion</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="RO"><i class="glyphicon bfh-flag-RO"></i>Romania</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="RU"><i class="glyphicon bfh-flag-RU"></i>Russia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="RW"><i class="glyphicon bfh-flag-RW"></i>Rwanda</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ST"><i class="glyphicon bfh-flag-ST"></i>São Tomé and Príncipe</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SH"><i class="glyphicon bfh-flag-SH"></i>Saint Helena</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="PM"><i class="glyphicon bfh-flag-PM"></i>St. Pierre and Miquelon</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KN"><i class="glyphicon bfh-flag-KN"></i>Saint Kitts and Nevis</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LC"><i class="glyphicon bfh-flag-LC"></i>Saint Lucia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VC"><i class="glyphicon bfh-flag-VC"></i>Saint Vincent and the Grenadines</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="WS"><i class="glyphicon bfh-flag-WS"></i>Samoa</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SM"><i class="glyphicon bfh-flag-SM"></i>San Marino</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SA"><i class="glyphicon bfh-flag-SA"></i>Saudi Arabia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SN"><i class="glyphicon bfh-flag-SN"></i>Senegal</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="RS"><i class="glyphicon bfh-flag-RS"></i>Serbia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SC"><i class="glyphicon bfh-flag-SC"></i>Seychelles</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SL"><i class="glyphicon bfh-flag-SL"></i>Sierra Leone</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SG"><i class="glyphicon bfh-flag-SG"></i>Singapore</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SK"><i class="glyphicon bfh-flag-SK"></i>Slovakia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SI"><i class="glyphicon bfh-flag-SI"></i>Slovenia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SB"><i class="glyphicon bfh-flag-SB"></i>Solomon Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SO"><i class="glyphicon bfh-flag-SO"></i>Somalia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ZA"><i class="glyphicon bfh-flag-ZA"></i>South Africa</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GS"><i class="glyphicon bfh-flag-GS"></i>South Georgia and the South Sandwich Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="KR"><i class="glyphicon bfh-flag-KR"></i>South Korea</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ES"><i class="glyphicon bfh-flag-ES"></i>Spain</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="LK"><i class="glyphicon bfh-flag-LK"></i>Sri Lanka</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SD"><i class="glyphicon bfh-flag-SD"></i>Sudan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SR"><i class="glyphicon bfh-flag-SR"></i>Suriname</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SJ"><i class="glyphicon bfh-flag-SJ"></i>Svalbard and Jan Mayen Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SZ"><i class="glyphicon bfh-flag-SZ"></i>Swaziland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SE"><i class="glyphicon bfh-flag-SE"></i>Sweden</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="CH"><i class="glyphicon bfh-flag-CH"></i>Switzerland</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="SY"><i class="glyphicon bfh-flag-SY"></i>Syria</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TW"><i class="glyphicon bfh-flag-TW"></i>Taiwan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TJ"><i class="glyphicon bfh-flag-TJ"></i>Tajikistan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TZ"><i class="glyphicon bfh-flag-TZ"></i>Tanzania</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TH"><i class="glyphicon bfh-flag-TH"></i>Thailand</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="BS"><i class="glyphicon bfh-flag-BS"></i>The Bahamas</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GM"><i class="glyphicon bfh-flag-GM"></i>The Gambia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TG"><i class="glyphicon bfh-flag-TG"></i>Togo</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TK"><i class="glyphicon bfh-flag-TK"></i>Tokelau</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TO"><i class="glyphicon bfh-flag-TO"></i>Tonga</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TT"><i class="glyphicon bfh-flag-TT"></i>Trinidad and Tobago</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TN"><i class="glyphicon bfh-flag-TN"></i>Tunisia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TR"><i class="glyphicon bfh-flag-TR"></i>Turkey</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TM"><i class="glyphicon bfh-flag-TM"></i>Turkmenistan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TC"><i class="glyphicon bfh-flag-TC"></i>Turks and Caicos Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="TV"><i class="glyphicon bfh-flag-TV"></i>Tuvalu</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VI"><i class="glyphicon bfh-flag-VI"></i>US Virgin Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="UG"><i class="glyphicon bfh-flag-UG"></i>Uganda</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="UA"><i class="glyphicon bfh-flag-UA"></i>Ukraine</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="AE"><i class="glyphicon bfh-flag-AE"></i>United Arab Emirates</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="GB"><i class="glyphicon bfh-flag-GB"></i>United Kingdom</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="US"><i class="glyphicon bfh-flag-US"></i>United States</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="UM"><i class="glyphicon bfh-flag-UM"></i>United States Minor Outlying Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="UY"><i class="glyphicon bfh-flag-UY"></i>Uruguay</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="UZ"><i class="glyphicon bfh-flag-UZ"></i>Uzbekistan</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VU"><i class="glyphicon bfh-flag-VU"></i>Vanuatu</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VA"><i class="glyphicon bfh-flag-VA"></i>Vatican City</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VE"><i class="glyphicon bfh-flag-VE"></i>Venezuela</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="VN"><i class="glyphicon bfh-flag-VN"></i>Vietnam</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="WF"><i class="glyphicon bfh-flag-WF"></i>Wallis and Futuna Islands</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="EH"><i class="glyphicon bfh-flag-EH"></i>Western Sahara</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="YE"><i class="glyphicon bfh-flag-YE"></i>Yemen</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ZM"><i class="glyphicon bfh-flag-ZM"></i>Zambia</a></li>
-                                                                    <li><a tabindex="-1" href="#" data-option="ZW"><i class="glyphicon bfh-flag-ZW"></i>Zimbabwe</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <p class="help-block"></p>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <label for="email">Email Address</label>
+                                                    <input type="text" name="email" id="email" class="form-control" value="<?php echo $app->constants->request['email'];?>" required="required" title="" placeholder="">
+                                                    <!--                                                            <small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
                                             </div>
-                                                <hr class="m-t-5">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="../../tempotrip/images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
-                                                        <!--TOOLTIP-->
-                                                        <!--<p>The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process).</p>-->
-                                                        <input class="form-control" placeholder="Enter number">
-                                                        
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="">Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
-                                                        
-                                                        <!--TOOLTIP-->
-                                                        <!--<h5>Redress Number</h5><p>This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts.</p>
-                                                        -->
-                                                        <input class="form-control" placeholder="Enter number">
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <label for="phone-number">Phone Number</label>
+                                                    <input type="tel" name="phone" id="phone" class="form-control" value="<?php echo $app->constants->request['phone'];?>" required="required" title="" placeholder="Phone Number">
+                                                </fieldset>
                                             </div>
-                                            <hr class="m-t-5 m-b-">
-                                            <div class="row" id="airline-rewards-wrapper">
-                                                <div class="col-sm-11">
-                                                    <label>Airline Rewards</label>
-                                                </div>
-                                                <div class="col-sm-1"><a href="#" class="add_field_button"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                                        </div>
+                                        <!-- EMERGENCY CONTACT INFORMATION -->
+                                        <div class="row">
+                                            <div class="header">
+                                                <h4 class="title">Emergency Contact Information</h4>
+                                                <hr class="m-t-0">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="ec_f_name" id="ec_f_name" class="form-control" value="<?php echo $app->constants->request['ec_f_name'];?>"  title="" placeholder="Contact First Name">
+                                                    <!--<small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="ec_l_name" id="ec_l_name" class="form-control" value="<?php echo $app->constants->request['ec_l_name'];?>"  title="" placeholder="Contact Last Name">
+                                                    <!--<small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <fieldset class="form-group">
+                                                    <label for="phone-number">Contact Phone Number</label>
+                                                    <input type="tel" name="ec_phone" id="ec_phone" class="form-control" value="<?php echo $app->constants->request['ec_phone'];?>"  title="" placeholder="Contact Phone Number">
+                                                    <!--<small class="text-muted">&nbsp;</small>-->
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <!--TRAVELER PREFERENCES TAB-->
+                        <div role="tabpanel" class="tab-pane" id="traveler-preferences">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Traveler Information | Preferences</h4>
+                                    <hr class="p-o m-0">
+                                </div>
+                                <div class="content">
+                                    <div class="form-group">
+
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label>Role</label>
                                                 <div class="form-group">
-                                                    <div class="col-sm-6">
-                                                        <select id="rewardSelect" class="form-control">
-                                                            <option>American Airlines</option>
-                                                            <option>Delta Airlines</option>
-                                                            <option>Frontier Airlines</option>
-                                                            <option>Southwest Airlines</option>
-                                                            <option>United Airlines</option>
-                                                            <option>Virgin America Airlines</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-sm-5">
-                                                        <input type="text" class="form-control m-t-0" placeholder="Airline Rewards #">
-                                                    </div>
-                                                     <div class="col-sm-1">
-                                                         
-                                                     </div>
+                                                    <select id="roleselect" class="form-control" >
+                                                        <option <?php echo $app->constants->request['travelerselected'];?> value="">Traveler</option>
+                                                        <option <?php echo $app->constants->request['approverselected'];?> value="">Approver</option>
+                                                        <option <?php echo $app->constants->request['arrangerselected'];?> value="" selected>Arranger</option>
+                                                        <option <?php echo $app->constants->request['adminselected'];?> value="">Admin</option>
+                                                    </select>
                                                 </div>
-                                            
                                             </div>
-                                            <hr class="m-t-5 m-b-">
-                                            
+                                            <div class="col-sm-8 clearfix">&nbsp;</div>
                                         </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            </form>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Home Airport Code </label>
+                                                    <input class="form-control" id="home_airport" name="home_airport" placeholder="Enter 3 letter airport code" value="<?php echo $app->constants->request['home_airport'];?>">
+                                                    <p class="help-block"> </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Seat Preference</label> 
+                                                    <select class="form-control" name='seat_id' id="seat_id">
+                                                        <option value="" id="">No Preference</option>
+                                                        <option <?php echo $app->constants->request['windowselected'];?> value="" id="">Window</option>
+                                                        <option <?php echo $app->constants->request['aisleselected'];?> value="" id="" selected>Aisle</option>
+                                                        <option <?php echo $app->constants->request['exitselected'];?> value="" id="">Exit Row</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Special Assistance</label>
+                                                    <select name = 'special_assistance' class="form-control">
+                                                        <option value="">None</option>
+                                                        <option <?php echo $app->constants->request['BlindWDogselected'];?> value="BlindWDog">Blind With Dog</option>
+                                                        <option <?php echo $app->constants->request['DeafWDogselected'];?> value="DeafWDog">Deaf With Dog</option>
+                                                        <option <?php echo $app->constants->request['MeetAndAssistselected'];?> value="MeetAndAssist">Meet and Assist</option>
+                                                        <option <?php echo $app->constants->request['WChairNoStairsselected'];?> value="WChairNoStairs">Wheelchair - Cannot Ascend/Descend Stairs</option>
+                                                        <option <?php echo $app->constants->request['WChairStairOKselected'];?> value="WChairStairOK">Wheelchair - Can Walk and Ascend/Descend Stairs</option>
+                                                        <option <?php echo $app->constants->request['WChairImmobileselected'];?> value="WChairImmobile">Wheelchair - Immobile</option>
+                                                        <option <?php echo $app->constants->request['WithInfantselected'];?> value="WithInfant">With Infant</option>
+                                                        <option <?php echo $app->constants->request['HelpLangselected'];?> value="HelpLang">Help - Language</option>
+                                                        <option <?php echo $app->constants->request['WChairOnBoardselected'];?> value="WChairOnBoard">Wheelchair - On-Board Wheelchair</option>
+                                                        <option <?php echo $app->constants->request['BlindNoDogselected'];?> value="BlindNoDog">Blind</option>
+                                                        <option <?php echo $app->constants->request['DeafNoDogselected'];?> value="DeafNoDog">Deaf</option>
+                                                        <option <?php echo $app->constants->request['BaggBulkyselected'];?> value="BaggBulky">Baggage - Bulky</option>
+                                                        <option <?php echo $app->constants->request['BaggFragileselected'];?> value="BaggFragile">Baggage - Fragile</option>
+                                                        <option <?php echo $app->constants->request['BaggSportsEquipselected'];?> value="BaggSportsEquip">Baggage - Sports Equipment</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="input-id">Secondary Email&nbsp;<small></small></label>
+                                                    <input type="email" name="s_email" id="s_email" class="form-control form-control-sm" value="<?php echo $app->constants->request['s_email'];?>" title="Email">
+                                                    <p class="help-block small m-t-0">&nbsp;*(Additional email we will send itineraries too)</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="m-t-5">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+
+
+                                                <div class="form-group">
+                                                    <label>Passport Number</label>
+                                                    <input type="text" name="passport_num" class="form-control m-t-0" value="<?php echo $app->constants->request['passport_num'];?>" placeholder="Passport Number">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label style="margin-bottom: 5px;">Passport Expiration Date</label>    
+                                                    <input type="date" name="passport_exp" id="date" class="form-control" value="<?php echo $app->constants->request['passport_exp'];?>" required="required" title="date">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="">Passport Issuing Country</label>
+                                                <div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true">
+                                                    <input type="hidden" name="" value="US">
+                                                    <a class="bfh-selectbox-toggle form-control" role="button" data-toggle="bfh-selectbox" href="#">
+                                                        <span class="bfh-selectbox-option"><i class="glyphicon bfh-flag-US"></i>United States</span>
+                                                        <span class="caret selectbox-caret"></span></a>
+                                                    <div class="bfh-selectbox-options">
+                                                        <div role="listbox">
+                                                            <ul role="option">
+                                                                <li>
+                                                                    <a tabindex="-1" href="#" data-option=""></a>
+                                                                </li>
+                                                                <li><a tabindex="-1" href="#" data-option="AF"><i class="glyphicon bfh-flag-AF"></i>Afghanistan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AL"><i class="glyphicon bfh-flag-AL"></i>Albania</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DZ"><i class="glyphicon bfh-flag-DZ"></i>Algeria</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AS"><i class="glyphicon bfh-flag-AS"></i>American Samoa</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AD"><i class="glyphicon bfh-flag-AD"></i>Andorra</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AO"><i class="glyphicon bfh-flag-AO"></i>Angola</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AI"><i class="glyphicon bfh-flag-AI"></i>Anguilla</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AQ"><i class="glyphicon bfh-flag-AQ"></i>Antarctica</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AG"><i class="glyphicon bfh-flag-AG"></i>Antigua and Barbuda</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AR"><i class="glyphicon bfh-flag-AR"></i>Argentina</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AM"><i class="glyphicon bfh-flag-AM"></i>Armenia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AW"><i class="glyphicon bfh-flag-AW"></i>Aruba</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AU"><i class="glyphicon bfh-flag-AU"></i>Australia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AT"><i class="glyphicon bfh-flag-AT"></i>Austria</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AZ"><i class="glyphicon bfh-flag-AZ"></i>Azerbaijan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BH"><i class="glyphicon bfh-flag-BH"></i>Bahrain</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BD"><i class="glyphicon bfh-flag-BD"></i>Bangladesh</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BB"><i class="glyphicon bfh-flag-BB"></i>Barbados</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BY"><i class="glyphicon bfh-flag-BY"></i>Belarus</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BE"><i class="glyphicon bfh-flag-BE"></i>Belgium</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BZ"><i class="glyphicon bfh-flag-BZ"></i>Belize</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BJ"><i class="glyphicon bfh-flag-BJ"></i>Benin</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BM"><i class="glyphicon bfh-flag-BM"></i>Bermuda</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BT"><i class="glyphicon bfh-flag-BT"></i>Bhutan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BO"><i class="glyphicon bfh-flag-BO"></i>Bolivia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BA"><i class="glyphicon bfh-flag-BA"></i>Bosnia and Herzegovina</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BW"><i class="glyphicon bfh-flag-BW"></i>Botswana</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BV"><i class="glyphicon bfh-flag-BV"></i>Bouvet Island</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BR"><i class="glyphicon bfh-flag-BR"></i>Brazil</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IO"><i class="glyphicon bfh-flag-IO"></i>British Indian Ocean Territory</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VG"><i class="glyphicon bfh-flag-VG"></i>British Virgin Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BN"><i class="glyphicon bfh-flag-BN"></i>Brunei</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BG"><i class="glyphicon bfh-flag-BG"></i>Bulgaria</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BF"><i class="glyphicon bfh-flag-BF"></i>Burkina Faso</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BI"><i class="glyphicon bfh-flag-BI"></i>Burundi</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CI"><i class="glyphicon bfh-flag-CI"></i>Côte d'Ivoire</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KH"><i class="glyphicon bfh-flag-KH"></i>Cambodia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CM"><i class="glyphicon bfh-flag-CM"></i>Cameroon</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CA"><i class="glyphicon bfh-flag-CA"></i>Canada</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CV"><i class="glyphicon bfh-flag-CV"></i>Cape Verde</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KY"><i class="glyphicon bfh-flag-KY"></i>Cayman Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CF"><i class="glyphicon bfh-flag-CF"></i>Central African Republic</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TD"><i class="glyphicon bfh-flag-TD"></i>Chad</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CL"><i class="glyphicon bfh-flag-CL"></i>Chile</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CN"><i class="glyphicon bfh-flag-CN"></i>China</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CX"><i class="glyphicon bfh-flag-CX"></i>Christmas Island</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CC"><i class="glyphicon bfh-flag-CC"></i>Cocos (Keeling) Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CO"><i class="glyphicon bfh-flag-CO"></i>Colombia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KM"><i class="glyphicon bfh-flag-KM"></i>Comoros</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CG"><i class="glyphicon bfh-flag-CG"></i>Congo</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CK"><i class="glyphicon bfh-flag-CK"></i>Cook Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CR"><i class="glyphicon bfh-flag-CR"></i>Costa Rica</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HR"><i class="glyphicon bfh-flag-HR"></i>Croatia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CU"><i class="glyphicon bfh-flag-CU"></i>Cuba</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CY"><i class="glyphicon bfh-flag-CY"></i>Cyprus</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CZ"><i class="glyphicon bfh-flag-CZ"></i>Czech Republic</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CD"><i class="glyphicon bfh-flag-CD"></i>Democratic Republic of the Congo</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DK"><i class="glyphicon bfh-flag-DK"></i>Denmark</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DJ"><i class="glyphicon bfh-flag-DJ"></i>Djibouti</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DM"><i class="glyphicon bfh-flag-DM"></i>Dominica</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DO"><i class="glyphicon bfh-flag-DO"></i>Dominican Republic</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TP"><i class="glyphicon bfh-flag-TP"></i>East Timor</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="EC"><i class="glyphicon bfh-flag-EC"></i>Ecuador</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="EG"><i class="glyphicon bfh-flag-EG"></i>Egypt</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SV"><i class="glyphicon bfh-flag-SV"></i>El Salvador</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GQ"><i class="glyphicon bfh-flag-GQ"></i>Equatorial Guinea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ER"><i class="glyphicon bfh-flag-ER"></i>Eritrea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="EE"><i class="glyphicon bfh-flag-EE"></i>Estonia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ET"><i class="glyphicon bfh-flag-ET"></i>Ethiopia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FO"><i class="glyphicon bfh-flag-FO"></i>Faeroe Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FK"><i class="glyphicon bfh-flag-FK"></i>Falkland Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FJ"><i class="glyphicon bfh-flag-FJ"></i>Fiji</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FI"><i class="glyphicon bfh-flag-FI"></i>Finland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MK"><i class="glyphicon bfh-flag-MK"></i>Former Yugoslav Republic of Macedonia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FR"><i class="glyphicon bfh-flag-FR"></i>France</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FX"><i class="glyphicon bfh-flag-FX"></i>France, Metropolitan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GF"><i class="glyphicon bfh-flag-GF"></i>French Guiana</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PF"><i class="glyphicon bfh-flag-PF"></i>French Polynesia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TF"><i class="glyphicon bfh-flag-TF"></i>French Southern Territories</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GA"><i class="glyphicon bfh-flag-GA"></i>Gabon</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GE"><i class="glyphicon bfh-flag-GE"></i>Georgia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="DE"><i class="glyphicon bfh-flag-DE"></i>Germany</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GH"><i class="glyphicon bfh-flag-GH"></i>Ghana</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GI"><i class="glyphicon bfh-flag-GI"></i>Gibraltar</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GR"><i class="glyphicon bfh-flag-GR"></i>Greece</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GL"><i class="glyphicon bfh-flag-GL"></i>Greenland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GD"><i class="glyphicon bfh-flag-GD"></i>Grenada</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GP"><i class="glyphicon bfh-flag-GP"></i>Guadeloupe</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GU"><i class="glyphicon bfh-flag-GU"></i>Guam</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GT"><i class="glyphicon bfh-flag-GT"></i>Guatemala</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GN"><i class="glyphicon bfh-flag-GN"></i>Guinea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GW"><i class="glyphicon bfh-flag-GW"></i>Guinea-Bissau</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GY"><i class="glyphicon bfh-flag-GY"></i>Guyana</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HT"><i class="glyphicon bfh-flag-HT"></i>Haiti</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HM"><i class="glyphicon bfh-flag-HM"></i>Heard and Mc Donald Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HN"><i class="glyphicon bfh-flag-HN"></i>Honduras</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HK"><i class="glyphicon bfh-flag-HK"></i>Hong Kong</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="HU"><i class="glyphicon bfh-flag-HU"></i>Hungary</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IS"><i class="glyphicon bfh-flag-IS"></i>Iceland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IN"><i class="glyphicon bfh-flag-IN"></i>India</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ID"><i class="glyphicon bfh-flag-ID"></i>Indonesia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IR"><i class="glyphicon bfh-flag-IR"></i>Iran</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IQ"><i class="glyphicon bfh-flag-IQ"></i>Iraq</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IE"><i class="glyphicon bfh-flag-IE"></i>Ireland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IL"><i class="glyphicon bfh-flag-IL"></i>Israel</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="IT"><i class="glyphicon bfh-flag-IT"></i>Italy</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="JM"><i class="glyphicon bfh-flag-JM"></i>Jamaica</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="JP"><i class="glyphicon bfh-flag-JP"></i>Japan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="JO"><i class="glyphicon bfh-flag-JO"></i>Jordan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KZ"><i class="glyphicon bfh-flag-KZ"></i>Kazakhstan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KE"><i class="glyphicon bfh-flag-KE"></i>Kenya</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KI"><i class="glyphicon bfh-flag-KI"></i>Kiribati</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KW"><i class="glyphicon bfh-flag-KW"></i>Kuwait</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KG"><i class="glyphicon bfh-flag-KG"></i>Kyrgyzstan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LA"><i class="glyphicon bfh-flag-LA"></i>Laos</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LV"><i class="glyphicon bfh-flag-LV"></i>Latvia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LB"><i class="glyphicon bfh-flag-LB"></i>Lebanon</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LS"><i class="glyphicon bfh-flag-LS"></i>Lesotho</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LR"><i class="glyphicon bfh-flag-LR"></i>Liberia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LY"><i class="glyphicon bfh-flag-LY"></i>Libya</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LI"><i class="glyphicon bfh-flag-LI"></i>Liechtenstein</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LT"><i class="glyphicon bfh-flag-LT"></i>Lithuania</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LU"><i class="glyphicon bfh-flag-LU"></i>Luxembourg</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MO"><i class="glyphicon bfh-flag-MO"></i>Macau</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MG"><i class="glyphicon bfh-flag-MG"></i>Madagascar</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MW"><i class="glyphicon bfh-flag-MW"></i>Malawi</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MY"><i class="glyphicon bfh-flag-MY"></i>Malaysia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MV"><i class="glyphicon bfh-flag-MV"></i>Maldives</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ML"><i class="glyphicon bfh-flag-ML"></i>Mali</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MT"><i class="glyphicon bfh-flag-MT"></i>Malta</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MH"><i class="glyphicon bfh-flag-MH"></i>Marshall Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MQ"><i class="glyphicon bfh-flag-MQ"></i>Martinique</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MR"><i class="glyphicon bfh-flag-MR"></i>Mauritania</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MU"><i class="glyphicon bfh-flag-MU"></i>Mauritius</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="YT"><i class="glyphicon bfh-flag-YT"></i>Mayotte</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MX"><i class="glyphicon bfh-flag-MX"></i>Mexico</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="FM"><i class="glyphicon bfh-flag-FM"></i>Micronesia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MD"><i class="glyphicon bfh-flag-MD"></i>Moldova</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MC"><i class="glyphicon bfh-flag-MC"></i>Monaco</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MN"><i class="glyphicon bfh-flag-MN"></i>Mongolia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ME"><i class="glyphicon bfh-flag-ME"></i>Montenegro</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MS"><i class="glyphicon bfh-flag-MS"></i>Montserrat</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MA"><i class="glyphicon bfh-flag-MA"></i>Morocco</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MZ"><i class="glyphicon bfh-flag-MZ"></i>Mozambique</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MM"><i class="glyphicon bfh-flag-MM"></i>Myanmar</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NA"><i class="glyphicon bfh-flag-NA"></i>Namibia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NR"><i class="glyphicon bfh-flag-NR"></i>Nauru</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NP"><i class="glyphicon bfh-flag-NP"></i>Nepal</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NL"><i class="glyphicon bfh-flag-NL"></i>Netherlands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AN"><i class="glyphicon bfh-flag-AN"></i>Netherlands Antilles</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NC"><i class="glyphicon bfh-flag-NC"></i>New Caledonia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NZ"><i class="glyphicon bfh-flag-NZ"></i>New Zealand</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NI"><i class="glyphicon bfh-flag-NI"></i>Nicaragua</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NE"><i class="glyphicon bfh-flag-NE"></i>Niger</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NG"><i class="glyphicon bfh-flag-NG"></i>Nigeria</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NU"><i class="glyphicon bfh-flag-NU"></i>Niue</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NF"><i class="glyphicon bfh-flag-NF"></i>Norfolk Island</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KP"><i class="glyphicon bfh-flag-KP"></i>North Korea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="MP"><i class="glyphicon bfh-flag-MP"></i>Northern Marianas</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="NO"><i class="glyphicon bfh-flag-NO"></i>Norway</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="OM"><i class="glyphicon bfh-flag-OM"></i>Oman</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PK"><i class="glyphicon bfh-flag-PK"></i>Pakistan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PW"><i class="glyphicon bfh-flag-PW"></i>Palau</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PS"><i class="glyphicon bfh-flag-PS"></i>Palestine</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PA"><i class="glyphicon bfh-flag-PA"></i>Panama</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PG"><i class="glyphicon bfh-flag-PG"></i>Papua New Guinea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PY"><i class="glyphicon bfh-flag-PY"></i>Paraguay</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PE"><i class="glyphicon bfh-flag-PE"></i>Peru</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PH"><i class="glyphicon bfh-flag-PH"></i>Philippines</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PN"><i class="glyphicon bfh-flag-PN"></i>Pitcairn Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PL"><i class="glyphicon bfh-flag-PL"></i>Poland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PT"><i class="glyphicon bfh-flag-PT"></i>Portugal</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PR"><i class="glyphicon bfh-flag-PR"></i>Puerto Rico</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="QA"><i class="glyphicon bfh-flag-QA"></i>Qatar</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="RE"><i class="glyphicon bfh-flag-RE"></i>Reunion</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="RO"><i class="glyphicon bfh-flag-RO"></i>Romania</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="RU"><i class="glyphicon bfh-flag-RU"></i>Russia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="RW"><i class="glyphicon bfh-flag-RW"></i>Rwanda</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ST"><i class="glyphicon bfh-flag-ST"></i>São Tomé and Príncipe</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SH"><i class="glyphicon bfh-flag-SH"></i>Saint Helena</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="PM"><i class="glyphicon bfh-flag-PM"></i>St. Pierre and Miquelon</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KN"><i class="glyphicon bfh-flag-KN"></i>Saint Kitts and Nevis</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LC"><i class="glyphicon bfh-flag-LC"></i>Saint Lucia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VC"><i class="glyphicon bfh-flag-VC"></i>Saint Vincent and the Grenadines</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="WS"><i class="glyphicon bfh-flag-WS"></i>Samoa</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SM"><i class="glyphicon bfh-flag-SM"></i>San Marino</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SA"><i class="glyphicon bfh-flag-SA"></i>Saudi Arabia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SN"><i class="glyphicon bfh-flag-SN"></i>Senegal</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="RS"><i class="glyphicon bfh-flag-RS"></i>Serbia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SC"><i class="glyphicon bfh-flag-SC"></i>Seychelles</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SL"><i class="glyphicon bfh-flag-SL"></i>Sierra Leone</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SG"><i class="glyphicon bfh-flag-SG"></i>Singapore</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SK"><i class="glyphicon bfh-flag-SK"></i>Slovakia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SI"><i class="glyphicon bfh-flag-SI"></i>Slovenia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SB"><i class="glyphicon bfh-flag-SB"></i>Solomon Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SO"><i class="glyphicon bfh-flag-SO"></i>Somalia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ZA"><i class="glyphicon bfh-flag-ZA"></i>South Africa</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GS"><i class="glyphicon bfh-flag-GS"></i>South Georgia and the South Sandwich Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="KR"><i class="glyphicon bfh-flag-KR"></i>South Korea</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ES"><i class="glyphicon bfh-flag-ES"></i>Spain</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="LK"><i class="glyphicon bfh-flag-LK"></i>Sri Lanka</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SD"><i class="glyphicon bfh-flag-SD"></i>Sudan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SR"><i class="glyphicon bfh-flag-SR"></i>Suriname</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SJ"><i class="glyphicon bfh-flag-SJ"></i>Svalbard and Jan Mayen Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SZ"><i class="glyphicon bfh-flag-SZ"></i>Swaziland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SE"><i class="glyphicon bfh-flag-SE"></i>Sweden</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="CH"><i class="glyphicon bfh-flag-CH"></i>Switzerland</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="SY"><i class="glyphicon bfh-flag-SY"></i>Syria</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TW"><i class="glyphicon bfh-flag-TW"></i>Taiwan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TJ"><i class="glyphicon bfh-flag-TJ"></i>Tajikistan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TZ"><i class="glyphicon bfh-flag-TZ"></i>Tanzania</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TH"><i class="glyphicon bfh-flag-TH"></i>Thailand</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="BS"><i class="glyphicon bfh-flag-BS"></i>The Bahamas</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GM"><i class="glyphicon bfh-flag-GM"></i>The Gambia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TG"><i class="glyphicon bfh-flag-TG"></i>Togo</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TK"><i class="glyphicon bfh-flag-TK"></i>Tokelau</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TO"><i class="glyphicon bfh-flag-TO"></i>Tonga</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TT"><i class="glyphicon bfh-flag-TT"></i>Trinidad and Tobago</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TN"><i class="glyphicon bfh-flag-TN"></i>Tunisia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TR"><i class="glyphicon bfh-flag-TR"></i>Turkey</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TM"><i class="glyphicon bfh-flag-TM"></i>Turkmenistan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TC"><i class="glyphicon bfh-flag-TC"></i>Turks and Caicos Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="TV"><i class="glyphicon bfh-flag-TV"></i>Tuvalu</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VI"><i class="glyphicon bfh-flag-VI"></i>US Virgin Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="UG"><i class="glyphicon bfh-flag-UG"></i>Uganda</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="UA"><i class="glyphicon bfh-flag-UA"></i>Ukraine</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="AE"><i class="glyphicon bfh-flag-AE"></i>United Arab Emirates</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="GB"><i class="glyphicon bfh-flag-GB"></i>United Kingdom</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="US"><i class="glyphicon bfh-flag-US"></i>United States</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="UM"><i class="glyphicon bfh-flag-UM"></i>United States Minor Outlying Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="UY"><i class="glyphicon bfh-flag-UY"></i>Uruguay</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="UZ"><i class="glyphicon bfh-flag-UZ"></i>Uzbekistan</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VU"><i class="glyphicon bfh-flag-VU"></i>Vanuatu</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VA"><i class="glyphicon bfh-flag-VA"></i>Vatican City</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VE"><i class="glyphicon bfh-flag-VE"></i>Venezuela</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="VN"><i class="glyphicon bfh-flag-VN"></i>Vietnam</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="WF"><i class="glyphicon bfh-flag-WF"></i>Wallis and Futuna Islands</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="EH"><i class="glyphicon bfh-flag-EH"></i>Western Sahara</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="YE"><i class="glyphicon bfh-flag-YE"></i>Yemen</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ZM"><i class="glyphicon bfh-flag-ZM"></i>Zambia</a></li>
+                                                                <li><a tabindex="-1" href="#" data-option="ZW"><i class="glyphicon bfh-flag-ZW"></i>Zimbabwe</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="m-t-5">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="../../tempotrip/images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
+                                                    <!--TOOLTIP-->
+                                                    <!--<p>The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process).</p>-->
+                                                    <input class="form-control" name='known_number' value="<?php echo $app->constants->request['known_number'];?>" placeholder="Enter number">
+
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="">Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
+
+                                                    <!--TOOLTIP-->
+                                                    <!--<h5>Redress Number</h5><p>This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts.</p>
+                                                    -->
+                                                    <input class="form-control" placeholder="Enter number" name='redress_number' value="<?php echo $app->constants->request['redress_number'];?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="m-t-5 m-b-">
+                                        <div class="row" id="airline-rewards-wrapper">
+                                            <div class="col-sm-11">
+                                                <label>Airline Rewards</label>
+                                            </div>
+                                            <div class="col-sm-1"><a href="#" class="add_field_button"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <select id="rewardSelect" name='airline_reward_co_id-1' class="form-control">
+                                                        <option value="1">American Airlines</option>
+                                                        <option value="3">Delta Airlines</option>
+                                                        <option value="4">Southwest Airlines</option>
+                                                        <option value="2">United Airlines</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <input type="text" name='airline_reward_num-1' class="form-control m-t-0" placeholder="Airline Rewards #">
+                                                </div>
+                                                <div class="col-sm-1">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr class="m-t-5 m-b-">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                 </div>
-                
+            </div>
+        </div>
+
     </div>
 </div>
-      
