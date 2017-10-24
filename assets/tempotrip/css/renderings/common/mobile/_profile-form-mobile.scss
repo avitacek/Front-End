@@ -1,5 +1,56 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
+@include max-screen(medium) {
+	#profile-page{
+		& .body-content{
+			padding-top:90px;
+			& .col-sm-8{
+				width:100%;
+				padding-left:0px;
+				padding-right:0px;
+				& .content-profile-form{
+					& .container-fluid{
+						padding-left:0px;
+						padding-right:0px;
+						& .col-md-12{
+							padding-left:0px;
+							padding-right:0px;
+							& .nav-tabs{
+								width:100%;
+								display:table;
+								& li{
+								display:table-cell;
+								float:none;
+									& a{
+										border-bottom-width:0px;
+									}
+								}
+							}
+							& .tab-content{
+								& .tab-panel{
+									& .card{
+										& .header{
+											& .title{
+												font-size:20px;
+											}
+										}
+									}
+								}
+
+							}
+						}
+					}
+
+				}
+				& .btn-primary{
+					height:44px;
+					float:left;
+					top:0px;
+				}
+			}
+		}
+	}
+}
 @include max-screen(small) {
 	#profile-page{
 		& .body-content{
@@ -27,7 +78,7 @@
 								}
 							}
 							& .tab-content{
-								& .tab-pane{
+								& .tab-panel{
 									& .card{
 										& .header{
 											& .title{
@@ -36,10 +87,16 @@
 										}
 									}
 								}
+
 							}
 						}
 					}
 
+				}
+				& .btn-primary{
+					height:44px;
+					float:left;
+					top:0px;
 				}
 			}
 		}

@@ -3,76 +3,129 @@ Import FONTS
 ----------------------------------------------------------------------------- */
 
 /* Then use elsewhere */
-/*Dosis*/
+/*Raleway*/
+@font-face {
+    font-family:'Raleway-Thin';
+    src: url('../fonts/raleway/Raleway Thin.eot');
+	src: url('../fonts/raleway/Raleway Thin.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway Thin.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway Thin.woff') format('woff'),
+		url('../fonts/raleway/Raleway Thin.svg#Raleway Thin') format('svg');
+    font-weight: 250;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway-ExtraLight';
+    src: url('../fonts/raleway/Raleway ExtraLight.eot');
+	src: url('../fonts/raleway/Raleway ExtraLight.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway ExtraLight.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway ExtraLight.woff') format('woff'),
+		url('../fonts/raleway/Raleway ExtraLight.svg#Raleway ExtraLight') format('svg');
+    font-weight: 275;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway-Light';
+    src: url('../fonts/raleway/Raleway Light.eot');
+	src: url('../fonts/raleway/Raleway Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway Light.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway Light.woff') format('woff'),
+		url('../fonts/raleway/Raleway Light.svg#Raleway Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway';
+    src: url('../fonts/raleway/Raleway.eot');
+	src: url('../fonts/raleway/Raleway.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway.woff') format('woff'),
+		url('../fonts/raleway/Raleway.svg#Raleway') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway-Italic';
+    src: url('../fonts/raleway/Raleway Italic.eot');
+	src: url('../fonts/raleway/Raleway Italic.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway Italic.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway Italic.woff') format('woff'),
+		url('../fonts/raleway/Raleway Italic.svg#Raleway Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway-Medium';
+    src: url('../fonts/raleway/Raleway Medium.eot');
+	src: url('../fonts/raleway/Raleway Medium.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway Medium.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway Medium.woff') format('woff'),
+		url('../fonts/raleway/Raleway Medium.svg#Raleway Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+@font-face {
+    font-family:'Raleway-Bold';
+    src: url('../fonts/raleway/Raleway Bold.eot');
+	src: url('../fonts/raleway/Raleway Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/raleway/Raleway Bold.woff2') format('woff2'),
+		url('../fonts/raleway/Raleway Bold.woff') format('woff'),
+		url('../fonts/raleway/Raleway Bold.svg#Raleway Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
 
+/*Source Sans Pro*/
 @font-face {
-	font-family: 'Dosis-Regular';
-	src: url('../fonts/Dosis/Dosis-Regular.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-Regular.ttf')  format('truetype');/* Safari, Android, iOS */
-	font-weight: normal;
-	font-style: normal;
+    font-family:'Source-Sans-Pro-Bold';
+    src: url('../fonts/source-sans-pro/Source Sans Pro Bold.eot');
+	src: url('../fonts/source-sans-pro/Source Sans Pro Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/source-sans-pro/Source Sans Pro Bold.woff2') format('woff2'),
+		url('../fonts/source-sans-pro/Source Sans Pro Bold.woff') format('woff'),
+		url('../fonts/source-sans-pro/Source Sans Pro Bold.svg#Source Sans Pro Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2212;
 }
 @font-face {
-	font-family: 'Dosis-ExtraLight';
-	src: url('../fonts/Dosis/Dosis-ExtraLight.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-ExtraLight.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-ExtraLight.ttf')  format('truetype'); /* Safari, Android, iOS */
-	font-weight: normal;
-	font-style: normal;
+    font-family:'Source-Sans-Pro-Italic';
+    src: url('../fonts/source-sans-pro/Source Sans Pro Italic.eot');
+	src: url('../fonts/source-sans-pro/Source Sans Pro Italic.woff2') format('woff2'),
+		url('../fonts/source-sans-pro/Source Sans Pro Italic.woff') format('woff'),
+		url('../fonts/source-sans-pro/Source Sans Pro Italic.svg#Source Sans Pro Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    unicode-range: U+0020-2212;
 }
 @font-face {
-	font-family: 'Dosis-Light';
-	src: url('../fonts/Dosis/Dosis-Light.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-Light.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-Light.ttf')  format('truetype'); /* Safari, Android, iOS */
-	font-weight: normal;
-	font-style: normal;
+    font-family:'Source-Sans-Pro';
+    src: url('../fonts/source-sans-pro/Source Sans Pro Regular.eot');
+	src: url('../fonts/source-sans-pro/Source Sans Pro Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/source-sans-pro/Source Sans Pro Regular.woff2') format('woff2'),
+		url('../fonts/source-sans-pro/Source Sans Pro Regular.woff') format('woff'),
+		url('../fonts/source-sans-pro/Source Sans Pro Regular.svg#Source Sans Pro Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2212;
 }
-@font-face {
-	font-family: 'Dosis-Medium';
-	src: url('../fonts/Dosis/Dosis-Medium.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-Medium.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/Dosis/Dosis-Medium.svg#svgFontName') format('svg'); /* Legacy iOS */
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Dosis-SemiBold';
-	src: url('../fonts/Dosis/Dosis-SemiBold.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-SemiBold.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-SemiBold.ttf')  format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/Dosis/Dosis-SemiBold.svg#svgFontName') format('svg'); /* Legacy iOS */
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Dosis-Bold';
-	src: url('../fonts/Dosis/Dosis-Bold.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/Dosis/Dosis-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Dosis-ExtraBold';
-	src: url('../fonts/Dosis/Dosis-ExtraBold.eot'); /* IE9 Compat Modes */
-	src: url('../fonts/Dosis/Dosis-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-	url('../fonts/Dosis/Dosis-ExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
-	url('../fonts/Dosis/Dosis-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
-	url('../fonts/Dosis/Dosis-ExtraBold.svg#svgFontName') format('svg'); /* Legacy iOS */
-	font-weight: normal;
-	font-style: normal;
-}
+/*Font Awesome*/
 @font-face {
   font-family: 'FontAwesome';
   src: url('../fonts/font-awesome/fontawesome-webfont.eot?v=4.7.0');
@@ -80,3 +133,5 @@ Import FONTS
   font-weight: normal;
   font-style: normal;
 }
+
+

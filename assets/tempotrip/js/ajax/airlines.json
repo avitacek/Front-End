@@ -1,0 +1,79 @@
+{
+      "data": [
+            {     
+                  "id" : "0",
+                  "name": "American Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "1",
+                  "name": "Delta Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "2",
+                  "name": "Southwest Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "3",
+                  "name": "United Airlines",
+                  "selected": true
+            },
+            {     
+                  "id" : "4",
+                  "name": "Air Canada",
+                  "selected": false
+            },
+            {
+                  "id" : "5",
+                  "name": "JetBlue",
+                  "selected": false
+            },
+            {
+                  "id" : "6",
+                  "name": "Alaska Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "7",
+                  "name": "WestJet",
+                  "selected": true
+            },
+            {     
+                  "id" : "8",
+                  "name": "Aeromexico",
+                  "selected": false
+            },
+            {
+                  "id" : "9",
+                  "name": "Spirit Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "10",
+                  "name": "Frontier Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "11",
+                  "name": "Volaris",
+                  "selected": true
+            },
+            {     
+                  "id" : "12",
+                  "name": "Hawaiian Airlines",
+                  "selected": false
+            },
+            {
+                  "id" : "13",
+                  "name": "Allegiant Air",
+                  "selected": false
+            },
+            {
+                  "id" : "14",
+                  "name": "Virgin America",
+                  "selected": true
+            } 
+      ]
+}

@@ -3,6 +3,9 @@
 body{
 	#global-header{
 		padding:0px;
+		& .btn-warning{
+			background-color: #FEA34B;
+		}
 		& #header {
 			background: $white;
 			border-bottom:1px solid #dfe2e5;
@@ -12,7 +15,7 @@ body{
 			z-index: 9999;
 			padding:0px 0px;
 			& .nav{
-				font-family: $Marvel-Regular;
+				font-family: $Raleway;
 				font-size:20px;
 				letter-spacing:0.3px;
 				color:$black;
@@ -33,23 +36,13 @@ body{
 					& .col-sm-3, & .col-sm-6{
 						padding-left:0px;
 						float:left;
-						& .logo{
-							font-size:2.25em;
-							width:auto;
-							line-height:1;
-							height:50px;
-							padding-left:185px;
-							float:left;
-							&:before{
-								top:0%
-							}
-						}
+						
 						/*Hamburger Button*/
 						& .navCase{
 						    float:left;
 						    width:35px;
 						    height:35px;
-						    margin-top:8px;
+						    margin-top:10px;
 						    z-index: 9995;
 						    border-radius:50%;
 						    display:block;
@@ -154,7 +147,7 @@ body{
 			   			& .dropdown-menu{
 			   				left:auto;
 			   				right:-25px;
-			   				top:60px;
+			   				top:70px;
 			   				min-width:120px;
 			   				box-shadow:none;
 			   				border-left-color:#dfe2e5;
@@ -213,9 +206,9 @@ body{
 	/*SidebarNav*/
 		& .sideBarNav {
 		    height: 100%; /* 100% Full-height */
-		    width: 50px; /* 0 width - change this with JavaScript */
+		    width: 60px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
-		    z-index: 1; /* Stay on top */
+		    z-index: 200; /* Stay on top */
 		    top:70px;
 		    left: 0px;
 		    border-right:1px solid #dfe2e5;
@@ -284,6 +277,7 @@ body{
 		    		margin-left:-14px;
 		    		font-size:20px;
 		    		width:20px;
+
 		    	}
 		    	& li{
 		    		float:left;
@@ -292,16 +286,32 @@ body{
 		    		padding:10px 0px;
 		    		font-size:16px;
 		    		text-align:left;
+		    		&.active{
+		    			color:#FEA34B;
+		    			& i{
+		    				color:#FEA34B;
+		    			}
+		    			& a{
+		    				color:#FEA34B;
+		    				border-bottom:1px solid #FEA34B;
+		    			}
+		    		}
 		    		& a {
 					    color:#7f8fa4;
 					    text-transform:uppercase;
-					    font-size:16px;
+					    font-size:14px;
 					    margin-left:0px;
 					    transition: 0.3s;
 					    line-height: 0.75em;
     					vertical-align: 20%;
 					    &:hover{
 
+					    }
+					    & hr{
+					    	border-color:#dfe2e5;
+					    	border-width:1px;
+					    	margin-left:20px;
+					    	width:85%;
 					    }
 					}
 					&:last-child{
@@ -355,17 +365,7 @@ body{
     	margin-left:35px!important;
     }
 }
-/*Body content slider*/
-.body-content{
-	position:relative;
-	left:0px;
-	transition: 0.5s;
-	padding-top:130px;
-	& .row{
-		max-width:1320px;
-		margin:0px auto;
-	}
-}
+
 &.hamburgerNavActive .body-content{
 	left:250px;
 }

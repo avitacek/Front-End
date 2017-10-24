@@ -1,0 +1,26 @@
+@import "../../../globals/variables";
+@import "../../../globals/mixins";
+@include max-screen(xl) {
+    
+}
+@include max-screen(large) {
+
+}
+@include max-screen(mediumLarge){
+
+}
+@include max-screen(medium) {
+
+}
+@include max-screen(small) {
+	#events-page .body-content .row .content-events #tabs li{
+		width: auto;
+    	max-width: 50%;
+    	float: none;
+    	display: table-cell;
+	}
+	.newWindowIcon{
+		top:-100px!important;
+	}
+	
+}

@@ -1,0 +1,24 @@
+{
+      "data": [
+            {     
+                  "id" : "0",
+                  "name": "Super Admin",
+                  "selected": false
+            },
+            {
+                  "id" : "1",
+                  "name": "Admin",
+                  "selected": false
+            },
+            {
+                  "id" : "2",
+                  "name": "Aprrover",
+                  "selected": false
+            },
+            {
+                  "id" : "3",
+                  "name": "Traveler",
+                  "selected": true
+            } 
+      ]
+}

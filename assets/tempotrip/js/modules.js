@@ -1,5 +1,6 @@
 //Search Site files//
 var gobal = require('./src/global.js');
+//var passwords = require ('./src/js-library.js');
 //var nav = require('./src/global-navigation.js');
 var hero = require('./src/hero-carousel.js');
 var login = require('./src/login.js');
@@ -11,3 +12,6 @@ var myTrips = require ('./src/myTrips.js');
 var allTrips = require ('./src/allTrips.js');
 var shoppingCart = require ('./src/shopping-cart.js');
 var approvals = require ('./src/approvals.js');
+var passwords = require ('./src/password-change.js');
+var meetingMaker = require ('./src/meetingMaker.js');
+var addTravelers = require ('./src/addTravelers.js');

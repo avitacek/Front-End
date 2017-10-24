@@ -8,10 +8,9 @@
     <meta name="author" content="">
     <title>TempoTrip - Profile</title>
     <!--<link rel="shortcut icon" href="favicon.ico">-->
-      
-    <link href="vendors/bootstrap-form-helpers/dist/css/bootstrap-formhelpers.css" rel="stylesheet">
+   <link href="css/vendors/plugins.css" rel="stylesheet">
     <link href="css/tempotrip.css" rel="stylesheet">
-    
+    <?php require_once("../model/commonJs.js.php"):?>
       
   </head>
 
@@ -47,25 +46,9 @@
             </div>
         </div>
     </div> 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12 image-bg">
-                <div class="color-overlay"></div>
-            </div>
-        </div>
-    </div>    
- 
+     @@include('../../renderings/components/global-footer.html')
     <!-- JS ============================== -->
-    <script src="js/tempotrip.globals.js"></script>
+   
     <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
-
-    <!--PLUGIN JS-->
-    <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
-    <script src="js/tempotrip.modules.js"></script>
-    
-    <!-- / JS ============================ -->
-    <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     </body>
 </html>

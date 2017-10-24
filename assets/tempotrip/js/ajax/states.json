@@ -1,0 +1,205 @@
+{
+      "data": [
+            {
+                  "id" : "0",
+                  "name": "Alabama",
+                  "selected": false 
+            },
+            {     "id" : "1",
+                  "name": "Alaska",
+                  "selected": false
+            }, 
+            {     "id" : "2",
+                  "name": "Arizona",
+                  "selected": false
+            }, 
+            {     "id" : "3",
+                  "name": "Arkansas",
+                  "selected": false
+            },
+            {     "id" : "4",
+                  "name": "California",
+                  "selected": false
+            }, 
+            {     "id" : "5",
+                  "name": "Colorado",
+                  "selected": false
+            },
+            {     "id" : "6",
+                  "name": "Connecticut",
+                  "selected": false
+            },
+            {     "id" : "7",
+                  "name": "Delaware",
+                  "selected": false
+            }, 
+            {     "id" : "8",
+                  "name": "Florida",
+                  "selected": false
+            },
+            {     "id" : "9",
+                  "name": "Georgia",
+                  "selected": false
+            }, 
+            {     "id" : "10",
+                  "name": "Hawaii",
+                  "selected": false
+            },
+            {     "id" : "11",
+                  "name": "Idaho",
+                  "selected": false
+            },
+            {     "id" : "12",
+                  "name": "Illinois",
+                  "selected": false
+            },
+            {     "id" : "13",
+                  "name": "Indiana",
+                  "selected": false
+            },
+            {     "id" : "14",
+                  "name": "Iowa",
+                  "selected": false
+            },
+            {     "id" : "15",
+                  "name": "Kansas",
+                  "selected": false
+            },
+            {     "id" : "16",
+                  "name": "Kentucky",
+                  "selected": false
+            },
+            {     "id" : "17",
+                  "name": "Louisiana",
+                  "selected": false 
+            },
+            {     "id" : "18",
+                  "name": "Maine",
+                  "selected": false 
+            },
+            {     "id" : "19",
+                  "name": "Maryland",
+                  "selected": false
+            },
+            {     "id" : "20",
+                  "name": "Massachusetts",
+                  "selected": false
+            },
+            {     "id" : "21",
+                  "name": "Michigan",
+                  "selected": false
+            }, 
+            {     "id" : "22",
+                  "name": "Minnesota",
+                  "selected": false
+            }, 
+            {     "id" : "23",
+                  "name": "Mississippi",
+                  "selected": false
+            },
+            {     "id" : "24",
+                  "name": "Missouri",
+                  "selected": false
+            },
+            {     "id" : "25",
+                  "name": "Montana",
+                  "selected": false
+            }, 
+            {     "id" : "26",
+                  "name": "Nebraska",
+                  "selected": false
+            },  
+            {     "id" : "27",
+                  "name": "Nevada",
+                  "selected": false
+            }, 
+            {     "id" : "28",
+                  "name": "New Hampshire",
+                  "selected": false
+            }, 
+            {     "id" : "29",
+                  "name": "New Jersey",
+                  "selected": false
+            },  
+            {     "id" : "30",
+                  "name": "New Mexico",
+                  "selected": false
+            }, 
+            {     "id" : "31",
+                  "name": "New York",
+                  "selected": false
+            },
+            {     "id" : "32",
+                  "name": "North Carolina",
+                  "selected": false
+            },
+            {     "id" : "33",
+                  "name": "North Dakota",
+                  "selected": false
+            },  
+            {"id" : "34",
+                  "name": "Ohio",
+                  "selected": false
+            },  
+            {     "id" : "35",
+                  "name": "Oklahoma",
+                  "selected": false
+            },
+            {     "id" : "36",
+                  "name": "Oregon",
+                  "selected": false
+            },
+            {     "id" : "37",
+                  "name": "Pennsylvania",
+                  "selected": false
+            },
+            {     "id" : "38",
+                  "name": "Rhode Island",
+                  "selected": false
+            },  
+            {     "id" : "39",
+                  "name": "South Carolina",
+                  "selected": false
+            },
+            {     "id" : "40",
+                  "name": "South Dakota",
+                  "selected": false
+            },
+            {     "id" : "41",
+                  "name": "Tennessee",
+                  "selected": false
+            },
+            {     "id" : "42",
+                  "name": "Texas",
+                  "selected": false
+            }, 
+            {     "id" : "43",
+                  "name": "Utah",
+                  "selected": false
+            },
+            {     "id" : "44",
+                  "name": "Vermont",
+                  "selected": false
+            },
+            {     "id" : "45",
+                  "name": "Virginia",
+                  "selected": false
+            },
+            {     "id" : "46",
+                  "name": "Washington",
+                  "selected": false
+            }, 
+            {     "id" : "47",
+                  "name": "West Virginia",
+                  "selected": false
+            },
+            {     "id" : "48",
+                  "name": "Wisconsin",
+                  "selected": false
+            }, 
+            {     "id" : "49",
+                  "name": "Wyoming",
+                  "selected": true
+            }
+      ]
+}

@@ -67,12 +67,33 @@
 		&.hamburgerNavActive .sideBarNav{
 			top:0px!important;
 			height:auto!important;
-			padding:70px 15px!important;
+			padding:90px 15px 0px!important;
 			box-shadow: 0px 2px 10px #333333;
+			width:100%!important;
+			& ul{
+				width:100%;
+				& li{
+					& i{
+						display:none;
+					}
+				}
+			}
+		}
+		&.hamburgerNavActive .sideBarNav a{
+			&#adminAccordian{
+				width:100%;
+				margin-left:0px!important;
+			}
+
+		}
+		&.hamburgerNavActive .body-content{
+			left:0px!important;
 		}
 	}
 	
 }
 @include max-screen(small) {
-	
+	body .sideBarNav ul li a{
+		line-height:24px;
+	}
 }

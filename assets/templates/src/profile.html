@@ -8,10 +8,9 @@
     <meta name="author" content="">
     <title>TempoTrip - Profile</title>
     <!--<link rel="shortcut icon" href="favicon.ico">-->
-      
-    <link href="vendors/bootstrap-form-helpers/dist/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="css/vendors/plugins.css" rel="stylesheet">
     <link href="css/tempotrip.css" rel="stylesheet">
-    
+    <?php require_once("../model/commonJs.js.php"):?>
       
   </head>
 
@@ -25,28 +24,18 @@
     </div>
     <div class="container-fluid body-content">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <!-- Profile ============================== -->
                 @@include('../../renderings/components/profile-form.html')
                 <!-- / Profile ============================ --> 
             </div>
-            <div class="col-sm-4">
-                <!-- Profile ============================== -->
-                @@include('../../renderings/components/right-side-profile.html')
-                <!-- / Profile ============================ --> 
-            </div>
+            
 
         </div>
     </div>  
- 
+    @@include('../../renderings/components/global-footer.html')
     <!-- JS ============================== -->
-     <script src="js/tempotrip.globals.js"></script>
-     <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
-    <!--PLUGIN JS-->
-    <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
-    <script src="js/tempotrip.modules.js"></script>
-    
-    <!-- / JS ============================ -->
-  <script src="vendors/bootstrap-form-helpers/dist/js/bootstrap-formhelpers.min.js"></script>
+   
+    <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
     </body>
 </html>

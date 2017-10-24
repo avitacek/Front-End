@@ -12,28 +12,27 @@ $breakpoints: (
 );
 
 /*colors*/
+/*Tempotrip Branding */
+$orange:#f6861f;
+$grey-blue:#65879c;
 
-$yellow: #bea847;
-$teal:#47be65;
-$beige:#f2f2e1;
-$skyblue:#47a0be;
-$skyblue-mono:#5e93a5;
-$purple:#5747be;
-$brick:#e0dcc9;
-$pink:#be4772;
-$orange:#d84f34;
+$teal:#5db9be;
+$skyblue:#eff3f6;
+$light-orange:#FEA34B;
 
 /*Blue*/
-$blue:#293145;
-$blue-05:rgba(41, 49, 69, 0.05);
-$blue-125:rgba(41, 49, 69, 0.125);
-$blue-25:rgba(41, 49, 69, 0.25);
-$blue-5:rgba(41, 49, 69, 0.5);
-$blue-75:rgba(41, 49, 69, 0.75);
+$blue:#1a4666;
+$blue-05:rgba(26, 70, 102, 0.05);
+$blue-125:rgba(26, 70, 102, 0.125);
+$blue-25:rgba(26, 70, 102, 0.25);
+$blue-5:rgba(26, 70, 102, 0.5);
+$blue-75:rgba(26, 70, 102, 0.75);
 
 
-$grey:#2d2d2a;
-$slate-grey: #54565b;
+$light-grey:#ececec;
+$medium-grey:#a5aab2;
+$slate-grey:#54565b;
+$dark-grey:#333333;
 
 /*White Fades*/
 $white:#ffffff;
@@ -43,14 +42,36 @@ $white-25:rgba(255,255,255,0.25);
 $white-50:rgba(255,255,255,0.5);
 $white-75:rgba(255,255,255,0.75);
 /*Black fades*/
+$black: #000000;
 $black-05: rgba(0, 0, 0, 0.05);
 $black-125: rgba(0, 0, 0, 0.125);
 $black-25: rgba(0, 0, 0, 0.25);
 $black-50: rgba(0,0,0,0.5);
 $black-75: rgba(0, 0, 0, 0.75);
-$black: #333333;
+
+
+$yellow:#f9cb14;
+$beige:#f2f2e1;
+$skyblue-mono:#5e93a5;
+$purple:#5747be;
+$brick:#e0dcc9;
+$pink:#be4772;
 
 /*Fonts*/
+/*Fonts*/
+$Raleway: 'Raleway', Helvetica, Arial, sans-serif;
+$Raleway-Light: 'Raleway-Light', Helvetica, Arial, sans-serif;
+$Raleway-ExtraLight: 'Raleway-ExtraLight', Helvetica, Arial, sans-serif;
+$Raleway-Thin: 'Raleway-Thin', Helvetica, Arial, sans-serif;
+$Raleway-Medium: 'Raleway-Medium', Helvetica, Arial, sans-serif;
+$Raleway-Bold: 'Raleway-Bold', Helvetica, Arial, sans-serif;
+$Raleway-Italic: 'Raleway-Italic', Helvetica, Arial, sans-serif;
+
+$Source-Sans-Pro: 'Source-Sans-Pro', Helvetica, Arial, sans-serif;
+$Source-Sans-Pro-Italic: 'Source-Sans-Pro-Italic', Helvetica, Arial, sans-serif;
+$Source-Sans-Pro-Bold: 'Source-Sans-Pro-Bold', Helvetica, Arial, sans-serif;
+
+$FontAwesome: 'FontAwesome';
 $Marvel-Regular: 'Marvel-Regular', Helvetica, Arial, sans-serif;
 $Marvel-Light: 'Marvel-Light', Helvetica, Arial, sans-serif;
 $Marvel-ExtraLight: 'Marvel-ExtraLight', Helvetica, Arial, sans-serif;

@@ -30,10 +30,16 @@ gulp.task('change', function() {
       .pipe(ext_replace('.php'))
       .pipe(gulp.dest('../../www/'))
 });
+
 gulp.task('images', function() {
    return gulp.src(['./assets/tempotrip/images/**/*']).pipe(gulp.dest('../../www/images'));
 });
-
+gulp.task('vendors', function() {
+   return gulp.src(['./assets/tempotrip/js/vendors/**/*']).pipe(gulp.dest('../../www/js/vendors'));
+});
+gulp.task('vendorsCSS', function() {
+   return gulp.src(['./assets/tempotrip/css/vendors/**/*']).pipe(gulp.dest('../../www/css/vendors'));
+});
 gulp.task('fonts', function() {
    return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../www/fonts'));
 });
@@ -102,6 +108,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.start('images', 'fonts', 'data', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
+    gulp.start('images', 'fonts', 'vendors', 'vendorsCSS', 'data', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
 });
 

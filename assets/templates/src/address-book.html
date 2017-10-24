@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TempoTrip - Add Travelers</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+      
+    <link href="css/vendors/plugins.css" rel="stylesheet">
+    <link href="css/tempotrip.css" rel="stylesheet">
+    <?php require_once("../model/commonJs.js.php"):?>
+  </head>
+  <body id="add-travelers-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Global Header ============================== -->
+            @@include('../../renderings/components/global-header.html')
+            <!-- / Global Header ============================ --> 
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+                <!-- add travelers Table ============================== -->
+                @@include('../../renderings/components/address-book-content.html')
+                <!-- / add travelers Table ============================ --> 
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <!-- add travelers side content ============================== -->
+                @@include('../../renderings/components/right-side-address-book.html')
+                <!-- / add travelers side content ============================ --> 
+            </div>   
+        </div>
+    </div>
+    @@include('../../renderings/components/global-footer.html')
+    <!-- JS ============================== -->
+   
+    <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
+
+    </body>
+</html>

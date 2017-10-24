@@ -1,21 +1,127 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
-@include max-screen(small) {
-	#landing-login{
-		padding:70px 5% 0px!important;
-		& h3{
-			font-size:20px;
+@include max-screen(medium) {
+	.body-content{
+		padding-left:2rem;padding-right:2rem;
+	}
+	#login{
+		margin-top:10%;
+		padding-top:0px;
+		padding-bottom:0px;
+	}
+	#login .row{
+		max-width:100%;
+		width:100%;
+	}
+	#login .row h4{
+		text-align:left;
+	}
+	#flip-form{
+		border:5px solid #5db9be;
+		& .col-sm8, & .col-sm-4{
+			width:100%;
+			float:left;
+			position:relative;
+			border-left:none; 
+			border-right:none;
+			min-height:250px;
 		}
-		& span.psw {
-	       display: block;
-	       float: none;
-	    }
-	    & .cancelbtn {
-	       width: 100%;
-	    }
-	    & .modal .modal-box{
-	    	width:90%;
-	    	margin: 100px auto;
-	    }
+		#landing-login{
+			padding:20px 5% 5%!important;
+			width:100%;
+			border-right: 0px solid #5db9be;
+			& h3{
+				font-size:20px;
+			}
+			& span.psw {
+		       display: block;
+		       float: none;
+		    }
+		    & .cancelbtn {
+		       width: 100%;
+		    }
+		    & .modal .modal-box{
+		    	width:90%;
+		    	margin: 100px auto;
+		    }
+		    & .row{
+		    	& .col-sm-12{
+		    		width:100%!important;
+		    		float:left;
+		    		display:block
+		    		& h4{
+		    			text-align:left;
+		    		}
+		    	}
+		    }
+		}
+		& #landing-register{
+			padding:10% 5%!important;
+			& .logo{
+				display:none;
+			}
+		}
+	}
+}
+@include max-screen(small) {
+	.body-content{
+		padding-left:0px;padding-right:0px;
+	}
+	#login{
+		margin-top:0px;
+		padding-top:0px;
+		padding-bottom:0px;
+	}
+	#login .row{
+		max-width:100%;
+		width:100%;
+	}
+	#login .row h4{
+		text-align:left;
+	}
+	#flip-form{
+		& .col-sm8, & .col-sm-4{
+			width:100%;
+			float:left;
+			position:relative;
+			border-left:none; 
+			border-right:none;
+			min-height:250px;
+		}
+		#landing-login{
+			padding:20px 5% 5%!important;
+			width:100%;
+			border-right: 0px solid #5db9be;
+			& h3{
+				font-size:20px;
+			}
+			& span.psw {
+		       display: block;
+		       float: none;
+		    }
+		    & .cancelbtn {
+		       width: 100%;
+		    }
+		    & .modal .modal-box{
+		    	width:90%;
+		    	margin: 100px auto;
+		    }
+		    & .row{
+		    	& .col-sm-12{
+		    		width:100%!important;
+		    		float:left;
+		    		display:block
+		    		& h4{
+		    			text-align:left;
+		    		}
+		    	}
+		    }
+		}
+		& #landing-register{
+			padding:15% 5%!important;
+			& .logo{
+				display:none;
+			}
+		}
 	}
 }

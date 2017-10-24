@@ -1,23 +1,31 @@
 <div class="row" id="flip-form">
 	<div class="col-sm-8" id="landing-login">
-		<div class="logo"></div>
-		<h4>Log in</h4>
-                <div><?php echo $app->output->errorstr ?></div>
+		<div class="row">
+			<div class="col-sm-12 col-md-6">
+				<div class="logo"></div>
+			</div>
+			<div class="col-sm-12 col-md-6">
+				<h4>Log in</h4>
+			</div>
+		</div>
+        <div class="row errors">
+			<p class="errors"><?php echo $app->output->errorstr ?></p>                               
+        </div> 
 		<form action="" id="login-form" method="POST">
-                    <input type="hidden" name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                    <input type="hidden" name='p' value="<?php echo $app->constants->user['DEFAULT_USER_HOME_PAGE'] ?>">
 		  	<div class="container-fluid">
 		  		<div class="row">
 		  			<div class="col-sm-12">
 		  				<div class="form-group">
 		    				<input value="<?php echo $app->constants->request['username'] ?>" type="text" placeholder="Enter Username" name="username" class="username" >
-		    				<label>Username</label>
 		    				<div class="userImage"></div>
+		    				<label>Username</label>
                         	<span class="focus-border"><i></i></span>
                         </div>
                         <div class="form-group">
 				    		<input value="<?php echo $app->constants->request['password'] ?>" type="password" placeholder="Enter Password" name="password" class="password" >
-				    		<label>Password</label>
 				    		<div class="passwordImage"></div>
+				    		<label>Password</label>
 				    		<span class="focus-border"><i></i></span>
 				    	</div>
 		  			</div>
@@ -29,9 +37,7 @@
 		    	</div>
 		    	<div class="row">
 		  			<div class="col-sm-12">
-				   		<span style="display:none;"><input type="checkbox">Remember me</span>
-				   		<span class="psw"><a href="#" data-toggle="modal" data-target="#username-modal">Forgot username?</a></span><br/>
-				    	<span class="psw"><a href="#" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></span>
+				    	<span class="psw"><a href="/?p=forgot-password">Forgot password?</a></span>
 				    </div>
 				</div>
 		    	
@@ -40,49 +46,42 @@
 		<div class="col-sm-8" id="register-slider">
 			<!--Register form modal-->
 			<form action="" id="register-form">
+                    <input type="hidden" name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                    <input type="hidden" name='new_registration' value="true">
+                    <input type="hidden" name='change_password_page' value="change-password">
 				  	<div class="container-fluid">
 				  		<div class="row">
 				  			<div class="col-sm-12"><div class="text-stay"><h4>Register Now</h4></div></div>
 				  			<div class="col-sm-6">
 				  				<div class="form-group">
-							    	<input type="text" placeholder="Enter your first name" name="fname" class="firstname" >
+							    	<input type="text" required placeholder="Enter your first name" name="fname" class="firstname" >
 							    	<label>First name</label>
 							    	<span class="focus-border"><i></i></span>
 						    	</div>
 				  			</div>
 				  			<div class="col-sm-6">
 				  				<div class="form-group">
-							    	<input type="text" placeholder="Enter your last name" name="lname" class="lastname" >
+							    	<input type="text" required placeholder="Enter your last name" name="lname" class="lastname" >
 							    	<label>Last name</label>
 							    	<span class="focus-border"><i></i></span>
 							    </div>
 				  			</div>
 				  			<div class="col-sm-12">
 				  				<div class="form-group">
-							    	<input type="text" placeholder="Enter your email" name="email" class="email" >
+							    	<input type="text" required placeholder="Enter your email" name="email" class="email" >
 							    	<label>Email address</label>
 							    	<span class="focus-border"><i></i></span>
 							    </div>
 				  			</div>
-				  			<div class="col-sm-6">
-				  				<div class="form-group">
-							    	<input type="password" placeholder="Enter a password" name="psw" class="password" >
-							    	<label>Password *</label>
-							    	<span class="focus-border"><i></i></span>
-							    </div>
-						    </div>
-				  			<div class="col-sm-6">
-				  				<div class="form-group">
-							    	<input type="password" placeholder="Confirm password" name="cpsw" class="confirm-password" >
-							    	<label>Comfirm Password *</label>
-							    	<span class="focus-border"><i></i></span>
-							    </div>
-				  			</div>
 				  			<div class="col-sm-12">
-				  				<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Submit</button>-->
-						    	<a href="/?p=profile" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+						    	<button name="submit" type="submit" id="submit">Submit</button>
 				  			</div>
-				    		
+				 
+                            <div class="col-sm-12">
+				  				<div class="errors"><p><?php echo $app->output->errorstr ?></p></div>
+			    				<div class="success"><p><?php echo $app->output->sucessstr ?></p></div>
+				  			</div>    
+                                                        
 				    	</div>
 				  	</div>
 			</form>		
@@ -91,9 +90,11 @@
 	<div class="col-sm-4">
 		<div id="landing-register">
 			<div class="register-title">
-				<div class="logo"></div>
-				<h4>Not Registered?</h4>
-				<p>Sign up is quick and easy and then you can start all your advanced travel arrangments.</p>
+				<div class="col-sm-12">
+					<div class="logo"></div>
+				</div>
+				<div class="col-sm-12"><h4 id="register-side-title">Not Registered?</h4></div>
+				<p id="register-side-text">Sign up is quick and easy and then you can start all your advanced travel arrangments.</p>
 			</div>
 			<div class="button-switch">
 				<button id="login-register">REGISTER</button>
@@ -103,7 +104,7 @@
 			<div class="register-title">
 				<div class="logo"></div>
 				<h4>Already Registered?</h4>
-				<p>Just login to see you travel arrangments.</p>
+				<p>Just login to see you travel arrangements.</p>
 			</div>
 			<div class="button-switch">
 				<button id="login-return">Login</button>
@@ -125,28 +126,13 @@
 			<button type="button" class="close-btn" data-dismiss="modal">X</button>
 			<h5>Change Password</h5>
 			<form method="post"  id="passord-form">
-			    <input type="text" name="username" class="username" placeholder="Username" >
 			    <input type="password" name="password1" class="password" placeholder="New Password" >
 			    <input type="password" name="password2" class="password" placeholder="Confirm password" >
-			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
-			    <a href="/?p=profile" name="submit" type="submit" id="submit" value="Submit">Submit</a>
+			    <a href="#" name="submit" id="submit" onclick=\"updatePassword(document.getElementById(\"passord-form\").elements[\"password1\"],"<?php $app->constants->request['reset_token']?>")\">Submit</a>
 			</form>
 		</div>
 	</div>
-	<!--forgot-password-modal-->
-	<div class="modal" id="forgot-password-modal">
-		<div div class="modal-box">
-			<button type="button" class="close-btn" data-dismiss="modal">X</button>
-			<h5>Forgot Password</h5>
-			<form method="post"  id="passord-form">
-                            <input type="hidden" name="p" class="username" value='resetpw'>
-			    <input type="text" name="email" class="username" placeholder="Username">
-                            <input type="hidden" name="request_reset" class="username" value='true'>
-			    <input name="submit" type="submit" id="submit" value="Submit">
-			    <!--<input name="submit" type="submit" id="submit" value="Submit">-->
-			</form>
-		</div>
-	</div>
+	
 	<!--forgot username modal-->
 	<div class="modal" id="username-modal">
 		<div div class="modal-box">

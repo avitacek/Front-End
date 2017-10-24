@@ -8,10 +8,10 @@ Import BASE
 body {
     background-color:#eff3f6;
     overflow-x: hidden;
-    font-family:$Marvel-Regular;
+    font-family:$Raleway;
 }
 p, ul { 
-	font-family:$Marvel-Regular;
+	font-family:$Raleway;
 	font-style: normal;
 	font-stretch: normal;
 	line-height:inherit;
@@ -20,30 +20,127 @@ p, ul {
     line-height: 1.5em;
 	
 }
-.logo{
-	font-family:$Marvel-Regular;
-	color:$blue;
-	font-size:5em;
-	letter-spacing:3px;
-	height:85px;
-	display:block;
+/*Body content slider*/
+.body-content{
 	position:relative;
-	padding-left:130px;
-	width:100%;
-	& span{ 
-		font-family:$Marvel-Bold;
-		color:$blue-5;
-}
-	&::before{
-		content:'';
-		width:185px;
-		height:55px;
-		position:absolute;
-		top:40%;
-		left:0px;
-		background:url('../images/global/TEMPO-logo.svg') center center no-repeat;
-		background-size:100% auto;
+	left:0px;
+	transition: 0.5s;
+	padding-top:130px;
+	& .row{
+		max-width:1280px;
+		margin:0px auto;
 	}
+}
+.logo{
+	margin-top: 0px;
+    width: auto;
+    height: 60px;
+    float: left;
+    margin-left: 0rem;
+    cursor: pointer;
+    color: #119672;
+    position: relative;
+    z-index: 5;
+    background: url(../images/global/tempotrip-logo-new.svg) no-repeat;
+    background-size: contain;
+    padding-left: 65px;
+}
+.logo:before {
+    content: 'Tempo';
+    color: #65879c;
+    font-size: 20px;
+    float: left;
+    letter-spacing: 4px;
+    margin-top: 10%;
+}
+.logo:after {
+    content: 'TRIP';
+    color: #FEA34B;
+    font-size: 16px;
+    float: left;
+    letter-spacing: 4px;
+    margin-top: 11%;
+    font-weight: bold;
+}
+.continental-logo{
+	margin-top: 13px;
+    width: 150px;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #119672;
+    position: relative;
+    z-index: 5;
+    background: url(../images/logos/continental-logo.png) no-repeat;
+    background-size: contain;
+    padding-left: 65px;
+}
+& .newWindowIcon{
+	background: url('../images/global/new-window.svg') center center no-repeat;
+    background-size: contain;
+    width:35px;
+    height:35px;
+    float:right;
+    padding:10px;
+    border-radius:5px;
+    background-color: #FEA34B;
+    border:1px solid #ffffff;
+    position:absolute;
+    top:-40px;
+    right:0px;
+    z-index: 101;
+    &:before{
+    	content:'open in a new window';
+    	color:#7f8fa4;
+    	font-size:10px;
+    	position:absolute;
+    	top:20%;
+    	right:40px;
+    	width:130px;
+    }
+}
+& .wait-spinner{
+	position: absolute;
+	left:0%;
+	z-index: 100;
+	margin:0% auto;
+	width:100%;
+	height:100%;
+	display:none;
+	opacity:0;
+	background-color:rgba(255,255,255,0.75);
+	transition:opacity .45s 0s linear;
+	-webkit-transition:opacity .45s 0s linear;
+	-moz-transition:opacity .45s 0s linear;
+	&.show{
+		display:block;
+		opacity:1;
+	}
+  & .spinner{
+    background: url('../images/global/logo-spinner.svg') center center no-repeat;
+    background-size: contain;
+    width:60px;
+    height:60px;
+    margin:20% auto 10px;
+    position:relative;
+    #spin-inside.half-circle{
+      width:60px;
+      width:60px;
+    }
+    & .half-circle{
+      width:70px;
+      height:70px;
+    }
+  }
+  & p{
+    text-align:center;
+    & span{
+      clear:both;
+      display:block;
+    }
+  }
 }
 & .modal{
 		& .modal-box{
@@ -90,7 +187,7 @@ p, ul {
 		opacity:1;
 	}
 }
-& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
+& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel], select{
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -134,8 +231,8 @@ p, ul {
 & select{
 	margin:0px;
 }
-& button, & input[type=submit], & a#submit {
-    background-color:#1a4666;
+& button, & input[type=submit], & a#submit, & input[type=file] {
+    background-color:$teal;
     text-align:center;
     color: white;
     padding: 14px 20px;
@@ -157,14 +254,16 @@ p, ul {
 .btn-primary{
 	background-color: #5DB9BE;
 	border-color:#5DB9BE;
+	opacity:0.75;
 	&:hover{
-		background-color: #006E8D;
-		border-color:#006E8D;
+		background-color: #5DB9BE;
+		border-color:#5DB9BE;
+		opacity:1;
 	}
 }
 /*Common Styles based on Style Guide*/
 h1{
-	font-family:$Marvel-Bold;
+	font-family:$Raleway-Bold;
 	font-size: 40px;
 	font-weight: bold;
 	line-height: 1.5;
@@ -172,7 +271,7 @@ h1{
 	color: $beige;
 }
 h2{
-	font-family:$Marvel-Bold;
+	font-family:$Raleway-Bold;
 	font-size: 36px;
 	font-weight: bold;
 	line-height: 1.17;
@@ -180,7 +279,7 @@ h2{
 	color: $black;
 }
 h3{
-	font-family:$Marvel-Medium;
+	font-family:$Raleway-Medium;
 	font-size: 32px;
 	font-weight: 500;
 	line-height: 1.25;
@@ -189,7 +288,7 @@ h3{
 
 }
 h4{
-	font-family:$Marvel-Medium;
+	font-family:$Raleway-Medium;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.25;
@@ -198,20 +297,20 @@ h4{
 
 }
 h5{
-	font-family:$Marvel-SemiBold;
+	font-family:$Raleway-Medium;
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 1.56;
 	letter-spacing: 0.2px;
-	color: #1a4666;
+	color: #65879c;
 }
 p{
-	font-family:$Marvel-Regular;
+	font-family:$Raleway;
 	font-size:14px;
 	color:$slate-grey;
 }
 b, strong{
-	font-family:$Marvel-Bold;
+	font-family:$Raleway-Bold;
 	font-weight:bold;
 }
 i{

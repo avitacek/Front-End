@@ -1,0 +1,60 @@
+{
+      "data": [
+            {     
+                  "id" : "0",
+                  "name": "September Regonal Conference",
+                  "start_time": "9/13/2017",
+                  "end_time":"9/14/2017",
+                  "site_url":"https:az.dev.optionstravel.Septemebr_Regional_conference#/search/flights",
+                  "destination":"ORD",
+                  "number_of_days":"1",
+                  "total_attendees":"9",
+                  "Travelers":[
+                        "John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack"
+                  ]
+
+            },
+            {     
+                  "id" : "1",
+                  "name": "October Regonal Conference",
+                  "start_time": "10/3/2017",
+                  "end_time":"10/5/2017",
+                  "site_url":"https:az.dev.optionstravel.October_Regional_conference#/search/flights",
+                  "destination":"LAX",
+                  "number_of_days":"4",
+                  "total_attendees":"18",
+                  "Travelers":[
+                        "John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack","John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack"
+                  ]
+
+            },
+            {     
+                  "id" : "2",
+                  "name": "November Regonal Conference",
+                  "start_time": "11/3/2017",
+                  "end_time":"11/5/2017",
+                  "site_url":"https:az.dev.optionstravel.November_Regional_conference#/search/flights",
+                  "destination":"SFO",
+                  "number_of_days":"2",
+                  "total_attendees":"27",
+                  "Travelers":[
+                        "John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack","John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack","John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack"
+                  ]
+
+            },
+            {     
+                  "id" : "3",
+                  "name": "December Fire Relief",
+                  "start_time": "12/10/2017",
+                  "end_time":"",
+                  "site_url":"https:az.dev.optionstravel.December_Regional_conference#/search/flights",
+                  "destination":"PHO",
+                  "number_of_days":"",
+                  "total_attendees":"9",
+                  "Travelers":[
+                        "John Smith","Jane Smith","John Henry","Henry John","Vince Bufalino", "Brian Jones","Brett Buynack", "Andy Vitacek", "Brady Buynack"
+                  ]
+
+            },
+      ]
+}

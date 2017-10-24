@@ -1,0 +1,16 @@
+@import "../../globals/variables";
+@import "../../globals/mixins";
+/* -----------------------------------------------------
+	landing-side
+-------------------------------------------------------*/
+#js-library{
+	background-color:#ffffff;
+	border: 1px solid #E3E3E3;
+	border-radius:5px;
+	width:50%;
+	margin:0px auto;
+	& .row{
+		max-width:1024px;
+		margin:0px auto;
+	}	
+}
