@@ -3,6 +3,8 @@
     [
       "John Smith",
       "john_smith@az.com",
+      "dffm.tempotrip.com",
+      "0413",
       "DEN",
       "Denver, United States",
       "DEN",
@@ -32,6 +34,8 @@
     [
       "Jane Doe",
       "jane_doe@az.com",
+      "dffm.tempotrip.com",
+      "0945",
       "PHO",
       "Phoenix, United States",
       "PHO",
@@ -61,6 +65,8 @@
     [
       "John Doe",
       "john_doe@az.com",
+      "dffm.tempotrip.com",
+      "1212",
       "SFO",
       "San Fransisco, United States",
       "SFO",
@@ -90,6 +96,8 @@
     [
       "Jane Smith",
       "jane_smith@az.com",
+      "dffm.tempotrip.com",
+      "1632",
       "LAX",
       "Los Angeles, United States",
       "LAX",
@@ -119,6 +127,8 @@
     [
       "John Henry",
       "john_henry@az.com",
+      "dffm.tempotrip.com",
+      "2250",
       "PHO",
       "Phoenix, United States",
       "PHO",
@@ -142,12 +152,14 @@
       "Wed, Oct 28, 2017",
       "12:15 PM",
       "200.00",
-      "Approved",
+      "Auto Approved",
       "RoundTrip"
     ],
     [
       "Jack Jill",
       "jack_jill@az.com",
+      "dffm.tempotrip.com",
+      "2312",
       "DEN",
       "Denver, United States",
       "DEN",

@@ -1,133 +1,197 @@
-<div class="wrapper">
-    <div id="right-side-content">
-        <div class="card card-trips">
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-12" id="travellerName">
-                        <h4 class="card-title"><span class="traveller_name"></span></h4>
-                        <p class="traveller_email"></p>
+<div class="row">
+    <div class="col-sm-12">
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="tabs">
+                <li role="presentation" class="active">
+                    <a href="#approvals" aria-controls="home" role="tab" data-toggle="tab">Approvals</a>
+                </li>
+                <li role="presentation" id="">
+                    <a href="#itinerary"  aria-controls="tab" role="tab" data-toggle="tab">Itinerary</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="wait-spinner">
+                    <div class="spinner">
+                        <i class="half-circle fa-spin" id="spin-outside"></i>
                     </div>
+                    <p>Loading Itinerary <span>Please wait</span></p>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6" id="deptHeader">
-                        <h4 class="card-title"><span class="City"></span></h4>
-                        <p class="CityCountry"></p>
-                        
-                    </div>
-                    <div class="col-sm-6" id="arrvHeader">
-                        <h4 class="card-title"><span class="City"></span></h4>
-                        <p class="CityCountry"></p>
-                        
-                    </div>
-                </div>
-                <div class="row" id="departureDetails">
-                    <div class="col-sm-12">
-                        <div id="itinerary-accordian" data-children=".item">
-                            <div class="item">
-                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">
-                                      Departure <i class="fa fa-angle-double-down float-right font-lg"></i>
-                                </a>
-                                <div id="departure-travel" class="collapse in" role="tabpanel">
-                                    <div class="list-group">
-                                        <div class="departureDetails">
-                                            <ul>
-                                                <li>
-                                                    <p class="airline"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="flightNumber"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="duration"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="recordLocator"></p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="departureTime">
-                                            <ul>
-                                                <li class="leave">
-                                                    <ul>
-                                                        <li>Leave</li>
-                                                        <li><p class="date"></p></li>
-                                                        <li><p class="time"></p></li>
-                                                    </ul>
-                                                <li class="arrive">
-                                                    <ul>
-                                                        <li>Arrive</li>
-                                                        <li><p class="date"></p></li>
-                                                        <li><p class="time"></p></li>
-                                                    </ul>
-                                            </ul>
-                                        </div>
-                                    </div>
+                <!--Add Traveler TAB-->
+                <div role="tabpanel" class="tab-pane active" id="approvals">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-sm-6 travellerName">
+                                    <h4 class="card-title"><span class="traveller_name"></span></h4>
+                                    <a href="mailto:" class="traveller_email"></a>
+                                </div>
+                                <div class="col-sm-6" id="flightInfo">
+                                        <div class="City deptHeader"></div>
+                                        <div class="City arrvHeader"></div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
-                                </a>
-                                <div id="return-travel" class="collapse in" role="tabpanel">
-                                    <div class="list-group">
-                                        <div class="departureDetails">
-                                            <ul>
-                                                <li>
-                                                    <p class="airline"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="flightNumber"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="duration"></p>
-                                                </li>
-                                                <li>
-                                                    <p class="recordLocator"></p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="departureTime">
-                                            <ul>
-                                                <li class="leave">
-                                                    <ul>
-                                                        <li>Leave</li>
-                                                        <li><p class="date"></p></li>
-                                                        <li><p class="time"></p></li>
-                                                    </ul>
-                                                <li class="arrive">
-                                                    <ul>
-                                                        <li>Arrive</li>
-                                                        <li><p class="date"></p></li>
-                                                        <li><p class="time"></p></li>
-                                                    </ul>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-5 col-md-5" id="costs">
+                                    <h4 class="card-title"><span class="cost"></span></h4>
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-sm-2 col-md-2" id="approvalID"></div>
+                                <div class="col-sm-5 col-md-5" id="clock">
+                                    <h4 class="card-title"><span class="time"></span></h4>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6" id="sites">
+                                    <h4 class="card-title"><span class="site"></span></h4>
+                                    <p>Search Site</p>
+                                </div>
+                            </div>
+                            <div class="row" id="app-status">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="approve">
+                                        <button type="submit">Approve</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="deny">
+                                        <button type="submit">Deny</button>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <ul>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email Itinerary</a>
-                        </li>
-                        <li>
-                            <a href="#" class="printButton_alltrips"><i class="fa fa-print" aria-hidden="true"></i> Print Itinerary</a>
-                        </li>
-                    </ul>
-                </div>
-            </div></div>
-        <div class="load_spinner">
-            <div class="row">
-                <div class="small-12 column">
-                    <div class="new-spinner">
-                        <i class="half-circle fa-spin" id="spin-outside"></i>
-                        <i class="half-circle fa-spin-reverse" id="spin-inside"></i>
+                <!--PERSONAL INFORMATION TAB-->
+                <div role="tabpanel" class="tab-pane" id="itinerary">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-sm-12 travellerName">
+                                    <h4 class="card-title"><span class="traveller_name"></span></h4>
+                                    <p class="traveller_email"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 deptHeader">
+                                    <h4 class="card-title"><span class="City"></span></h4>
+                                    <p class="CityCountry"></p>
+                                    
+                                </div>
+                                <div class="col-sm-6 arrvHeader" >
+                                    <h4 class="card-title"><span class="City"></span></h4>
+                                    <p class="CityCountry"></p>
+                                    
+                                </div>
+                            </div>
+                            <div class="row" id="departureDetails">
+                                <div class="col-sm-12">
+                                    <div id="itinerary-accordian" data-children=".item">
+                                        <div class="item">
+                                            <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">
+                                                  Departure <i class="fa fa-angle-double-down float-right font-lg"></i>
+                                            </a>
+                                            <div id="departure-travel" class="collapse in" role="tabpanel">
+                                                <div class="list-group">
+                                                    <div class="departureDetails">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="airline"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="flightNumber"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="duration"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="recordLocator"></p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="departureTime">
+                                                        <ul>
+                                                            <li class="leave">
+                                                                <ul>
+                                                                    <li>Leave</li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
+                                                                </ul>
+                                                            <li class="arrive">
+                                                                <ul>
+                                                                    <li>Arrive</li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
+                                                                </ul>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
+                                            </a>
+                                            <div id="return-travel" class="collapse in" role="tabpanel">
+                                                <div class="list-group">
+                                                    <div class="departureDetails">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="airline"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="flightNumber"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="duration"></p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="recordLocator"></p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="departureTime">
+                                                        <ul>
+                                                            <li class="leave">
+                                                                <ul>
+                                                                    <li>Leave</li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="arrive">
+                                                                <ul>
+                                                                    <li>Arrive</li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <ul>
+                                    <li>
+                                        <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email Itinerary</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="printButton_alltrips"><i class="fa fa-print" aria-hidden="true"></i> Print Itinerary</a>
+                                    </li>
+                                </ul>
+                            </div>    
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
       

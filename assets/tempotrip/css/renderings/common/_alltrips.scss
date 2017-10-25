@@ -6,7 +6,7 @@
 #all-trips-page{
 	padding:0px;
 	& .body-content{
-		& .col-sm-8, & .col-sm-4{
+		& .col-md-7, & .col-md-5{
 			#allTrips_wrapper{
 				background-color: rgba(255,255,255,0.45);
     			border: 1px solid #ffffff;
@@ -32,6 +32,8 @@
 			& .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td{
 				border:0px solid #dddddd;
 				text-align:center;
+				padding-left:0px;
+				padding-right:0px;
 			}
 			& table.dataTable tbody th, table.dataTable tbody td{
 				padding:15px 10px;
@@ -44,28 +46,42 @@
 				color:#ffffff;
 				background-color:$grey-blue;
 			}
+			table.dataTable tbody td .fa-check-circle{
+				font-size:20px;
+				color:$teal;
+			}
+			table.dataTable tbody td .fa-check-circle-o{
+				font-size:20px;
+				color:$teal;
+			}
+			table.dataTable tbody td .fa-exclamation-triangle{
+				font-size:20px;
+				color:$yellow;
+			}
+			table.dataTable tbody td .fa-ban{
+				font-size:20px;
+				color:$red;
+			}
 			.dataTables_wrapper .dataTables_paginate .paginate_button:active{
 				background:none;
 				box-shadow:none;
 			}
-			div.dataTables_wrapper div.dataTables_info{
+			.dataTables_wrapper .dataTables_info{
 				padding:8px 10px;
 			}
-			& #allTrips_wrapper .row:last-child .col-sm-5, & #allTrips_wrapper .row:last-child .col-sm-7{
+			& #allTrips_wrapper .row:last-child .col-md-5, & #allTrips_wrapper .row:last-child .col-m-7{
 				width:100%;
 				float:left;
 			}
-			#allTrips-page .body-content .col-sm-8 .table > thead > tr > th:focus{
+			#allTrips-page .body-content .col-md-7 .table > thead > tr > th:focus{
 				outline: transparent auto 5px;
 			}
-			& #allTrips_wrapper .row:last-child .col-sm-7 .dataTables_paginate{
+			& #allTrips_wrapper .row:last-child .col-md-7 .dataTables_paginate{
 				width:100%;
 				& ul{
 					width:100%;
 					display:table;
-					& li{
-						
-					}
+					
 				}
 			}
 			& .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
@@ -78,12 +94,12 @@
 				border-color:#006e8d;
 			}
 		}
-		& .col-sm-4{
+		& .col-md-5{
 			& .wrapper{
 				background-color: transparent;
 			}
-			& .card-trips{
-				background-color: rgba(255, 255, 255, 0.45);
+			& #approvals{
+				background-color: rgba(255, 255, 255, 1);
     			border: 1px solid #ffffff;
     			border-radius: 3px;
     			padding: .9375rem;
@@ -93,10 +109,180 @@
 					background: #ffffff;
 					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 					& .row{
-						& #travellerName{
+							border-bottom:1px solid #ddd;
+						& .travellerName{
+							margin-bottom:0px;
+							padding:15px;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:32px;
+							}
+							& .traveller_email{
+								font-size:12px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+							}
+						}
+						& #approvalID{
+								text-align:center;
+								& i{
+									margin:30px auto 0px;
+									font-size:32px;
+									text-align:center;
+									&:before{
+										margin:0px auto;
+									}
+								}
+								& p {
+									font-size:10px;
+								}
+								&.isApproved{
+									color:$teal;
+								}
+								&.isDenied{
+									color:$red;
+								}
+								&.isPending{
+									color:$yellow
+								}
+						}
+						& #flightInfo{
+							.deptHeader{
+								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.25;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:left;
+							    margin-top:10px;
+								&:after{
+									font-family:$FontAwesome;
+									color:$black;
+									float:right;
+									margin:0px 10px;
+									content: "\f072";
+									/* Rotate div */
+								    -ms-transform: rotate(45deg); /* IE 9 */
+								    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+								    transform: rotate(45deg);
+								}
+							}
+							.arrvHeader{
+								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.25;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:left;
+							    margin-top:10px;
+							    margin-left:5px;
+							}
+						}
+						& #costs{
+							margin-bottom:0px;
+							padding:15px;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:32px;
+							}
+							& p{
+								font-size:12px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+							}
+						}
+						& #clock{
+							margin-bottom:0px;
+							padding:15px;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:32px;
+							}
+							& p{
+								font-size:8px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+							}
+						}
+						&#app-status{
+							& .col-sm-12{
+								margin:0px auto;
+								padding:0px 15px;
+								width:50%;
+								&:first-child{
+									padding-right:0px;
+								}
+								& .approve{
+									& button{
+										background-color:$teal;
+									}
+								}
+								& .deny{
+									& button{
+										background-color:$red;
+									}
+								}
+							}
+							&.isApproved{
+								& .approve{
+									& button{
+										opacity:0.5;
+										cursor:text;
+									}
+									
+								}
+								& .deny{
+									
+								}
+							}
+							&.isDenied{
+								& .approve, & .deny{
+									display:none;
+								}
+							}
+							&.isPending{
+							}
+						}
+						& #sites{
 							margin-bottom:0px;
 							padding:15px;
 							border-bottom:1px solid #ddd;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:16px;
+							}
+							& .traveller_email{
+								font-size:10px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+							}
+						}
+					}
+				}
+			}
+			& #itinerary{
+				& .content{
+					padding:0px;
+					background: #ffffff;
+					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+					& .row{
+						& .travellerName{
+							margin-bottom:0px;
+							padding:15px;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -110,9 +296,10 @@
 								margin:0px;
 							}
 						}
-						& #deptHeader, & #arrvHeader{
+						& .deptHeader, & .arrvHeader{
 						margin-bottom:0px;
 						padding:15px;
+						border-top:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -137,7 +324,6 @@
 								}
 							}
 						}
-				
 					}
 					& #departureDetails{
 						& .col-sm-12{
@@ -150,7 +336,13 @@
 										width:100%;
 										background-color: #eceff1;
 										border-top:1px solid #a5aab2;
-										border-bottom:1px solid #a5aab2
+										border-bottom:1px solid #a5aab2;
+										& .fa-angle-double-down:before{
+											content:"\f102";
+										}
+										&.collapsed .fa-angle-double-down:before{
+											content:"\f103";
+										}
 									}
 									& #departure-travel, & #return-travel{
 										background-color: #ffffff;
@@ -203,7 +395,7 @@
 															display:table-cell;
 															padding:5px;
 															text-align:center;
-															font-family: "Marvel-Regular", Helvetica, Arial, sans-serif;
+															font-family:$Raleway;
     														font-size: 14px;
     														color: #54565b;
 															& p{
@@ -216,7 +408,6 @@
 															border-bottom:1px solid #a5aab2;
 														}
 													}
-
 												}
 											}
 										}
@@ -294,8 +485,9 @@
 					& .logo{
 						width:auto;
 						float:right;
-						padding-left:0px;
-						padding-right:185px;
+						margin-top:0px;
+						padding-left:65px;
+						padding-right:5px;
 						&:before{
 							top:20%;
 						}
