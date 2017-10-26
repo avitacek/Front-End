@@ -35,25 +35,30 @@
                             </div>
                             
                             <div class="row">
-                                <div class="col-sm-5 col-md-5" id="costs">
+                                <div class="col-sm-6 col-md-6" id="costs">
                                     <h4 class="card-title"><span class="cost"></span></h4>
                                     <p>Price</p>
                                 </div>
-                                <div class="col-sm-2 col-md-2" id="approvalID"></div>
-                                <div class="col-sm-5 col-md-5" id="clock">
-                                    <h4 class="card-title"><span class="time"></span></h4>
+                                <div class="col-sm-6 col-md-6" id="status">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3" id="approvalID"></div>
+                                        <div class="col-sm-9 col-md-9" id="clock">
+                                            <p class="approval-card-title"></p>
+                                            <p id="timer"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6" id="sites">
-                                    <h4 class="card-title"><span class="site"></span></h4>
-                                    <p>Search Site</p>
+                                <div class="col-sm-12 col-md-12" id="sites">
+                                    <a href="" class="card-title site" target="_blank"></a>
+                                    <p>Site used to purchase the flight.</p>
                                 </div>
                             </div>
                             <div class="row" id="app-status">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="approve">
-                                        <button type="submit">Approve</button>
+                                        <button type="submit" id="approveBtn">Approve</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
@@ -61,7 +66,20 @@
                                         <button type="submit">Deny</button>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
+                            <div class="row" id="comments">
+                                <div class="col-sm-12">
+                                    <form method="POST" action="">
+                                        <div class="row">
+                                            <textarea name="message" rows="10" cols="30"></textarea>
+                                            <p>Add a comment</p>
+                                        </div>
+                                        <div class="row">
+                                            <button type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -70,21 +88,20 @@
                     <div class="card">
                         <div class="content">
                             <div class="row">
-                                <div class="col-sm-12 travellerName">
+                                <div class="col-sm-6 travellerName">
                                     <h4 class="card-title"><span class="traveller_name"></span></h4>
-                                    <p class="traveller_email"></p>
+                                    <a href="mailto:" class="traveller_email"></a>
                                 </div>
+                                <div class="col-sm-6" id="flightInfo2">
+                                        <div class="City deptHeader"></div>
+                                        <div class="City arrvHeader"></div>
+                                </div>
+                                
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 deptHeader">
-                                    <h4 class="card-title"><span class="City"></span></h4>
-                                    <p class="CityCountry"></p>
-                                    
-                                </div>
-                                <div class="col-sm-6 arrvHeader" >
-                                    <h4 class="card-title"><span class="City"></span></h4>
-                                    <p class="CityCountry"></p>
-                                    
+                                <div class="col-sm-12">
+                                    <h4 class="card-title recordLocator"></h4>
+                                    <span>Ticket Number</span>
                                 </div>
                             </div>
                             <div class="row" id="departureDetails">
@@ -100,15 +117,19 @@
                                                         <ul>
                                                             <li>
                                                                 <p class="airline"></p>
+                                                                <span>Airline</span>
                                                             </li>
                                                             <li>
                                                                 <p class="flightNumber"></p>
+                                                                <span>Flight Number</span>
                                                             </li>
                                                             <li>
                                                                 <p class="duration"></p>
+                                                                <span>Flight Duration</span>
                                                             </li>
                                                             <li>
                                                                 <p class="recordLocator"></p>
+                                                                <span>Record Locator</span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -116,13 +137,13 @@
                                                         <ul>
                                                             <li class="leave">
                                                                 <ul>
-                                                                    <li>Leave</li>
+                                                                    <li>Departure</li>
                                                                     <li><p class="date"></p></li>
                                                                     <li><p class="time"></p></li>
                                                                 </ul>
                                                             <li class="arrive">
                                                                 <ul>
-                                                                    <li>Arrive</li>
+                                                                    <li>Arrival</li>
                                                                     <li><p class="date"></p></li>
                                                                     <li><p class="time"></p></li>
                                                                 </ul>
@@ -132,7 +153,7 @@
                                             </div>
                                         </div>
                                         <div class="item">
-                                            <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
+                                            <a id="returnBtn" data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
                                             </a>
                                             <div id="return-travel" class="collapse in" role="tabpanel">
                                                 <div class="list-group">
@@ -140,15 +161,19 @@
                                                         <ul>
                                                             <li>
                                                                 <p class="airline"></p>
+                                                                <span>Airline</span>
                                                             </li>
                                                             <li>
                                                                 <p class="flightNumber"></p>
+                                                                <span>Flight Number</span>
                                                             </li>
                                                             <li>
                                                                 <p class="duration"></p>
+                                                                <span>Flight Duration</span>
                                                             </li>
                                                             <li>
                                                                 <p class="recordLocator"></p>
+                                                                <span>Record Locator</span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -156,14 +181,14 @@
                                                         <ul>
                                                             <li class="leave">
                                                                 <ul>
-                                                                    <li>Leave</li>
+                                                                    <li>Departure</li>
                                                                     <li><p class="date"></p></li>
                                                                     <li><p class="time"></p></li>
                                                                 </ul>
                                                             </li>
                                                             <li class="arrive">
                                                                 <ul>
-                                                                    <li>Arrive</li>
+                                                                    <li>Arrival</li>
                                                                     <li><p class="date"></p></li>
                                                                     <li><p class="time"></p></li>
                                                                 </ul>

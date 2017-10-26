@@ -56,7 +56,7 @@
                                                 <div class="col-md-6">
                                                     
                                                         <div id="gender_select_carrier"></div>
-                                                        <label for="gender_select_carrier">Gender</label>
+                                                        
                                                     
                                                 </div>
                                             </div>
@@ -126,11 +126,11 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group" id='seat_select_carrier'>
                                                     </div>
-                                                    <label for="seat_select_carrier">Seat Preference</label>
+                                                    
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="form-group" id="special_assistance_carrier">
-                                                    <label for="seat_select_carrier">Special Assistance</label>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,7 +146,6 @@
                                                 </div>
                                             </div>
                                             <hr class="m-t-5">
-                                        
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
@@ -156,7 +155,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12">
-                                                    <div class="form-group"><div class="form-group">
+                                                    <div class="form-group">
                                                         <input type="text" placeholder="Enter number" name='redress_number' value="<?php echo $app->constants->request['redress_number'];?>">
                                                         <label class="">Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
                                                         <span class="focus-border"><i></i></span>
@@ -199,10 +198,14 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                
                             </div>
                         </div>
-                        <button type="submit" class="">Submit</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="">Submit</button>    
+                            </div>
+                        </div>
+                        
                     </div>
                 </form>
             </div>

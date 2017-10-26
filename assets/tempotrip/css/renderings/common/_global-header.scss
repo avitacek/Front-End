@@ -206,7 +206,7 @@ body{
 	/*SidebarNav*/
 		& .sideBarNav {
 		    height: 100%; /* 100% Full-height */
-		    width: 60px; /* 0 width - change this with JavaScript */
+		    width: 54px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
 		    z-index: 200; /* Stay on top */
 		    top:70px;
@@ -356,10 +356,7 @@ body{
 	    opacity: 0;
 	}
 	&.hamburgerNavActive .sideBarNav{
-		width:200px!important;
-	}
-	&.hamburgerNavActive .sideBarNav{
-		width:200px!important;
+		width:160px!important;
 	}
 	&.hamburgerNavActive a#adminAccordian, &.hamburgerNavActive a#travellerAccordian, &.hamburgerNavActive a#logOut{
     	margin-left:35px!important;

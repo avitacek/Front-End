@@ -90,27 +90,28 @@
 				background:transparent;
 			}
 			& .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
-				background-color: #006e8d;
-				border-color:#006e8d;
+				background-color: $grey-blue;
+				border-color:$grey-blue;
 			}
 		}
 		& .col-md-5{
-			& .wrapper{
-				background-color: transparent;
+			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+				background-color: rgba(255, 255, 255, .45);
+    			border: 1px solid #ffffff;
+    			border-bottom-color:transparent
 			}
 			& #approvals{
-				background-color: rgba(255, 255, 255, 1);
+				background-color: rgba(255, 255, 255, .45);
     			border: 1px solid #ffffff;
     			border-radius: 3px;
     			padding: .9375rem;
-    			box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0), 0 0 0 0px rgba(0, 0, 0, 0.0);
 				& .content{
 					padding:0px;
 					background: #ffffff;
 					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 					& .row{
 							border-bottom:1px solid #ddd;
-						& .travellerName{
+						& .travellerName, & #flightInfo{
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
@@ -126,10 +127,14 @@
 								margin:0px;
 							}
 						}
+						& .travellerName{
+							border-right:1px solid #ddd;
+						}
 						& #approvalID{
 								text-align:center;
+								padding:0px;
 								& i{
-									margin:30px auto 0px;
+									margin:5px auto 0px;
 									font-size:32px;
 									text-align:center;
 									&:before{
@@ -140,25 +145,25 @@
 									font-size:10px;
 								}
 								&.isApproved{
-									color:$teal;
+									color:$teal!important;
 								}
 								&.isDenied{
-									color:$red;
+									color:$red!important;
 								}
 								&.isPending{
-									color:$yellow
+									color:$yellow!important;
 								}
 						}
 						& #flightInfo{
 							.deptHeader{
-								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
 							    font-weight: bold;
 							    line-height: 1.25;
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:left;
-							    margin-top:10px;
+							    margin-top:15px;
 								&:after{
 									font-family:$FontAwesome;
 									color:$black;
@@ -172,20 +177,22 @@
 								}
 							}
 							.arrvHeader{
-								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
 							    font-weight: bold;
 							    line-height: 1.25;
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:left;
-							    margin-top:10px;
+							    margin-top:15px;
 							    margin-left:5px;
 							}
 						}
 						& #costs{
-							margin-bottom:0px;
+							margin:0px;
+							width:50%;
 							padding:15px;
+							border-right:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -197,31 +204,58 @@
 								width:auto;
 								padding:0px;
 								margin:0px;
+								text-align:left;
 							}
 						}
-						& #clock{
+						& #status{
 							margin-bottom:0px;
 							padding:15px;
-							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
-								font-weight:normal;
-								font-size:32px;
-							}
-							& p{
-								font-size:8px;
-								width:auto;
-								padding:0px;
-								margin:0px;
+							& .row{
+								border-bottom:none;
+								& #clock{
+									margin-bottom:0px;
+									padding:5px 0px;
+									& .approval-card-title{
+										margin-top:0px;
+										margin-bottom:0px;
+										font-weight:normal;
+										font-size:18px;
+										text-align:center;
+									}
+									& p{
+										font-size:12px;
+										width:auto;
+										padding:0px;
+										margin:0px;
+										text-align:center;
+									}
+									&.isApproved{
+										.approval-card-title{
+											color:$teal;
+										}
+									}
+									&.isDenied{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isPending{
+										.approval-card-title{
+											color:$yellow;
+										}
+									}
+								}
+								
 							}
 						}
 						&#app-status{
 							& .col-sm-12{
-								margin:0px auto;
 								padding:0px 15px;
-								width:50%;
 								&:first-child{
 									padding-right:0px;
+								}
+								&:last-child{
+									padding-left:0px;
 								}
 								& .approve{
 									& button{
@@ -248,7 +282,10 @@
 							}
 							&.isDenied{
 								& .approve, & .deny{
-									display:none;
+									& button{
+										opacity:0.5;
+										cursor:text;
+									}
 								}
 							}
 							&.isPending{
@@ -257,12 +294,12 @@
 						& #sites{
 							margin-bottom:0px;
 							padding:15px;
-							border-bottom:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
 								font-weight:normal;
-								font-size:16px;
+								font-size:18px;
+								color:$orange;
 							}
 							& .traveller_email{
 								font-size:10px;
@@ -271,16 +308,47 @@
 								margin:0px;
 							}
 						}
+						&#comments{
+							& .col-sm-12{
+								padding:15px;
+								& textarea{
+									resize:none;
+									width:100%;
+									margin:0px;
+									border-color:#dddddd;
+								}
+							}
+						}
+						&:last-child{
+							border-bottom:none;
+						}
 					}
 				}
 			}
 			& #itinerary{
+				background-color: rgba(255, 255, 255, .45);
+    			border: 1px solid #ffffff;
+    			border-radius: 3px;
+    			padding: .9375rem;
 				& .content{
 					padding:0px;
 					background: #ffffff;
 					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 					& .row{
-						& .travellerName{
+						&:first-child, &:nth-child(2){
+							border-bottom:1px solid #ddd;
+						}
+						&:nth-child(2) .col-sm-12{
+							padding:0px 15px 15px;
+							& h4{
+								margin-bottom:0px;
+							}
+							& span{
+								font-size:12px;
+								margin-bottom:15px;
+							}
+						}
+						& .travellerName, & #flightInfo2{
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
@@ -290,32 +358,50 @@
 								font-size:32px;
 							}
 							& .traveller_email{
-								font-size:10px;
+								font-size:12px;
 								width:auto;
 								padding:0px;
 								margin:0px;
 							}
 						}
-						& .deptHeader, & .arrvHeader{
-						margin-bottom:0px;
-						padding:15px;
-						border-top:1px solid #ddd;
-							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
-								font-weight:normal;
-								font-size:32px;
+						& .travellerName{
+							border-right:1px solid #ddd;
+						}
+						& #flightInfo2{
+							.deptHeader{
+								font-family: $Source-Sans-Pro;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.25;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:left;
+							    margin-top:15px;
+								&:after{
+									font-family:$FontAwesome;
+									color:$black;
+									float:right;
+									margin:0px 10px;
+									content: "\f072";
+									/* Rotate div */
+								    -ms-transform: rotate(45deg); /* IE 9 */
+								    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+								    transform: rotate(45deg);
+								}
 							}
-							& .CityCountry{
-								font-size:10px;
-								width:auto;
-								padding:0px;
-								margin:0px;
+							.arrvHeader{
+								font-family: $Source-Sans-Pro;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.25;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:left;
+							    margin-top:15px;
+							    margin-left:5px;
 							}
 						}
-						& #arrvHeader{
-							border-left:1px solid #ddd;
-						}
+						
 						&:last-child{
 							& ul{
 								border-bottom:none;
@@ -357,6 +443,7 @@
 												padding:0px;
 												list-style-type: none;
 												font-size:10px;
+												color:$grey-blue;
 												border-bottom:1px solid #a5aab2;
 												& li{
 													display:table-cell;
@@ -450,7 +537,8 @@
 			z-index: 9999;
 			border:1px solid #a5aab2;
 			display:none;
-			width:950px;
+			max-width:950px;
+			width:100%;
 			margin:0px auto;
 			padding:15px;
 			& #hidden_div{
@@ -475,7 +563,7 @@
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:32px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 
 					}
 				}
@@ -499,7 +587,7 @@
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:32px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 
 					}
 				}
@@ -512,10 +600,10 @@
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:24px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 					}
 				}
-				& .traveller{
+				& .traveller, & .recordLocator{
 					margin-top:0px;
 				}
 				& .departureDetails, & .returnDetails{
@@ -530,9 +618,9 @@
 							border-bottom:1px solid #a5aab2;
 						}
 						& h3{font-size:24px;}
+						& h4{font-size:18px;}
 						& .col-sm-6{
-							padding-left:0px;
-							padding-right:0px;
+							
 						}
 					}
 					& .col-sm-5:last-child{
@@ -547,6 +635,7 @@
 							color:#a5aab2;
 							border-bottom:1px solid #a5aab2;
 							text-align:center;
+							font-size:16px;
 						}
 					}
 					& .col-sm-12{

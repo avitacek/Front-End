@@ -64,8 +64,6 @@ function checkPage(){
     else if ($('body').attr('id') === 'all-trips-page'){
         setAllTripsPage();
     }
-    else if ($('body').attr('id') === 'meetingMaker-page'){
-    }
     else if ($('body').attr('id') === 'add-travelers-page'){
         setAddTravelersPage();
     }
@@ -94,7 +92,7 @@ function setAllTripsPage(){
         "ajax": '../js/ajax/all_trips.json',
         "select": true,
         "pageLength": 8,
-        "order": [[1, "desc" ]],
+        "order": [[28, "desc" ]],
         "columnDefs": [
             {
                 "targets": [ 0 ],
@@ -213,10 +211,14 @@ function setAllTripsPage(){
             {
                 "targets": [ 28 ],
                 "visible": false
+            },
+            {
+                "targets": [ 29 ],
+                "visible": false
             }
         ]
     });
-     function getImg(data, type, full, meta) {
+    function getImg(data, type, full, meta) {
         var status = data;
         if (status === 'Approved') {
             return '<span class="fa fa-check-circle" aria-hidden="true"></span>';
@@ -229,6 +231,7 @@ function setAllTripsPage(){
             return '<span class="fa fa-check-circle-o" aria-hidden="true"></span>';
         } 
     }
+    var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
         $('.load_spinner').addClass('active');
         setTimeout(function(){
@@ -240,17 +243,19 @@ function setAllTripsPage(){
 
         $('#approvals .traveller_name').text(data[0]);
         $('#approvals .traveller_email').text(data[1]);
+        $('#approvals a.traveller_email').attr("href" , "mailto:"+ data[1]);
         $('#approvals .deptHeader').text(data[4]);
         $('#approvals .arrvHeader').text(data[15]);
         $('#approvals .site').text(data[2]);
+        $('#approvals .site').attr("href" , "https://"+ data[2]);
         $('#approvals .cost').text('$'+data[26]);
 
         $('#itinerary .traveller_name').text(data[0]);
         $('#itinerary .traveller_email').text(data[1]);
-        $('#itinerary .deptHeader .City').text(data[4]);
-        $('#itinerary .deptHeader .CityCountry').text(data[5]);
-        $('#itinerary .arrvHeader .City').text(data[15]);
-        $('#itinerary .arrvHeader .CityCountry').text(data[16]);
+        $('#itinerary a.traveller_email').attr("href" , "mailto:"+ data[1]);
+        $('#itinerary .recordLocator').text(data[10]);
+        $('#itinerary .deptHeader').text(data[4]);
+        $('#itinerary .arrvHeader').text(data[15]);
 
         $('#departure-travel .departureDetails .airline').text(data[7]);
         $('#departure-travel .departureDetails .flightNumber').text(data[8]);
@@ -273,14 +278,17 @@ function setAllTripsPage(){
 
         //add print data//
         $('.traveller').text(data[0]);
+        $('.recordLocator').text(data[10]);
         $('.departureDetails .depart .City').text(data[4]);
         $('.departureDetails .depart .time').text(data[12]);
         $('.departureDetails .depart .CityCountry').text(data[5]);
         $('.departureDetails .depart .airline').text(data[7]);
         $('.departureDetails .depart .flightNumber').text(data[8]);
         $('.departureDetails .depart .date').text(data[11]);
+        $('.departureDetails .depart .recordLocator').text(data[10]);
         $('.departureDetails .arrive .City').text(data[15]);
         $('.departureDetails .arrive .time').text(data[14]);
+        $('.departureDetails .arrive .date').text(data[13]);
         $('.departureDetails .arrive .CityCountry').text(data[16]);
 
         $('.returnDetails .depart .City').text(data[15]);
@@ -288,6 +296,7 @@ function setAllTripsPage(){
         $('.returnDetails .depart .CityCountry').text(data[15]);
         $('.returnDetails .depart .airline').text(data[18]);
         $('.returnDetails .depart .flightNumber').text(data[19]);
+        $('.returnDetails .depart .recordLocator').text(data[21]);
         $('.returnDetails .depart .date').text(data[22]);
         $('.returnDetails .arrive .City').text(data[4]);
         $('.returnDetails .arrive .time').text(data[23]);
@@ -296,53 +305,82 @@ function setAllTripsPage(){
         console.log(data);
         changeDepartDuration(data[9]);
         changeReturnDuration(data[20]);
-        checkTripType(data[25]);
-        checkStatus(data[27]);
-        approvalTimer(
-            5000, // milliseconds
-            function(timeleft) { // called every step to update the visible countdown
-                $('#clock .card-title').innerHTML = timeleft+" second(s)";
-            },
-            function() { // what to do after
-                //alert("Timer complete!");
-            }
-        );
+        checkTripType(data[28]);
+        checkStatus(data[27], data[29]);
+
+        
     });
     setTimeout(function(){
         var tableRow = $('#allTrips tbody tr:first-child');
         $(tableRow).trigger('click');
     },500); 
-    function checkStatus(d){
+    function checkStatus(d, e){
         $('#app-status').removeClass().addClass('row')
-        $('#approvalID').html('').removeClass().addClass('col-sm-2');
+        $('#clock').removeClass().addClass('col-sm-9 col-md-9')
+        $('#approvalID').html('').removeClass().addClass('col-sm-3');
+        clearInterval(counter);
         if( d === 'Approved'){
-            $('#app-status').addClass('isApproved');
-            $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i><p>Approved</p>')
+            $('#app-status, #clock').addClass('isApproved');
+            $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Approved');
         }
         else if ( d === 'Auto Approved'){
-            $('#app-status').addClass('isApproved');
-            $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i><p>Auto Approved</p>')
+            $('#app-status, #clock').addClass('isApproved');
+            $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Auto Approved');
         }
         else if ( d === 'Denied'){
-            $('#app-status').addClass('isDenied');
-            $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i><p>Denied</p>')
+            $('#app-status, #clock').addClass('isDenied');
+            $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Denied');
         }
         else if ( d === 'Pending'){
-            $('#app-status').addClass('isPending');
-            $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i><p>Pending</p>')
+            $('#app-status, #clock').addClass('isPending');
+            $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Countdown');
+            $('#timer').text('');
+
+
+            //new timer code//
+            var apprTime = e;
+
+            var hms = apprTime;   // your input string
+            var a = hms.split(':'); // split it at the colons
+
+            // minutes are worth 60 seconds. Hours are worth 60 minutes.
+            var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+            console.log(seconds);
+
+            var count = seconds;
+            var counterMax = 86400;
+            counter = setInterval(function () {
+                count = count + 1;
+                if (count === counterMax) {
+                    clearInterval(counter);
+                    $('#app-status').removeClass().addClass('row');
+                    $('#clock').removeClass().addClass('col-sm-9 col-md-9');
+                    $('#approvalID').html('').removeClass().addClass('col-sm-3');
+                    $('#app-status, #clock').addClass('isApproved');
+                    $('.approval-card-title').text('Auto Approved');
+                    $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
+                    $('#timer').text('');
+                    $('#approveBtn').click();
+                    return;
+                }
+                var seconds = count % 60;
+                var minutes = Math.floor(count / 60);
+                var hours = Math.floor(minutes / 60);
+                minutes %= 60;
+                hours %= 60;
+                document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+            }, 1000);
+
         }
+        
     }
-    function approvalTimer(time,update,complete) {
-        var start = new Date().getTime();
-        var interval = setInterval(function() {
-            var now = time-(new Date().getTime()-start);
-            if( now <= 0) {
-                clearInterval(interval);
-                complete();
-            }
-            else update(Math.floor(now/1000));
-        },100); // the smaller this number, the more accurate the timer will be
-    }
+    $('#approveBtn').on('click', function(){
+       console.log('change table and DB status to Approved');
+    })  
     function changeDepartDuration(a){
         var dHours = Math.trunc(a/60);
         var dMinutes = a % 60;
@@ -357,70 +395,22 @@ function setAllTripsPage(){
     }
     function checkTripType(c){
         if ( c === 'Oneway'){
-            $('#return-travel').addClass('hidden');
+            $('#returnBtn').trigger('click');
+            console.log('collapse when oneway')
         }
-        else{
-            $('#return-travel').removeClass('hidden');
+        else if ( c === 'RoundTrip'){
+            if($('#returnBtn').hasClass('collapsed')){
+                $('#returnBtn').trigger('click');
+                console.log('collapse when oneway')
+            }
+            else{
+
+            }
+            
         }
     }
 }
-/*
-function setAllTravellersPage(){
-    setTimeout(function(){
-        $('body').find('li#alltravellers-page').addClass('active')
-        console.log('fired off')
-    },10)
-     var table = $('#allTravellers').DataTable({
-        "ajax": '../js/ajax/all_travelers.json',
-        "select": true,
-        "order": [[ 0, "desc" ]],
-        "columnDefs": [  
-        ]
-    });
-    $('#allTravellers tbody').on('click', 'tr', function () {
-        $('.load_spinner').addClass('active');
-        setTimeout(function(){
-            $('.load_spinner').removeClass('active');
-        },1500)
-        var data = table.row( this ).data();
-        $('#allTravellers tbody tr').removeClass('selected');
-        $(this).addClass('selected')
-        $('.card-traveller .card-title').text(data[0]);
-        $('.card-traveller .card-email').text(data[1]);
-        $('.card-traveller .card-status').text(data[8]);
-        $('.card-traveller .card-phone').text(data[2]);
-        $('.card-traveller .card-dept').text(data[3]);
-        $('.card-traveller .card-costs').text(data[7]);
-        $('.card-traveller .quick-facts-box .totalTrips').text(data[4]);
-        $('.card-traveller .quick-facts-box .upcomingTrips').text(data[5]);
-        $('.card-traveller .quick-facts-box .approvalTrips').text(data[6]);
-         changeStatus(data[8]);
-         checkCosts(data[7]);
-        function changeStatus(a){
-            if(a < 1){
-               $('.card-traveller .card-status').text('Inactive').addClass('inactive'); 
-            }
-            else{
-               $('.card-traveller .card-status').text('Active').removeClass('inactive');  
-            }
-        }
-        function checkCosts(b){
-            if(b > 1000){
-               $('.card-traveller .card-costs').text('$'+data[7]).addClass('alert'); 
-               console.log('alert')
-            }
-            else{
-               $('.card-traveller .card-costs').text('$'+data[7]).removeClass('alert');  
-                console.log('alert off')
-            }
-        }
-    });
-    setTimeout(function(){
-        //var tableRow = $('#allTravellers tbody tr:first-child');
-        //$(tableRow).trigger('click');
-    },500);
-}
-*/
+
 function setAddTravelersPage(){
     setTimeout(function(){
         $('body').find('li#addTravelers-page').addClass('active')
@@ -514,10 +504,10 @@ function setAddTravelersPage(){
 function setEventsPage(){
     setTimeout(function(){
         $('body').find('li#events-page').addClass('active')
-        console.log('fired off')
+        
     },10)
     var siteCount = 0
-    /*var site_list = [
+    var site_list = [
         {
             e_site_id:'tempotrip',
             display_name: 'Tempotrip.com',
@@ -539,7 +529,6 @@ function setEventsPage(){
             hostedhostname: 'ena.tempotrip.com/#!/search/flights'
         }
     ];
-    */
     $.each(site_list, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');

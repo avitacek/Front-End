@@ -10,6 +10,19 @@
 	}
 	& .body-content{
 		& .row{
+			& .col-md-5{
+				& .nav-tabs > li.active > a, & .nav-tabs > li.active > a:hover, & .nav-tabs > li.active > a:focus{
+					background-color: rgba(255, 255, 255, 0.45);
+    				border: 1px solid #ffffff;
+    				border-bottom-color: transparent;
+				}
+				& #add-travelers, & #personal-info{
+					background-color: rgba(255, 255, 255, 0.45);
+				    border: 1px solid #ffffff;
+				    border-radius: 3px;
+				    padding: .9375rem;
+				}
+			}
 			& p{
 				font-weight:bold;
 			}

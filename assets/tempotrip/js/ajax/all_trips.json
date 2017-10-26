@@ -29,7 +29,8 @@
       "2:15 PM",
       "300.00",
       "Approved",
-      "RoundTrip"
+      "RoundTrip",
+      "14:19:39"
     ],
     [
       "Jane Doe",
@@ -60,7 +61,8 @@
       "",
       "200.00",
       "Pending",
-      "Oneway"
+      "Oneway",
+      "23:59:49"
     ],
     [
       "John Doe",
@@ -91,7 +93,8 @@
       "",
       "400.00",
       "Denied",
-      "Oneway"
+      "Oneway",
+      "10:05:50"
     ],
     [
       "Jane Smith",
@@ -122,7 +125,8 @@
       "12:15 AM",
       "600.00",
       "Denied",
-      "RoundTrip"
+      "RoundTrip",
+      "07:32:20"
     ],
     [
       "John Henry",
@@ -153,7 +157,8 @@
       "12:15 PM",
       "200.00",
       "Auto Approved",
-      "RoundTrip"
+      "RoundTrip",
+      "21:30:15"
     ],
     [
       "Jack Jill",
@@ -184,7 +189,8 @@
       "",
       "300.00",
       "Pending",
-      "Oneway"
+      "Oneway",
+      "19:20:09"
     ]
   ]
 }

@@ -69,6 +69,11 @@ input:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+select.form-control{
+  margin-top:0px;
+  border-radius:3px;
+  height:47px;
+}
 .form-control:focus {
   background-color: #FFFFFF;
   border: 1px solid #AAAAAA;
