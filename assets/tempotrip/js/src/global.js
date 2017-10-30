@@ -70,6 +70,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'add-events-page'){
         setAddEventsPage();
     }
+    else if ($('body').attr('id') === 'message-page'){
+        createModal();
+    }
     
 }
 function setProfilePage(){
@@ -82,7 +85,6 @@ function setProfilePage(){
         $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
     })
 }
-
 function setAllTripsPage(){
     setTimeout(function(){
         $('body').find('li#alltrips-page').addClass('active')
@@ -248,7 +250,7 @@ function setAllTripsPage(){
         $('#approvals .arrvHeader').text(data[15]);
         $('#approvals .site').text(data[2]);
         $('#approvals .site').attr("href" , "https://"+ data[2]);
-        $('#approvals .cost').text('$'+data[26]);
+        $('#approvals .cost').text(data[26]);
 
         $('#itinerary .traveller_name').text(data[0]);
         $('#itinerary .traveller_email').text(data[1]);
@@ -260,11 +262,12 @@ function setAllTripsPage(){
         $('#departure-travel .departureDetails .airline').text(data[7]);
         $('#departure-travel .departureDetails .flightNumber').text(data[8]);
         $('#departure-travel .departureDetails .recordLocator').text(data[10]);
-
+        $('.departureTime .leave .City').text(data[4]);
         $('#departure-travel .departureTime .leave .date').text(data[11]);
         $('#departure-travel .departureTime .leave .time').text(data[12]);
         $('#departure-travel .departureTime .arrive .date').text(data[13]);
         $('#departure-travel .departureTime .arrive .time').text(data[14]);
+        $('#departure-travel .departureTime .arrive .City').text(data[15]);
 
         $('#return-travel .departureDetails .airline').text(data[18]);
         $('#return-travel .departureDetails .flightNumber').text(data[19]);
@@ -273,8 +276,10 @@ function setAllTripsPage(){
 
         $('#return-travel .departureTime .leave .date').text(data[22]);
         $('#return-travel .departureTime .leave .time').text(data[23]);
+        $('#return-travel .departureTime .leave .City').text(data[15]);
         $('#return-travel .departureTime .arrive .date').text(data[24]);
         $('#return-travel .departureTime .arrive .time').text(data[25]);
+        $('#return-travel .departureTime .arrive .City').text(data[4]);
 
         //add print data//
         $('.traveller').text(data[0]);
@@ -286,12 +291,12 @@ function setAllTripsPage(){
         $('.departureDetails .depart .flightNumber').text(data[8]);
         $('.departureDetails .depart .date').text(data[11]);
         $('.departureDetails .depart .recordLocator').text(data[10]);
-        $('.departureDetails .arrive .City').text(data[15]);
+        $('.departureDetails .arrive .City, .departureTime .leave .City').text(data[15]);
         $('.departureDetails .arrive .time').text(data[14]);
         $('.departureDetails .arrive .date').text(data[13]);
         $('.departureDetails .arrive .CityCountry').text(data[16]);
 
-        $('.returnDetails .depart .City').text(data[15]);
+        $('.returnDetails .depart .City, .departureTime .arrive .City').text(data[4]);
         $('.returnDetails .depart .time').text(data[12]);
         $('.returnDetails .depart .CityCountry').text(data[15]);
         $('.returnDetails .depart .airline').text(data[18]);
@@ -325,8 +330,8 @@ function setAllTripsPage(){
             $('.approval-card-title').text('Approved');
         }
         else if ( d === 'Auto Approved'){
-            $('#app-status, #clock').addClass('isApproved');
-            $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
+            $('#app-status, #clock').addClass('isAutoApproved');
+            $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
             $('.approval-card-title').text('Auto Approved');
         }
         else if ( d === 'Denied'){
@@ -360,9 +365,9 @@ function setAllTripsPage(){
                     $('#app-status').removeClass().addClass('row');
                     $('#clock').removeClass().addClass('col-sm-9 col-md-9');
                     $('#approvalID').html('').removeClass().addClass('col-sm-3');
-                    $('#app-status, #clock').addClass('isApproved');
+                    $('#app-status, #clock').addClass('isAutoApproved');
                     $('.approval-card-title').text('Auto Approved');
-                    $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
+                    $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
                     $('#timer').text('');
                     $('#approveBtn').click();
                     return;
@@ -395,10 +400,12 @@ function setAllTripsPage(){
     }
     function checkTripType(c){
         if ( c === 'Oneway'){
+            $('#flightInfo .deptHeader, #flightInfo2 .deptHeader').removeClass('Roundtrip').addClass('Oneway');
             $('#returnBtn').trigger('click');
             console.log('collapse when oneway')
         }
         else if ( c === 'RoundTrip'){
+            $('#flightInfo .deptHeader, #flightInfo2 .deptHeader').removeClass('Oneway').addClass('Roundtrip');
             if($('#returnBtn').hasClass('collapsed')){
                 $('#returnBtn').trigger('click');
                 console.log('collapse when oneway')
@@ -408,9 +415,9 @@ function setAllTripsPage(){
             }
             
         }
+        
     }
 }
-
 function setAddTravelersPage(){
     setTimeout(function(){
         $('body').find('li#addTravelers-page').addClass('active')
@@ -507,28 +514,7 @@ function setEventsPage(){
         
     },10)
     var siteCount = 0
-    var site_list = [
-        {
-            e_site_id:'tempotrip',
-            display_name: 'Tempotrip.com',
-            hostedhostname: 'az.dev.andy.wwwtempotrip.optionstravel.com/#!/search/flights'
-        },
-        {
-            e_site_id:'militarytogo',
-            display_name: 'Militarytogo.com',
-            hostedhostname: 'az.dev.andy.wwwmilitarytogo.optionstravel.com/#!/search/flights'
-        },
-        {   
-            e_site_id:'sandboxx',
-            display_name: 'Sandboxx.tempotrip.com',
-            hostedhostname: 'sandboxx.tempotrip.com/#!/search/flights'
-        },
-        {
-            e_site_id:'ena',
-            display_name: 'ENA.tempotrip.com',
-            hostedhostname: 'ena.tempotrip.com/#!/search/flights'
-        }
-    ];
+    
     $.each(site_list, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');
@@ -565,13 +551,26 @@ function setEventsPage(){
 
 
 }
-function setAddEventsPage(){
-    setTimeout(function(){
-        $('body').find('li#addEvent-page').addClass('active')
-    },10)
+function createModal(){
+    $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
+    $('#modalBtn').click();
 }
 
 $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+      position: {
+        my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+    });
 	checkPage()
 });
 

@@ -131,7 +131,7 @@
 							border-right:1px solid #ddd;
 						}
 						& #approvalID{
-								text-align:center;
+								text-align:left;
 								padding:0px;
 								& i{
 									margin:5px auto 0px;
@@ -145,6 +145,9 @@
 									font-size:10px;
 								}
 								&.isApproved{
+									color:$teal!important;
+								}
+								&.isAutoApproved{
 									color:$teal!important;
 								}
 								&.isDenied{
@@ -164,17 +167,54 @@
 							    color: #000000;
 							    float:left;
 							    margin-top:15px;
-								&:after{
-									font-family:$FontAwesome;
-									color:$black;
-									float:right;
-									margin:0px 10px;
-									content: "\f072";
-									/* Rotate div */
-								    -ms-transform: rotate(45deg); /* IE 9 */
-								    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-								    transform: rotate(45deg);
-								}
+							    &.Roundtrip{
+							    	&:before{
+								    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:0px 10px;
+										content: "\f072";
+										position:absolute;
+										left:37%;
+										top:23%;
+										/* Rotate div */
+									    -ms-transform: rotate(45deg); /* IE 9 */
+									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+									    transform: rotate(45deg);
+							    	}
+								    &:after{
+							    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:10px 10px;
+										content: "\f072";
+										position:absolute;
+										left:46%;
+										-ms-transform: rotate(225deg); /* IE 9 */
+								   		 -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
+								    	transform: rotate(225deg);
+							    	}
+							    }
+							    &.Oneway{
+							    	&:before{
+								    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:0px 10px;
+										content: "\f072";
+										position:absolute;
+										left:40%;
+										top:35%;
+										/* Rotate div */
+									    -ms-transform: rotate(45deg); /* IE 9 */
+									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+									    transform: rotate(45deg);
+							    	}
+								    &:after{
+							    		display:none;
+							    	}
+							    }
+							    
 							}
 							.arrvHeader{
 								font-family: $Source-Sans-Pro;
@@ -183,9 +223,8 @@
 							    line-height: 1.25;
 							    letter-spacing: 0.5px;
 							    color: #000000;
-							    float:left;
+							    float:right;
 							    margin-top:15px;
-							    margin-left:5px;
 							}
 						}
 						& #costs{
@@ -219,8 +258,9 @@
 										margin-top:0px;
 										margin-bottom:0px;
 										font-weight:normal;
-										font-size:18px;
+										font-size:22px;
 										text-align:center;
+										line-height:1.5em;
 									}
 									& p{
 										font-size:12px;
@@ -234,6 +274,12 @@
 											color:$teal;
 										}
 									}
+									&.isAutoApproved{
+										.approval-card-title{
+											color:$teal;
+											line-height:1.0em;
+										}
+									}
 									&.isDenied{
 										.approval-card-title{
 											color:$red;
@@ -242,6 +288,11 @@
 									&.isPending{
 										.approval-card-title{
 											color:$yellow;
+											
+										}
+										#timer{
+											color:$yellow;
+											margin-top:-5px;
 										}
 									}
 								}
@@ -377,17 +428,53 @@
 							    color: #000000;
 							    float:left;
 							    margin-top:15px;
-								&:after{
-									font-family:$FontAwesome;
-									color:$black;
-									float:right;
-									margin:0px 10px;
-									content: "\f072";
-									/* Rotate div */
-								    -ms-transform: rotate(45deg); /* IE 9 */
-								    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-								    transform: rotate(45deg);
-								}
+								&.Roundtrip{
+							    	&:before{
+								    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:0px 10px;
+										content: "\f072";
+										position:absolute;
+										left:37%;
+										top:23%;
+										/* Rotate div */
+									    -ms-transform: rotate(45deg); /* IE 9 */
+									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+									    transform: rotate(45deg);
+							    	}
+								    &:after{
+							    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:10px 10px;
+										content: "\f072";
+										position:absolute;
+										left:46%;
+										-ms-transform: rotate(225deg); /* IE 9 */
+								   		 -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
+								    	transform: rotate(225deg);
+							    	}
+							    }
+							    &.Oneway{
+							    	&:before{
+								    	font-family:$FontAwesome;
+										color:$black;
+										float:right;
+										margin:0px 10px;
+										content: "\f072";
+										position:absolute;
+										left:40%;
+										top:35%;
+										/* Rotate div */
+									    -ms-transform: rotate(45deg); /* IE 9 */
+									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+									    transform: rotate(45deg);
+							    	}
+								    &:after{
+							    		display:none;
+							    	}
+							    }
 							}
 							.arrvHeader{
 								font-family: $Source-Sans-Pro;
@@ -396,9 +483,8 @@
 							    line-height: 1.25;
 							    letter-spacing: 0.5px;
 							    color: #000000;
-							    float:left;
+							    float:right;
 							    margin-top:15px;
-							    margin-left:5px;
 							}
 						}
 						
