@@ -220,6 +220,22 @@ function setAllTripsPage(){
             }
         ]
     });
+     var table = $('#pnrTable').DataTable({
+        "ajax": '../js/ajax/all_trips.json',
+        "select": false,
+        "pageLength": 5,
+        "order": [[0, "desc" ]],
+        "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": true
+            },
+            {
+                "targets": [ 1 ],
+                "visible": true
+            }
+        ]
+    });
     function getImg(data, type, full, meta) {
         var status = data;
         if (status === 'Approved') {
@@ -235,9 +251,9 @@ function setAllTripsPage(){
     }
     var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
-        $('.load_spinner').addClass('active');
+        $('.wait-spinner').addClass('active');
         setTimeout(function(){
-            $('.load_spinner').removeClass('active');
+            $('.wait-spinner').removeClass('active');
         },1500)
         var data = table.row( this ).data();
         $('#allTrips tbody tr').removeClass('selected');
@@ -247,6 +263,7 @@ function setAllTripsPage(){
         $('#approvals .traveller_email').text(data[1]);
         $('#approvals a.traveller_email').attr("href" , "mailto:"+ data[1]);
         $('#approvals .deptHeader').text(data[4]);
+        $('#approvals #flightInfo .triptype').text(data[28]);
         $('#approvals .arrvHeader').text(data[15]);
         $('#approvals .site').text(data[2]);
         $('#approvals .site').attr("href" , "https://"+ data[2]);
@@ -255,6 +272,7 @@ function setAllTripsPage(){
         $('#itinerary .traveller_name').text(data[0]);
         $('#itinerary .traveller_email').text(data[1]);
         $('#itinerary a.traveller_email').attr("href" , "mailto:"+ data[1]);
+
         $('#itinerary .recordLocator').text(data[10]);
         $('#itinerary .deptHeader').text(data[4]);
         $('#itinerary .arrvHeader').text(data[15]);
@@ -262,50 +280,58 @@ function setAllTripsPage(){
         $('#departure-travel .departureDetails .airline').text(data[7]);
         $('#departure-travel .departureDetails .flightNumber').text(data[8]);
         $('#departure-travel .departureDetails .recordLocator').text(data[10]);
-        $('.departureTime .leave .City').text(data[4]);
+
+        $('#departure-travel .departureTime .leave .City').text(data[4]);
         $('#departure-travel .departureTime .leave .date').text(data[11]);
         $('#departure-travel .departureTime .leave .time').text(data[12]);
+
+        $('#departure-travel .departureTime .arrive .City').text(data[15]);
         $('#departure-travel .departureTime .arrive .date').text(data[13]);
         $('#departure-travel .departureTime .arrive .time').text(data[14]);
-        $('#departure-travel .departureTime .arrive .City').text(data[15]);
+        
 
         $('#return-travel .departureDetails .airline').text(data[18]);
         $('#return-travel .departureDetails .flightNumber').text(data[19]);
         $('#return-travel .departureDetails .duration').text(data[18]);
         $('#return-travel .departureDetails .recordLocator').text(data[21]);
 
+        $('#return-travel .departureTime .leave .City').text(data[15]);
         $('#return-travel .departureTime .leave .date').text(data[22]);
         $('#return-travel .departureTime .leave .time').text(data[23]);
-        $('#return-travel .departureTime .leave .City').text(data[15]);
+
+        $('#return-travel .departureTime .arrive .City').text(data[4]);
         $('#return-travel .departureTime .arrive .date').text(data[24]);
         $('#return-travel .departureTime .arrive .time').text(data[25]);
-        $('#return-travel .departureTime .arrive .City').text(data[4]);
+        
 
         //add print data//
         $('.traveller').text(data[0]);
         $('.recordLocator').text(data[10]);
         $('.departureDetails .depart .City').text(data[4]);
-        $('.departureDetails .depart .time').text(data[12]);
         $('.departureDetails .depart .CityCountry').text(data[5]);
+        $('.departureDetails .depart .time').text(data[12]);
+        $('.departureDetails .depart .date').text(data[11]); 
         $('.departureDetails .depart .airline').text(data[7]);
         $('.departureDetails .depart .flightNumber').text(data[8]);
-        $('.departureDetails .depart .date').text(data[11]);
         $('.departureDetails .depart .recordLocator').text(data[10]);
-        $('.departureDetails .arrive .City, .departureTime .leave .City').text(data[15]);
+        $('.departureDetails .arrive .City').text(data[15]);
+        $('.departureDetails .arrive .CityCountry').text(data[16]);
         $('.departureDetails .arrive .time').text(data[14]);
         $('.departureDetails .arrive .date').text(data[13]);
-        $('.departureDetails .arrive .CityCountry').text(data[16]);
 
-        $('.returnDetails .depart .City, .departureTime .arrive .City').text(data[4]);
+        
+        $('.returnDetails .depart .City').text(data[15]);
+        $('.returnDetails .depart .CityCountry').text(data[16]);
         $('.returnDetails .depart .time').text(data[12]);
-        $('.returnDetails .depart .CityCountry').text(data[15]);
+        $('.returnDetails .depart .date').text(data[22]);
         $('.returnDetails .depart .airline').text(data[18]);
         $('.returnDetails .depart .flightNumber').text(data[19]);
         $('.returnDetails .depart .recordLocator').text(data[21]);
-        $('.returnDetails .depart .date').text(data[22]);
         $('.returnDetails .arrive .City').text(data[4]);
-        $('.returnDetails .arrive .time').text(data[23]);
         $('.returnDetails .arrive .CityCountry').text(data[5]);
+        $('.returnDetails .arrive .time').text(data[23]);
+        $('.returnDetails .arrive .date').text(data[22]);
+        
 
         console.log(data);
         changeDepartDuration(data[9]);
@@ -401,14 +427,14 @@ function setAllTripsPage(){
     function checkTripType(c){
         if ( c === 'Oneway'){
             $('#flightInfo .deptHeader, #flightInfo2 .deptHeader').removeClass('Roundtrip').addClass('Oneway');
-            $('#returnBtn').trigger('click');
-            console.log('collapse when oneway')
+            $('#returnBtn').trigger('click').addClass('disabled');
+            
         }
         else if ( c === 'RoundTrip'){
             $('#flightInfo .deptHeader, #flightInfo2 .deptHeader').removeClass('Oneway').addClass('Roundtrip');
             if($('#returnBtn').hasClass('collapsed')){
-                $('#returnBtn').trigger('click');
-                console.log('collapse when oneway')
+                $('#returnBtn').trigger('click').removeClass('disabled');
+                
             }
             else{
 

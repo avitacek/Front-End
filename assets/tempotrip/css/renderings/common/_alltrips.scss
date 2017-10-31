@@ -7,7 +7,7 @@
 	padding:0px;
 	& .body-content{
 		& .col-md-7, & .col-md-5{
-			#allTrips_wrapper{
+			#allTrips_wrapper, #pnrTable_wrapper{
 				background-color: rgba(255,255,255,0.45);
     			border: 1px solid #ffffff;
     			border-radius:3px;
@@ -18,9 +18,46 @@
     				}
     			}
     			& .dataTables_filter{
-    				
     			}
 			}
+			& #pnrTable_wrapper{
+				padding-top:5px;
+				& .row:first-child{
+    				display:none;
+    			}
+    			& .row .col-sm-5{
+    				display:none;
+    			}
+    			& .row .col-sm-7{
+    				width:100%;
+    			}
+    			& .row{
+    				& .dataTables_paginate{
+    					width:100%;
+    					& .pagination{
+    						width:100%;
+    						display:table;
+    						& li{
+    							display:table-cell;
+    						}
+    					}
+    				}
+    			}
+    			& .dataTables_info{
+    				display:none;
+    			}
+    			& tbody td{
+    				padding:10px;
+    				text-align:center;
+    				width:50%;
+    				&:first-child{
+    					border-right:1px solid #dddddd;
+
+    				}
+    			}
+
+			}
+
 			& table.dataTable{
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 			}
@@ -102,8 +139,10 @@
 			}
 			& #approvals{
 				background-color: rgba(255, 255, 255, .45);
-    			border: 1px solid #ffffff;
-    			border-radius: 3px;
+    			border-left: 1px solid #ffffff;
+    			border-right: 1px solid #ffffff;
+    			border-bottom: 1px solid #ffffff;
+    			border-radius:0px 3px 3px 3px;
     			padding: .9375rem;
 				& .content{
 					padding:0px;
@@ -169,52 +208,30 @@
 							    margin-top:15px;
 							    &.Roundtrip{
 							    	&:before{
-								    	font-family:$FontAwesome;
-										color:$black;
 										float:right;
-										margin:0px 10px;
-										content: "\f072";
-										position:absolute;
-										left:37%;
-										top:23%;
-										/* Rotate div */
-									    -ms-transform: rotate(45deg); /* IE 9 */
-									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-									    transform: rotate(45deg);
-							    	}
-								    &:after{
-							    	font-family:$FontAwesome;
-										color:$black;
-										float:right;
-										margin:10px 10px;
-										content: "\f072";
-										position:absolute;
-										left:46%;
-										-ms-transform: rotate(225deg); /* IE 9 */
-								   		 -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
-								    	transform: rotate(225deg);
-							    	}
-							    }
-							    &.Oneway{
-							    	&:before{
-								    	font-family:$FontAwesome;
-										color:$black;
-										float:right;
-										margin:0px 10px;
-										content: "\f072";
-										position:absolute;
-										left:40%;
-										top:35%;
-										/* Rotate div */
-									    -ms-transform: rotate(45deg); /* IE 9 */
-									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-									    transform: rotate(45deg);
+										margin:-5px 15px 0px;
+										content: "";
+										background:url(../images/logos/rt-icon.svg) no-repeat;
+										width:51px;
+										height:50px;
 							    	}
 								    &:after{
 							    		display:none;
 							    	}
 							    }
-							    
+							    &.Oneway{
+							    	&:before{
+								    	display:none;
+							    	}
+								    &:after{
+							    		float:right;
+										margin:5px 15px 0px;
+										content: "";
+										background:url(../images/logos/ow-icon.svg) no-repeat;
+										width:51px;
+										height:50px;
+							    	}
+							    }
 							}
 							.arrvHeader{
 								font-family: $Source-Sans-Pro;
@@ -225,6 +242,15 @@
 							    color: #000000;
 							    float:right;
 							    margin-top:15px;
+							}
+							& .triptype{
+								font-size:14px;
+								position:absolute;
+								bottom:0px;
+								text-align:center;
+								width:100%;
+								padding:0px;
+								margin:0px;
 							}
 						}
 						& #costs{
@@ -350,6 +376,7 @@
 								margin-bottom:0px;
 								font-weight:normal;
 								font-size:18px;
+								text-transform:uppercase;
 								color:$orange;
 							}
 							& .traveller_email{
@@ -357,6 +384,39 @@
 								width:auto;
 								padding:0px;
 								margin:0px;
+							}
+							& p{
+								font-size:12px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+								text-align:left;
+							}
+						}
+						& .pnr{
+							margin-bottom:0px;
+							padding:15px 15px 0px;
+							&:nth-child(2){
+								padding-top:0px;
+							}
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								color:$dark-grey;
+								&:before{
+									float:left;
+									content:'Flight Confirmation: ';
+								}
+								&:after{
+									float:left;
+									clear:both;
+									content:'All travelers associated with this trip.';
+									font-size:12px;
+									text-transform:none;
+								}
 							}
 						}
 						&#comments{
@@ -378,8 +438,10 @@
 			}
 			& #itinerary{
 				background-color: rgba(255, 255, 255, .45);
-    			border: 1px solid #ffffff;
-    			border-radius: 3px;
+    			border-left: 1px solid #ffffff;
+    			border-right: 1px solid #ffffff;
+    			border-bottom: 1px solid #ffffff;
+    			border-radius:0px 3px 3px 3px;
     			padding: .9375rem;
 				& .content{
 					padding:0px;
@@ -430,49 +492,28 @@
 							    margin-top:15px;
 								&.Roundtrip{
 							    	&:before{
-								    	font-family:$FontAwesome;
-										color:$black;
 										float:right;
-										margin:0px 10px;
-										content: "\f072";
-										position:absolute;
-										left:37%;
-										top:23%;
-										/* Rotate div */
-									    -ms-transform: rotate(45deg); /* IE 9 */
-									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-									    transform: rotate(45deg);
+										margin:-5px 15px 0px;
+										content: "";
+										background:url(../images/logos/rt-icon.svg) no-repeat;
+										width:51px;
+										height:50px;
 							    	}
 								    &:after{
-							    	font-family:$FontAwesome;
-										color:$black;
-										float:right;
-										margin:10px 10px;
-										content: "\f072";
-										position:absolute;
-										left:46%;
-										-ms-transform: rotate(225deg); /* IE 9 */
-								   		 -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
-								    	transform: rotate(225deg);
+							    		display:none;
 							    	}
 							    }
 							    &.Oneway{
 							    	&:before{
-								    	font-family:$FontAwesome;
-										color:$black;
-										float:right;
-										margin:0px 10px;
-										content: "\f072";
-										position:absolute;
-										left:40%;
-										top:35%;
-										/* Rotate div */
-									    -ms-transform: rotate(45deg); /* IE 9 */
-									    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-									    transform: rotate(45deg);
+								    	display:none;
 							    	}
 								    &:after{
-							    		display:none;
+							    		float:right;
+										margin:5px 15px 0px;
+										content: "";
+										background:url(../images/logos/ow-icon.svg) no-repeat;
+										width:51px;
+										height:50px;
 							    	}
 							    }
 							}
@@ -557,6 +598,9 @@
 												& li{
 													display:block;
 													padding:0px;
+													&:first-child{
+														border-bottom:1px solid #a5aab2;
+													}
 														& ul{
 														width:100%;
 														display:table;
@@ -571,6 +615,10 @@
 															font-family:$Raleway;
     														font-size: 14px;
     														color: #54565b;
+    														&:first-child, &:last-child{
+    															width:28%;
+    															border-bottom:none;
+    														}
 															& p{
 																margin-top:10px;
 															}
@@ -578,11 +626,19 @@
 													}
 													&.arrive{
 														& ul{
-															border-bottom:1px solid #a5aab2;
+														
 														}
 													}
 												}
 											}
+										}
+									}
+									& #return-travel{
+										& .departureTime{
+											& .arrive{
+												border-bottom:1px solid #a5aab2;
+											}
+											
 										}
 									}
 								}
@@ -626,7 +682,7 @@
 			max-width:950px;
 			width:100%;
 			margin:0px auto;
-			padding:15px;
+			padding:0px;
 			& #hidden_div{
 			}
 			& .print-wrapper{
@@ -638,6 +694,7 @@
 					& .logo{
 						width:auto;
 						float:left;
+						margin-top:10px;
 						&:before{
 							top:20%;
 						}
@@ -653,13 +710,22 @@
 
 					}
 				}
+				& .departureHeader{
+					& h3{
+						float:left;
+						&.col-sm-6{
+							padding:0px;
+						}
+					}
+				}
 				& .print-footer{
 					background-color:#eceff1;
 					border-top:2px solid #006e8d;
+					height:80px;
 					& .logo{
 						width:auto;
 						float:right;
-						margin-top:0px;
+						margin-top:10px;
 						padding-left:65px;
 						padding-right:5px;
 						&:before{
@@ -692,12 +758,14 @@
 				& .traveller, & .recordLocator{
 					margin-top:0px;
 				}
+				& .recordLocator{
+					
+				}
 				& .departureDetails, & .returnDetails{
 					& .row{
 						padding-bottom:15px;
 					}
 					& .col-sm-5{
-						padding-left:0px;
 						border-right:1px solid #a5aab2;
 						& h5{
 							color:#a5aab2;
@@ -710,8 +778,6 @@
 						}
 					}
 					& .col-sm-5:last-child{
-						padding-right:0px;
-						padding-left:15px;
 						border-left:1px solid #a5aab2;
 						border-right:0px solid #a5aab2;
 					}
@@ -750,6 +816,18 @@
 						padding-right:0px;
 						& .col-sm-4{
 							padding-left:0px;
+						}
+					}
+				}
+				& .returnDetails{
+					& .arrive{
+						& .col-sm-6{
+							padding:0px;
+						}
+					}
+					& .depart{
+						& .recordLocator{
+							margin-left:0px;
 						}
 					}
 				}

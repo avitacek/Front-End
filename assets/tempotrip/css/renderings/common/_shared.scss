@@ -16,7 +16,7 @@
 		width:100%;
 		height:100%;
 		z-index:-1;
-		background: url(../images/photos/AdobeStock_4202599.jpeg) center center no-repeat;
+		background: url(../images/photos/AdobeStock_4202599.jpg) center center no-repeat;
 		background-size:cover;
 		& .color-overlay{
 			position:absolute;
@@ -116,10 +116,12 @@ table.dataTable thead .sorting_asc {
     background-image: url(../images/global/sort_asc.png);
 }
 table.dataTable thead .sorting {
-    background-image: url(../images/global/sort_both.png);
+    background-image: none;
 }
 table.dataTable thead .sorting:after{
 	opacity:0;
+	content:'';
+	display:none;
 }
 table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after{
 	opacity:0;
@@ -130,6 +132,9 @@ table.dataTable tr > th:focus{
 .table > thead > tr > th {
     vertical-align: middle;
     padding:10px 10px;
+}
+.pagination > li > a, .pagination > li > span{
+	color:$grey-blue;
 }
 .load_spinner{
 	position:absolute;

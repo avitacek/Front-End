@@ -17,7 +17,7 @@
                     <div class="spinner">
                         <i class="half-circle fa-spin" id="spin-outside"></i>
                     </div>
-                    <p>Loading Itinerary <span>Please wait</span></p>
+                    <p>Loading Data <span>Please wait</span></p>
                 </div>
                 <!--Add Traveler TAB-->
                 <div role="tabpanel" class="tab-pane active" id="approvals">
@@ -53,6 +53,21 @@
                                 <div class="col-sm-12 col-md-12" id="sites">
                                     <a href="" class="card-title site" target="_blank"></a>
                                     <p>Site used to purchase the flight.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 pnr">
+                                    <p class="card-title" id="pnr_Number">#234564</p>
+                                </div>
+                                <div class="col-sm-12 pnr">
+                                    <table id="pnrTable" class="table table-striped table-bordered" cellspacing="0" width="100%" style="width:100%">
+                                        <thead>
+                                                <tr>
+                                                    <th>Traveler</th>
+                                                    <th>Email</th>
+                                                </tr>
+                                            </thead>
+                                    </table>
                                 </div>
                             </div>
                             <div class="row" id="app-status">
@@ -137,16 +152,16 @@
                                                         <ul>
                                                             <li class="leave">
                                                                 <ul>
-                                                                    <li class="col-sm-4"><p class="City">Departure</p></li>
-                                                                    <li class="col-sm-5"><p class="date"></p></li>
-                                                                    <li class="col-sm-3"><p class="time"></p></li>
+                                                                    <li><p class="City">Departure</p></li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
                                                                 </ul>
                                                             </li>
                                                             <li class="arrive">
                                                                 <ul>
-                                                                    <li class="col-sm-4"><p class="City">Arrival</p></li>
-                                                                    <li class="col-sm-5"><p class="date"></p></li>
-                                                                    <li class="col-sm-3"><p class="time"></p></li>
+                                                                    <li><p class="City">Arrival</p></li>
+                                                                    <li><p class="date"></p></li>
+                                                                    <li><p class="time"></p></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
