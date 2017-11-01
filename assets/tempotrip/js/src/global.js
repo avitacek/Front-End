@@ -76,7 +76,7 @@ function checkPage(){
     
 }
 function setProfilePage(){
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({dateFormat: "yyyy-mm-dd"});
     setTimeout(function(){
         $('body').find('li#profile-page').addClass('active')
         
@@ -257,7 +257,7 @@ function setAllTripsPage(){
         },1500)
         var data = table.row( this ).data();
         $('#allTrips tbody tr').removeClass('selected');
-        $(this).addClass('selected')
+        $(this).addClass('selected');
 
         $('#approvals .traveller_name').text(data[0]);
         $('#approvals .traveller_email').text(data[1]);
@@ -447,7 +447,6 @@ function setAllTripsPage(){
 function setAddTravelersPage(){
     setTimeout(function(){
         $('body').find('li#addTravelers-page').addClass('active')
-        console.log('fired off')
     },10)
      var table = $('#addTravelers').DataTable({
         "ajax": '../js/ajax/address-book.json',
@@ -492,15 +491,12 @@ function setAddTravelersPage(){
         {
             "targets": [9],
             "visible":false
-        }],
-        
-        "select": {
-            "style": "single"
-        }
+        }]
     });
     //Add traveler function
     $('#addTravelers tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('selected');
+        $('#allTrips tbody tr').removeClass('selected');
+        $(this).addClass('selected')
         if(table.rows('.selected').data().length > 0){
             $('.remove').removeClass('hide');
         }
@@ -509,7 +505,7 @@ function setAddTravelersPage(){
             $('.remove').addClass('hide');
         }
         $('#tabs a[href="#personal-info"]').tab('show');
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker(dateFormat: "yyyy-mm-dd"});
         //Move table data over to fields//
         var data = table.row( this ).data();
         console.log(data)
