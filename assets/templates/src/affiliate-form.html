@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TempoTrip - Affiliate Form</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+      
+    <link href="css/vendors/plugins.css" rel="stylesheet">
+    <link href="css/tempotrip.css" rel="stylesheet">
+    <?php require_once("../model/commonJs.js.php");?>
+  </head>
+  <body id="affiliate-form-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Global Header ============================== -->
+            @@include('../../renderings/components/global-header.html')
+            <!-- / Global Header ============================ --> 
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <!-- add travelers Table ============================== -->
+                @@include('../../renderings/components/affiliate-form-content.html')
+                <!-- / add travelers Table ============================ --> 
+            </div>  
+        </div>
+    </div>
+    @@include('../../renderings/components/global-footer.html')
+    <!-- JS ============================== -->
+   
+    <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
+
+    </body>
+</html>

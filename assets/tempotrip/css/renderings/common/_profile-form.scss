@@ -462,7 +462,7 @@ padding:0px;
     margin-top: -8px;
 }
 
-input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select, input[type=tel]{
+input[type=text], & input[type=password], & input[type=email], & input[type=select], & input[type=radio],& input[type=date], & select, & input[type=tel], & textarea{
     width: 100%;
     position:relative;
     padding: 12px 20px;
@@ -477,6 +477,14 @@ input[type=text], & input[type=password], & input[type=email], input[type=select
     z-index: 5;
     transition: 0.3s;
 }
+textarea{
+  height:200px;
+      border: 1px solid #E3E3E3;
+      &:focus{
+        box-shadow: none;
+        outline: 0 !important;
+      }
+}
 input ~ label{
       position: absolute;
       left: 0px;
@@ -488,8 +496,19 @@ input ~ label{
       letter-spacing: 1.2px;
       line-height: 1.5em;
       text-transform:none;
-    }
-
+}
+textarea ~ label{
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 0px;
+      font-size:14px;
+      transition: 0.3s;
+      z-index: 1;
+      letter-spacing: 1.2px;
+      line-height: 1.5em;
+      text-transform:none;
+}
 input:focus, &.has-content{
   border-color:#5DB9BE !important;
 }

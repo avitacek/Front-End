@@ -52,7 +52,7 @@
                             </div>
                             <hr/>
                             <div class="row">
-                                <form method="POST">
+                                <form enctype="multipart/form-data" method="POST">
                                     <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                     <input type='hidden' name='a' value="add_csv_travelers">
                                     <div class="col-sm-12">
@@ -62,7 +62,7 @@
                                         <p><a href="js/ajax/template.csv">Download</a> a template csv file.</p>
                                     </div>
                                     <div class="col-sm-12" id="bulk">
-                                        <input type="file" id="fileUpload" />
+                                        <input type="file" id="fileUpload" name='upfile[]' accept=".csv,.txt" />
                                         <p class="file-return"></p>
                                         
                                     </div>

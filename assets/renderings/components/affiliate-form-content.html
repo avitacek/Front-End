@@ -1,0 +1,49 @@
+<form method="POST" action="">
+    <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+    <input type='hidden' name='a' value="">
+    <input type='hidden' name='status' value="3">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" name="agency_name" id="agency_name" class="form-control" value="" required="required" title="" placeholder="Agency Name">
+                    <label>Agency Name</label>
+                    <span class="focus-border"><i></i></span>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="number" name="agency_phone" id="agency_phone" class="form-control" value="" required="required" title="" placeholder="Agency Contact Number">
+                    <label>Agency Contact Number</label>
+                    <span class="focus-border"><i></i></span>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="email" name="supportemail" id="supportemail" class="form-control" value="" required="required" title="" placeholder="Support Email">
+                    <label>Support Email</label>
+                    <span class="focus-border"><i></i></span>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" name="co_name" id="co_name" class="form-control" value="" required="required" title="" placeholder="Company Name">
+                    <label>Company Name</label>
+                    <span class="focus-border"><i></i></span>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <textarea name="message" rows="5" cols="20"></textarea>
+                    <label>Comments</label>
+                    <span class="focus-border"><i></i></span>   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="submit">Submit Affiliate Request</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
