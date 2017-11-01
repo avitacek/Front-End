@@ -395,7 +395,7 @@ function setAllTripsPage(){
                     $('.approval-card-title').text('Auto Approved');
                     $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
                     $('#timer').text('');
-                    $('#approveBtn').click();
+                    //$('#approveBtn').click();
                     return;
                 }
                 var seconds = count % 60;
@@ -504,11 +504,13 @@ function setAddTravelersPage(){
         
             $('.remove').addClass('hide');
         }
+
         $('#tabs a[href="#personal-info"]').tab('show');
-        $( "#datepicker" ).datepicker(dateFormat: "yyyy-mm-dd"});
+        $( "#datepicker" ).datepicker({dateFormat: "yyyy-mm-dd"});
         //Move table data over to fields//
         var data = table.row( this ).data();
         console.log(data)
+        $('#userID').val();
         $('#firstName').val(data[1]);
         $('#middleName').val(data[2]);
         $('#lastName').val(data[3]);
@@ -575,7 +577,7 @@ function setEventsPage(){
 }
 function createModal(){
     $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
-    $('#modalBtn').click();
+        $('#modalBtn').click();
 }
 
 $(document).ready(function(){

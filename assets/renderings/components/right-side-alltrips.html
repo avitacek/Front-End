@@ -73,18 +73,28 @@
                             <div class="row" id="app-status">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="approve">
-                                        <button type="submit" id="approveBtn">Approve</button>
+                                        <form method="POST" action="">
+                                            <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                            <input type='hidden' name='a' value="approve">
+                                            <button type="submit" id="approveBtn">Approve</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="deny">
-                                        <button type="submit">Deny</button>
+                                        <form method="POST" action="">
+                                            <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                            <input type='hidden' name='a' value="deny">
+                                            <button type="submit">Deny</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="row" id="comments">
                                 <div class="col-sm-12">
                                     <form method="POST" action="">
+                                        <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                        <input type='hidden' name='a' value="save_note">
                                         <div class="row">
                                             <textarea name="message" rows="5" cols="20"></textarea>
                                             <p>Add a comment <a href="#" class="fa fa-eye fa-6" data-toggle="tooltip" data-placement="right" title="These comments will be visible by you and your travelers"></a></p>
