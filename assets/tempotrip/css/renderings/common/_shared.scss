@@ -184,17 +184,19 @@ table.dataTable tr > th:focus{
 .errors, .errors p{
 	margin-top:5px!important;
 	color: #ff0000!important;
-	font-size:14px;
+	font-size:18px;
 	font-weight:bold;
-	text-align:right;
+	text-align:left;
+	tex-transform:uppercase;
 	margin-bottom: 5px;
 }
 .success, .success p{
 	margin-top:5px!important;
 	color: #5db9be!important;
-	font-size:14px;
+	font-size:18px;
 	font-weight:bold;
-	text-align:right;
+	text-align:left;
+	tex-transform:uppercase;
 	margin-bottom: 5px;
 }
 .disabled {

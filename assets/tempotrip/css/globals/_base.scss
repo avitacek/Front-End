@@ -37,7 +37,6 @@ p, ul {
     height: 60px;
     float: left;
     margin-left: 0rem;
-    cursor: pointer;
     color: #119672;
     position: relative;
     z-index: 5;
@@ -60,7 +59,7 @@ p, ul {
     font-size: 16px;
     float: left;
     letter-spacing: 4px;
-    margin-top: 11%;
+    margin-top: 13%;
     font-weight: bold;
 }
 .continental-logo{
@@ -348,6 +347,7 @@ p, ul {
 		opacity:1;
 	}
 }
+
 /*Common Styles based on Style Guide*/
 h1{
 	font-family:$Source-Sans-Pro-Bold;

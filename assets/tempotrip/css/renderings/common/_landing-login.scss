@@ -121,6 +121,7 @@
 	margin:0px auto!important;
 	position:relative;
 	overflow:hidden;
+	max-width:75%;
 	& label{
 		font-weight: 400;
     	color: #9A9A9A;
@@ -137,6 +138,7 @@
 		height:100%;
 		overflow: hidden;
 		border-right:5px solid #5db9be;
+		margin:0px 0px;
 		& .logo{
 			height:55px;
 			&:before{
@@ -176,11 +178,12 @@
 					padding:0px 0px;
 					& .form-group{
 						margin-bottom:0px;
+						position:relative;
 						& .userImage, & .passwordImage{
-							width:45px;
-							height:45px;
+							width:47px;
+							height:47px;
 							position:absolute;
-							top:25px;
+							top:24px;
 							left:0px;
 							z-index: 8;
 							background:url('../images/global/user.svg') left top no-repeat !important;
@@ -242,6 +245,18 @@
 				}
 			}
 		}
+		& .row{
+			&:first-child{
+				& .col-md-6{
+					padding-left:0px;
+					padding-right:0px;
+					& h4{
+						text-transform:uppercase;
+						text-align:right;
+					}
+				}
+			}
+		}
 	}
 	& .col-sm-4{
 		height:100%;
@@ -250,7 +265,7 @@
 		right:0px;
 		overflow:hidden;
 		padding:0% 0%;
-		border-left:5px solid #5db9be;
+		border-left:0px solid #5db9be;
 	}
 	& #landing-register{
 		height:100%;

@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>TempoTrip - Login</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
     <link href="css/vendors/plugins.css" rel="stylesheet">
     <link href="css/tempotrip.css" rel="stylesheet">
     <script src="js/tempotrip.globals.js"></script>
@@ -15,18 +16,15 @@
     <script src="js/tempotrip.modules.js"></script>
     <script src="js/js-library.js"></script>
     <script src="js/global-navigation.js"></script>
+    
   </head>
 
   <body id="password-page">
-    <div class="container-fluid body-content" id="jsLibrary">
+    <div class="container-fluid body-content" id="thanks">
             <!-- Left Side bar ============================== -->
-              @@include('../../renderings/components/js_library.html')
+              @@include('../../renderings/components/login.html')
             <!-- / Left Side Bar ============================ --> 
     </div>
-    
     @@include('../../renderings/components/global-footer.html')
-    <!-- JS ============================== -->
-   
-    <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
   </body>
 </html>

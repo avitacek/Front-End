@@ -26,21 +26,21 @@
                                  <form action="" method="POST" role="form">
                                     <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                     <input type='hidden' name='a' value="add_traveler">
-                                    <input type='hidden' name='status' value="3">
+                                    
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <input id="firstname" name="fname" title="First Name" type="text" size="28" />
+                                            <input id="firstname" name="fname" title="First Name" type="text" size="28" required/>
                                             <label for="fname">First Name</label>
                                             <span class="focus-border"><i></i></span>
                                         </div>
                                         <div class="col-sm-12">
-                                            <input id="lastname" name="lname" title="Last Name" type="text" size="28" />
+                                            <input id="lastname" name="lname" title="Last Name" type="text" size="28" required/>
                                             <label for="lname">Last Name</label>
                                             <span class="focus-border"><i></i></span>
                                         </div>
                                         <div class="col-sm-12">
-                                            <input id="email" name="e_address" title="email address" type="text" size="28" />
-                                            <label for="e_address">Email</label>
+                                            <input id="email" name="email" title="email address" type="text" size="28" required/>
+                                            <label for="email">Email</label>
                                             <span class="focus-border"><i></i></span>
                                         </div>
                                         <div class="col-sm-12">
@@ -55,19 +55,21 @@
                                 <form enctype="multipart/form-data" method="POST">
                                     <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                     <input type='hidden' name='a' value="add_csv_travelers">
+
                                     <div class="col-sm-12">
                                         <p>Bulk load travelers from a csv file.</p>
                                     </div>
                                     <div class="col-sm-12" id="template">
-                                        <p><a href="js/ajax/template.csv">Download</a> a template csv file.</p>
+                                        <p><a href="docs/Sample.csv">Download</a> a template csv file.</p>
                                     </div>
+                                    <div class="col-sm-12" id="bulkTable"></div>
                                     <div class="col-sm-12" id="bulk">
                                         <input type="file" id="fileUpload" name='upfile[]' accept=".csv,.txt" />
                                         <p class="file-return"></p>
                                         
                                     </div>
                                     <div class="col-sm-12">
-                                        <button type="submit" id="addBulkTravelersButton"/>Upload Travelers</button>
+                                        <button type="submit" class="hide" id="addBulkTravelersButton"/>Upload Travelers</button>
                                     </div>
                                 </form>
                             </div>
@@ -84,7 +86,6 @@
                                 <input type='hidden' name='status' value="3">
                                 <input type='hidden' id="userID" name='user_id' value="">
                                 <!--Create js to change user id vaue when selected-->
-                                <input type='hidden' name='a' value="add_traveler">
                                 <div role="tabpanel">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -110,7 +111,6 @@
                                     </div>
                                     <div class="col-md-6">
                                             <div name="gender" id="gender_select_carrier"></div>
-                                            <label for="gender">Gender</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -128,12 +128,25 @@
                                 <hr/>
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <div class="form-group" id="role_select_carrier"></div>
+                                        <label for="role_select_carrier">Travelers Role</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <input type="text" name='known_number' id="tsaNumber" value="" placeholder="">
                                         <label class="" for="tsaNumber" >Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
                                         <span class="focus-border"><i></i></span>
                                     </div>
                                 </div>
                                 <hr/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" name='reddressNumber' id="tsaNumber" value="" placeholder="">
+                                        <label class="" for="reddressNumber" >Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
+                                        <span class="focus-border"><i></i></span>
+                                    </div>
+                                </div>
                                <!-- <div class="row" id="ffSection">
                                     <div class="plusBtn fa fa-plus-square fa-6"></div>
                                     <div class="col-md-12 airlineMiles">

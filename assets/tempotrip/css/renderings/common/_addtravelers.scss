@@ -40,6 +40,16 @@
 			#tabs li.active{
 				
 			}
+			& #bulkTable{
+				& #bulkLoad{
+							width:100%;
+							border:1px solid $teal;
+							& td{
+								line-height:1.5em;
+								padding:5px;
+							}
+				}
+			}
 			& #bulk.col-sm-12{
 				& p{
 					text-transform: uppercase;
@@ -89,7 +99,6 @@
 				& .file-return:empty:before{
 					content: "Select a file ";
 				}
-				
 				& .file-return:not(:empty):before {
 				  content: "Selected file: ";
 				  font-style: normal;
@@ -109,6 +118,23 @@
     			border-radius:3px;
     			padding:15px 0px;
     			margin-bottom:10px;
+    			& #addTravelers_length{
+					position:relative;
+					width:100%;
+					& select{
+						width:100%;
+						height:auto;
+						margin:0px 5px;
+						border-radius:3px;
+						&:focus{
+							background-color: #FFFFFF;
+						    border: 1px solid #AAAAAA;
+						    box-shadow: none;
+						    outline: 0 !important;
+						}
+
+					}
+				}
     			& .col-sm-12{
     				& h5{
     					text-transform:uppercase;
@@ -163,14 +189,13 @@
 						color:#ffffff;
 						background-color: $grey-blue;
 					}
-					.dataTables_wrapper .dataTables_paginate .paginate_button:active{
+					& .dataTables_wrapper .dataTables_paginate .paginate_button:active{
 						background:none;
 						box-shadow:none;
 					}
-					div.dataTables_wrapper div.dataTables_info{
+					& div.dataTables_wrapper div.dataTables_info{
 						padding:8px 10px;
 					}
-
     			}
     			& .col-sm-5{
 					display:none;
