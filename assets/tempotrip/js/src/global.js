@@ -79,7 +79,9 @@ function setProfilePage(){
     $( "#datepicker" ).datepicker({dateFormat: 'mm/dd/yy', changeMonth: true, changeYear: true, yearRange: "-100:+0"});
     setTimeout(function(){
         $('body').find('li#profile-page').addClass('active')
-        
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
     $('.plusBtn').on('click', function(){
         $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
@@ -87,7 +89,10 @@ function setProfilePage(){
 }
 function setAllTripsPage(){
     setTimeout(function(){
-        $('body').find('li#alltrips-page').addClass('active')
+        $('body').find('li#alltrips-page').addClass('active');
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
     var data = system_output.trip_data.trips;
     var newTrips = [];
@@ -613,7 +618,9 @@ function setAllTripsPage(){
 function setAddTravelersPage(){
     setTimeout(function(){
         $('body').find('li#address-book-page').addClass('active')
-        console.log($('#fileUpload').val());
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
     $('#fileUpload').change(function(){
         console.log($('#fileUpload').val())
@@ -760,7 +767,9 @@ function setAddTravelersPage(){
 function setEventsPage(){
     setTimeout(function(){
         $('body').find('li#events-page').addClass('active')
-        
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
     var siteCount = 0
     var data = system_output.site_list;
@@ -786,7 +795,7 @@ function setEventsPage(){
             hostedhostname: 'ena.tempotrip.com'
         }
     ];*/
-    $.each(site_list, function () {
+    $.each(data, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');
         $('.tab-content').append('<div role="tabpanel" class="tab-pane active" id="' + this.e_site_id + '"><div class="card"><iframe src="" width="100%" style="overflow:hidden;height:100%;" frameBorder="0" scrolling="true" id="iframe'+siteCount+'"></iframe><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank" class="newWindowIcon"></a></div></div>')

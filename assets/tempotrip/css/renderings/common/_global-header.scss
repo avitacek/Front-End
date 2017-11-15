@@ -15,7 +15,7 @@ body{
 			z-index: 9999;
 			padding:0px 0px;
 			& .nav{
-				font-family: $Raleway;
+				font-family: $Source-Sans-Pro;
 				font-size:20px;
 				letter-spacing:0.3px;
 				color:$black;
@@ -121,6 +121,24 @@ body{
 						
 					}
 			   		& .col-sm-6{
+			   			& .userName{
+			   				float:right;
+			   				& #userTitle{
+			   					font-family:$Source-Sans-Pro;
+							    color:$grey-blue;
+							    font-size: 20px;
+							    float: left;
+							    letter-spacing: 4px;
+							    margin-top:10%;
+							    font-weight:normal;
+							    & span{
+							    	&:first-child{
+							    		padding-right:10px;
+							    	}
+							    }
+
+			   				}
+			   			}
 			   			& .dropdown{
 			   				float:right;
 			   				margin:0px 0px 0px 20px;
@@ -131,16 +149,27 @@ body{
 			   						box-shadow:none;
 			   					}
 			   					&.account{
-									width:50px;
-							   		height:50px;
+			   						color:$orange;
+									width:60px;
+							   		height:60px;
 							   		float:right;
-							   		padding-left:0px;
-							   		background:url('../images/global/account-icon-2.svg') center center no-repeat;
-							   		background-size:85% auto;
+							   		padding-left:60px;
 							   		border:none;
 						   			outline:none;
 						   			margin-right:10px;
 						   			opacity:0.8;
+						   			font-size:60px;
+						   			background:url('../images/global/user-new.svg') center center no-repeat;
+						   			background-size: contain;
+						   			& .caret{
+						   				margin-top:-30px;
+						   				&:before{
+						   					display:none;
+						   				};
+						   				&:after{
+						   					display:none;
+						   				}
+						   			}
 								}
 			   				}
 			   			}
