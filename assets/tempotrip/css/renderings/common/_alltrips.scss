@@ -804,6 +804,7 @@
 					}
 				}
 				& .travellerName{
+					padding-top:10px;
 					& h4.card-title{
 					    margin-top: 0px;
 						margin-bottom: 5px;
@@ -815,7 +816,7 @@
 					}
 				}
 				& #flightInfo{
-					padding:0px;
+					padding:10px 0px 0px;
 					.deptHeader{
 						font-family: $Source-Sans-Pro;
 					    font-size: 32px;
@@ -877,7 +878,7 @@
 				}
 				& .departureDetails, & .returnDetails{
 					& .row{
-						padding-bottom:15px;
+						padding-bottom:0px;
 						& .segTitle{
 							background-color:$grey-blue;
 							& h5{
