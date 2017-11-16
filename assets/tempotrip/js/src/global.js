@@ -40,7 +40,7 @@ var START_EV = hasTouch ? 'touchstart' : 'mousedown',
 
     function apiCall(hostedhostname){
         $.getJSON( hostedhostname, function(data) {
-            console.log(data);
+            //console.log(data);
             return data;
         })
         .fail(function(data) {
@@ -76,12 +76,14 @@ function checkPage(){
     
 }
 function setProfilePage(){
-    $( "#datepicker" ).datepicker({dateFormat: 'mm/dd/yy', changeMonth: true, changeYear: true, yearRange: "-100:+0"});
+    var dataUser = system_output.request_user_data;
     setTimeout(function(){
         $('body').find('li#profile-page').addClass('active')
-        var dataUser = system_output.request_user_data;
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
+        $( "#datepicker" ).datepicker();
+        $('#datepicker').val(dataUser.dob);
+
     },10)
     $('.plusBtn').on('click', function(){
         $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
@@ -116,7 +118,7 @@ function setAllTripsPage(){
             departCity: value.airseg_arr.departcity,
             arriveCity: value.airseg_arr.arrivalcity,
             departure_datetime: value.departure_datetime,
-            arrival_datetime: value.airseg_arr.legs[0][0].arrival_datetime,
+            return_datetime: value.return_datetime,
             miles : value.miles,
             total: value.grandtotals.total,
             airseg_count: value.airseg_count,
@@ -185,8 +187,8 @@ function setAllTripsPage(){
                 render:getTime
             },
             {
-                "title": "Arrival Date",
-                "mDataProp": "arrival_datetime",
+                "title": "Return Date",
+                "mDataProp": "return_datetime",
                 "visible": true,
                 render:getTime
             },
@@ -249,7 +251,7 @@ function setAllTripsPage(){
             { 
                 "title": "Airline",
                 "mDataProp": "airlinename",
-                "visible": true
+                "visible": false
             },
             { 
                 "title": "Plane Type",
@@ -305,8 +307,13 @@ function setAllTripsPage(){
     });
     function getTime(data,type,full, meta){
         var date_time_convert = new Date(data.replace(/-/g,"/"));
-        var newDate = date_time_convert.toLocaleString()
-        return newDate;
+        var newDate = date_time_convert.toLocaleString();
+        newDate = newDate.replace(/,/g,"");
+        var result = newDate;
+        //var datetime = newDate
+        var date=result.split(' ')[0];
+        var time=result.split(' ')[1];
+        return date;
     }
     function getImg(data, type, full, meta) {
         d = parseInt(data);
@@ -548,21 +555,22 @@ function setAllTripsPage(){
             //Create our segments
             function create_dept_segs(legkey, segs_arr) {
                 var legsKeyLength = Object.keys(legkey).length;
-                console.log(legsKeyLength)
-                console.log(legkey)
+                //console.log(legsKeyLength)
+                //console.log(legkey)
                 $.each(segs_arr, function (segkey, segvalue) {
                     countDept++;
                     var segKeyLength = Object.keys(segkey).length;
-                    console.log(segKeyLength);
-                    console.log(segkey);
-                    console.log(segs_arr);
-                    console.log(segvalue);
-                    console.log(countDept)
+                    //console.log(segKeyLength);
+                    //console.log(segkey);
+                    //console.log(segs_arr);
+                    //console.log(segvalue);
+                    //console.log(countDept)
                     //Do some cool UI stuf here for a row of a single segment
-                    $('#departure-travel').append('<div class="list-group" id="seg'+ countDept +'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li></ul></div></div>');
-                    $('#printdiv .departureDetails .row').append('<div class="col-sm-12 segTitle"><h5>Flight '+ countDept +'</h5></div><div class="list-group" id="seg'+ countDept +'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span>Origin</span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span>Destination</span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li></ul></div></div>');
+                    $('#departure-travel').append('<div class="list-group" id="seg'+ countDept +'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li></ul></div></div>');
+                    $('#printdiv .departureDetails .row').append('<div class="col-sm-12 segTitle"><h5>Flight '+ countDept +'</h5></div><div class="list-group" id="seg'+ countDept +'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li></ul></div></div>');
                          $('#departureDetails #itinerary-accordian #departure-travel #seg'+countDept+'.list-group .departureDetails .airline').text(segvalue.airlinecode);
                         $('#printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureDetails .airline').text(segvalue.airlinename);
+
                         $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureDetails .flightNumber, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureDetails .flightNumber').text(segvalue.flightnumber);
 
                         $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureDetails .duration, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureDetails .duration').text(segvalue.traveltime);
@@ -571,11 +579,52 @@ function setAllTripsPage(){
 
                         $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .City, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .City').text(segvalue.fromcitycode);
 
-                        $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .date').text(segvalue.departure_datetime);
+                        $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .cityState, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .cityState').text(segvalue.fromcityname);
+
+
+                        function splitTime(t){
+                            console.log(t);
+                            var t = new Date(t.replace(/-/g,"/"));
+                            var newDate = t.toLocaleString()
+                            //var newTime = t.toLocaleString()
+                            newDate = newDate.replace(/,/g,"");
+                            //newTime = newTime.replace(/^([^\d]*\d{1,2}:\d{1,2}):\d{1,2}([^\d]*)$/, '$1$2');
+                            var result = newDate;
+                            //var datetime = newDate
+                            var date=result.split(' ')[0];
+                            var time=result.split(' ')[1];
+                            console.log(date);
+                            console.log(time);
+
+                            $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .date').text(date);
+                            $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .time, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .time').text(time);
+
+                        }
+                        splitTime(segvalue.departure_datetime);
 
                         $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .City, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .City').text(segvalue.tocitycode);
 
-                        $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .date').text(segvalue.arrival_datetime);
+                        $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .cityState, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .cityState').text(segvalue.tocityname);
+
+                        function splitTime2(t){
+                            console.log(t);
+                            var t = new Date(t.replace(/-/g,"/"));
+                            var newDate = t.toLocaleString()
+                            //var newTime = t.toLocaleString()
+                            newDate = newDate.replace(/,/g,"");
+                            //newTime = newTime.replace(/^([^\d]*\d{1,2}:\d{1,2}):\d{1,2}([^\d]*)$/, '$1$2');
+                            var result = newDate;
+                            //var datetime = newDate
+                            var date=result.split(' ')[0];
+                            var time=result.split(' ')[1];
+                            console.log(date);
+                            console.log(time);
+
+                            $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .date').text(date);
+                            $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .time, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .time').text(time);
+
+                        }
+                        splitTime2(segvalue.arrival_datetime);
                     
                 })
             }
@@ -585,14 +634,14 @@ function setAllTripsPage(){
                 console.log(legkey)
                 $.each(segs_arr, function (segkey, segvalue) {
                     var segKeyLength = Object.keys(segkey).length;
-                    console.log(segKeyLength);
-                    console.log(segkey);
-                    console.log(segs_arr);
-                    console.log(segvalue);
+                    //console.log(segKeyLength);
+                    //console.log(segkey);
+                    //console.log(segs_arr);
+                    //console.log(segvalue);
                     countReturn++
-                    console.log(countReturn)
-                    $('#return-travel').append('<div class="list-group" id="segReturn'+countReturn+'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li></ul></div></div>')
-                    $('#printdiv .returnDetails .row').append('<div class="col-sm-12 segTitle"><h5>Flight '+ countDept +'</h5></div><div class="list-group" id="segReturn'+countReturn+'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span>Origin</span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span>Destination</span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li></ul></div></div>');
+                    //console.log(countReturn)
+                    $('#return-travel').append('<div class="list-group" id="segReturn'+countReturn+'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p></li><li><p class="time"></p></li></ul></li></ul></div></div>')
+                    $('#printdiv .returnDetails .row').append('<div class="col-sm-12 segTitle"><h5>Flight '+ countReturn +'</h5></div><div class="list-group" id="segReturn'+countReturn+'"><div class="departureDetails"><ul><li><p class="airline"></p><span>Airline</span></li><li><p class="flightNumber"></p><span>Flight Number</span></li><li><p class="duration"></p><span>Flight Duration</span></li><li><p class="recordLocator"></p><span>Airline Confirmation</span></li></ul></div><div class="departureTime"><ul><li class="leave"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li><li class="arrive"><ul><li><p class="City"></p><span class="cityState"></span></li><li><p class="date"></p><span>Date | Time</span></li><li><p class="time"></p></li></ul></li></ul></div></div>');
                     
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureDetails .airline').text(segvalue.airlinecode);
                         $('#printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureDetails .airline').text(segvalue.airlinecode);
@@ -605,11 +654,52 @@ function setAllTripsPage(){
 
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .City, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .City').text(segvalue.fromcitycode);
 
-                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .date, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .date').text(segvalue.departure_datetime);
+                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.tocityname);
+
+                        function splitTime(t){
+                            console.log(t);
+                            var t = new Date(t.replace(/-/g,"/"));
+                            var newDate = t.toLocaleString()
+                            //var newTime = t.toLocaleString()
+                            newDate = newDate.replace(/,/g,"");
+                            //newTime = newTime.replace(/^([^\d]*\d{1,2}:\d{1,2}):\d{1,2}([^\d]*)$/, '$1$2');
+                            var result = newDate;
+                            //var datetime = newDate
+                            var date=result.split(' ')[0];
+                            var time=result.split(' ')[1];
+                            console.log(date);
+                            console.log(time);
+
+                            $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .leave .date, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .leave .date').text(date);
+                            $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .leave .time, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .leave .time').text(time);
+
+                        }
+                        splitTime(segvalue.departure_datetime);
+
 
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .arrive .City, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .arrive .City').text(segvalue.tocitycode);
 
-                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .arrive .date, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .arrive .date').text(segvalue.arrival_datetime);
+                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .arrive .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .arrive .cityState').text(segvalue.tocityname);
+
+                        function splitTime2(t){
+                            console.log(t);
+                            var t = new Date(t.replace(/-/g,"/"));
+                            var newDate = t.toLocaleString()
+                            //var newTime = t.toLocaleString()
+                            newDate = newDate.replace(/,/g,"");
+                            //newTime = newTime.replace(/^([^\d]*\d{1,2}:\d{1,2}):\d{1,2}([^\d]*)$/, '$1$2');
+                            var result = newDate;
+                            //var datetime = newDate
+                            var date=result.split(' ')[0];
+                            var time=result.split(' ')[1];
+                            console.log(date);
+                            console.log(time);
+
+                            $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .arrive .date, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .arrive .date').text(date);
+                            $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .arrive .time, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .arrive .time').text(time);
+
+                        }
+                        splitTime2(segvalue.arrival_datetime);
                 })
             }
         })
@@ -674,6 +764,7 @@ function setAddTravelersPage(){
             email: value.email,
             phone: value.phone,
             known_number: value.known_number,
+            role_id: value.role_id,
         });
     });
     data_obj = dataNew;
@@ -728,7 +819,12 @@ function setAddTravelersPage(){
                 "title": "Known Travel Number",
                 "mDataProp": "known_number",
                 "visible": false
-            }      
+            },
+            {
+                "title": "Role",
+                "mDataProp": "role_id",
+                "visible": false
+            }     
         ] //data changes to mDataProp
     });
     //Add traveler function
@@ -746,6 +842,7 @@ function setAddTravelersPage(){
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
         $('#gender').val(data.gender);
+        $('#role').val(data.role_id);
         $('#email-address').val(data.email);
         $('#phone').val(data.phone);
     } );
