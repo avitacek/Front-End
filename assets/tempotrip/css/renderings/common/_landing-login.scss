@@ -12,7 +12,7 @@
 		}
 	}
 	/* input animations*/
-	.form-group{
+	& .form-group{
 	  position:relative;
 	  & input ~ label{
 	    position: absolute;
@@ -173,7 +173,8 @@
 		}
 		& #login-form{
 			margin-top:20px;
-			.container-fluid{
+			& .container-fluid{
+				padding:0px;
 				& .col-sm-12{
 					padding:0px 0px;
 					& .form-group{
@@ -193,7 +194,6 @@
 						}
 					}
 				}
-				padding:0px;
 				& input[type=text], & input[type=password] {
 					margin-bottom:10px;
 					border: 1px solid #E3E3E3;

@@ -423,6 +423,9 @@ a {
 		text-decoration:none;
     }
 }
+.disabled{
+	pointer-events: none;
+}
 a.disabled{
 	&:hover{
 		text-decoration:none !important;

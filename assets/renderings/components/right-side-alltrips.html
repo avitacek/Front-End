@@ -40,11 +40,11 @@
                             </div>
                             
                             <div class="row">
-                                <div class="col-sm-6 col-md-6" id="costs">
+                                <div class="col-sm-12 col-md-6" id="costs">
                                     <h4 class="card-title"><span class="cost"></span></h4>
                                     <p>Price</p>
                                 </div>
-                                <div class="col-sm-6 col-md-6" id="status">
+                                <div class="col-sm-12 col-md-6" id="status">
                                     <div class="row">
                                         <div class="col-sm-3 col-md-3" id="approvalID"></div>
                                         <div class="col-sm-9 col-md-9" id="clock">
@@ -62,7 +62,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 pnr">
-                                    <p class="card-title" id="pnr_Number">#234564</p>
+                                    <p class="card-title" id="pnr_Number"></p>
                                 </div>
                                 <!--
                                 <div class="col-sm-12 pnr">
@@ -94,8 +94,8 @@
                                         <form method="POST" action="">
                                             <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                             <input type='hidden' id="pnr_id3" name='pnr_id' value="">
-                                            <input type='hidden' id="universal_rec_loc2" name='universal_rec_loc2' value="">
-                                            <input type='hidden' id="options_rec_loc2" name='options_rec_loc' value="">
+                                            <input type='hidden' id="universal_rec_loc" name='universal_rec_loc' value="">
+                                            <input type='hidden' id="options_rec_loc" name='options_rec_loc' value="">
                                             <input type='hidden' name='a' value="deny">
                                             <button type="submit" id="denyBtn">Deny</button>
                                         </form>
@@ -111,7 +111,7 @@
                                         <input type='hidden' id="traveler_user_id" name='traveler_user_id' value="">
                                         <input type='hidden' name='a' value="save_note">
                                         <div class="row">
-                                            <textarea name="message" rows="5" cols="20"></textarea>
+                                            <textarea name="message" rows="5" cols="20" id="messages"></textarea>
                                             <p>Add a comment <a href="#" class="fa fa-eye fa-6" data-toggle="tooltip" data-placement="right" title="These comments will be visible by you and your travelers"></a></p>
                                         </div>
                                         <div class="row">

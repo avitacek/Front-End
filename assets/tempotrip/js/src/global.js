@@ -33,7 +33,7 @@ var START_EV = hasTouch ? 'touchstart' : 'mousedown',
         var json = "&json=" + encodeURIComponent(JSON.stringify(params));
         var logintoken = "&logintoken=" + $.cookie("logintoken");
         var finalhostedhostname = basehostedhostname + service + "?token=" + $.cookie("otapi_token") + json + logintoken + affiliateget;
-        console.log( finalhostedhostname);
+        //console.log( finalhostedhostname);
         return finalhostedhostname
     }
     var apihostedhostname = "http://az.dev.andy.apimilitarytogo.optionstravel.com/api/";
@@ -81,7 +81,12 @@ function setProfilePage(){
         $('body').find('li#profile-page').addClass('active')
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0",
+        });
         $('#datepicker').val(dataUser.dob);
 
     },10)
@@ -96,18 +101,75 @@ function setAllTripsPage(){
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
+    function tripDates(){
+        var from_departure_datetime;
+        var to_departure_datetime;
+        //console.log(from_departure_datetime);
+        //console.log(to_departure_datetime);
+        var dateFormat = "mm/dd/yy",
+          from = $("#trip-start-date")
+            .datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "-5:+0",
+              numberOfMonths: 1
+            })
+            .on( "change", function() {
+              to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+          to = $("#trip-end-date").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-5:+0",
+            numberOfMonths: 1
+          })
+          .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+          });
+        function getDate( element ) {
+          var date;
+          try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+          } catch( error ) {
+            date = null;
+          }
+     
+          return date;
+        }
+    }
+    tripDates();
+
     var data = system_output.trip_data.trips;
+    var tripsLength = Object.keys(data).length;
+    //console.log(tripsLength)
+    if (data === null){
+        //console.log('no trips')
+        $('#tripsDataMessage').append('<p>Sorry you have no trips. Please select a date range below to look at previous trips.</p>');
+        $('#tripsSideBar').addClass('hide');
+    }else if(tripsLength < 1) {
+        $('#tripsDataMessage').append('<p>Sorry you have no trips. Please select a date range below to look at previous trips.</p>');
+        $('#tripsSideBar').addClass('hide');
+    }
+    else{
+        $('#tripsSideBar').removeClass('hide');
+    }
+    /*
     var newTrips = [];
+    var newTempTrip = {};
     $.each(data, function(tripkey,tripvalue){
        $.each(tripvalue.names_arr, function(namekey,namevalue){
-           tripvalue.name_first = namevalue.name_first;
-           tripvalue.name_last = namevalue.name_last;
-           tripvalue.email = namevalue.email;
-           newTrips.push(tripvalue);
-       }) 
+            var newTempTrip = {};
+            newTempTrip = jQuery.extend(true, {}, tripvalue);
+            newTempTrip.email = namevalue.email;
+            newTempTrip.name_first = namevalue.name_first;
+            newTempTrip.name_last = namevalue.name_last;
+            newTrips.push(newTempTrip);
+       })
     })
     data = newTrips;
-
+    */
     var dataNew = []
     $.each(data, function(key,value){
         console.log(key,value)
@@ -138,31 +200,39 @@ function setAllTripsPage(){
             user_id: value.user_id,
             pnr_id: value.pnr_id,
             note_id: value.note_id,
+            note: value.note,
             universal_rec_loc: value.universal_rec_loc,
             options_rec_loc: value.options_rec_loc,
             legs: value.airseg_arr.legs,
             legOne: value.airseg_arr.legs[0],
             legTwo: value.airseg_arr.legs[1],
             arriveCity: value.airseg_arr.arrivalcity,
+            names_arr: value.names_arr,
         });
     });
     data_obj = dataNew;
     //console.log(data);
      var table = $('#allTrips').DataTable({
         "aaData": data_obj,
-        "order": [[ 0, "asc" ]],
+        "order": [[ 6, "desc" ]],
         "select":true,
         "pageLength": 8,
+        "pagingType": "simple",
         "info": false,
+        "responsive": true,
         "aoColumns": [
             { 
-                "title": "First Name",
+                "title": "Name",
                 "mDataProp": "name_first",
+                "width" : "20%",
+                "responsivePriority": 1,
                 "visible": true
             },
             { 
                 "title": "Last Name",
                 "mDataProp": "name_last",
+                "width" : "20%",
+                "responsivePriority": 3,
                 "visible": true
             },
             { 
@@ -173,23 +243,29 @@ function setAllTripsPage(){
             { 
                 "title": "From",
                 "mDataProp": "departCity",
+                "width" : "12.5%",
+                "responsivePriority": 4,
                 "visible": true
             },
             { 
                 "title": "To",
                 "mDataProp": "arriveCity",
+                "width" : "12.5%",
+                "responsivePriority": 5,
                 "visible": true
             },
             { 
                 "title": "Departure Date",
                 "mDataProp": "departure_datetime",
+                "width" : "12.5%",
+                "responsivePriority": 2,
                 "visible": true,
                 render:getTime
             },
             {
                 "title": "Return Date",
                 "mDataProp": "return_datetime",
-                "visible": true,
+                "visible": false,
                 render:getTime
             },
             { 
@@ -200,6 +276,7 @@ function setAllTripsPage(){
             { 
                 "title": "Price Total",
                 "mDataProp": "total",
+                "width" : "12.5%",
                 "visible": true
             },
             { 
@@ -213,9 +290,10 @@ function setAllTripsPage(){
                 "visible": false
             },
             { 
-                "title": "Status ID",
+                "title": "Status",
                 "mDataProp": "status_id",
-                "visible": false,
+                "width" : "10%",
+                "visible": true,
                 render:getImg
             },
             { 
@@ -302,6 +380,11 @@ function setAllTripsPage(){
                 "title": "Legs",
                 "mDataProp": "legs",
                 "visible": false
+            },
+            { 
+                "title": "Notes",
+                "mDataProp": "note",
+                "visible": false
             }
         ] //data changes to mDataProp
     });
@@ -334,6 +417,9 @@ function setAllTripsPage(){
             return '<span class="fa fa-times fa-6" aria-hidden="true"></span>';
         } 
     }
+    function getName(data, type, full, meta){
+
+    }
     var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
         $('.wait-spinner').addClass('active');
@@ -359,6 +445,7 @@ function setAllTripsPage(){
         //SWitch the hidden fields for the comments box//
         $('#approvals #pnr_id').val(data.pnr_id);
         $('#approvals #note_id').val(data.note_id);
+        $('#approvals #messages').val(data.note);
         $('#approvals #traveler_user_id').val(data.traveler_user_id);
         //SWitch the hidden fields for the approve BTN box//
         $('#approvals #pnr_id2').val(data.pnr_id);
@@ -408,28 +495,6 @@ function setAllTripsPage(){
         changeDepartureDate(data.departure_datetime)
         checkStatus(data.status_id, data.auto_approve_limit_datetime);
         create_itinerary(data/*.legs,data.legOne,data.legTwo*/);
-        function checkApprovalTime(t){
-            var approvalLimitDate = new Date(t);
-            var today = new Date();
-
-            var diff = today.getTime() - approvalLimitDate.getTime();
-            console.log(diff)
-            var msec = diff;
-            var ss = Math.floor(msec / 1000);
-            msec -= ss * 1000;
-
-            var time = ss;
-            console.log(time);
-            setButtons(time)
-            function setButtons(time){
-                var limitTime = 86400;
-                console.log(limitTime)
-                if (time > limitTime){
-                    $('#approveBtn, #denyBtn').addClass('disabled');
-                }
-            }
-        }
-
         
     });
     setTimeout(function(){
@@ -439,7 +504,8 @@ function setAllTripsPage(){
     function checkStatus(d, e){
         d = parseInt(d);
         $('#app-status').removeClass().addClass('row')
-        $('#clock').removeClass().addClass('col-sm-9 col-md-9')
+        $('#clock').removeClass().addClass('col-sm-9 col-md-9');
+        $('#approveBtn, #denyBtn').removeClass('disabled');
         $('#approvalID').html('').removeClass().addClass('col-sm-3');
         clearInterval(counter);
         if( d === 1){
@@ -457,9 +523,14 @@ function setAllTripsPage(){
             $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
             $('.approval-card-title').text('Denied');
         }else if ( d === 5){
-            $('#app-status, #clock').addClass('isDenied');
-            $('#approvalID').addClass('isDenied').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
+            $('#app-status, #clock').addClass('isCanceled');
+            $('#approvalID').addClass('isCanceled').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Canceled');
+        }
+        else if ( d === 6){
+            $('#app-status, #clock').addClass('isErrored');
+            $('#approvalID').addClass('isErrored').append('<i class="fa-exclamation-circle fa-6" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Error');
         }
         else if ( d === 2){
             //$('#timer').text('');
@@ -474,13 +545,16 @@ function setAllTripsPage(){
                 var ss = Math.floor(msec / 1000);
                 msec -= ss * 1000;
 
+                var time = "";
+                //console.log(time);
                 var time = ss;
                 //console.log(time);
-                setButtons(time)
-                function setButtons(time){
+                var newTime = time.toString().replace(/-/g,"");
+                //console.log(time);
+                setButtons(newTime)
+                function setButtons(newTime){
                     var limitTime = 86400;
-                    //console.log(limitTime)
-                    if (time > limitTime){
+                    if (newTime > limitTime){
                         $('#approveBtn, #denyBtn').addClass('disabled');
                         $('#app-status, #clock').addClass('isAutoApproved');
                         $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
@@ -488,15 +562,15 @@ function setAllTripsPage(){
                     }else{
                         $('#app-status, #clock').addClass('isPending');
                         $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
-                        $('.approval-card-title').text('Pending');
+                        $('.approval-card-title').text('Pending Approval');
                     }
+                    //console.log(newTime + 'vs' + limitTime)
                 }
             }
-        }
-        
+        }   
     }
     $('#approveBtn').on('click', function(){
-       console.log('change table and DB status to Approved');
+       //console.log('change table and DB status to Approved');
     })  
     function changeDepartureDate(t){
         var date_time_convert = new Date(t.replace(/-/g,"/"));
@@ -530,6 +604,12 @@ function setAllTripsPage(){
             }    
         }    
     }
+    function create_pnrTable(pnr_names){
+        var pnr_namesLength = Object.keys(pnr_names).length;
+        $.each(pnr_namesLength, function (pnrNamekey, pnrNameValue) {
+            console.log(pnrNamekey, pnrNameValue); 
+        })
+    }
     var countDept = 0
     var countReturn = 0
     function create_itinerary(data) {
@@ -539,13 +619,13 @@ function setAllTripsPage(){
     }
     function create_air_legs(legs) {
         var legsLength = Object.keys(legs).length;
-        console.log(legsLength)
+        //console.log(legsLength)
         $.each(legs, function (legkey, segs_arr) {
             if (legkey === '0') {
                 $('#departureDetails #itinerary-accordian').append('<div class="item"><a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">Departure <i class="fa fa-angle-double-down float-right font-lg"></i></a><div id="departure-travel" class="collapse in" role="tabpanel"></div></div>');
                 create_dept_segs(legkey, segs_arr);
             } else if (legkey === '1') {
-                console.log(legkey);
+                //console.log(legkey);
                 //This is INBOUND/RETURN
                 //set some values
                 $('#departureDetails #itinerary-accordian').append('<div class="item"><a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="true" aria-controls="recent-travel">Return <i class="fa fa-angle-double-up float-right font-lg"></i></a><div id="return-travel" class="collapse in" role="tabpanel"></div></div>');
@@ -583,7 +663,7 @@ function setAllTripsPage(){
 
 
                         function splitTime(t){
-                            console.log(t);
+                            //console.log(t);
                             var t = new Date(t.replace(/-/g,"/"));
                             var newDate = t.toLocaleString()
                             //var newTime = t.toLocaleString()
@@ -593,8 +673,8 @@ function setAllTripsPage(){
                             //var datetime = newDate
                             var date=result.split(' ')[0];
                             var time=result.split(' ')[1];
-                            console.log(date);
-                            console.log(time);
+                            //console.log(date);
+                            //console.log(time);
 
                             $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .date').text(date);
                             $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .leave .time, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .leave .time').text(time);
@@ -607,7 +687,7 @@ function setAllTripsPage(){
                         $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .cityState, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .cityState').text(segvalue.tocityname);
 
                         function splitTime2(t){
-                            console.log(t);
+                            //console.log(t);
                             var t = new Date(t.replace(/-/g,"/"));
                             var newDate = t.toLocaleString()
                             //var newTime = t.toLocaleString()
@@ -617,8 +697,8 @@ function setAllTripsPage(){
                             //var datetime = newDate
                             var date=result.split(' ')[0];
                             var time=result.split(' ')[1];
-                            console.log(date);
-                            console.log(time);
+                            //console.log(date);
+                            //console.log(time);
 
                             $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .date, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .date').text(date);
                             $('#departureDetails #itinerary-accordian #departure-travel #seg'+ countDept +'.list-group .departureTime .arrive .time, #printdiv .departureDetails .row #seg'+ countDept +'.list-group .departureTime .arrive .time').text(time);
@@ -630,8 +710,8 @@ function setAllTripsPage(){
             }
             function create_return_segs(legkey, segs_arr) {
                 var legsKeyLength = Object.keys(legkey).length;
-                console.log(legsKeyLength)
-                console.log(legkey)
+                //console.log(legsKeyLength)
+                //console.log(legkey)
                 $.each(segs_arr, function (segkey, segvalue) {
                     var segKeyLength = Object.keys(segkey).length;
                     //console.log(segKeyLength);
@@ -657,7 +737,7 @@ function setAllTripsPage(){
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.tocityname);
 
                         function splitTime(t){
-                            console.log(t);
+                            //console.log(t);
                             var t = new Date(t.replace(/-/g,"/"));
                             var newDate = t.toLocaleString()
                             //var newTime = t.toLocaleString()
@@ -667,8 +747,8 @@ function setAllTripsPage(){
                             //var datetime = newDate
                             var date=result.split(' ')[0];
                             var time=result.split(' ')[1];
-                            console.log(date);
-                            console.log(time);
+                            //console.log(date);
+                            //console.log(time);
 
                             $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .leave .date, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .leave .date').text(date);
                             $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .leave .time, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .leave .time').text(time);
@@ -682,7 +762,7 @@ function setAllTripsPage(){
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .arrive .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .arrive .cityState').text(segvalue.tocityname);
 
                         function splitTime2(t){
-                            console.log(t);
+                            //console.log(t);
                             var t = new Date(t.replace(/-/g,"/"));
                             var newDate = t.toLocaleString()
                             //var newTime = t.toLocaleString()
@@ -692,8 +772,8 @@ function setAllTripsPage(){
                             //var datetime = newDate
                             var date=result.split(' ')[0];
                             var time=result.split(' ')[1];
-                            console.log(date);
-                            console.log(time);
+                            //console.log(date);
+                            //console.log(time);
 
                             $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .arrive .date, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .arrive .date').text(date);
                             $('#departureDetails #itinerary-accordian #return-travel #segReturn'+ countReturn +'.list-group .departureTime .arrive .time, #printdiv .returnDetails .row #segReturn'+ countReturn +'.list-group .departureTime .arrive .time').text(time);
@@ -702,7 +782,7 @@ function setAllTripsPage(){
                         splitTime2(segvalue.arrival_datetime);
                 })
             }
-        })
+        });
     }
 }
 function setAddTravelersPage(){
@@ -713,7 +793,7 @@ function setAddTravelersPage(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
     $('#fileUpload').change(function(){
-        console.log($('#fileUpload').val())
+        //console.log($('#fileUpload').val())
         var path = $('#fileUpload').val();
         var filename = path.match(/[^\\/]*$/)[0];
         $('.file-return').text(filename);
@@ -753,7 +833,7 @@ function setAddTravelersPage(){
     var data = system_output.affiliate_user_list;
     var dataNew = []
     $.each(data, function(key,value){
-        console.log(key,value)
+        //console.log(key,value)
         dataNew.push( {
             user_id : value.user_id,
             f_name : value.f_name, 
@@ -764,15 +844,19 @@ function setAddTravelersPage(){
             email: value.email,
             phone: value.phone,
             known_number: value.known_number,
+            redress_number: value.redress_number,
             role_id: value.role_id,
+            status: value.status,
         });
     });
     data_obj = dataNew;
     var table = $('#addTravelers').DataTable({
         "aaData": data_obj,
-        "order": [[ 1, "desc" ]],
+        "order": [[ 0, "desc" ]],
         "select":true,
         "pageLength": 8,
+        "pagingType": "simple",
+        "responsive": true,
         "info": false,
         "aoColumns": [
             { 
@@ -788,7 +872,7 @@ function setAddTravelersPage(){
             { 
                 "title": "Middle Initial",
                 "mDataProp": "m_initial",
-                "visible": true
+                "visible": false
             },
             { 
                 "title": "Last Name",
@@ -820,34 +904,89 @@ function setAddTravelersPage(){
                 "mDataProp": "known_number",
                 "visible": false
             },
+            { 
+                "title": "Reddress Number",
+                "mDataProp": "redress_number",
+                "visible": false
+            },
             {
                 "title": "Role",
                 "mDataProp": "role_id",
                 "visible": false
-            }     
+            },
+            {
+                "title": "User Status",
+                "mDataProp": "status",
+                "visible": false
+            }       
         ] //data changes to mDataProp
     });
+    
+    //var myRole = system_output.request_user_data.role_id;
     //Add traveler function
     $('#addTravelers tbody').on( 'click', 'tr', function () {
         $('#addTravelers tbody tr').removeClass('selected');
         $(this).addClass('selected');
         $('#tabs a[href="#personal-info"]').tab('show');
-        $( "#datepicker" ).datepicker({dateFormat: "yyyy-mm-dd"});
+        $( "#datepicker" ).datepicker({
+            dateFormat: "mm/dd/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0",
+        });
+        function checkRows(){
+            if($('#addTravelers tbody tr').hasClass('selected')){
+                $('#personal-form, .saveBtn').removeClass('disabled');
+                console.log('has selected')
+            }else{
+                $('#personal-form, .saveBtn').addClass('disabled');
+                console.log('none selected')
+            }
+        }
+        checkRows();
         //Move table data over to fields//
         var data = table.row( this ).data();
-        console.log(data)
+        //console.log(data)
         $('#userID').val(data.user_id);
         $('#firstName').val(data.f_name);
         $('#middleName').val(data.m_initial);
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
-        $('#gender').val(data.gender);
-        $('#role').val(data.role_id);
+        $('.gender').val(data.gender);
+        $('.role').val(data.role_id);
         $('#email-address').val(data.email);
         $('#phone').val(data.phone);
-    } );
-    //change text from file select//
-    
+        $('.status').val(data.status);
+        $('#tsaNumber').val(data.known_number);
+        $('#reddressNumber').val(data.redress_number);
+        //console.log(myRole);
+        if(
+            typeof system_output.role_list != "undefined" && 
+            does_role_exist(system_output.role_list.data, data.role_id)){
+            $('.role').removeClass('disabled')
+            //console.log(return_val)
+        }else{
+            $('.role').addClass('disabled');
+            $('#roleID').val(data.role_id);
+            //console.log(return_val)
+        }
+
+    });
+    function does_role_exist(role_list,my_role){
+        var return_val = false; 
+        if(role_list.length==0){
+            return return_val
+        }
+        $.each(role_list, function(roleskey,rolesvalue){
+            rolesvalue.id = parseInt(rolesvalue.id);
+            my_role = parseInt(my_role);
+           if(rolesvalue.id === my_role){
+                return_val = true;
+            }
+        })
+       return return_val
+    }
+
     $('.yes').click( function () {
        table.rows('.selected').remove().draw( false );
        $('.remove').addClass('hide');

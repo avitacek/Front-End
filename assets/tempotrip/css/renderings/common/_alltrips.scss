@@ -6,6 +6,35 @@
 #all-trips-page{
 	padding:0px;
 	& .body-content{
+		& #timeRow{
+			padding:0px 15px;
+			& #rangePicker{
+			    background-color: rgba(255, 255, 255, 0.45);
+				border: 1px solid #ffffff;
+				border-radius: 3px;
+				padding: 15px 0px;
+				margin-bottom:15px;
+				& .cbs-date{
+					position:relative;
+					width:48%;
+					float:left;
+				}
+				& .cbs-date{
+					margin-bottom:0px;
+					&:first-child{
+						margin-right:15px;
+					}
+					&:nth-child(2){
+						float:right;
+						margin-right:0px;
+					}
+				}
+				& input[type=submit]{
+					margin-top:24px;
+					height:47px;
+				}
+			}
+		}
 		& .col-md-7, & .col-md-5{
 			#allTrips_wrapper, #pnrTable_wrapper{
 				background-color: rgba(255,255,255,0.45);
@@ -79,28 +108,32 @@
 				padding:15px 10px;
 				text-align:center;
 			}
-			table.dataTable.no-footer{
+			& table.dataTable.no-footer{
 				border:1px solid transparent
 			}
-			table.dataTable thead tr{
+			& table.dataTable thead tr{
 				color:#ffffff;
 				background-color:$grey-blue;
 			}
-			table.dataTable tbody td .fa-check-circle{
+			& table.dataTable tbody td .fa-check-circle{
 				font-size:20px;
 				color:$teal;
 			}
-			table.dataTable tbody td .fa-check-circle-o{
+			& table.dataTable tbody td .fa-check-circle-o{
 				font-size:20px;
 				color:$teal;
 			}
-			table.dataTable tbody td .fa-exclamation-triangle{
+			& table.dataTable tbody td .fa-exclamation-triangle{
 				font-size:20px;
 				color:$yellow;
 			}
-			table.dataTable tbody td .fa-ban{
+			& table.dataTable tbody td .fa-ban{
 				font-size:20px;
 				color:$red;
+			}
+			& table.dataTable tbody th:focus, & table.dataTable tbody td:focus, & table.dataTable tbody th:focus, & table.dataTable tbody td:focus{
+				outline:none!important;
+
 			}
 			.dataTables_wrapper .dataTables_paginate .paginate_button:active{
 				background:none;
@@ -135,6 +168,10 @@
 			}
 		}
 		& .col-md-5{
+			& .col-sm-12{
+				padding-left:0px;
+				padding-right:0px;
+			}
 			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 				background-color: rgba(255, 255, 255, .45);
     			border: 1px solid #ffffff;
@@ -157,10 +194,10 @@
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
-								margin-top:15px;
+								margin-top:1px;
 								margin-bottom:5px;
 								font-weight:normal;
-								font-size:24px;
+								font-size:20px;
 							}
 							& .traveller_email{
 								font-size:12px;
@@ -198,6 +235,12 @@
 								&.isDenied{
 									color:$red!important;
 								}
+								&.isCanceled{
+									color:$red!important;
+								}
+								&.isErrored{
+									color:$red!important;
+								}
 								&.isPending{
 									color:$yellow!important;
 								}
@@ -211,11 +254,11 @@
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:left;
-							    margin-top:15px;
+							    margin-top:1px;
 							    &.Roundtrip{
 							    	&:before{
 										float:right;
-										margin:-5px 15px 0px;
+										margin:-5px 20px 0px;
 										content: "";
 										background:url(../images/logos/rt-icon.svg) no-repeat;
 										width:40px;
@@ -231,7 +274,7 @@
 							    	}
 								    &:after{
 							    		float:right;
-										margin:5px 15px 0px;
+										margin:5px 20px 0px;
 										content: "";
 										background:url(../images/logos/ow-icon.svg) no-repeat;
 										width:40px;
@@ -247,7 +290,7 @@
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:right;
-							    margin-top:15px;
+							    margin-top:1px;
 							}
 							& .triptype{
 								font-size:14px;
@@ -293,9 +336,9 @@
 										margin-top:0px;
 										margin-bottom:0px;
 										font-weight:normal;
-										font-size:22px;
+										font-size:24px;
 										text-align:center;
-										line-height:1.5em;
+										line-height:2.0em;
 									}
 									& p{
 										font-size:12px;
@@ -313,6 +356,7 @@
 										.approval-card-title{
 											color:$teal;
 											line-height:1.0em;
+											line-height:1.0em
 										}
 									}
 									&.isDenied{
@@ -320,14 +364,26 @@
 											color:$red;
 										}
 									}
+									&.isCanceled{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isErrored{
+										.approval-card-title{
+											color:$red;
+										}
+									}
 									&.isPending{
 										.approval-card-title{
 											color:$yellow;
+											line-height:1.0em;
 											
 										}
 										#timer{
-											color:$yellow;
+											color:$teal;
 											margin-top:-5px;
+											line-height:0.75em;
 										}
 									}
 								}
@@ -492,10 +548,10 @@
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
-								margin-top:14px;
+								margin-top:1px;
 								margin-bottom:5px;
 								font-weight:normal;
-								font-size:24px;
+								font-size:20px;
 							}
 							& .traveller_email{
 								font-size:12px;
@@ -522,11 +578,11 @@
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:left;
-							    margin-top:15px;
+							    margin-top:1px;
 								&.Roundtrip{
 							    	&:before{
 										float:right;
-										margin:-5px 15px 0px;
+										margin:-5px 20px 0px;
 										content: "";
 										background:url(../images/logos/rt-icon.svg) no-repeat;
 										width:40px;
@@ -542,7 +598,7 @@
 							    	}
 								    &:after{
 							    		float:right;
-										margin:5px 15px 0px;
+										margin:5px 20px 0px;
 										content: "";
 										background:url(../images/logos/ow-icon.svg) no-repeat;
 										width:40px;
@@ -558,7 +614,7 @@
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:right;
-							    margin-top:15px;
+							    margin-top:1px;
 							}
 							& #departTime2{
 								clear:both;

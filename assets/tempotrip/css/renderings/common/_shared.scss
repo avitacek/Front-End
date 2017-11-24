@@ -1,14 +1,13 @@
 @import "../../globals/variables";
 @import "../../globals/mixins";
- #landing-page{
+#landing-page{
  	position:absolute;
  	height:100%;
  	width:100%;
  		& .row{
  			height:100%;
  		}
- }
-
+}
 .image-bg{
 		position:fixed;
 		top:0px;
@@ -47,6 +46,9 @@
     overflow: hidden;
     & h5{
     	text-align:right;
+    }
+    & .errors, & .success{
+    	padding:10px 0px;
     }
 }
 #password-page{
@@ -182,22 +184,22 @@ table.dataTable tr > th:focus{
     color:black
 }
 .errors, .errors p{
-	margin-top:5px!important;
+	margin-top:0px!important;
 	color: #ff0000!important;
 	font-size:18px;
 	font-weight:bold;
 	text-align:left;
-	tex-transform:uppercase;
-	margin-bottom: 5px;
+	text-transform:uppercase;
+	margin-bottom: 0px;
 }
 .success, .success p{
-	margin-top:5px!important;
+	margin-top:0px!important;
 	color: #5db9be!important;
 	font-size:18px;
 	font-weight:bold;
 	text-align:left;
-	tex-transform:uppercase;
-	margin-bottom: 5px;
+	text-transform:uppercase;
+	margin-bottom: 0px;
 }
 .disabled {
     opacity: 0.5;
