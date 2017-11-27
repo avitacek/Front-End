@@ -212,7 +212,7 @@ function setAllTripsPage(){
     });
     data_obj = dataNew;
     //console.log(data);
-     var table = $('#allTrips').DataTable({
+    var table = $('#allTrips').DataTable({
         "aaData": data_obj,
         "order": [[ 6, "desc" ]],
         "select":true,
@@ -441,7 +441,7 @@ function setAllTripsPage(){
         $('#approvals .site').text(data.site_hostedhostname);
         $('#approvals .site').attr("href" , "https://"+ data.site_hostedhostname);
         $('#approvals .cost').text('$'+data.total);
-        $('#approvals #pnr_Number').text(data.airline_confirmation);
+        $('#approvals #airConfirm_Number').text(data.airline_confirmation);
         //SWitch the hidden fields for the comments box//
         $('#approvals #pnr_id').val(data.pnr_id);
         $('#approvals #note_id').val(data.note_id);
@@ -491,10 +491,16 @@ function setAllTripsPage(){
         //$('.departureDetails .arrive .date').text(data[13]);
         //changeDepartDuration(data[9]);
         //changeReturnDuration(data[20]);
+        $('#pnr_table p').remove();
+        var traveler_name_first = data.name_first;
+        var traveler_name_last = data.name_last;
+        var trip_pnr_id = data.pnr_id;
+
         checkTripType(data.airseg_legs_count);
         changeDepartureDate(data.departure_datetime)
         checkStatus(data.status_id, data.auto_approve_limit_datetime);
         create_itinerary(data/*.legs,data.legOne,data.legTwo*/);
+        create_pnrTable(data.names_arr, traveler_name_first, traveler_name_last, trip_pnr_id);
         
     });
     setTimeout(function(){
@@ -604,11 +610,19 @@ function setAllTripsPage(){
             }    
         }    
     }
-    function create_pnrTable(pnr_names){
-        var pnr_namesLength = Object.keys(pnr_names).length;
-        $.each(pnr_namesLength, function (pnrNamekey, pnrNameValue) {
-            console.log(pnrNamekey, pnrNameValue); 
-        })
+    function create_pnrTable(pnr_names, traveler_name_first, traveler_name_last, trip_pnr_id){
+        var pnrData = []
+        $.each(pnr_names, function(pnrNamekey, pnrNameValue){
+            console.log(pnrNamekey, pnrNameValue)
+            pnrData.push( {
+                name_first: pnrNameValue.name_first,
+                name_last: pnrNameValue.name_last,
+                email: pnrNameValue.email,
+            });
+            $('#pnr_table').append('<p class-card-title>' + pnrNameValue.name_first + ' ' + pnrNameValue.name_last + '</p>')
+        });
+        $('.pnr #pnr_Number').text(trip_pnr_id);
+
     }
     var countDept = 0
     var countReturn = 0

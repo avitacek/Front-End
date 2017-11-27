@@ -275,7 +275,7 @@
 		top:0px;
 		left:0px;
 		z-index: 2;
-		padding:15% 10%;
+		padding:15% 15px;
 		transition:all .5s 0.0s linear;
 		& .register-title{
 			& h4{
@@ -292,6 +292,10 @@
 			& .logo{
 				margin-bottom:1rem;
 				&:before{color:#ffffff}
+			}
+			& .col-sm-12{
+				padding-left:0px;
+				padding-right:0px;
 			}
 		}
 		& .button-switch{
@@ -377,7 +381,7 @@
 		top:0px;
 		left:0px;
 		z-index: 1;
-		padding:10% 15%;
+		padding:10% 15px;
 		& .register-title{
 			& .logo{
 				height:55px;

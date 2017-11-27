@@ -458,9 +458,10 @@
 								text-align:left;
 							}
 						}
-						& .pnr{
+						& .airConfirm{
 							margin-bottom:0px;
-							padding:15px 15px ;
+							padding:15px 15px;
+							border-bottom:1px solid #ddd;
 							&:nth-child(2){
 								padding-top:0px;
 							}
@@ -476,13 +477,42 @@
 									content:'Airline Confirmation #:';
 									margin-right:5px;
 								}
-								/*&:after{
+							}
+						}
+						& .pnr{
+							margin-bottom:0px;
+							padding:15px 15px;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:10px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								padding:0px;
+								color:$dark-grey;
+								&:before{
 									float:left;
-									clear:both;
-									content:'All travelers associated with this trip.';
+									content:'PNR #';
+									margin-right:0px;
+								}
+								&:after{
+									float:left;
+									width:100%;
 									font-size:12px;
-									text-transform:none;
-								}*/
+									content:'All Travelers Associates with this PNR#';
+									margin-bottom:10px;
+								}
+							}
+							& #pnr_table{
+								position:relative;
+								float:left;
+								border:1px solid #ddd;
+								padding:5px;
+								width:100%;
+								& p{
+									padding:0px;
+									margin:0px;
+								}
 							}
 						}
 						&#comments{
