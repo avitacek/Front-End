@@ -8,9 +8,15 @@
     <meta name="author" content="">
     <title>TempoTrip - Profile</title>
     <!--<link rel="shortcut icon" href="favicon.ico">-->
-   <link href="css/vendors/plugins.css" rel="stylesheet">
+    <link href="css/vendors/plugins.css" rel="stylesheet">
     <link href="css/tempotrip.css" rel="stylesheet">
-    <?php require_once("../model/commonJs.js.php"):?>
+    <script src="js/tempotrip.globals.js"></script>
+    <script src="js/vendors/plugins.js"></script>
+    <?php require_once("../model/commonJs.js.php");?>
+    <script src="js/tempotrip.modules.js"></script>
+    <script src="js/js-library.js"></script>
+    <script src="js/global-navigation.js"></script>
+    
       
   </head>
 
@@ -24,12 +30,43 @@
     </div>
     <div class="container-fluid body-content">
         <div class="row">
+            <div class="col-sm-12">
+                <div class="errors"><?php echo $app->output->errorstr ?></div></div>
+            <div class="col-sm-12"><div class="success"><?php echo $app->output->successstr ?></div></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="tripsDataMessage"></div>
+        </div>
+        <div class="row" id="timeRow">
+            <div class="col-sm-12" id="rangePicker">
+                <form id="tripDates" method="POST">
+                    <input type='hidden' name='p' value="alltrips">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="cbs-date form-group field-trip-start-date">
+                            <input type="text" class="form-control input-sm" name="from_departure_datetime" id="trip-start-date" placeholder="Start Date">
+                            <label for="from_departure_datetime" class="cbs-date-label">Trips Start Date</label>
+                            <span class="focus-border"><i></i></span>
+                        </div>
+                        <div class="cbs-date form-group field-trip-start-date">
+                            <input type="text" class="form-control input-sm" name="to_departure_datetime" id="trip-end-date" placeholder="End Date">
+                            <label for="to_departure_datetime" class="cbs-date-label">Trips End Date</label>
+                            <span class="focus-border"><i></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="submit" class="form-control input-sm" name="submit" value="Submit">
+                        <label for="submit" class="cbs-date-label">&nbsp;</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12 col-md-7">
                 <!-- Trips Table ============================== -->
                 @@include('../../renderings/components/alltrips-content.html')
                 <!-- / Trip Table ============================ --> 
             </div>
-            <div class="col-sm-12 col-md-5">
+            <div class="col-sm-12 col-md-5" id="tripsSideBar">
                 <!-- Trips Side Bar Details ============================== -->
                 @@include('../../renderings/components/right-side-alltrips.html')
                 <!-- / Trips Side Bar Details ============================ --> 
@@ -49,6 +86,5 @@
      @@include('../../renderings/components/global-footer.html')
     <!-- JS ============================== -->
    
-    <?php echo $app->classes->js->get_dynamic_js($app,'global-navigation'); ?>
     </body>
 </html>

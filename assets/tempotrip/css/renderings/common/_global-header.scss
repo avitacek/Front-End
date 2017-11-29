@@ -15,7 +15,7 @@ body{
 			z-index: 9999;
 			padding:0px 0px;
 			& .nav{
-				font-family: $Raleway;
+				font-family: $Source-Sans-Pro;
 				font-size:20px;
 				letter-spacing:0.3px;
 				color:$black;
@@ -85,12 +85,12 @@ body{
 						    -moz-transition-duration: 0.5s;
 						    transition-duration: 0.5s;
 						    position:absolute;
-						    top:7px;
+						    top:9px;
 						    left:5px;
 						    & span {
 							    font-size: 0;
 							    color: transparent;
-							    margin: 8px 0;
+							    margin: 5px 0;
 							    -webkit-transform-origin: center;
 							    -moz-transform-origin: center;
 							    -ms-transform-origin: center;
@@ -121,6 +121,24 @@ body{
 						
 					}
 			   		& .col-sm-6{
+			   			& .userName{
+			   				float:right;
+			   				& #userTitle{
+			   					font-family:$Source-Sans-Pro;
+							    color:#a5aab2;
+							    font-size: 20px;
+							    float: left;
+							    letter-spacing: 4px;
+							    margin-top:10%;
+							    font-weight:normal;
+							    & span{
+							    	&:first-child{
+							    		padding-right:10px;
+							    	}
+							    }
+
+			   				}
+			   			}
 			   			& .dropdown{
 			   				float:right;
 			   				margin:0px 0px 0px 20px;
@@ -131,16 +149,27 @@ body{
 			   						box-shadow:none;
 			   					}
 			   					&.account{
-									width:50px;
-							   		height:50px;
+			   						color:#a5aab2;
+									width:60px;
+							   		height:60px;
 							   		float:right;
-							   		padding-left:0px;
-							   		background:url('../images/global/account-icon-2.svg') center center no-repeat;
-							   		background-size:85% auto;
+							   		padding-left:60px;
 							   		border:none;
 						   			outline:none;
 						   			margin-right:10px;
 						   			opacity:0.8;
+						   			font-size:60px;
+						   			background:url('../images/global/user-new.svg') center center no-repeat;
+						   			background-size: contain;
+						   			& .caret{
+						   				margin-top:-30px;
+						   				&:before{
+						   					display:none;
+						   				};
+						   				&:after{
+						   					display:none;
+						   				}
+						   			}
 								}
 			   				}
 			   			}
@@ -206,7 +235,7 @@ body{
 	/*SidebarNav*/
 		& .sideBarNav {
 		    height: 100%; /* 100% Full-height */
-		    width: 60px; /* 0 width - change this with JavaScript */
+		    width: 54px; /* 0 width - change this with JavaScript */
 		    position: fixed; /* Stay in place */
 		    z-index: 200; /* Stay on top */
 		    top:70px;
@@ -263,7 +292,7 @@ body{
 		    	display:none;
 		    }
 		    & ul{
-		    	padding:0px 0px 10px 14px;
+		    	padding:0px 0px 10px 0px;
 		    	margin:0px 0px 10px 0px;
 		    	list-style-type:none;
 		    	float:left;
@@ -274,7 +303,7 @@ body{
 		    		color:#7f8fa4;
 		    		margin-right:15px;
 		    		float:left;
-		    		margin-left:-14px;
+		    		margin-left:0px;
 		    		font-size:20px;
 		    		width:20px;
 
@@ -299,6 +328,7 @@ body{
 		    		& a {
 					    color:#7f8fa4;
 					    text-transform:uppercase;
+					    font-family:$Source-Sans-Pro;
 					    font-size:14px;
 					    margin-left:0px;
 					    transition: 0.3s;
@@ -306,6 +336,11 @@ body{
     					vertical-align: 20%;
 					    &:hover{
 
+					    }&:before{
+					    	font-family:$FontAwesome;
+					    	font-size:20px;
+		    				width:20px;
+		    				margin-right:15px;
 					    }
 					    & hr{
 					    	border-color:#dfe2e5;
@@ -339,11 +374,11 @@ body{
 	}
 	&.hamburgerNavActive .navToggle{width:20px!important; height:20px!important;left:8px!important;}
 	&.hamburgerNavActive .navToggle:before {
-	    -webkit-transform: translateY(10px) rotate(45deg);
-	    -moz-transform: translateY(10px) rotate(45deg);
-	    -ms-transform: translateY(10px) rotate(45deg);
-	    -o-transform: translateY(10px) rotate(45deg);
-	    transform: translateY(10px) rotate(45deg);
+	    -webkit-transform: translateY(7px) rotate(45deg);
+	    -moz-transform: translateY(7px) rotate(45deg);
+	    -ms-transform: translateY(7px) rotate(45deg);
+	    -o-transform: translateY(7px) rotate(45deg);
+	    transform: translateY(7px) rotate(45deg);
 	}
 	&.hamburgerNavActive .navToggle span {
 	    -webkit-transform: translateY(0px) rotate(-45deg);
@@ -356,10 +391,7 @@ body{
 	    opacity: 0;
 	}
 	&.hamburgerNavActive .sideBarNav{
-		width:200px!important;
-	}
-	&.hamburgerNavActive .sideBarNav{
-		width:200px!important;
+		width:180px!important;
 	}
 	&.hamburgerNavActive a#adminAccordian, &.hamburgerNavActive a#travellerAccordian, &.hamburgerNavActive a#logOut{
     	margin-left:35px!important;
@@ -367,6 +399,6 @@ body{
 }
 
 &.hamburgerNavActive .body-content{
-	left:250px;
+	left:160px;
 }
 @import "mobile/global-header-mobile";

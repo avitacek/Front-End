@@ -4,39 +4,41 @@
 	#profile-page{
 		& .body-content{
 			padding-top:90px;
-			& .col-sm-8{
+			& .col-sm-12{
 				width:100%;
 				padding-left:0px;
 				padding-right:0px;
 				& .content-profile-form{
 					& .container-fluid{
-						padding-left:0px;
-						padding-right:0px;
+						padding-left:15px;
+						padding-right:15px;
 						& .col-md-12{
 							padding-left:0px;
 							padding-right:0px;
-							& .nav-tabs{
-								width:100%;
-								display:table;
-								& li{
-								display:table-cell;
-								float:none;
-									& a{
-										border-bottom-width:0px;
-									}
+							& .row{
+								& .success{
+									margin-bottom:5px;
 								}
-							}
-							& .tab-content{
-								& .tab-panel{
-									& .card{
-										& .header{
-											& .title{
-												font-size:20px;
+								& .card{
+									& .header{
+										& .title{
+											font-size:20px;
+										}
+									}
+									& .content {
+										& .form-group{
+											& label{
+												& a{
+													display:none;
+												}
 											}
+										}
+										& .col-md-6:last-child{
+											margin-left:0%;
+
 										}
 									}
 								}
-
 							}
 						}
 					}
@@ -52,46 +54,49 @@
 	}
 }
 @include max-screen(small) {
+	body .ui-tooltip{display:none;}
 	#profile-page{
 		& .body-content{
-			padding-top:90px;
-			& .col-sm-8{
+			padding-top:15px;
+			& .col-sm-12{
 				width:100%;
 				padding-left:0px;
 				padding-right:0px;
 				& .content-profile-form{
 					& .container-fluid{
-						padding-left:0px;
-						padding-right:0px;
+						padding-left:15px;
+						padding-right:15px;
 						& .col-md-12{
 							padding-left:0px;
 							padding-right:0px;
-							& .nav-tabs{
-								width:100%;
-								display:table;
-								& li{
-								display:table-cell;
-								float:none;
-									& a{
-										border-bottom-width:0px;
-									}
+							& .row{
+								& .success{
+									margin-bottom:5px;
 								}
-							}
-							& .tab-content{
-								& .tab-panel{
-									& .card{
-										& .header{
-											& .title{
-												font-size:20px;
+								& .card{
+									& .header{
+										& .title{
+											font-size:20px;
+											padding-bottom:5px;
+										}
+									}
+									& .content{
+										& .form-group{
+											& label{
+												& a{
+													display:none;
+												}
 											}
+										}
+										& .col-md-6:last-child{
+											margin-left:0%;
 										}
 									}
 								}
-
 							}
+							
 						}
 					}
-
 				}
 				& .btn-primary{
 					height:44px;

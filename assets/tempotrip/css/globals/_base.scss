@@ -8,10 +8,10 @@ Import BASE
 body {
     background-color:#eff3f6;
     overflow-x: hidden;
-    font-family:$Raleway;
+    font-family:'Source-Sans-Pro', Helvetica, Arial, sans-serif;
 }
 p, ul { 
-	font-family:$Raleway;
+	font-family:'Source-Sans-Pro', Helvetica, Arial, sans-serif;
 	font-style: normal;
 	font-stretch: normal;
 	line-height:inherit;
@@ -37,13 +37,13 @@ p, ul {
     height: 60px;
     float: left;
     margin-left: 0rem;
-    cursor: pointer;
     color: #119672;
     position: relative;
     z-index: 5;
-    background: url(../images/global/tempotrip-logo-new.svg) no-repeat;
+    background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
     background-size: contain;
     padding-left: 65px;
+    font-family:$Raleway;
 }
 .logo:before {
     content: 'Tempo';
@@ -59,8 +59,26 @@ p, ul {
     font-size: 16px;
     float: left;
     letter-spacing: 4px;
-    margin-top: 11%;
+    margin-top: 13%;
     font-weight: bold;
+}
+.client-logo{
+	margin-top: 0px;
+    width: 90px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+    padding-right:10px;
+    border-right:1px solid $grey-blue;
+    color: #119672;
+    position: relative;
+    z-index: 5;
+}
+.client-logo img{
+	width:100%;
+	margin-top:10px;
+	height:auto;
+	border:none;
 }
 .continental-logo{
 	margin-top: 13px;
@@ -77,7 +95,7 @@ p, ul {
     background-size: contain;
     padding-left: 65px;
 }
-& .newWindowIcon{
+.newWindowIcon{
 	background: url('../images/global/new-window.svg') center center no-repeat;
     background-size: contain;
     width:35px;
@@ -101,7 +119,13 @@ p, ul {
     	width:130px;
     }
 }
-& .wait-spinner{
+.tab-content{
+	position:relative;
+}
+.nav-tabs{
+	border-bottom:1px solid transparent;
+}
+.wait-spinner{
 	position: absolute;
 	left:0%;
 	z-index: 100;
@@ -110,11 +134,12 @@ p, ul {
 	height:100%;
 	display:none;
 	opacity:0;
-	background-color:rgba(255,255,255,0.75);
+	border-radius:0px 3px 3px 3px;
+	background-color:rgba(255,255,255,1);
 	transition:opacity .45s 0s linear;
 	-webkit-transition:opacity .45s 0s linear;
 	-moz-transition:opacity .45s 0s linear;
-	&.show{
+	&.active{
 		display:block;
 		opacity:1;
 	}
@@ -123,7 +148,7 @@ p, ul {
     background-size: contain;
     width:60px;
     height:60px;
-    margin:20% auto 10px;
+    margin:45% auto 10px;
     position:relative;
     #spin-inside.half-circle{
       width:60px;
@@ -142,6 +167,51 @@ p, ul {
     }
   }
 }
+/*tooltip*/
+.ui-tooltip, .arrow:after {
+    background:$white;
+    border: 2px solid $orange;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: $orange;
+    border-radius: 0px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 0px $orange, -2px -2px 0px $orange, 2px -2px 0px $orange, -2px 2px 0px $orange;
+    border: 2px solid $orange;
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: none;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }
 & .modal{
 		& .modal-box{
 			position:relative;
@@ -163,6 +233,40 @@ p, ul {
 					height:30px;
 					top:25%
 				}
+			}
+		}
+		& .modal-dialog{
+			position:relative;
+			padding:0% 0%;
+			margin:10% auto;
+			box-shadow: none;
+			display:block;
+			width:40%;
+			height:auto;
+			& .close{
+				width:30px;
+				height:30px;
+				border-radius:50%;
+				background:#ffffff;
+				border:1px solid #333333;
+				position:absolute;
+				color:#333333;
+				top:-20px;
+				right:-10px;
+				padding:10px 9px;
+				box-sizing:border-box;
+				line-height:7px;
+				cursor:pointer;
+				opacity:1;
+				&:focus{
+					outline:none;
+				}
+				&:hover{
+					opacity:1;
+				}
+			}
+			& .success, & .errors{
+				text-align:left;
 			}
 		}
 	}
@@ -187,7 +291,7 @@ p, ul {
 		opacity:1;
 	}
 }
-& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel], select{
+& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel],& input[type=number], select{
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -261,9 +365,10 @@ p, ul {
 		opacity:1;
 	}
 }
+
 /*Common Styles based on Style Guide*/
 h1{
-	font-family:$Raleway-Bold;
+	font-family:$Source-Sans-Pro-Bold;
 	font-size: 40px;
 	font-weight: bold;
 	line-height: 1.5;
@@ -271,7 +376,7 @@ h1{
 	color: $beige;
 }
 h2{
-	font-family:$Raleway-Bold;
+	font-family:$Source-Sans-Pro-Bold;
 	font-size: 36px;
 	font-weight: bold;
 	line-height: 1.17;
@@ -279,7 +384,7 @@ h2{
 	color: $black;
 }
 h3{
-	font-family:$Raleway-Medium;
+	font-family:$Source-Sans-Pro-Bold;
 	font-size: 32px;
 	font-weight: 500;
 	line-height: 1.25;
@@ -288,7 +393,7 @@ h3{
 
 }
 h4{
-	font-family:$Raleway-Medium;
+	font-family:$Source-Sans-Pro-Bold;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 1.25;
@@ -297,7 +402,7 @@ h4{
 
 }
 h5{
-	font-family:$Raleway-Medium;
+	font-family:$Source-Sans-Pro-Bold;
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 1.56;
@@ -305,12 +410,12 @@ h5{
 	color: #65879c;
 }
 p{
-	font-family:$Raleway;
+	font-family:$Source-Sans-Pro;
 	font-size:14px;
 	color:$slate-grey;
 }
 b, strong{
-	font-family:$Raleway-Bold;
+	font-family:$Source-Sans-Pro-Bold;
 	font-weight:bold;
 }
 i{
@@ -335,6 +440,9 @@ a {
 		outline:none;
 		text-decoration:none;
     }
+}
+.disabled{
+	pointer-events: none;
 }
 a.disabled{
 	&:hover{
@@ -374,7 +482,7 @@ a.btn, li a.btn{
 	height:50px;
 	width:200px;
 	padding:20px 0px;
-	font-family :$Marvel-Regular;
+	font-family:$Source-Sans-Pro;
 	font-size:14px;
 	letter-spacing:1px;
 	text-transform:uppercase;
@@ -400,7 +508,7 @@ a.cta{
 	height:50px;
 	padding:20px 0px;
 	margin:10px 0px;
-	font-family :$Marvel-Regular;
+	font-family:$Source-Sans-Pro;
 	font-size:14px;
 	letter-spacing:0.8px;
 	text-transform:uppercase;

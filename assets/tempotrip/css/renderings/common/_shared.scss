@@ -1,14 +1,13 @@
 @import "../../globals/variables";
 @import "../../globals/mixins";
- #landing-page{
+#landing-page{
  	position:absolute;
  	height:100%;
  	width:100%;
  		& .row{
  			height:100%;
  		}
- }
-
+}
 .image-bg{
 		position:fixed;
 		top:0px;
@@ -16,7 +15,7 @@
 		width:100%;
 		height:100%;
 		z-index:-1;
-		background: url(../images/photos/AdobeStock_4202599.jpeg) center center no-repeat;
+		background: url(../images/photos/AdobeStock_4202599.jpg) center center no-repeat;
 		background-size:cover;
 		& .color-overlay{
 			position:absolute;
@@ -47,6 +46,9 @@
     overflow: hidden;
     & h5{
     	text-align:right;
+    }
+    & .errors, & .success{
+    	padding:10px 0px;
     }
 }
 #password-page{
@@ -84,6 +86,25 @@
 		z-index: 2;
 	}
 }
+#affiliate-form-page{
+	& .body-content{
+		.row{
+			& .col-sm-12{
+				& form{
+					& .row{
+						& .col-sm-12{
+							& .row{
+								& .col-sm-12{
+									padding:0px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 ul#tab-menu{
 	display: flex; 
 	flex-grow: 1; 
@@ -116,10 +137,12 @@ table.dataTable thead .sorting_asc {
     background-image: url(../images/global/sort_asc.png);
 }
 table.dataTable thead .sorting {
-    background-image: url(../images/global/sort_both.png);
+    background-image: none;
 }
 table.dataTable thead .sorting:after{
 	opacity:0;
+	content:'';
+	display:none;
 }
 table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after{
 	opacity:0;
@@ -130,6 +153,9 @@ table.dataTable tr > th:focus{
 .table > thead > tr > th {
     vertical-align: middle;
     padding:10px 10px;
+}
+.pagination > li > a, .pagination > li > span{
+	color:$grey-blue;
 }
 .load_spinner{
 	position:absolute;
@@ -158,20 +184,22 @@ table.dataTable tr > th:focus{
     color:black
 }
 .errors, .errors p{
-	margin-top:5px!important;
+	margin-top:0px!important;
 	color: #ff0000!important;
-	font-size:14px;
+	font-size:18px;
 	font-weight:bold;
-	text-align:right;
+	text-align:left;
+	text-transform:uppercase;
 	margin-bottom: 5px;
 }
 .success, .success p{
-	margin-top:5px!important;
+	margin-top:0px!important;
 	color: #5db9be!important;
-	font-size:14px;
+	font-size:18px;
 	font-weight:bold;
-	text-align:right;
-	margin-bottom: 5px;
+	text-align:left;
+	text-transform:uppercase;
+	margin-bottom: 0px;
 }
 .disabled {
     opacity: 0.5;
@@ -224,5 +252,34 @@ table.dataTable tr > th:focus{
         transform:rotate(-359deg);
     }
 }
-
+/* Affiliate form custon */
+#affiliate-form-page{
+	& .body-content{
+		& .row{
+			& .col-sm-12{
+				border:1px solid #ffffff;
+				background-color: rgba(255,255,255,0.45);
+				border-radius:3px;
+			}
+		}
+	}
+	& iframe{
+		border:none;
+		& body{
+			& .form-table{
+				border:0px solid #ffffff;
+				width:100%;
+				& #q128{
+					& div{
+						background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
+    					background-size: contain;
+						& img{
+							display:none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 @import "mobile/shared-mobile";

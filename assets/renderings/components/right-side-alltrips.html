@@ -17,7 +17,7 @@
                     <div class="spinner">
                         <i class="half-circle fa-spin" id="spin-outside"></i>
                     </div>
-                    <p>Loading Itinerary <span>Please wait</span></p>
+                    <p>Loading Data <span>Please wait</span></p>
                 </div>
                 <!--Add Traveler TAB-->
                 <div role="tabpanel" class="tab-pane active" id="approvals">
@@ -25,43 +25,95 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-sm-6 travellerName">
-                                    <h4 class="card-title"><span class="traveller_name"></span></h4>
-                                    <a href="mailto:" class="traveller_email"></a>
+                                    <h4 class="card-title"><span class="traveller_name" id="f_name"></span> <span class="traveller_name" id="l_name"></span></h4>
+                                    <div class="col-sm-12">
+                                        <a href="mailto:" class="traveller_email"></a>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6" id="flightInfo">
-                                        <div class="City deptHeader"></div>
-                                        <div class="City arrvHeader"></div>
+                                    <div class="City deptHeader"></div>
+                                    <div class="City arrvHeader"></div>
+                                    <div class="col-sm-12">
+                                        <p class="traveller_email" id="departTime"></p>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="row">
-                                <div class="col-sm-5 col-md-5" id="costs">
+                                <div class="col-sm-12 col-md-6" id="costs">
                                     <h4 class="card-title"><span class="cost"></span></h4>
                                     <p>Price</p>
                                 </div>
-                                <div class="col-sm-2 col-md-2" id="approvalID"></div>
-                                <div class="col-sm-5 col-md-5" id="clock">
-                                    <h4 class="card-title"><span class="time"></span></h4>
+                                <div class="col-sm-12 col-md-6" id="status">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-3" id="approvalID"></div>
+                                        <div class="col-sm-9 col-md-9" id="clock">
+                                            <p class="approval-card-title"></p>
+                                            <p id="timer"></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6" id="sites">
-                                    <h4 class="card-title"><span class="site"></span></h4>
-                                    <p>Search Site</p>
+                                <div class="col-sm-12 col-md-12" id="sites">
+                                    <a href="" class="card-title site" target="_blank"></a>
+                                    <p>Site used to purchase the flight.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 airConfirm">
+                                    <p class="card-title" id="airConfirm_Number"></p>
+                                </div>
+                               
+                                <div class="col-sm-12 pnr">
+                                    <p class="card-title" id="pnr_Number"></p>
+                                    <div id="pnr_table"></div>
                                 </div>
                             </div>
                             <div class="row" id="app-status">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="approve">
-                                        <button type="submit">Approve</button>
+                                        <form method="POST" action="">
+                                            <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                            <input type='hidden' id="pnr_id2" name='pnr_id' value="">
+                                            <input type='hidden' id="universal_rec_loc" name='universal_rec_loc' value="">
+                                            <input type='hidden' id="options_rec_loc" name='options_rec_loc' value="">
+                                            <input type='hidden' name='a' value="approve">
+                                            <button type="submit" id="approveBtn">Approve</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="deny">
-                                        <button type="submit">Deny</button>
+                                        <form method="POST" action="">
+                                            <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                            <input type='hidden' id="pnr_id3" name='pnr_id' value="">
+                                            <input type='hidden' id="universal_rec_loc" name='universal_rec_loc' value="">
+                                            <input type='hidden' id="options_rec_loc" name='options_rec_loc' value="">
+                                            <input type='hidden' name='a' value="deny">
+                                            <button type="submit" id="denyBtn">Deny</button>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
+                            <div class="row" id="comments">
+                                <div class="col-sm-12">
+                                    <form method="POST" action="">
+                                        <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                        <input type='hidden' id="pnr_id" name='pnr_id' value="">
+                                        <input type='hidden' id="note_id" name='note_id' value="">
+                                        <input type='hidden' id="traveler_user_id" name='traveler_user_id' value="">
+                                        <input type='hidden' name='a' value="save_note">
+                                        <div class="row">
+                                            <textarea name="message" rows="5" cols="20" id="messages"></textarea>
+                                            <p>Add a comment <a href="#" class="fa fa-eye fa-6" data-toggle="tooltip" data-placement="right" title="These comments will be visible by you and your travelers"></a></p>
+                                        </div>
+                                        <div class="row">
+                                            <button type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -70,109 +122,30 @@
                     <div class="card">
                         <div class="content">
                             <div class="row">
-                                <div class="col-sm-12 travellerName">
-                                    <h4 class="card-title"><span class="traveller_name"></span></h4>
-                                    <p class="traveller_email"></p>
+                                <div class="col-sm-6 travellerName">
+                                    <h4 class="card-title"><span class="traveller_name" id="f_name"></span> <span class="traveller_name" id="l_name"></span></h4>
+                                    <div class="col-sm-12">
+                                        <a href="mailto:" class="traveller_email"></a>
+                                    </div>
                                 </div>
+                                <div class="col-sm-6" id="flightInfo2">
+                                        <div class="City deptHeader"></div>
+                                        <div class="City arrvHeader"></div>
+                                        <div class="col-sm-12">
+                                            <p class="traveller_email" id="departTime2"></p>
+                                        </div>
+                                </div>
+                                
                             </div>
                             <div class="row">
-                                <div class="col-sm-6 deptHeader">
-                                    <h4 class="card-title"><span class="City"></span></h4>
-                                    <p class="CityCountry"></p>
-                                    
-                                </div>
-                                <div class="col-sm-6 arrvHeader" >
-                                    <h4 class="card-title"><span class="City"></span></h4>
-                                    <p class="CityCountry"></p>
-                                    
+                                <div class="col-sm-12">
+                                    <p class="card-title recordLocator"></p>
                                 </div>
                             </div>
                             <div class="row" id="departureDetails">
                                 <div class="col-sm-12">
                                     <div id="itinerary-accordian" data-children=".item">
-                                        <div class="item">
-                                            <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#departure-travel" aria-expanded="true" aria-controls="recent-travel">
-                                                  Departure <i class="fa fa-angle-double-down float-right font-lg"></i>
-                                            </a>
-                                            <div id="departure-travel" class="collapse in" role="tabpanel">
-                                                <div class="list-group">
-                                                    <div class="departureDetails">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="airline"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="flightNumber"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="duration"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="recordLocator"></p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="departureTime">
-                                                        <ul>
-                                                            <li class="leave">
-                                                                <ul>
-                                                                    <li>Leave</li>
-                                                                    <li><p class="date"></p></li>
-                                                                    <li><p class="time"></p></li>
-                                                                </ul>
-                                                            <li class="arrive">
-                                                                <ul>
-                                                                    <li>Arrive</li>
-                                                                    <li><p class="date"></p></li>
-                                                                    <li><p class="time"></p></li>
-                                                                </ul>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <a data-toggle="collapse" data-parent="#itinerary-accordian" href="#return-travel" aria-expanded="false" aria-controls="current-booking-sites">Return <i class="fa fa-angle-double-down float-right font-lg"></i> 
-                                            </a>
-                                            <div id="return-travel" class="collapse in" role="tabpanel">
-                                                <div class="list-group">
-                                                    <div class="departureDetails">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="airline"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="flightNumber"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="duration"></p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="recordLocator"></p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="departureTime">
-                                                        <ul>
-                                                            <li class="leave">
-                                                                <ul>
-                                                                    <li>Leave</li>
-                                                                    <li><p class="date"></p></li>
-                                                                    <li><p class="time"></p></li>
-                                                                </ul>
-                                                            </li>
-                                                            <li class="arrive">
-                                                                <ul>
-                                                                    <li>Arrive</li>
-                                                                    <li><p class="date"></p></li>
-                                                                    <li><p class="time"></p></li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

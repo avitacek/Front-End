@@ -6,8 +6,37 @@
 #all-trips-page{
 	padding:0px;
 	& .body-content{
+		& #timeRow{
+			padding:0px 15px;
+			& #rangePicker{
+			    background-color: rgba(255, 255, 255, 0.45);
+				border: 1px solid #ffffff;
+				border-radius: 3px;
+				padding: 15px 0px;
+				margin-bottom:15px;
+				& .cbs-date{
+					position:relative;
+					width:48%;
+					float:left;
+				}
+				& .cbs-date{
+					margin-bottom:0px;
+					&:first-child{
+						margin-right:15px;
+					}
+					&:nth-child(2){
+						float:right;
+						margin-right:0px;
+					}
+				}
+				& input[type=submit]{
+					margin-top:24px;
+					height:47px;
+				}
+			}
+		}
 		& .col-md-7, & .col-md-5{
-			#allTrips_wrapper{
+			#allTrips_wrapper, #pnrTable_wrapper{
 				background-color: rgba(255,255,255,0.45);
     			border: 1px solid #ffffff;
     			border-radius:3px;
@@ -18,9 +47,49 @@
     				}
     			}
     			& .dataTables_filter{
-    				
+    			}
+    			& .dataTables_length{
+    				display:none;
     			}
 			}
+			& #pnrTable_wrapper{
+				padding-top:5px;
+				& .row:first-child{
+    				display:none;
+    			}
+    			& .row .col-sm-5{
+    				display:none;
+    			}
+    			& .row .col-sm-7{
+    				width:100%;
+    			}
+    			& .row{
+    				& .dataTables_paginate{
+    					width:100%;
+    					& .pagination{
+    						width:100%;
+    						display:table;
+    						& li{
+    							display:table-cell;
+    						}
+    					}
+    				}
+    			}
+    			& .dataTables_info{
+    				display:none;
+    			}
+    			& tbody td{
+    				padding:10px;
+    				text-align:center;
+    				width:50%;
+    				&:first-child{
+    					border-right:1px solid #dddddd;
+
+    				}
+    			}
+
+			}
+
 			& table.dataTable{
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 			}
@@ -39,28 +108,32 @@
 				padding:15px 10px;
 				text-align:center;
 			}
-			table.dataTable.no-footer{
+			& table.dataTable.no-footer{
 				border:1px solid transparent
 			}
-			table.dataTable thead tr{
+			& table.dataTable thead tr{
 				color:#ffffff;
 				background-color:$grey-blue;
 			}
-			table.dataTable tbody td .fa-check-circle{
+			& table.dataTable tbody td .fa-check-circle{
 				font-size:20px;
 				color:$teal;
 			}
-			table.dataTable tbody td .fa-check-circle-o{
+			& table.dataTable tbody td .fa-check-circle-o{
 				font-size:20px;
 				color:$teal;
 			}
-			table.dataTable tbody td .fa-exclamation-triangle{
+			& table.dataTable tbody td .fa-exclamation-triangle{
 				font-size:20px;
 				color:$yellow;
 			}
-			table.dataTable tbody td .fa-ban{
+			& table.dataTable tbody td .fa-ban{
 				font-size:20px;
 				color:$red;
+			}
+			& table.dataTable tbody th:focus, & table.dataTable tbody td:focus, & table.dataTable tbody th:focus, & table.dataTable tbody td:focus{
+				outline:none!important;
+
 			}
 			.dataTables_wrapper .dataTables_paginate .paginate_button:active{
 				background:none;
@@ -90,34 +163,41 @@
 				background:transparent;
 			}
 			& .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
-				background-color: #006e8d;
-				border-color:#006e8d;
+				background-color: $grey-blue;
+				border-color:$grey-blue;
 			}
 		}
 		& .col-md-5{
-			& .wrapper{
-				background-color: transparent;
+			& .col-sm-12{
+				padding-left:0px;
+				padding-right:0px;
+			}
+			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+				background-color: rgba(255, 255, 255, .45);
+    			border: 1px solid #ffffff;
+    			border-bottom-color:transparent
 			}
 			& #approvals{
-				background-color: rgba(255, 255, 255, 1);
-    			border: 1px solid #ffffff;
-    			border-radius: 3px;
+				background-color: rgba(255, 255, 255, .45);
+    			border-left: 1px solid #ffffff;
+    			border-right: 1px solid #ffffff;
+    			border-bottom: 1px solid #ffffff;
+    			border-radius:0px 3px 3px 3px;
     			padding: .9375rem;
-    			box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0), 0 0 0 0px rgba(0, 0, 0, 0.0);
 				& .content{
 					padding:0px;
 					background: #ffffff;
 					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 					& .row{
 							border-bottom:1px solid #ddd;
-						& .travellerName{
+						& .travellerName, & #flightInfo{
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
+								margin-top:1px;
+								margin-bottom:5px;
 								font-weight:normal;
-								font-size:32px;
+								font-size:20px;
 							}
 							& .traveller_email{
 								font-size:12px;
@@ -126,11 +206,18 @@
 								margin:0px;
 							}
 						}
+						& .travellerName{
+							border-right:1px solid #ddd;
+							& span{
+								clear:both;
+							}
+						}
 						& #approvalID{
-								text-align:center;
+								text-align:left;
+								padding:0px;
 								& i{
-									margin:30px auto 0px;
-									font-size:32px;
+									margin:5px auto 0px;
+									font-size:48px;
 									text-align:center;
 									&:before{
 										margin:0px auto;
@@ -140,52 +227,89 @@
 									font-size:10px;
 								}
 								&.isApproved{
-									color:$teal;
+									color:$teal!important;
+								}
+								&.isAutoApproved{
+									color:$teal!important;
 								}
 								&.isDenied{
-									color:$red;
+									color:$red!important;
+								}
+								&.isCanceled{
+									color:$red!important;
+								}
+								&.isErrored{
+									color:$red!important;
 								}
 								&.isPending{
-									color:$yellow
+									color:$yellow!important;
 								}
 						}
 						& #flightInfo{
 							.deptHeader{
-								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
 							    font-weight: bold;
-							    line-height: 1.25;
+							    line-height: 1.0;
 							    letter-spacing: 0.5px;
 							    color: #000000;
 							    float:left;
-							    margin-top:10px;
-								&:after{
-									font-family:$FontAwesome;
-									color:$black;
-									float:right;
-									margin:0px 10px;
-									content: "\f072";
-									/* Rotate div */
-								    -ms-transform: rotate(45deg); /* IE 9 */
-								    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-								    transform: rotate(45deg);
-								}
+							    margin-top:1px;
+							    &.Roundtrip{
+							    	&:before{
+										float:right;
+										margin:-5px 20px 0px;
+										content: "";
+										background:url(../images/logos/rt-icon.svg) no-repeat;
+										width:40px;
+										height:40px;
+							    	}
+								    &:after{
+							    		display:none;
+							    	}
+							    }
+							    &.Oneway{
+							    	&:before{
+								    	display:none;
+							    	}
+								    &:after{
+							    		float:right;
+										margin:5px 20px 0px;
+										content: "";
+										background:url(../images/logos/ow-icon.svg) no-repeat;
+										width:40px;
+										height:40px;
+							    	}
+							    }
 							}
 							.arrvHeader{
-								font-family: "Raleway-Medium", Helvetica, Arial, sans-serif;
+								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
 							    font-weight: bold;
-							    line-height: 1.25;
+							    line-height: 1.0;
 							    letter-spacing: 0.5px;
 							    color: #000000;
-							    float:left;
-							    margin-top:10px;
-							    margin-left:5px;
+							    float:right;
+							    margin-top:1px;
+							}
+							& .triptype{
+								font-size:14px;
+								position:absolute;
+								bottom:0px;
+								text-align:center;
+								width:100%;
+								padding:0px;
+								margin:0px;
+							}
+							& #departTime{
+								clear:both;
 							}
 						}
 						& #costs{
-							margin-bottom:0px;
+							margin:0px;
+							width:50%;
 							padding:15px;
+							border-right:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -197,31 +321,83 @@
 								width:auto;
 								padding:0px;
 								margin:0px;
+								text-align:left;
 							}
 						}
-						& #clock{
+						& #status{
 							margin-bottom:0px;
 							padding:15px;
-							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
-								font-weight:normal;
-								font-size:32px;
-							}
-							& p{
-								font-size:8px;
-								width:auto;
-								padding:0px;
-								margin:0px;
+							& .row{
+								border-bottom:none;
+								& #clock{
+									margin-bottom:0px;
+									padding:5px 0px;
+									& .approval-card-title{
+										margin-top:0px;
+										margin-bottom:0px;
+										font-weight:normal;
+										font-size:24px;
+										text-align:center;
+										line-height:2.0em;
+									}
+									& p{
+										font-size:12px;
+										width:auto;
+										padding:0px;
+										margin:0px;
+										text-align:center;
+									}
+									&.isApproved{
+										.approval-card-title{
+											color:$teal;
+										}
+									}
+									&.isAutoApproved{
+										.approval-card-title{
+											color:$teal;
+											line-height:1.0em;
+											line-height:1.0em
+										}
+									}
+									&.isDenied{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isCanceled{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isErrored{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isPending{
+										.approval-card-title{
+											color:$yellow;
+											line-height:1.0em;
+											
+										}
+										#timer{
+											color:$teal;
+											margin-top:-5px;
+											line-height:0.75em;
+										}
+									}
+								}
+								
 							}
 						}
 						&#app-status{
 							& .col-sm-12{
-								margin:0px auto;
 								padding:0px 15px;
-								width:50%;
 								&:first-child{
 									padding-right:0px;
+								}
+								&:last-child{
+									padding-left:0px;
 								}
 								& .approve{
 									& button{
@@ -248,7 +424,10 @@
 							}
 							&.isDenied{
 								& .approve, & .deny{
-									display:none;
+									& button{
+										opacity:0.5;
+										cursor:text;
+									}
 								}
 							}
 							&.isPending{
@@ -257,12 +436,13 @@
 						& #sites{
 							margin-bottom:0px;
 							padding:15px;
-							border-bottom:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
 								font-weight:normal;
 								font-size:16px;
+								text-transform:uppercase;
+								color:$orange;
 							}
 							& .traveller_email{
 								font-size:10px;
@@ -270,52 +450,207 @@
 								padding:0px;
 								margin:0px;
 							}
+							& p{
+								font-size:12px;
+								width:auto;
+								padding:0px;
+								margin:0px;
+								text-align:left;
+							}
+						}
+						& .airConfirm{
+							margin-bottom:0px;
+							padding:15px 15px;
+							border-bottom:1px solid #ddd;
+							&:nth-child(2){
+								padding-top:0px;
+							}
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								color:$dark-grey;
+								&:before{
+									float:left;
+									content:'Airline Confirmation #:';
+									margin-right:5px;
+								}
+							}
+						}
+						& .pnr{
+							margin-bottom:0px;
+							padding:15px 15px;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:10px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								padding:0px;
+								color:$dark-grey;
+								&:before{
+									float:left;
+									content:'PNR #';
+									margin-right:0px;
+								}
+								&:after{
+									float:left;
+									width:100%;
+									font-size:12px;
+									content:'All Travelers Associates with this PNR#';
+									margin-bottom:10px;
+								}
+							}
+							& #pnr_table{
+								position:relative;
+								float:left;
+								border:1px solid #ddd;
+								padding:5px;
+								width:100%;
+								& p{
+									padding:0px;
+									margin:0px;
+								}
+							}
+						}
+						&#comments{
+							& .col-sm-12{
+								padding:15px;
+								& textarea{
+									resize:none;
+									width:100%;
+									margin:0px;
+									border-color:#dddddd;
+								}
+							}
+						}
+						&:last-child{
+							border-bottom:none;
 						}
 					}
 				}
 			}
 			& #itinerary{
+				background-color: rgba(255, 255, 255, .45);
+    			border-left: 1px solid #ffffff;
+    			border-right: 1px solid #ffffff;
+    			border-bottom: 1px solid #ffffff;
+    			border-radius:0px 3px 3px 3px;
+    			padding: .9375rem;
 				& .content{
 					padding:0px;
 					background: #ffffff;
 					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 					& .row{
-						& .travellerName{
+						&:first-child, &:nth-child(2){
+							border-bottom:1px solid #ddd;
+						}
+						&:nth-child(2) .col-sm-12{
+							padding:15px 15px;
+							& .card-title{
+								margin-top: 0px;
+							    margin-bottom: 0px;
+							    font-weight: normal;
+							    font-size: 18px;
+							    text-transform: uppercase;
+							    color: #333333;
+							    &:before{
+									float:left;
+									content:'Airline Confirmation #:';
+									margin-right:5px;
+								}
+							}
+							& span{
+								font-size:12px;
+								margin-bottom:15px;
+							}
+						}
+						& .recordLocator{
+							&:before{
+									float:left;
+									content:'Airline Confirmation #:';
+									margin-right:5px;
+							}
+						}
+						& .travellerName, & #flightInfo2{
 							margin-bottom:0px;
 							padding:15px;
 							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
+								margin-top:1px;
+								margin-bottom:5px;
 								font-weight:normal;
-								font-size:32px;
+								font-size:20px;
 							}
 							& .traveller_email{
-								font-size:10px;
+								font-size:12px;
 								width:auto;
 								padding:0px;
 								margin:0px;
 							}
 						}
-						& .deptHeader, & .arrvHeader{
-						margin-bottom:0px;
-						padding:15px;
-						border-top:1px solid #ddd;
-							& .card-title{
-								margin-top:0px;
-								margin-bottom:0px;
-								font-weight:normal;
-								font-size:32px;
-							}
-							& .CityCountry{
-								font-size:10px;
-								width:auto;
-								padding:0px;
-								margin:0px;
+						& .travellerName{
+							border-right:1px solid #ddd;
+							& span{
+								clear:both;
 							}
 						}
-						& #arrvHeader{
-							border-left:1px solid #ddd;
+						& #flightInfo2{
+							& span{
+								clear:both;
+							}
+							& .deptHeader{
+								font-family: $Source-Sans-Pro;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.0;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:left;
+							    margin-top:1px;
+								&.Roundtrip{
+							    	&:before{
+										float:right;
+										margin:-5px 20px 0px;
+										content: "";
+										background:url(../images/logos/rt-icon.svg) no-repeat;
+										width:40px;
+										height:40px;
+							    	}
+								    &:after{
+							    		display:none;
+							    	}
+							    }
+							    &.Oneway{
+							    	&:before{
+								    	display:none;
+							    	}
+								    &:after{
+							    		float:right;
+										margin:5px 20px 0px;
+										content: "";
+										background:url(../images/logos/ow-icon.svg) no-repeat;
+										width:40px;
+										height:40px;
+							    	}
+							    }
+							}
+							& .arrvHeader{
+								font-family: $Source-Sans-Pro;
+							    font-size: 32px;
+							    font-weight: bold;
+							    line-height: 1.0;
+							    letter-spacing: 0.5px;
+							    color: #000000;
+							    float:right;
+							    margin-top:1px;
+							}
+							& #departTime2{
+								clear:both;
+							}
 						}
+						
 						&:last-child{
 							& ul{
 								border-bottom:none;
@@ -337,11 +672,11 @@
 										background-color: #eceff1;
 										border-top:1px solid #a5aab2;
 										border-bottom:1px solid #a5aab2;
-										& .fa-angle-double-down:before{
-											content:"\f102";
-										}
 										&.collapsed .fa-angle-double-down:before{
 											content:"\f103";
+										}
+										&.collapsed .fa-angle-double-up:before{
+											content:"\f102";
 										}
 									}
 									& #departure-travel, & #return-travel{
@@ -357,6 +692,7 @@
 												padding:0px;
 												list-style-type: none;
 												font-size:10px;
+												color:$grey-blue;
 												border-bottom:1px solid #a5aab2;
 												& li{
 													display:table-cell;
@@ -368,6 +704,11 @@
 													}
 													& p{
 														margin-top:10px;
+													}
+													& .recordLocator{
+														&:before{
+															display:none;
+														}
 													}
 												}
 											}
@@ -384,6 +725,10 @@
 												& li{
 													display:block;
 													padding:0px;
+													border-bottom:1px solid #a5aab2;
+													&:first-child{
+														
+													}
 														& ul{
 														width:100%;
 														display:table;
@@ -393,23 +738,56 @@
 														font-size:10px;
 														& li{
 															display:table-cell;
-															padding:5px;
+															padding:10px;
 															text-align:center;
 															font-family:$Raleway;
     														font-size: 14px;
     														color: #54565b;
+    														border-bottom:none;float:left
+    														&:first-child{
+    															width:50%;
+    															border-bottom:none;
+    															padding:0px 0px 0px 10px!important;
+    														}
+    														&:nth-child(2), &:last-child{
+    															width:25%;
+    															border-bottom:none;
+    														}
 															& p{
-																margin-top:10px;
+																margin-top:0px;
+																margin-bottom:0px;
+																&.date, &.time{
+																	line-height:2.5em;
+																}
 															}
+															& span{
+																font-size:12px;
+																margin-top:0px;
+																margin-bottom:10px;
+															}
+
 														}
 													}
 													&.arrive{
 														& ul{
-															border-bottom:1px solid #a5aab2;
+														
 														}
 													}
 												}
 											}
+										}
+									}
+									& #return-travel{
+										& .departureTime{
+											& .arrive{
+												border-bottom:1px solid #a5aab2;
+											}
+											& .recordLocator{
+												&:before{
+													display:none;
+												}
+											}
+											
 										}
 									}
 								}
@@ -450,9 +828,10 @@
 			z-index: 9999;
 			border:1px solid #a5aab2;
 			display:none;
-			width:950px;
+			max-width:950px;
+			width:100%;
 			margin:0px auto;
-			padding:15px;
+			padding:0px;
 			& #hidden_div{
 			}
 			& .print-wrapper{
@@ -464,6 +843,7 @@
 					& .logo{
 						width:auto;
 						float:left;
+						margin-top:10px;
 						&:before{
 							top:20%;
 						}
@@ -475,17 +855,26 @@
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:32px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 
+					}
+				}
+				& .departureHeader{
+					& h3{
+						float:left;
+						&.col-sm-6{
+							padding:0px;
+						}
 					}
 				}
 				& .print-footer{
 					background-color:#eceff1;
 					border-top:2px solid #006e8d;
+					height:80px;
 					& .logo{
 						width:auto;
 						float:right;
-						margin-top:0px;
+						margin-top:10px;
 						padding-left:65px;
 						padding-right:5px;
 						&:before{
@@ -499,60 +888,188 @@
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:32px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 
 					}
 				}
 				& .departureHeader, & .returnHeader{
 					background-color: #eceff1;
-					margin-bottom:15px;
+					margin-bottom:0px;
 					& h3{
 						margin-top:10px;
 						color: #a5aab2;
 						text-transform: uppercase;
 						font-weight:normal;
 						font-size:24px;
-						font-family:$Marvel-Regular;
+						font-family:$Source-Sans-Pro;
 					}
 				}
-				& .traveller{
-					margin-top:0px;
+				& .travellerName{
+					padding-top:10px;
+					& h4.card-title{
+					    margin-top: 0px;
+						margin-bottom: 5px;
+						font-weight: normal;
+						font-size: 24px;
+					}
+					& .col-sm-12{
+						padding:0px;
+					}
+				}
+				& #flightInfo{
+					padding:10px 0px 0px;
+					.deptHeader{
+						font-family: $Source-Sans-Pro;
+					    font-size: 32px;
+					    font-weight: bold;
+					    line-height: 1.0;
+					    letter-spacing: 0.5px;
+					    color: #000000;
+					    float:left;
+					    margin-top:0px;
+					    &.Roundtrip{
+					    	&:before{
+								float:right;
+								margin:-5px 15px 0px;
+								content: "";
+								background:url(../images/logos/rt-icon.svg) no-repeat;
+								width:40px;
+								height:40px;
+					    	}
+						    &:after{
+					    		display:none;
+					    	}
+					    }
+					    &.Oneway{
+					    	&:before{
+						    	display:none;
+					    	}
+						    &:after{
+					    		float:right;
+								margin:5px 15px 0px;
+								content: "";
+								background:url(../images/logos/ow-icon.svg) no-repeat;
+								width:40px;
+								height:40px;
+					    	}
+					    }
+					}
+					.arrvHeader{
+						font-family: $Source-Sans-Pro;
+					    font-size: 32px;
+					    font-weight: bold;
+					    line-height: 1.0;
+					    letter-spacing: 0.5px;
+					    color: #000000;
+					    float:left;
+					    margin-top:0px;
+					}
+					& .triptype{
+						font-size:14px;
+						position:absolute;
+						bottom:0px;
+						text-align:center;
+						width:100%;
+						padding:0px;
+						margin:0px;
+					}
+					& #departTime{
+						clear:both;
+					}
 				}
 				& .departureDetails, & .returnDetails{
 					& .row{
-						padding-bottom:15px;
-					}
-					& .col-sm-5{
-						padding-left:0px;
-						border-right:1px solid #a5aab2;
-						& h5{
-							color:#a5aab2;
-							border-bottom:1px solid #a5aab2;
+						padding-bottom:0px;
+						& .segTitle{
+							background-color:$grey-blue;
+							& h5{
+								margin:5px 0px;
+								text-transform:uppercase;
+								color:$white;
+							}
 						}
-						& h3{font-size:24px;}
-						& .col-sm-6{
-							padding-left:0px;
-							padding-right:0px;
+						& .list-group{
+							margin-bottom:0px;
+						}
+						& .departureDetails{
+							& ul{
+								width:100%;
+								display:table;
+								margin:0px;
+								padding:0px;
+								list-style-type: none;
+								font-size:10px;
+								color:$grey-blue;
+								border-bottom:1px solid #a5aab2;
+								& li{
+									display:table-cell;
+									padding:5px;
+									text-align:center;
+									border-right:1px solid #a5aab2;
+									&:last-child{
+										border-right:0px solid #a5aab2;
+									}
+									& p{
+										margin-top:10px;
+									}
+									& .recordLocator{
+										&:before{
+											display:none;
+										}
+									}
+								}
+							}
+						}
+						& .departureTime{
+							& ul{
+								width:100%;
+								display:block;
+								margin:0px;
+								padding:0px;
+								list-style-type: none;
+								font-size:10px;
+								border-bottom:none;
+								& li{
+									display:block;
+									padding:0px;
+									border-bottom:1px solid #a5aab2;
+									&:first-child{
+										
+									}
+										& ul{
+										width:100%;
+										display:table;
+										margin:0px;
+										padding:0px;
+										list-style-type: none;
+										font-size:10px;
+										& li{
+											display:table-cell;
+											padding:5px;
+											text-align:center;
+											font-family: $Source-Sans-Pro;
+											font-size: 10px;
+											color: $grey-blue;
+											border-bottom:none;
+											&:first-child, &:last-child{
+												width:28%;
+												border-bottom:none;
+											}
+											& p{
+												margin-top:10px;
+											}
+										}
+									}
+									&.arrive{
+										& ul{
+										
+										}
+									}
+								}
+							}
 						}
 					}
-					& .col-sm-5:last-child{
-						padding-right:0px;
-						padding-left:15px;
-						border-left:1px solid #a5aab2;
-						border-right:0px solid #a5aab2;
-					}
-					& .col-sm-2{
-						text-align:center;
-						& h5{
-							color:#a5aab2;
-							border-bottom:1px solid #a5aab2;
-							text-align:center;
-						}
-					}
-					& .col-sm-12{
-						padding-left:0px;
-						padding-right:0px;
-					}
+					
 					& h3, & h6{
 						margin-top:0px;
 						margin-bottom:0px;
@@ -575,6 +1092,18 @@
 						padding-right:0px;
 						& .col-sm-4{
 							padding-left:0px;
+						}
+					}
+				}
+				& .returnDetails{
+					& .arrive{
+						& .col-sm-6{
+							padding:0px;
+						}
+					}
+					& .depart{
+						& .recordLocator{
+							margin-left:0px;
 						}
 					}
 				}

@@ -405,7 +405,7 @@ input:focus {
  .form-control + .form-control-feedback {
     margin-top: -8px;
   }
-input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date], select{
+input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=number],& input[type=tel], select{
     width: 100%;
     color:#1a4666;
     padding: 12px 20px;

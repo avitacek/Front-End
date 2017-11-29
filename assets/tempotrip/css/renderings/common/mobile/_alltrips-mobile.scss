@@ -1,2 +1,65 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
+@include max-screen(xl) {
+    
+}
+@include max-screen(large) {
+
+}
+@include max-screen(mediumLarge){
+	
+}
+@include max-screen(medium) {
+	#all-trips-page .body-content{
+		padding-top:80px;
+	}
+	#all-trips-page .body-content #tripsSideBar{
+		margin-top:15px;
+	}
+	#all-trips-page .body-content #tripsSideBar .row .col-sm-12{
+		padding-right:0px;
+		padding-left:0px;
+	}
+}
+@include max-screen(smallMedium){
+
+}
+@include max-screen(small) {
+	#all-trips-page .body-content #timeRow #rangePicker .cbs-date{
+		width:100%;
+		float:left;
+	}
+	#all-trips-page .body-content .col-md-7 table.dataTable tbody th, #all-trips-page .body-content .col-md-7 table.dataTable tbody td:first-child, #all-trips-page .body-content .col-md-5 table.dataTable tbody th:first-child, #all-trips-page .body-content .col-md-5 table.dataTable tbody td:first-child{
+		padding:15px 10px 15px 38px;
+		text-align:left;
+	}
+	#all-trips-page .body-content .col-md-7 table.dataTable tbody th, #all-trips-page .body-content .col-md-7 table.dataTable tbody td:first-child, #all-trips-page .body-content .col-md-5 table.dataTable tbody th:first-child, #all-trips-page .body-content .col-md-5 table.dataTable tbody td:first-child{
+		padding:15px 10px 15px 38px;
+		text-align:left;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #costs, #all-trips-page .body-content .col-md-5 #approvals .content .row #status{
+		width:100%;
+		border-right:0px solid #ddd;
+	} 
+	#all-trips-page .body-content .col-md-5 .row .col-sm-12{
+		padding:0px 0px;
+	}
+	#all-trips-page .body-content #tripsSideBar{
+		margin-top:15px;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader.Roundtrip:before{
+		margin:-5px 37px 0px;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #sites{
+		display:none;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content #app-status .col-md-6{
+		float:left;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #approvalID{
+		float:left;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #status .row #clock{
+		margin-top:10px;
+	}
+}
