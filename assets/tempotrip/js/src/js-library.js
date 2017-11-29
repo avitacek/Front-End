@@ -1,7 +1,7 @@
 
     function selectBoxCreator(div,label, jsonData, externalClass ){
         //Create the Parent select//
-        $(div).append('<label>'+ label +'</label><select class="form-control ' + externalClass + '"><option values=""> Pick Your ' + label + '</options></select>');
+        $(div).append('<label>'+ label +'</label><select class="form-control ' + externalClass + '"><option value=""> Pick Your ' + label + '</options></select>');
         //request the JSON data and parse into the select element
 
         var select = (div + ' select.' + externalClass)

@@ -10,7 +10,66 @@
 
 }
 @include max-screen(medium) {
-
+	body.inIFrame{
+		& .body-content{
+			padding-top:0px!important;
+			padding-right:0px!important;
+			padding-left:0px!important;
+			& #flip-form{
+				max-width:100%!important;
+				border-radius:0px!important;
+				& #landing-login{
+					padding:10px 2.5% 2.5% !important;
+					 border:0px solid $teal!important;
+					 & .row{
+					 	&:first-child{
+					 		& .col-sm-12{
+					 			width:50%!important
+					 		}
+					 	}
+					 }
+					 & #login-form{
+					 	margin-top:0px;
+					 	& .row{
+					 		& .col-sm-12{
+					 			width:100%!important;
+					 			& .form-group{
+					 				width:49%!important;
+					 				float:left!important;
+					 				&:first-child{
+					 					margin-right:1%!important;
+					 				}
+					 				&:last-child{
+					 					margin-left:1%!important;
+					 				}
+					 			}
+					 		}
+					 	}
+					 }
+				}
+				& .col-sm-4{
+					min-height:71px;
+					& #landing-register{
+						padding:15px!important;
+						height:auto;
+						& .register-title{
+							& .col-sm-12{
+								width:50%;
+								float:left;
+								border-right:1px solid #ddd;
+								&:first-child{
+									display:none;
+								}
+							}
+						}
+					}
+					& #login-slider{
+						display:none;
+					} 
+				}
+			}
+		}
+	}
 }
 @include max-screen(small) {
 	.col-sm-8{

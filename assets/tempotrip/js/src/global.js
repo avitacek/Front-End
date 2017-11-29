@@ -73,6 +73,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'message-page'){
         createModal();
     }
+    else if ($('body').attr('id') === 'affiliate-form-page'){
+        setAffiliatePage();
+    }
     
 }
 function setProfilePage(){
@@ -88,7 +91,21 @@ function setProfilePage(){
             yearRange: "-100:+0",
         });
         $('#datepicker').val(dataUser.dob);
-
+        
+        changeDate(dataUser.dob);
+        function changeDate(t){
+            var date = new Date(t);
+            if (!isNaN(date.getTime())) {
+                var day = date.getDate().toString();
+                var month = (date.getMonth() + 1).toString();
+                // Months use 0 index.
+                var newDate = (month[1] ? month : '0' + month[0]) + '/' +
+                   (day[1] ? day : '0' + day[0]) + '/' + 
+                   date.getFullYear();
+                $('#datepicker').val(newDate)
+                return 
+            }
+        }
     },10)
     $('.plusBtn').on('click', function(){
         $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
@@ -561,7 +578,8 @@ function setAllTripsPage(){
                 function setButtons(newTime){
                     var limitTime = 86400;
                     if (newTime > limitTime){
-                        $('#approveBtn, #denyBtn').addClass('disabled');
+                        $('#approveBtn').text('Auto Approved').addClass('disabled');
+                        $('#denyBtn').text('Cancel')
                         $('#app-status, #clock').addClass('isAutoApproved');
                         $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
                         $('.approval-card-title').text('Auto Approved');
@@ -613,7 +631,7 @@ function setAllTripsPage(){
     function create_pnrTable(pnr_names, traveler_name_first, traveler_name_last, trip_pnr_id){
         var pnrData = []
         $.each(pnr_names, function(pnrNamekey, pnrNameValue){
-            console.log(pnrNamekey, pnrNameValue)
+            //console.log(pnrNamekey, pnrNameValue)
             pnrData.push( {
                 name_first: pnrNameValue.name_first,
                 name_last: pnrNameValue.name_last,
@@ -981,9 +999,37 @@ function setAddTravelersPage(){
             //console.log(return_val)
         }else{
             $('.role').addClass('disabled');
-            $('#roleID').val(data.role_id);
+            //$('#roleID').val(data.role_id);
             //console.log(return_val)
         }
+
+        changeDate(data.dob);
+        function changeDate(t){
+            var date = new Date(t);
+            if (!isNaN(date.getTime())) {
+                var day = date.getDate().toString();
+                var month = (date.getMonth() + 1).toString();
+                // Months use 0 index.
+                var newDate = (month[1] ? month : '0' + month[0]) + '/' +
+                   (day[1] ? day : '0' + day[0]) + '/' + 
+                   date.getFullYear();
+                $('#datepicker').val(newDate)
+                return 
+            }
+        }
+        phoneFormatter(data.phone);
+        function phoneFormatter(b) {
+            $('input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+            var number = b.replace(/[^\d]/g, '')
+            if (number.length == 7) {
+                number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
+            } else if (number.length == 10) {
+                number = number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+                 
+            }
+            $('#phone').val(number)
+            $('#phone').attr({ maxLength : 10 });
+        };
 
     });
     function does_role_exist(role_list,my_role){
@@ -1069,9 +1115,26 @@ function setEventsPage(){
         $('.nav-tabs a:first').trigger('click');
     },100)
 }
+function setAffiliatePage(){
+    setTimeout(function(){
+        $('body').find('li#affiliate-form-page').addClass('active')
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+}
 function createModal(){
     $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
         $('#modalBtn').click();
+}
+function checkiFrame(){
+    if (window!=window.top) { 
+        console.log('Page in an iframe');
+        $('body').addClass('inIFrame');
+    }
+    else{
+        console.log('Page not in an iframe');
+    }
 }
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip({
@@ -1088,7 +1151,25 @@ $(document).ready(function(){
         }
       }
     });
-	checkPage()
+    function phoneFormatter() {
+     $(' input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+      $('input[type="tel"]').on('input', function() {
+        var number = $(this).val().replace(/[^\d]/g, '')
+        if (number.length == 7) {
+          number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
+        } else if (number.length == 10) {
+          number = number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+         
+        }
+        $(this).val(number)
+        $('input[type="tel"]').attr({ maxLength : 10 });
+        
+      });
+    };
+
+    phoneFormatter();
+    checkiFrame();
+	checkPage();
 });
 $(window).load(function(){
     $("input").focusout(function(){

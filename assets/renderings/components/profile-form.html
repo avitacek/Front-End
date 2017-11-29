@@ -62,7 +62,7 @@
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     
-                                                        <input type="tel" name="phone" id="phone" class="form-control" value="<?php echo $app->constants->request['phone'];?>"  title="" required="required" placeholder="Cell Phone Number">
+                                                        <input type="tel" name="phone" id="phone" class="form-control" value="<?php echo $app->constants->request['phone'];?>"  title="" required="required" placeholder="Cell Phone Number" maxlength="10">
                                                         <label for="phone-number">Cell Phone Number</label>
                                                         <span class="focus-border"><i></i></span>
                                                     
@@ -91,7 +91,7 @@
                                                 </div>
                                                 <div class="col-sm-12 col-sm-12">
                                                     
-                                                        <input type="tel" name="ec_phone" id="ec_phone" class="form-control" value="<?php echo $app->constants->request['ec_phone'];?>"  title="" placeholder="Contact Phone Number">
+                                                        <input type="number" name="ec_phone" id="ec_phone" class="form-control" value="<?php echo $app->constants->request['ec_phone'];?>"  title="" placeholder="Contact Phone Number" maxlength="10">
                                                         <label for="phone-number">Contact Phone Number</label>
                                                         <span class="focus-border"><i></i></span>
                                                     

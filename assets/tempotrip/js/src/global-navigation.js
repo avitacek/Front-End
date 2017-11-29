@@ -85,9 +85,10 @@ $(document).ready(function(){
             	}),
 		        $("<a>", {
                     class: itemData.class,
+                    class: itemData.fontA,
                     target: itemData.target,
 		            href: itemData.link,
-		            html: itemData.name
+		            html: itemData.name,
 		        }));
         if (itemData.sub) {
             var subList = $("<ul>");

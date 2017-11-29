@@ -190,7 +190,7 @@ table.dataTable tr > th:focus{
 	font-weight:bold;
 	text-align:left;
 	text-transform:uppercase;
-	margin-bottom: 0px;
+	margin-bottom: 5px;
 }
 .success, .success p{
 	margin-top:0px!important;
@@ -252,5 +252,34 @@ table.dataTable tr > th:focus{
         transform:rotate(-359deg);
     }
 }
-
+/* Affiliate form custon */
+#affiliate-form-page{
+	& .body-content{
+		& .row{
+			& .col-sm-12{
+				border:1px solid #ffffff;
+				background-color: rgba(255,255,255,0.45);
+				border-radius:3px;
+			}
+		}
+	}
+	& iframe{
+		border:none;
+		& body{
+			& .form-table{
+				border:0px solid #ffffff;
+				width:100%;
+				& #q128{
+					& div{
+						background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
+    					background-size: contain;
+						& img{
+							display:none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 @import "mobile/shared-mobile";

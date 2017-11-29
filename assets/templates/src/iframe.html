@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TempoTrip - iFrame</title>
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+    <link href="css/vendors/plugins.css" rel="stylesheet">
+    <link href="css/tempotrip.css" rel="stylesheet">
+    <script src="js/tempotrip.globals.js"></script>
+    <script src="js/vendors/plugins.js"></script>
+    <?php require_once("../model/commonJs.js.php");?>
+    <script src="js/tempotrip.modules.js"></script>
+    <script src="js/js-library.js"></script>
+    <script src="js/global-navigation.js"></script>
+  </head>
+  <body id="add-travelers-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Global Header ============================== -->
+            @@include('../../renderings/components/global-header.html')
+            <!-- / Global Header ============================ --> 
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row">
+                <!-- iframe ============================== -->
+                @@include('../../renderings/components/iframe-content.html')
+                <!-- / iframe ============================ --> 
+        </div>
+    </div>
+    @@include('../../renderings/components/global-footer.html')
+    <!-- JS ============================== -->
+
+    </body>
+</html>

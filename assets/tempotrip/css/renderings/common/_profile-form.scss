@@ -463,7 +463,7 @@ padding:0px;
     margin-top: -8px;
 }
 
-input[type=text], & input[type=password], & input[type=email], & input[type=select], & input[type=radio],& input[type=date], & select, & input[type=tel], & textarea, & input[type=number],{
+input[type=text], & input[type=password], & input[type=email], & input[type=select], & input[type=radio],& input[type=date],& input[type=number], & select, & input[type=tel], & textarea, & input[type=number],{
     width: 100%;
     position:relative;
     padding: 12px 20px;
@@ -471,7 +471,7 @@ input[type=text], & input[type=password], & input[type=email], & input[type=sele
     height:47px;
     display: inline-block;
     box-sizing: border-box;
-    border-radius:3px;
+    border-radius:0px;
     margin-top:24px;
     margin-bottom:0px;
     position:relative;

@@ -62,6 +62,24 @@ p, ul {
     margin-top: 13%;
     font-weight: bold;
 }
+.client-logo{
+	margin-top: 0px;
+    width: 90px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+    padding-right:10px;
+    border-right:1px solid $grey-blue;
+    color: #119672;
+    position: relative;
+    z-index: 5;
+}
+.client-logo img{
+	width:100%;
+	margin-top:10px;
+	height:auto;
+	border:none;
+}
 .continental-logo{
 	margin-top: 13px;
     width: 150px;
@@ -273,7 +291,7 @@ p, ul {
 		opacity:1;
 	}
 }
-& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel], select{
+& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel],& input[type=number], select{
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
