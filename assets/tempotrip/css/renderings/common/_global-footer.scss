@@ -3,93 +3,23 @@
 
 footer {
     font-family:$Source-Sans-Pro-Bold;
-    position:absolute;
+    position:relative;
     bottom:0px;
     padding:10px 10px;
     width:100%;
     margin-right:auto;
     margin-left:auto;
-    margin-top:0px;
-    background:$slate-grey;
+    margin-top:5%;
+    background:transparent;
     z-index:10;
     & .row{
         padding-left:0px;
         padding-right:0px;
         margin:0px auto;
-        & ul{
-        	list-style-type:none;
-        	padding:0px;
-        	margin:0px;
-        	font-size: 16px;
-        	& li {
-        		line-height:1.75;
-        	}
-        	& a {
-        		color:$white;
-                &:hover{
-                    text-decoration:none;
-                }
-
-        	}
-        }
-        &.bottom{
-            margin:10px auto 0px auto;
-            & .col-sm-12{
-            padding:0px;
-            }
-            & .col-sm-8{
-                padding:0px;
-                & .copyright{
-                    float:left;
-                    font-size:14px;
-                    color:$white;
-                    padding-left:0px;
-                    padding-top:10px;
-                    & p{color:$white;}
-                    & a{
-                        color:$white;
-                        &:hover {
-                            text-decoration:none;
-                            color:$skyblue;
-                        }
-                        &:visited {
-
-                        }
-                    }
-                    & p{
-                        margin-bottom:5px;
-                    }
-                }
-                
-            }
-            & .col-sm-4{
-                padding:0px;
+        & .col-sm-6{
+            & .logo{
                 float:right;
-                & a{
-                    width:auto;
-                    height:100%;
-                    box-sizing:border-box;
-                    color:$white;
-                    line-height:3em;
-                    float:right;
-                    padding-right:10px;
-                    & .logo{
-                        width:50px;
-                        height:50px;
-                        float:left;
-                        padding-left:0px;
-                        background:url('../../tempotrip/images/global/logo-2.svg') center center no-repeat;
-                        background-size:100% auto;
-                        border:none;
-                        outline:none;
-                        margin-right:10px;
-
-                    }
-                    &:hover{
-                    text-decoration:none;
-                    }
-                }
-            } 
+            }
         }
     }
 }
