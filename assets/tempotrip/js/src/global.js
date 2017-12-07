@@ -2,6 +2,7 @@
 //window size//
 var windowW = window.innerWidth;
 var windowH = window.innerHeight;
+var navH = $('#header').height();
 //breakpoints detection/
 var xsmall = 320;
 var small = 414;
@@ -579,7 +580,7 @@ function setAllTripsPage(){
                     var limitTime = 86400;
                     if (newTime > limitTime){
                         $('#approveBtn').text('Auto Approved').addClass('disabled');
-                        $('#denyBtn').text('Cancel')
+                        $('#denyBtn').text('Cancel').addClass('disabled');
                         $('#app-status, #clock').addClass('isAutoApproved');
                         $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
                         $('.approval-card-title').text('Auto Approved');
@@ -1129,14 +1130,17 @@ function createModal(){
 }
 function checkiFrame(){
     if (window!=window.top) { 
-        console.log('Page in an iframe');
+        //console.log('Page in an iframe');
         $('body').addClass('inIFrame');
     }
     else{
-        console.log('Page not in an iframe');
+        //console.log('Page not in an iframe');
     }
 }
 $(document).ready(function(){
+    console.log(windowH)
+    //console.log(navH)
+    //$('#adminNav').height(windowH-navH)
     $('[data-toggle="tooltip"]').tooltip({
       position: {
         my: "center bottom-20",
@@ -1180,4 +1184,5 @@ $(window).load(function(){
         }
     })
 });
+
 //Global JS File//

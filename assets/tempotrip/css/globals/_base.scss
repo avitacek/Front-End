@@ -37,13 +37,14 @@ p, ul {
     height: 60px;
     float: left;
     margin-left: 0rem;
-    color: #119672;
+    color: #65879c;
     position: relative;
     z-index: 5;
     background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
     background-size: contain;
     padding-left: 65px;
     font-family:$Raleway;
+    position:relative;
 }
 .logo:before {
     content: 'Tempo';
@@ -62,38 +63,31 @@ p, ul {
     margin-top: 13%;
     font-weight: bold;
 }
+.logo span{
+	position:absolute;
+	top:20%;
+	left:-150px;
+	letter-spacing: 4px;
+	font-size: 20px;
+}
 .client-logo{
 	margin-top: 0px;
-    width: 90px;
-    height: 60px;
+    width: auto;
+    height: 55px;
     float: left;
-    margin-right: 10px;
-    padding-right:10px;
-    border-right:1px solid $grey-blue;
-    color: #119672;
+    margin-left: 45px;
+    padding-right:0px;
+    color: $grey-blue;
+    letter-spacing:4px;
     position: relative;
     z-index: 5;
+    overflow:hidden;
 }
 .client-logo img{
-	width:100%;
-	margin-top:10px;
-	height:auto;
+	width:auto;
+	margin-top:0px;
+	height:100%;
 	border:none;
-}
-.continental-logo{
-	margin-top: 13px;
-    width: 150px;
-    height: auto;
-    float: left;
-    margin-left: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-    color: #119672;
-    position: relative;
-    z-index: 5;
-    background: url(../images/logos/continental-logo.png) no-repeat;
-    background-size: contain;
-    padding-left: 65px;
 }
 .newWindowIcon{
 	background: url('../images/global/new-window.svg') center center no-repeat;
@@ -336,7 +330,7 @@ p, ul {
 	margin:0px;
 }
 & button, & input[type=submit], & a#submit, & input[type=file] {
-    background-color:$teal;
+    background-color:$orange;
     text-align:center;
     color: white;
     padding: 14px 20px;
