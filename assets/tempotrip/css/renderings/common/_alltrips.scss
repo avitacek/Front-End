@@ -131,6 +131,18 @@
 				font-size:20px;
 				color:$red;
 			}
+			& table.dataTable tbody td .fa-exclamation-circle{
+				font-size:20px;
+				color:$red;
+			}
+			& table.dataTable tbody td .fa-minus-circle{
+				font-size:20px;
+				color:$red;
+			}
+			& table.dataTable tbody td .fa-times{
+				font-size:20px;
+				color:$red;
+			}
 			& table.dataTable tbody th:focus, & table.dataTable tbody td:focus, & table.dataTable tbody th:focus, & table.dataTable tbody td:focus{
 				outline:none!important;
 
@@ -239,6 +251,9 @@
 									color:$red!important;
 								}
 								&.isErrored{
+									color:$red!important;
+								}
+								&.isVoided{
 									color:$red!important;
 								}
 								&.isPending{
@@ -370,6 +385,11 @@
 										}
 									}
 									&.isErrored{
+										.approval-card-title{
+											color:$red;
+										}
+									}
+									&.isVoided{
 										.approval-card-title{
 											color:$red;
 										}

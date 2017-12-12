@@ -166,15 +166,15 @@ p, ul {
     background:$white;
     border: 2px solid $orange;
   }
-  .ui-tooltip {
+.ui-tooltip {
     padding: 10px 20px;
     color: $orange;
     border-radius: 0px;
     text-transform: uppercase;
     box-shadow: 2px 2px 0px $orange, -2px -2px 0px $orange, 2px -2px 0px $orange, -2px 2px 0px $orange;
     border: 2px solid $orange;
-  }
-  .arrow {
+}
+.arrow {
     width: 70px;
     height: 16px;
     overflow: hidden;
@@ -182,15 +182,15 @@ p, ul {
     left: 50%;
     margin-left: -35px;
     bottom: -16px;
-  }
-  .arrow.top {
+}
+.arrow.top {
     top: -16px;
     bottom: auto;
-  }
-  .arrow.left {
+}
+.arrow.left {
     left: 20%;
-  }
-  .arrow:after {
+}
+.arrow:after {
     content: "";
     position: absolute;
     left: 20px;
@@ -201,69 +201,69 @@ p, ul {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
-  .arrow.top:after {
+}
+.arrow.top:after {
     bottom: -20px;
     top: auto;
-  }
-& .modal{
-		& .modal-box{
-			position:relative;
-			padding:2% 5%;
-			margin:10% auto;
-			background:#ffffff;
-			border-radius:3px;
-			border:1px solid #e3e3e3;
-			box-shadow: none;
-			display:block;
-			width:40%;
-			height:auto;
-			& .logo{
-				width:58%;
-				height:60px;
-				font-size:3em;
-				&::after{
-					width:30px;
-					height:30px;
-					top:25%
-				}
-			}
-		}
-		& .modal-dialog{
-			position:relative;
-			padding:0% 0%;
-			margin:10% auto;
-			box-shadow: none;
-			display:block;
-			width:40%;
-			height:auto;
-			& .close{
+}
+.modal{
+	& .modal-box{
+		position:relative;
+		padding:2% 5%;
+		margin:10% auto;
+		background:#ffffff;
+		border-radius:3px;
+		border:1px solid #e3e3e3;
+		box-shadow: none;
+		display:block;
+		width:40%;
+		height:auto;
+		& .logo{
+			width:58%;
+			height:60px;
+			font-size:3em;
+			&::after{
 				width:30px;
 				height:30px;
-				border-radius:50%;
-				background:#ffffff;
-				border:1px solid #333333;
-				position:absolute;
-				color:#333333;
-				top:-20px;
-				right:-10px;
-				padding:10px 9px;
-				box-sizing:border-box;
-				line-height:7px;
-				cursor:pointer;
-				opacity:1;
-				&:focus{
-					outline:none;
-				}
-				&:hover{
-					opacity:1;
-				}
-			}
-			& .success, & .errors{
-				text-align:left;
+				top:25%
 			}
 		}
 	}
+	& .modal-dialog{
+		position:relative;
+		padding:0% 0%;
+		margin:10% auto;
+		box-shadow: none;
+		display:block;
+		width:40%;
+		height:auto;
+		& .close{
+			width:30px;
+			height:30px;
+			border-radius:50%;
+			background:#ffffff;
+			border:1px solid #333333;
+			position:absolute;
+			color:#333333;
+			top:-20px;
+			right:-10px;
+			padding:10px 9px;
+			box-sizing:border-box;
+			line-height:7px;
+			cursor:pointer;
+			opacity:1;
+			&:focus{
+				outline:none;
+			}
+			&:hover{
+				opacity:1;
+			}
+		}
+		& .success, & .errors{
+			text-align:left;
+		}
+	}
+}
 .close-btn{
 	width:30px;
 	height:30px;
@@ -285,7 +285,7 @@ p, ul {
 		opacity:1;
 	}
 }
-& input[type=text], & input[type=password], & input[type=email], input[type=select], input[type=radio],input[type=date],& input[type=tel],& input[type=number], select{
+input[type=text], input[type=password], input[type=email], input[type=select], input[type=radio],input[type=date], input[type=tel],& input[type=number], select{
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -311,7 +311,7 @@ p, ul {
  
     }
 }
-& input[type=checkbox]{
+input[type=checkbox]{
     width: auto;
     padding: 12px 20px;
     margin: 8px 5px 0 0px;
@@ -326,10 +326,10 @@ p, ul {
  
     }
 }
-& select{
+select{
 	margin:0px;
 }
-& button, & input[type=submit], & a#submit, & input[type=file] {
+button, input[type=submit], a#submit, input[type=file] {
     background-color:$orange;
     text-align:center;
     color: white;
@@ -525,7 +525,4 @@ a.cta{
 	a.btn{
 		padding-top:15px;
 	}
-
-
-
 }

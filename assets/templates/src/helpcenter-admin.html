@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>Admin Help Center</title>
+
+    <!-- Styles -->
+    <link href="css/tt-faq-all.css" rel="stylesheet">
+    <link href="css/tt-faq-custom.css" rel="stylesheet">
+    <link href="css/tempotrip-helpers.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'>
+    <link href="vendors/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+    <!-- Favicons 
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="images/favicon.png">-->
+    <style>
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        html {
+            margin-bottom: 1em;
+            line-height: 1.875em;
+            font-weight: 300
+        }
+
+        h1 a:before,
+        h2 a:before,
+        h3 a:before {
+            margin-left: -30px;
+            margin-right: 8px;
+            font-family: 'Glyphicons Halflings';
+            font-size: 22px;
+            color: #5cc7b2;
+            opacity: .3;
+            content: "";
+            transition: .3s ease
+        }
+
+        .main-content {
+            padding: 0px 50px 50px 0;
+            font-size: 16px;
+            line-height: 27px;
+        }
+
+        h2 {
+            font-size: 36px;
+            line-height: 33px;
+            margin-bottom: 35px;
+            margin-top: 50px;
+            font-weight: 300;
+        }
+
+        article img {
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        blockquote p {
+            font-style: normal;
+            font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+  <body data-spy="scroll" data-target=".sidebar" data-offset="200" id="helpcenter-admin">
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-boxed sidebar-dark">
+<a class="sidebar-brand m-b-20" href="/"><img src="images/helpcenter/TTLogo-New.svg" alt="logo" width="200"></a>
+        <p class="text-white text-center"><em>Admin | TempoTrip Help Center</em></p>
+
+      <ul class="nav sidenav dropable">
+        
+        
+        
+        <li>
+          <a href="#how_to_guide">Getting Started</a>
+          <ul>
+            <li><a href="#admin_account_access">Accessing Your Account</a></li>
+            <li>
+              <a href="#managing_travelers">Managing Travelers</a>
+              <ul>
+                <li><a href="#managing_travelers-1">Add Individual Travelers</a></li>
+                <li><a href="#managing_travelers-2">Bulk Upload Travelers</a></li>
+                <li><a href="#managing_travelers-3">Editing Travelers</a></li>
+              </ul>
+            </li>
+            <li><a href="#travel_arrangers">Travel Arrangers</a>
+              <ul>
+                <li><a href="#travel_arrangers-1">Setting Up An Arranger </a></li>
+                <li><a href="#travel_arrangers-2">Book for Other Travelers</a></li>
+              </ul>
+            </li>
+<!--            <li><a href="#subtitle4"></a></li>-->
+          </ul>
+        </li>
+<!--        <li><a href="#flight_approvals">Flight Approvals</a></li>-->
+<!--        <li><a href="#html-structure">Frequently Asked Questions </a></li>  -->
+      </ul>
+
+    </aside>
+    <!-- END Sidebar -->
+
+
+    <header class="site-header navbar-transparent">
+
+      <!-- Top navbar & branding -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+          <!-- Toggle buttons and brand -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+          <!-- END Toggle buttons and brand -->
+
+          <!-- Top navbar -->
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="helpcenter-admin.html">Help Center</a></li>
+<!--              <li><a href=""></a></li>-->
+<!--
+              <li><a href="helpcenter-admin.html">FAQ</a></li>
+              <li><a href="helpcenter-admin.html">Travel Resources</a></li>
+            -->
+              <li class="hero"><a href="http://" target="_blank">Contact Support</a></li>
+<!--              <li class="hero"><a href="http://"></a></li>-->
+            </ul>
+          </div>
+          <!-- END Top navbar -->
+
+        </div>
+      </nav>
+      <!-- END Top navbar & branding -->
+
+      <!-- Banner -->
+        <div class="banner auto-size" style="background-color: #5cc7b2">
+            <div class="container-fluid text-white">
+                <h1><strong>Admin&nbsp;<i class="fa fa-book"></i> Help Center &amp; User Guide</strong></h1>
+                <h5></h5>
+            </div>
+        </div>
+        <!-- END Banner -->
+
+    </header>
+
+    <main class="container-fluid">
+
+      <!-- Main content -->
+      <article class="main-content" role="main">
+
+        <section>
+            <h2 id="how_to_guide">Getting Started <small>TempoTrip Admin</small></h2>
+                <p>Below you will find instructions on how to use TempoTrip </p>
+          
+            <h2 id="#admin_account_access">Accessing Your Admin Account</h2>
+<!--          <p>Once you have your account created and have finalized everything with your TempoTrip Implementation manager they will send you an invite to activate your admin account.</p>-->
+            <h3>Activating Your Account</h3>
+            <p>To activate your account:</p>
+            <ol>
+                <li>You should have recieved an email from TempoTrip Support. Click the <strong>"Get Started"</strong> link in the email.</li>
+                <li>Create your account password in the form provided. You will be directed to your TempoTrip Profile dashboard</li>
+                <li>Complete your profile details and click <strong>Submit</strong> to save.</li>
+                <li>That's it! Now your admin account is now active.</li>
+                
+            </ol>
+           </section>
+
+
+        <section>
+        <h2 id="managing_travelers">Managing Travelers</h2>
+             <p>
+                 As an administrator or support person with access to the Travelers tab at the master site level of the TempoTrip Dashboard, you can perform the basic functions of administering and managing the site's Travelers. 
+            </p>
+            <p>
+                Below walks you through the TempoTrip Dashboard functions for adding travelers, Traveler activation, editing profiled travelers information, and booking for profiled travelers. 
+            </p>
+            <h3 id="managing_travelers-1">Add Individual Travelers</h3>
+            <p>
+                As an administrator, you can manually add a traveler to create a traveler profile.
+            </p>
+            <ul>
+                <li>
+                    The administrator adds the initial profile information, (First Name, Last Name, Email) and the traveler will be responsible to complete the rest of the profile information.</li>
+                <li>Required information to individually add a traveler:
+                    <ul>
+                        <li>Email: (Required) Enter the new traveler’s email address, which must be unique to the site.</li>
+                        <li>First Name: (Required) Enter the new traveler’s first name.
+                            <strong>Note:</strong>  It is important for the First, Middle and Last Name to agree with the government issued documents (such as a passport or driver's license) that will be presented at the airport for check in.</li> 
+                        <li>Last Name: (Required) Enter the new traveler’s last name.</li>
+                    </ul>
+            </ul>
+            <div class="clearfix col-md-6">
+                    <h4>To Add a Traveler</h4>
+
+                    <ol>
+                        <li>Log In to your TempoTrip Account</li>
+                        <li>Click&nbsp;<strong><i class="fa fa-user-plus fa-lg"></i>&nbsp;Travelers</strong>&nbsp;on the left sidebar Navigation<em><br></em></li>
+                        <li>On the right hand side you will see the Add Traveler(s) area. Complete all required fields.</li>
+                        <li>When you are finished, click the &nbsp;<strong>Add Traveler</strong>&nbsp;button</li>
+                    </ol>
+                </div>
+           <div class="col-md-6">
+               <img src="images/helpcenter/Add-Individual-Traveler-Screen-Shot-2.jpeg" alt="GUIDE IMAGE GOES HERE" class="img-responsive pull-right">
+            </div>
+  
+            
+            <h3 id="managing_travelers-2">Bulk Upload Travelers</h3>
+            <p>As an administrator, you can add multiple travelers to your site at once, with a profile upload file. 
+ 
+To prepare a traveler profile upload, you need to prepare the data according to the upload file format for either a comma-separated values (CSV) file. If errors are found in the upload, the error can either prevent one traveler or the whole file of travelers from being uploaded, depending on the type of error. </p>
+            <p>
+                You will need to use the following csv file as an upload template.
+</p>
+            <div class="clearfix col-md-6">
+                    <h4>To Add Multiple Travelers</h4>
+
+                    <ol>
+                        <li>Log In to your TempoTrip Account</li>
+                        <li>Click&nbsp;<strong><i class="fa fa-user-plus fa-lg"></i>&nbsp;Travelers</strong>&nbsp;on the left sidebar Navigation<em><br></em></li>
+                        <li>On the right hand side you will see the Add Traveler(s) area. At the bottom you will see a <strong>"Select a File"</strong>&nbsp; button to upload your csv file with your list of travelers.<br>You can also download the upload template <a href="/docs/sample.csv">HERE</a></li>
+                        <li>When you are finished, click the &nbsp;<strong>Add Traveler</strong>&nbsp;button</li>
+                    </ol>
+                </div>
+           <div class="col-md-6">
+               <img src="images/helpcenter/bulk-Upload-Screen-Shot-1.jpeg" height="" alt="GUIDE IMAGE GOES HERE" class="img-responsive pull-right">
+            </div>
+            <div class="clearfix"></div>
+            
+            <div class="admonition-block tip-block conf-macro output-block conf-macro output-inline m-b-20" data-hasbody="false" data-macro-name="excerpt-include">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="admonition-icon" width="18" height="18" viewBox="0 0 18 18"> 
+                    <path d="M0 9c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9zm8-1v5c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1s-1 .4-1 1zm1-2c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1z" fill="#0052CC" fill-rule="evenodd"> 
+                    </path> 
+                    </svg><b>NOTE:</b>
+                        <p>When you add a traveler or when you upload multiple travelers at a time with csv, the process sends out an activation email with a log-in link to the traveler as an initial invitation. </p><p>Travelers will not be known to the system until the traveler clicks the link in email, creates a password and completes their traveler profile information.</p>
+
+            </div>
+
+            <h3 id="managing_travelers-3">Editing Travelers</h3>
+            <p>As an Admin you can edit/modify an individual traveler’s profile information and their role in the TempoTrip Dashboard. Roles/Permissions can only be changed after they have been added as a traveler.</p>
+            <div class="clearfix col-md-12">
+                    <h4>Edit a Traveler's Profile</h4>
+
+                    <ol>
+                        <li>Log In to your TempoTrip Account</li>
+                        <li>Click&nbsp;<strong><i class="fa fa-user-plus fa-lg"></i>&nbsp;Travelers</strong>&nbsp;on the left sidebar Navigation<em><br></em></li>
+                        <li>Click on the traveler that you want to edit. Their profile detials will show on the right hand side.</li>
+                        <li>To edit, simply change any of the information already provided in the fields. </li>
+                        <li>When you are finished, click the &nbsp;<strong>Save</strong>&nbsp;button</li>
+                    </ol>
+                </div>
+           <div class="col-md-12">
+               <img src="images/helpcenter/editing-traveler-profile" height="" alt="GUIDE IMAGE GOES HERE" class="img-responsive pull-right">
+            </div>
+          <div class="clearfix"></div>
+          </section>
+
+
+        <section>
+          <h2 id="travel_arrangers">Travel Arrangers</h2>
+            <p>A travel arranger is someone who can book travel for someone else. Arrangers have the access to book for all travelers you have added to your traveler address book. For example a travel manager might be the <strong>"travel arranger"</strong> for a number of employees. You can:</p>
+            <!--<ul>
+              <li>To set a traveler to be an arranger, change the <strong>"user status"</strong> field in the Travelers Profile to . 
+                  </li>
+            </ul>
+          
+            <div class="admonition-block tip-block conf-macro output-block conf-macro output-inline m-b-20" data-hasbody="false" data-macro-name="excerpt-include">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="admonition-icon" width="18" height="18" viewBox="0 0 18 18"> 
+                    <path d="M0 9c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9zm8-1v5c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1s-1 .4-1 1zm1-2c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1z" fill="#0052CC" fill-rule="evenodd"> 
+                    </path> 
+                    </svg>
+                        <p><b>NOTE:</b>&nbsp;Person must be already added to the address book and completed their activation in order to change their role/permissions. </p>
+            </div>
+          -->
+          <h3 id="travel_arrangers-1">Set Up a Travel Arranger</h3>
+          <p>To have another Travel Arranger in your account please contact support@tempotrip.com</p>
+          
+          
+          <h3 id="travel_arrangers-2">Booking For Other Traveler(s)</h3>
+            <p>As a site administrator or arranger, you can book travel for another profiled traveler or multiple travelers if traveling together. </p>
+            <p>Follow these instructions for searching and purchasing flight services for multiple profiled travelers.</p>
+                
+                <h4 id="booking_flights-1"><small>Book a Flight for Multiple Travelers</small></h4>
+               <p></p>
+                <ol>
+                   <li><strong>Log In</strong> to your TempoTrip account</li>
+                   <li>Click&nbsp;<strong>Book Flights Icon&nbsp;<i class="fa fa-plane fa-lg"></i></strong>&nbsp;on the left sidebar Navigation<em><br></em></li>
+                   <li>In the flight search box form, enter your<strong> From and To
+                       airports / cities</strong>, select your <strong>Leave and Return
+                       dates and times</strong>.</li>
+                    <li>To book for more than one person change <strong>"Traveler(s)"</strong> drop down to the desired amount of traveling adults.</li>
+                   <li>Click&nbsp;<strong>Search</strong></li>
+                    <div class="admonition-block tip-block conf-macro output-block conf-macro output-inline m-b-20" data-hasbody="false" data-macro-name="excerpt-include">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="admonition-icon" width="18" height="18" viewBox="0 0 18 18"> 
+                    <path d="M0 9c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9zm8-1v5c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1s-1 .4-1 1zm1-2c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1z" fill="#0052CC" fill-rule="evenodd"> 
+                    </path> 
+                    </svg><b>NOTE:</b>
+                        <p>For a One-way flight search click the <b>"One Way"</b> tab.&nbsp; For a Round-trip flight search click the <strong>"Round Trip"</strong> tab. You can search for different Classes / Fare Types from the <strong>"Seat Class"</strong> drop down.</p>
+
+                    </div>
+                   <li>
+                       Sort all the displayed results by the <em>lowest Total Fare</em>, <em>earliest Departure Time</em>, <em>earliest Arrival Time</em>, <em>least number of stops</em> or the <em>shortest duration</em> by clicking the <strong>"Sorting By:"</strong> button.
+                   </li>
+                   <li>
+                       Filter your results by Stops, Airline, AM / PM Depart and Arrive times, or min and max price by using the left side filter bar. 
+                   </li>
+                   <li>
+                       Click the <strong>"BOOK IT"</strong> button on the results flight card to choose that departure and return trip.
+                   </li>
+                   <li>
+                       Review your selected trip details and complete the <strong>Traveler Details</strong> and <strong>Billing Information</strong> forms below to purchase your ticket(s). There will be a traveler detail form for each traveler, depending on how many Traveler(s) you chose when you started your search.
+                   </li>
+                    <li>To add a profiled traveler, select from the dropdown provided at the top of each traveler detail form. Once selected the form will populate with all that travelers details. </li>
+                   <div class="admonition-block tip-block conf-macro output-block conf-macro output-inline m-b-20" data-hasbody="false" data-macro-name="excerpt-include">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="admonition-icon" width="18" height="18" viewBox="0 0 18 18"> 
+                        <path d="M0 9c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9zm8-1v5c0 .6.4 1 1 1s1-.4 1-1V8c0-.6-.4-1-1-1s-1 .4-1 1zm1-2c.6 0 1-.4 1-1s-.4-1-1-1-1 .4-1 1 .4 1 1 1z" fill="#0052CC" fill-rule="evenodd"> 
+                        </path> 
+                        </svg>
+                       <b>NOTE:</b>
+                       <p>If a profiled traveler is not shown in the dropdown it is because they have not yet activated their account and saved their profile information.</p><p>If the Billing Information Form is not shown that means your company or group administrator has added the payment method for you and you can finish booking your trip still by clicking submit payment button.</p>
+                       
+                    </div>
+                   <li>Before purchasing, you must click the checkbox for the "* I hereby agree to the TempoTrip terms and conditions for this purchase." statement above the Submit Payment button. (You can click the terms and conditions link in the statement to see what they are.)</li>
+                    <li>Click the <strong>Submit Payment</strong> if you are ready to complete your booking reservation.</li>
+                </ol>
+            
+        </section>
+
+<!--
+        <section>
+          <h2 id="flight_approvals">Flight Approvals</h2>
+          <p></p>
+          <p></p>
+        </section>
+-->
+        
+      </article>
+      <!-- END Main content -->
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container-fluid">
+        <a id="scroll-up" href="#"><i class="fa fa-angle-up"></i></a>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <p>Copyright &copy; 2017. All right reserved</p>
+          </div>
+          <div class="col-md-6 col-sm-6">
+<!--
+            <ul class="footer-menu">
+              <li><a href="page_changelog.html">Changelog</a></li>
+              <li><a href="page_credits.html">Credits</a></li>
+              <li><a href="mailto:support@tempotrip.com">Contact us</a></li>
+            </ul>
+-->
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END Footer -->
+
+    <!-- Scripts -->
+    <script src="js/tt-faq-all-min.js"></script>
+    <!--<script src="assets/js/tt-faq-custom.js"></script>-->
+
+  </body>
+</html>

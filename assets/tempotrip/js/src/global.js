@@ -77,7 +77,12 @@ function checkPage(){
     else if ($('body').attr('id') === 'affiliate-form-page'){
         setAffiliatePage();
     }
-    
+    else if ($('body').attr('id') === 'helpcenter-admin '){
+        setHelpCenterPage();
+    }
+   
+
+   
 }
 function setProfilePage(){
     var dataUser = system_output.request_user_data;
@@ -433,7 +438,13 @@ function setAllTripsPage(){
         } 
         else if (status === 5) {
             return '<span class="fa fa-times fa-6" aria-hidden="true"></span>';
+        }
+        else if (status === 6) {
+            return '<span class="fa fa-exclamation-circle fa-6" aria-hidden="true"></span>';
         } 
+        else if (status === 7) {
+            return '<span class="fa fa-minus-circle fa-6" aria-hidden="true"></span>';
+        }  
     }
     function getName(data, type, full, meta){
 
@@ -537,29 +548,13 @@ function setAllTripsPage(){
             $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Approved');
         }
-        else if ( d === 3){
-            $('#app-status, #clock').addClass('isAutoApproved');
-            $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
-            $('.approval-card-title').text('Auto Approved');
-        }
-        else if ( d === 4){
-            $('#app-status, #clock').addClass('isDenied');
-            $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
-            $('.approval-card-title').text('Denied');
-        }else if ( d === 5){
-            $('#app-status, #clock').addClass('isCanceled');
-            $('#approvalID').addClass('isCanceled').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
-            $('.approval-card-title').text('Canceled');
-        }
-        else if ( d === 6){
-            $('#app-status, #clock').addClass('isErrored');
-            $('#approvalID').addClass('isErrored').append('<i class="fa-exclamation-circle fa-6" aria-hidden="true"></i>');
-            $('.approval-card-title').text('Error');
-        }
         else if ( d === 2){
+            $('#app-status, #clock').addClass('isPending');
+            $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Pending Approval');
             //$('#timer').text('');
-            checkApprovalTime(e);
-            function checkApprovalTime(e){
+            //checkApprovalTime(e);
+            /*function checkApprovalTime(e){
                 var approvalLimitDate = new Date(e);
                 var today = new Date();
 
@@ -591,8 +586,32 @@ function setAllTripsPage(){
                     }
                     //console.log(newTime + 'vs' + limitTime)
                 }
-            }
-        }   
+            }*/
+        } 
+        else if ( d === 3){
+            $('#app-status, #clock').addClass('isAutoApproved');
+            $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Auto Approved');
+        }
+        else if ( d === 4){
+            $('#app-status, #clock').addClass('isDenied');
+            $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Denied');
+        }else if ( d === 5){
+            $('#app-status, #clock').addClass('isCanceled');
+            $('#approvalID').addClass('isCanceled').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Canceled');
+        }
+        else if ( d === 6){
+            $('#app-status, #clock').addClass('isErrored');
+            $('#approvalID').addClass('isErrored').append('<i class="fa-exclamation-circle fa-6" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Error');
+        }
+        else if ( d === 7){
+            $('#app-status, #clock').addClass('isVoided');
+            $('#approvalID').addClass('isVoided').append('<i class="fa-minus-circle fa-6" aria-hidden="true"></i>');
+            $('.approval-card-title').text('Voided');
+        }    
     }
     $('#approveBtn').on('click', function(){
        //console.log('change table and DB status to Approved');
@@ -1124,6 +1143,9 @@ function setAffiliatePage(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
 }
+function setHelpCenterPage(){
+    
+}
 function createModal(){
     $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
         $('#modalBtn').click();
@@ -1137,10 +1159,14 @@ function checkiFrame(){
         //console.log('Page not in an iframe');
     }
 }
+function getLogo(){
+    var dataLogo = system_output.file_library.img.logo;
+    //var dataAlt = system_output.file_library.img.alt;
+    console.log(dataLogo)
+    $('.client-logo img').attr("src", dataLogo);
+    //$('.client-logo img').attr("alt", dataAlt);
+}
 $(document).ready(function(){
-    console.log(windowH)
-    //console.log(navH)
-    //$('#adminNav').height(windowH-navH)
     $('[data-toggle="tooltip"]').tooltip({
       position: {
         my: "center bottom-20",
@@ -1174,6 +1200,7 @@ $(document).ready(function(){
     phoneFormatter();
     checkiFrame();
 	checkPage();
+    getLogo();
 });
 $(window).load(function(){
     $("input").focusout(function(){
