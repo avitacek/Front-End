@@ -547,6 +547,8 @@ function setAllTripsPage(){
             $('#app-status, #clock').addClass('isApproved');
             $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Approved');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Cancel')
         }
         else if ( d === 2){
             $('#app-status, #clock').addClass('isPending');
@@ -592,25 +594,35 @@ function setAllTripsPage(){
             $('#app-status, #clock').addClass('isAutoApproved');
             $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
             $('.approval-card-title').text('Auto Approved');
+            $('#approveBtn').text('Auto Approved').addClass('disabled');
+            $('#denyBtn').text('Cancel');
         }
         else if ( d === 4){
             $('#app-status, #clock').addClass('isDenied');
             $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
             $('.approval-card-title').text('Denied');
+            $('#approveBtn').text('Auto Approved').addClass('disabled');
+            $('#denyBtn').text('Deny').addClass('disabled');
         }else if ( d === 5){
             $('#app-status, #clock').addClass('isCanceled');
-            $('#approvalID').addClass('isCanceled').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isCanceled').append('<i class="fa fa-times fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Canceled');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Cancel').addClass('disabled');
         }
         else if ( d === 6){
             $('#app-status, #clock').addClass('isErrored');
-            $('#approvalID').addClass('isErrored').append('<i class="fa-exclamation-circle fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isErrored').append('<i class="fa fa-exclamation-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Error');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Cancel').addClass('disabled');
         }
         else if ( d === 7){
             $('#app-status, #clock').addClass('isVoided');
-            $('#approvalID').addClass('isVoided').append('<i class="fa-minus-circle fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isVoided').append('<i class="fa fa-minus-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Voided');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Voided').addClass('disabled');
         }    
     }
     $('#approveBtn').on('click', function(){

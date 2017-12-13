@@ -76,7 +76,7 @@ p, ul {
     height: 55px;
     float: left;
     margin-left: 45px;
-    padding-right:0px;
+    padding:5px 0px;
     color: $grey-blue;
     letter-spacing:4px;
     position: relative;
@@ -85,7 +85,7 @@ p, ul {
 }
 .client-logo img{
 	width:auto;
-	margin-top:0px;
+	margin-left:5px;
 	height:100%;
 	border:none;
 }
