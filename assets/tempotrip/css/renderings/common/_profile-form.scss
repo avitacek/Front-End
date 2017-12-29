@@ -64,7 +64,7 @@ input:focus {
   border: 1px solid #E3E3E3;
   border-radius: 4px;
   color: #565656;
-  padding: 8px 12px;
+  padding: 8px 20px;
   height: 40px;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -351,6 +351,10 @@ select.form-control{
   background-color: #FFFFFF;
   margin-bottom: 30px;
 }
+#submit-col{
+  padding-left:0px;
+  padding-right:0px;
+}
 .card:hover .filter {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -498,6 +502,18 @@ input ~ label{
       line-height: 1.5em;
       text-transform:none;
 }
+select ~ label{
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 0px;
+      font-size:14px;
+      transition: 0.3s;
+      z-index: 1;
+      letter-spacing: 1.2px;
+      line-height: 1.5em;
+      text-transform:none;
+}
 textarea ~ label{
       position: absolute;
       left: 0px;
@@ -577,8 +593,33 @@ input:focus ~ .focus-border i:after, input.has-content ~ .focus-border i:after {
   right: -3px;
 }
 /*airline rewards*/
+.points .col-sm-10, .points .col-sm-2{
+  padding-left:0px;
+  padding-right:0px;
+}
+.points .row:first-child{
+  margin:0px auto 10px;
+}
+.travel-points-row{
+  border-bottom:1px solid #dddddd;
+  padding:5px 0px;
+}
+.travel-points-row .col-sm-10, .travel-points-row .col-sm-2{
+  padding-left:0px;
+  padding-right:0px;
+}
+.travel-points-row .col-sm-10 select{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.travel-points-row .col-sm-10 input{
+  margin-top:0px;
+}
+.travel-points-row .form-group{
+  margin-bottom:0px;
+}
 a.add_field_button{
-  border-radius: 50%;
+    border-radius: 50%;
     width: 20px;
     height: 20px;
     padding: 0px .25em;
@@ -586,7 +627,19 @@ a.add_field_button{
     border: 1px solid #9A9A9A;
     position: relative;
     margin: 0px 20px;
-    color:#9A9A9A;
+    color:#333333;
+    text-align:center;
+    background-color: $orange;
+    cursor:pointer;
+}
+a.add_field_button:before{
+  content:'+';
+  color:$white;
+  margin:10px auto;
+  font-size:18px;
+  font-weight:bold;
+  line-height:0px;
+  cursor:pointer;
 }
 a.remove_field{
     border-radius: 50%;
@@ -597,6 +650,18 @@ a.remove_field{
     border: 1px solid #9A9A9A;
     position: relative;
     margin: 10px 20px;
-    color:#9A9A9A;
+    color:#333333;
+    text-align:center;
+    background-color: $red;
+    cursor:pointer;
+}
+a.remove_field:before{
+  content:'-';
+  color:$white;
+  margin:10px auto;
+  font-size:25px;
+  font-weight:bold;
+  line-height:0px;
+  cursor:pointer;
 }
 @import "mobile/profile-form-mobile";

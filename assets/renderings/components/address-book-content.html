@@ -17,9 +17,15 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body">
-        <p>Are you sure you want to remove these travelers</p>
-        <button type="button" class="no" data-dismiss="modal">No</button>
-        <button type="button" class="yes">Yes</button>
+        <form method="POST" role="form">
+          <input type='hidden' id="userID2" name='user_id' value="">
+          <input type='hidden' name='status' value="5">
+          <input type='hidden' name='a' value="delete_user">
+          <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+          <p>Are you sure you want to remove these travelers</p>
+          <button type="button" class="no" data-dismiss="modal">No</button>
+          <button type="submit" class="yes">Yes</button>
+        </form>
       </div>
     </div>
 

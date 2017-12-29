@@ -26,7 +26,6 @@
                                  <form action="" method="POST" role="form">
                                     <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                     <input type='hidden' name='a' value="add_traveler">
-                                    
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <input id="firstname" name="fname" title="First Name" type="text" size="28" required/>
@@ -45,7 +44,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <button type="submit" id="addTravelerButton"/>Add Traveler</button>
-                                            <p>An email will be sent to this traveler welcoming them to TempoTrip. Travelers can login in, update thier profile and book travel arrangments.</p>
+                                            <p>An email will be sent to this traveler welcoming them to TempoTrip. Travelers can login in, update their profile and book travel arrangments.</p>
                                         </div>
                                     </div>
                                 </form>
@@ -85,88 +84,82 @@
                                 <input type='hidden' name='a' value="save_profile">
                                 <input type='hidden' id="userID" name='user_id' value="">
                                 <input type='hidden' id="roleID" name='role_id' value="">
-                                <!--Create js to change user id vaue when selected-->
                                 <div role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                            <input type="text" readonly name="f_name" id='firstName' value="" required title="" placeholder="">
-                                            <label for="f_name">First Name</label>
-                                            <span class="focus-border"><i></i></span>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                                <input type="text" readonly name="f_name" id='firstName' value="" required title="" placeholder="">
+                                                <label for="f_name">First Name</label>
+                                                <span class="focus-border"><i></i></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                                <input type="text" name="m_initial" id='middleName' value="" title="" placeholder="">
+                                                <label for="m_initial">Middle Name</label>
+                                                <span class="focus-border"><i></i></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                                <input type="text" readonly name="l_name" id='lastName' value="" required title="" placeholder="">
+                                                <label for="l_name">Last Name</label>
+                                                <span class="focus-border"><i></i></span> 
+                                        </div>
+                                        <div class="col-md-12">
+                                                <input type="text" name="role_name" class="role_name" readonly value="" placeholder="User Role">
+                                                <label for="l_name">Role</label>
+                                                <span class="focus-border"><i></i></span> 
+                                        </div>
+                                        <div class="col-md-12">
+                                                <div class="form-group disabled" id="user_satus_select_carrier"></div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                            <input type="text" name="m_initial" id='middleName' value="" title="" placeholder="">
-                                            <label for="m_initial">Middle Name</label>
-                                            <span class="focus-border"><i></i></span>
-                                    </div>
-                                    <div class="col-md-12">
-                                            <input type="text" readonly name="l_name" id='lastName' value="" required title="" placeholder="">
-                                            <label for="l_name">Last Name</label>
-                                            <span class="focus-border"><i></i></span> 
-                                    </div>
-                                    <div class="col-md-12">
-                                            <div class="form-group" id="role_select_carrier"></div>
-                                    </div>
-                                    <div class="col-md-12">
-                                            <div class="form-group" id="user_satus_select_carrier"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                            <input type="text" name="dob" id="datepicker" required title="dob" value="">
-                                            <label for="dob">Date of Birth</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                                <input type="text" name="dob" id="datepicker" required title="dob" value="">
+                                                <label for="dob">Date of Birth</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
                                             <div name="gender" id="gender_select_carrier"></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                            <input type="text" name="email" id='email-address' readonly value="" required title="" placeholder="">
-                                            <label for="email">Email Address</label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                                <input type="text" name="email" id='email-address' readonly value="" title="" placeholder="">
+                                                <label for="email">Email Address</label>
+                                                <span class="focus-border"><i></i></span>
+                                        </div>
+                                        <div class="col-md-12">
+                                                <input type="tel" name="phone" value="" id='phone' title="" placeholder="" maxlength="10">
+                                                <label for="phone-number">Phone Number</label>
+                                                <span class="focus-border"><i></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name='known_number' id="tsaNumber" value="" placeholder="">
+                                            <label class="" for="tsaNumber" >Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
                                             <span class="focus-border"><i></i></span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                            <input type="tel" name="phone" value="" id='phone' title="" required placeholder="" maxlength="10">
-                                            <label for="phone-number">Phone Number</label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name='redress_number' id="reddressNumber" value="" placeholder="">
+                                            <label class="" for="redress_number" >Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
                                             <span class="focus-border"><i></i></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <hr/>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group" id="role_select_carrier"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="text" name='known_number' id="tsaNumber" value="" placeholder="">
-                                        <label class="" for="tsaNumber" >Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
-                                        <span class="focus-border"><i></i></span>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="text" name='redress_number' id="reddressNumber" value="" placeholder="">
-                                        <label class="" for="redress_number" >Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
-                                        <span class="focus-border"><i></i></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <button type="submit" class="saveBtn disabled">Save</button>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button type="submit" class="saveBtn disabled">Save</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
-                            <!--<div class="row">
+                            <div class="row">
                                 <div class="col-sm-12" id="remove">
-                                    <button type="submit" class="remove hide" data-toggle="modal" data-target="#confirmModal"/>Remove Traveler</button>
+                                    <button type="submit" class="remove" data-toggle="modal" data-target="#confirmModal"/>Remove Traveler</button>
                                 </div>
-                            </div>-->
-                          </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

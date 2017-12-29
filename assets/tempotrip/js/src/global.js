@@ -471,6 +471,7 @@ function setAllTripsPage(){
         $('#approvals .site').attr("href" , "https://"+ data.site_hostedhostname);
         $('#approvals .cost').text('$'+data.total);
         $('#approvals #airConfirm_Number').text(data.airline_confirmation);
+        $('#approvals #custom_code_Number').text(data.pnr_id);
         //SWitch the hidden fields for the comments box//
         $('#approvals #pnr_id').val(data.pnr_id);
         $('#approvals #note_id').val(data.note_id);
@@ -548,54 +549,23 @@ function setAllTripsPage(){
             $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Approved');
             $('#approveBtn').text('Approve').addClass('disabled');
-            $('#denyBtn').text('Cancel')
+            $('#denyBtn').text('Deny');
+            $('#timer').text('')
         }
         else if ( d === 2){
             $('#app-status, #clock').addClass('isPending');
             $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Pending Approval');
-            //$('#timer').text('');
-            //checkApprovalTime(e);
-            /*function checkApprovalTime(e){
-                var approvalLimitDate = new Date(e);
-                var today = new Date();
-
-                var diff = today.getTime() - approvalLimitDate.getTime();
-                //console.log(diff)
-                var msec = diff;
-                var ss = Math.floor(msec / 1000);
-                msec -= ss * 1000;
-
-                var time = "";
-                //console.log(time);
-                var time = ss;
-                //console.log(time);
-                var newTime = time.toString().replace(/-/g,"");
-                //console.log(time);
-                setButtons(newTime)
-                function setButtons(newTime){
-                    var limitTime = 86400;
-                    if (newTime > limitTime){
-                        $('#approveBtn').text('Auto Approved').addClass('disabled');
-                        $('#denyBtn').text('Cancel').addClass('disabled');
-                        $('#app-status, #clock').addClass('isAutoApproved');
-                        $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
-                        $('.approval-card-title').text('Auto Approved');
-                    }else{
-                        $('#app-status, #clock').addClass('isPending');
-                        $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
-                        $('.approval-card-title').text('Pending Approval');
-                    }
-                    //console.log(newTime + 'vs' + limitTime)
-                }
-            }*/
+            $('#timer').text('Tickets will be auto approved after 24hrs of purchase.');
+            $('#denyBtn').text('Deny | Cancel');
         } 
         else if ( d === 3){
             $('#app-status, #clock').addClass('isAutoApproved');
             $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
             $('.approval-card-title').text('Auto Approved');
             $('#approveBtn').text('Auto Approved').addClass('disabled');
-            $('#denyBtn').text('Cancel');
+            $('#denyBtn').text('Deny');
+            $('#timer').text('This ticket was auto approved after 24hrs of purchase because no action was taken.')
         }
         else if ( d === 4){
             $('#app-status, #clock').addClass('isDenied');
@@ -603,31 +573,39 @@ function setAllTripsPage(){
             $('.approval-card-title').text('Denied');
             $('#approveBtn').text('Auto Approved').addClass('disabled');
             $('#denyBtn').text('Deny').addClass('disabled');
+            $('#timer').text('This ticket was denied by an approver.')
         }else if ( d === 5){
             $('#app-status, #clock').addClass('isCanceled');
             $('#approvalID').addClass('isCanceled').append('<i class="fa fa-times fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Canceled');
             $('#approveBtn').text('Approve').addClass('disabled');
-            $('#denyBtn').text('Cancel').addClass('disabled');
+            $('#denyBtn').text('Canceled').addClass('disabled');
+            $('#timer').text('This ticket was canceled and you may have a credit for future travel.')
         }
         else if ( d === 6){
             $('#app-status, #clock').addClass('isErrored');
             $('#approvalID').addClass('isErrored').append('<i class="fa fa-exclamation-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Error');
             $('#approveBtn').text('Approve').addClass('disabled');
-            $('#denyBtn').text('Cancel').addClass('disabled');
+            $('#denyBtn').text('Deny').addClass('disabled');
+            $('#timer').text('An error occured please contact support@tempotrip.com.')
         }
         else if ( d === 7){
             $('#app-status, #clock').addClass('isVoided');
             $('#approvalID').addClass('isVoided').append('<i class="fa fa-minus-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Voided');
             $('#approveBtn').text('Approve').addClass('disabled');
-            $('#denyBtn').text('Voided').addClass('disabled');
+            $('#denyBtn').text('Deny').addClass('disabled');
+            $('#timer').text('This ticket was voided within 24 hours of purchase and the amount will be fully refunded.')
         }    
     }
-    $('#approveBtn').on('click', function(){
+    $('#changeBtn').on('click', function(){
        //console.log('change table and DB status to Approved');
-    })  
+       createModal();
+    }) 
+    $('#cancelBtn').on('click', function(){
+        console.log('cancel btn clicked');
+    }); 
     function changeDepartureDate(t){
         var date_time_convert = new Date(t.replace(/-/g,"/"));
         var newDate = date_time_convert.toLocaleString()
@@ -862,37 +840,6 @@ function setAddTravelersPage(){
         var filename = path.match(/[^\\/]*$/)[0];
         $('.file-return').text(filename);
         $("#addBulkTravelersButton").removeClass('hide');
-        /*function makeBulkTable(){
-            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-                if (regex.test($("#fileUpload").val().toLowerCase())) {
-                    if (typeof (FileReader) != "undefined") {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            var table = $("<table id='bulkLoad'/>");
-                            var rows = e.target.result.split("\n");
-                            for (var i = 0; i < rows.length; i++) {
-                                var row = $("<tr />");
-                                var cells = rows[i].split(",");
-                                for (var j = 0; j < cells.length; j++) {
-                                    var cell = $("<td />");
-                                    cell.html(cells[j]);
-                                    row.append(cell);
-                                }
-                                table.append(row);
-                            }
-                            $("#bulkTable").html('');
-                            $("#bulkTable").append(table);
-                            $("#addBulkTravelersButton").removeClass('hide');
-                        }
-                        reader.readAsText($("#fileUpload")[0].files[0]);
-                    } else {
-                        alert("This browser does not support HTML5.");
-                    }
-                } else {
-                    alert("Please upload a valid CSV file.");
-                }
-        }
-        makeBulkTable();*/
     })
     var data = system_output.affiliate_user_list;
     var dataNew = []
@@ -909,6 +856,7 @@ function setAddTravelersPage(){
             phone: value.phone,
             known_number: value.known_number,
             redress_number: value.redress_number,
+            role_name: value.role_name,
             role_id: value.role_id,
             status: value.status,
         });
@@ -978,6 +926,11 @@ function setAddTravelersPage(){
                 "mDataProp": "role_id",
                 "visible": false
             },
+            /*{
+                "title": "Role Name",
+                "mDataProp": "role_name",
+                "visible": false
+            },*/
             {
                 "title": "User Status",
                 "mDataProp": "status",
@@ -1012,12 +965,14 @@ function setAddTravelersPage(){
         var data = table.row( this ).data();
         //console.log(data)
         $('#userID').val(data.user_id);
+        $('#userID2').val(data.user_id);
         $('#firstName').val(data.f_name);
         $('#middleName').val(data.m_initial);
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
         $('.gender').val(data.gender);
-        $('.role').val(data.role_id);
+        $('.role_name').val(data.role_id);
+        //$('.role').val(data.role_id);
         $('#email-address').val(data.email);
         $('#phone').val(data.phone);
         $('.status').val(data.status);
@@ -1078,10 +1033,8 @@ function setAddTravelersPage(){
         })
        return return_val
     }
-
     $('.yes').click( function () {
-       table.rows('.selected').remove().draw( false );
-       $('.remove').addClass('hide');
+       //table.rows('.selected').remove().draw( false );
        $('.no').trigger('click');
     });
     $('#personal-form').on('click', function(){
@@ -1159,7 +1112,7 @@ function setHelpCenterPage(){
     
 }
 function createModal(){
-    $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
+    $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"></p><p class="success"></p><p class="message">Please contact a personal travel agent at 1 (800) 544-8785 and we can change the reservation for a better time that accomadates your schedule.</p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
         $('#modalBtn').click();
 }
 function checkiFrame(){

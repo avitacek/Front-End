@@ -184,6 +184,11 @@
 				padding-left:0px;
 				padding-right:0px;
 			}
+			.nav-tabs > li > a{
+				background-color: rgba(255, 255, 255, 0.05);
+				border: 1px solid #ffffff;
+    			border-bottom-color:transparent
+			}
 			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 				background-color: rgba(255, 255, 255, .45);
     			border: 1px solid #ffffff;
@@ -219,7 +224,6 @@
 							}
 						}
 						& .travellerName{
-							border-right:1px solid #ddd;
 							& span{
 								clear:both;
 							}
@@ -261,6 +265,7 @@
 								}
 						}
 						& #flightInfo{
+							border-left:1px solid #ddd;
 							.deptHeader{
 								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
@@ -324,7 +329,6 @@
 							margin:0px;
 							width:50%;
 							padding:15px;
-							border-right:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -341,7 +345,9 @@
 						}
 						& #status{
 							margin-bottom:0px;
+							margin-left:0px!important;
 							padding:15px;
+							border-left:1px solid #ddd;
 							& .row{
 								border-bottom:none;
 								& #clock{
@@ -400,14 +406,15 @@
 											line-height:1.0em;
 											
 										}
-										#timer{
-											color:$teal;
-											margin-top:-5px;
-											line-height:0.75em;
-										}
+										
 									}
 								}
-								
+								& #timer{
+									color:#54565b;
+									margin-top:0px;
+									line-height:1em;
+									font-size:12px;
+								}
 							}
 						}
 						&#app-status{
@@ -430,15 +437,23 @@
 									}
 								}
 							}
-							&.isApproved{
+							&.isApproved, &.isAutoApproved{
 								& .approve{
-									& button{
-										opacity:0.5;
-										cursor:text;
+									& #approveBtn{
+										display:none;
 									}
-									
+									& #changeBtn{
+										display:block;background-color: $orange;
+									}
 								}
 								& .deny{
+									& #denyBtn{
+										display:none;
+									}
+									& #cancelBtn{
+										display:block;background-color: $red;
+									}
+
 									
 								}
 							}
@@ -495,6 +510,24 @@
 								&:before{
 									float:left;
 									content:'Airline Confirmation #:';
+									margin-right:5px;
+								}
+							}
+						}
+						& .customCode{
+							margin-bottom:0px;
+							padding:15px 15px;
+							border-bottom:1px solid #ddd;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								color:$dark-grey;
+								&:before{
+									float:left;
+									content:'Custom Code #:';
 									margin-right:5px;
 								}
 							}

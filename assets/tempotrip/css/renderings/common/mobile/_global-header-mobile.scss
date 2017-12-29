@@ -26,6 +26,9 @@
 			   			}
 					}
 					& .col-sm-6{
+						&:last-child{
+							display:none;
+						}
 						& .dropdown{
 							display:none;
 						}
@@ -38,10 +41,10 @@
 			top: -100%!important;
 		    left: 0px!important;
 		    position:absolute!important;
-		    width:100%!important;
+		    width:60%!important;
 		    height:0!important;
 		    padding:0px 15px!important;
-		    background-color:#eff3f6!important;
+		    background-color:#65879c !important;
 		    & a#logOut{
 		    	display:block!important;;
 		    }
@@ -53,6 +56,44 @@
 		    	text-align:center!important;
 		    	width:100%;
 		    }
+		    & li{
+		    	&:before{
+		    		left:0px!important;
+		    		color: #ddd!important;
+    				text-align:center!important;
+    				border-top:1px solid #a3bfd2!important;
+    				background: rgba(255,255,255,0.45)!important;
+    				color: #333!important;
+		    	}
+		    	&:last-child{
+		    		position:relative!important;
+		    		margin-top:0%!important;
+		    		& a{
+		    			&:before{
+		    				left:0px !important;
+		    				top:0px !important;
+		    			}
+		    		}
+		    	}
+		    	&#profile-page{
+		    		padding-top:13px!important;
+		    		margin-top:30px!important;
+			    	&:before{
+	    				top:-30px!important;
+	    				border-top:0px solid #a3bfd2 !important;
+	    				height:30px!important;
+	    				padding:5px 0px!important;
+			    	}
+		    	}
+		    	&#alltrips-page{
+		    		padding-top:13px!important;
+		    		margin-top:30px!important;
+		    		&:before{
+		    			top:-33px!important;
+		    		}
+		    	}
+		    }
+		    
 		    & a{
 		    	padding:10px 0px!important;
 		    }
@@ -69,8 +110,8 @@
 		}
 		&.hamburgerNavActive .sideBarNav{
 			top:0px!important;
-			height:auto!important;
-			padding:82px 0px 0px!important;
+			height:60%!important;
+			padding:55px 0px 0px!important;
 			box-shadow: 0px 1px 0px $grey-blue;
 			width:100%!important;
 			& ul{

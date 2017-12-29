@@ -9,8 +9,15 @@
                     <div role="tabpanel">
                         <!-- Nav tabs -->
                         <div class="row">
-                            <div class="col-sm-12"><div class="errors"><?php echo $app->output->errorstr ?></div></div>
-                            <div class="col-sm-12"><div class="success"><?php echo $app->output->successstr ?></div></div>
+                            <div class="col-sm-6">
+                              <div class="row">
+                                    <div class="col-sm-12"><div class="errors"><?php echo $app->output->errorstr ?></div></div>
+                                    <div class="col-sm-12"><div class="success"><?php echo $app->output->successstr ?></div></div>
+                                </div>  
+                            </div>
+                            <div class="col-sm-6">
+                                 
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
@@ -148,11 +155,49 @@
                                                         <span class="focus-border"><i></i></span>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-12 points">
+                                                    <div class="row">
+                                                        <div class="col-sm-10">
+                                                            <label>Airline Travel Points</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <a class="add_field_button"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row travel-points-row">
+                                                        <div class="col-sm-10 form-group">
+                                                            <select id="airline_carriers" class="form-control">
+                                                                <option value="?????">Alaska Airlines – Mileage Plan</option>
+                                                                <option value="?????">American Airlines – AAdvantage</option>
+                                                                <option value="?????">Delta Air Lines – SkyMiles</option>
+                                                                <option value="?????">Frontier Airlines – EarlyReturns</option>
+                                                                <option value="?????">Hawaiian Airlines – HawaiianMiles</option>
+                                                                <option value="?????">JetBlue Airways – TrueBlue</option>
+                                                                <option value="?????">Southwest Airlines – Rapid Rewards</option>
+                                                                <option value="?????">Spirit Airlines – FREE SPIRIT</option>
+                                                                <option value="?????">United Airlines – MileagePlus</option>
+                                                                <option value="?????">Virgin America – eleVAte</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <a class="remove_field"></a>
+                                                        </div>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="airlinePoints" class="airline-points" autocomplete="off" placeholder="Enter Your Airline Travel Rewards Number">  
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                        
+                                            
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-12" id="submit-col">
+                                        <button type="submit" class="">Submit</button>    
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                         <div class="row">
@@ -161,10 +206,9 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <button type="submit" class="">Submit</button>    
+                                <!--<button type="submit" class="">Submit</button>  -->  
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                 </form>
             </div>

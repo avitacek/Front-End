@@ -11,6 +11,11 @@
 	& .body-content{
 		& .row{
 			& .col-md-5{
+				& .nav-tabs > li > a{
+					background-color: rgba(255, 255, 255, 0.05);
+					border: 1px solid #ffffff;
+    				border-bottom-color:transparent
+				}
 				& .nav-tabs > li.active > a, & .nav-tabs > li.active > a:hover, & .nav-tabs > li.active > a:focus{
 					background-color: rgba(255, 255, 255, 0.45);
     				border: 1px solid #ffffff;
@@ -115,7 +120,7 @@
 			& #addTravelers_wrapper, & .addTravelerWrapper{
 				background-color: rgba(255,255,255,0.45);
     			border: 1px solid #ffffff;
-    			border-radius:3px;
+    			border-radius:0px 4px 4px 4px;
     			padding:15px 0px;
     			margin-bottom:10px;
 
@@ -248,17 +253,22 @@
   		padding-left:15px;
     	padding-right: 0px;
   	}
+  	& #user_satus_select_carrier{
+  		&.disabled{
+  			opacity:1;
+  		}
+  	}
 	& input ~ label{
 	    position: absolute;
 	    left: 0px;
 	    width: 100%;
 	    top: 0px;
-	    font-size:14px;
+	    font-size:12px;
 	    transition: 0.3s;
 	    z-index: 1;
 	    letter-spacing: 1.2px;
 	    line-height: 1.5em;
-	    text-transform:none;
+	    text-transform:uppercase;
 	  }
 	  & input{
 	    margin-top:24px;
