@@ -263,6 +263,12 @@ p, ul {
 			text-align:left;
 		}
 	}
+	&#dynamicModal{
+		& .col-sm-12{
+			padding-left:0px;
+			padding-right:0px;
+		}
+	}
 }
 .close-btn{
 	width:30px;

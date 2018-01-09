@@ -80,9 +80,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'helpcenter-admin '){
         setHelpCenterPage();
     }
-   
-
-   
+    else if ($('body').attr('id') === 'password-page'){
+        createChangePasswordModal();
+    }
 }
 function setProfilePage(){
     var dataUser = system_output.request_user_data;
@@ -527,7 +527,8 @@ function setAllTripsPage(){
         var trip_pnr_id = data.pnr_id;
 
         checkTripType(data.airseg_legs_count);
-        changeDepartureDate(data.departure_datetime)
+        changeDepartureDate(data.departure_datetime);
+        changeApprovalDate(data.auto_approve_limit_datetime);
         checkStatus(data.status_id, data.auto_approve_limit_datetime);
         create_itinerary(data/*.legs,data.legOne,data.legTwo*/);
         create_pnrTable(data.names_arr, traveler_name_first, traveler_name_last, trip_pnr_id);
@@ -551,12 +552,13 @@ function setAllTripsPage(){
             $('#approveBtn').text('Approve').addClass('disabled');
             $('#denyBtn').text('Deny');
             $('#timer').text('')
+            $('#approvalTime').text('')
         }
         else if ( d === 2){
             $('#app-status, #clock').addClass('isPending');
             $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Pending Approval');
-            $('#timer').text('Tickets will be auto approved after 24hrs of purchase.');
+            $('#timer').text('Tickets will be auto approved 24hrs after time of purchase.');
             $('#denyBtn').text('Deny | Cancel');
         } 
         else if ( d === 3){
@@ -574,6 +576,7 @@ function setAllTripsPage(){
             $('#approveBtn').text('Auto Approved').addClass('disabled');
             $('#denyBtn').text('Deny').addClass('disabled');
             $('#timer').text('This ticket was denied by an approver.')
+            $('#approvalTime').text('')
         }else if ( d === 5){
             $('#app-status, #clock').addClass('isCanceled');
             $('#approvalID').addClass('isCanceled').append('<i class="fa fa-times fa-6" aria-hidden="true"></i>');
@@ -581,6 +584,7 @@ function setAllTripsPage(){
             $('#approveBtn').text('Approve').addClass('disabled');
             $('#denyBtn').text('Canceled').addClass('disabled');
             $('#timer').text('This ticket was canceled and you may have a credit for future travel.')
+            $('#approvalTime').text('')
         }
         else if ( d === 6){
             $('#app-status, #clock').addClass('isErrored');
@@ -589,6 +593,7 @@ function setAllTripsPage(){
             $('#approveBtn').text('Approve').addClass('disabled');
             $('#denyBtn').text('Deny').addClass('disabled');
             $('#timer').text('An error occured please contact support@tempotrip.com.')
+            $('#approvalTime').text('')
         }
         else if ( d === 7){
             $('#app-status, #clock').addClass('isVoided');
@@ -597,6 +602,7 @@ function setAllTripsPage(){
             $('#approveBtn').text('Approve').addClass('disabled');
             $('#denyBtn').text('Deny').addClass('disabled');
             $('#timer').text('This ticket was voided within 24 hours of purchase and the amount will be fully refunded.')
+            $('#approvalTime').text('')
         }    
     }
     $('#changeBtn').on('click', function(){
@@ -604,12 +610,17 @@ function setAllTripsPage(){
        createModal();
     }) 
     $('#cancelBtn').on('click', function(){
-        console.log('cancel btn clicked');
+        //console.log('cancel btn clicked');
     }); 
     function changeDepartureDate(t){
         var date_time_convert = new Date(t.replace(/-/g,"/"));
         var newDate = date_time_convert.toLocaleString()
         $('#departTime, #departTime2, #printdiv #flightInfo #departTime').text(newDate)
+    }
+    function changeApprovalDate(t){
+        var approval_date_time_convert = new Date(t.replace(/-/g,"/"));
+        var newApprovalDate = approval_date_time_convert.toLocaleString()
+        $('#approvalTime').text('Auto Approval time is ' + newApprovalDate)
     }
     function changeDepartDuration(a){
         var dHours = Math.trunc(a/60);
@@ -776,7 +787,7 @@ function setAllTripsPage(){
 
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .City, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .City').text(segvalue.fromcitycode);
 
-                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.tocityname);
+                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.fromcityname);
 
                         function splitTime(t){
                             //console.log(t);
@@ -954,10 +965,10 @@ function setAddTravelersPage(){
         function checkRows(){
             if($('#addTravelers tbody tr').hasClass('selected')){
                 $('#personal-form, .saveBtn').removeClass('disabled');
-                console.log('has selected')
+                //console.log('has selected')
             }else{
                 $('#personal-form, .saveBtn').addClass('disabled');
-                console.log('none selected')
+                //console.log('none selected')
             }
         }
         checkRows();
@@ -1115,6 +1126,9 @@ function createModal(){
     $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"></p><p class="success"></p><p class="message">Please contact a personal travel agent at 1 (800) 544-8785 and we can change the reservation for a better time that accomadates your schedule.</p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
         $('#modalBtn').click();
 }
+function createChangePasswordModal(){
+    $('body').append('<div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><form method="POST"><input type="hidden" name="p" value="profile"><div class="container-fluid"><div class="row"><p class="errors"></p><p class="success"></p><p class="message">Please enter your email address associates with your TempoTrip account</p></div><div class="row"><div class="col-sm-12"><div class="form-group"><input value="" type="text" placeholder="Enter Username | Email" required="" name="username" class="username"><div class="userImage"></div><label>Username | Email</label><span class="focus-border"><i></i></span><button type="submit" id="newPassword">SUBMIT</button></div></div></div></div></form>');
+}
 function checkiFrame(){
     if (window!=window.top) { 
         //console.log('Page in an iframe');
@@ -1161,7 +1175,6 @@ $(document).ready(function(){
         
       });
     };
-
     phoneFormatter();
     checkiFrame();
 	checkPage();
