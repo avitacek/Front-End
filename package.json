@@ -48,7 +48,7 @@
     "gulp-util": "^3.0.8",
     "iframe-resizer": "^3.5.15",
     "iscroll": "^5.2.0",
-    "jquery": "^2.1.4",
+    "jquery": "^3.0.0",
     "jquery-csv": "^0.8.3",
     "jquery-ui": "^1.12.1",
     "jshint": "^2.8.0",
@@ -71,7 +71,7 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "jquery": "2.1.4",
+    "jquery": "3.0.0",
     "knockout": "^3.4.2",
     "knockout-mapping": "^2.6.0"
   }
