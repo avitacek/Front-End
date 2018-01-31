@@ -83,7 +83,7 @@
                                 <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                 <input type='hidden' name='a' value="save_profile">
                                 <input type='hidden' id="userID" name='user_id' value="">
-                                <input type='hidden' id="roleID" name='role_id' value="">
+                                <input type='hidden' id="roleID" name='traveler_role_id' value="">
                                 <div role="tabpanel">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -126,14 +126,14 @@
                                                 <span class="focus-border"><i></i></span>
                                         </div>
                                         <div class="col-md-12">
-                                                <input type="tel" name="phone" value="" id='phone' title="" placeholder="" maxlength="10">
-                                                <label for="phone-number">Phone Number</label>
+                                                <input type="tel" name="phone" value="" id='phone' title="" placeholder="" maxlength="10" pattern=".{10,14}">
+                                                <label for="phone-number">Phone Number <a href="#" data-toggle="tooltip" data-placement="top" title="Phone Number must be 10 numerical digits and contain no other characters like (-+#.%$&*)"><i class="fa fa-info-circle"></i></a></label>
                                                 <span class="focus-border"><i></i></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name='known_number' id="tsaNumber" value="" placeholder="">
+                                            <input type="text" name='known_number' id="tsaNumber" value="" placeholder="" pattern=".{10}">
                                             <label class="" for="tsaNumber" >Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
                                             <span class="focus-border"><i></i></span>
                                         </div>

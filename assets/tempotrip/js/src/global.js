@@ -56,7 +56,9 @@ var START_EV = hasTouch ? 'touchstart' : 'mousedown',
 function checkPage(){
 	if ($('body').attr('id')=== 'landing-page'){
 		
-	}else if ($('body').attr('id') === 'profile-page'){
+	}else if ($('body').attr('id') === 'dashboard-page'){
+        setDashboardPage();
+    }else if ($('body').attr('id') === 'profile-page'){
         setProfilePage();
 		
 	}else if ($('body').attr('id') === 'events-page'){
@@ -83,6 +85,124 @@ function checkPage(){
     else if ($('body').attr('id') === 'password-page'){
         createChangePasswordModal();
     }
+    else if ($('body').attr('id') === 'pnr-creator-page'){
+        createPNR();
+    }
+}
+function createPNR(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#pnr_creator-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+        $('body').find('input').addClass('has-content')
+    },10)
+    var affiliateList = system_output.affiliate_list; 
+
+}
+function setDashboardPage(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#dashboard-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+    //Checking profile settings//
+    var checkCount = 0;
+    function checkprofileSettings(){
+        var fname = system_output.request_user_data.f_name;
+        var lname = system_output.request_user_data.l_name
+        var dob = system_output.request_user_data.dob
+        var phone = system_output.request_user_data.phone
+        if(fname || lname || dob || phone !==''){
+            $('#completedProfile').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++
+        }else{
+            $('#completedProfile').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+            $('#profileList h3').addClass('notComplete')
+        }
+        checkEmergency()
+    }
+    function checkEmergency(){
+        var ec_fname = system_output.request_user_data.ec_f_name;
+        var ec_lname = system_output.request_user_data.ec_l_name
+        var ec_phone = system_output.request_user_data.ec_phone
+        if(ec_fname || ec_lname || ec_phone !==''){
+            $('#emergencyContact').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++
+        }else{
+            $('#emergencyContact').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+        }
+        checkPreference()
+    }
+    function checkPreference(){
+        var seat = system_output.request_user_data.seat_id;
+        var redress = system_output.request_user_data.redress_number;
+        var known_number = system_output.request_user_data.known_number
+        if(redress || known_number !== ''){
+            $('#travelPreferences').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++;
+            if(checkCount >= 3){
+                $('#profileList h3').addClass('complete')
+            }else if(checkCount < 3){
+                $('#profileList h3').addClass('notComplete')
+            } 
+        }else{
+            $('#travelPreferences').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+            $('#profileList h3').addClass('notComplete')
+        }
+        
+    }
+    checkprofileSettings();
+
+    //Dynamic link buttons//
+    function setQuickLinks(){
+        var dataLinks = system_output.user_menus;
+        var btnCount = 0;
+        var getMenuItem = function (itemData) {
+            var item = $("<li id='" + itemData.id + "'>")
+                    .append(
+                            /*$("<i>", {
+                                class: itemData.fontA
+                            }),
+                            $("<ul", {
+                                class: itemData.fontA
+                            }),*/
+                            $("<a>", {
+                                id: "bt"+ btnCount,
+                                class: "btn",
+                                target: itemData.target,
+                                href: itemData.link,
+                                html: "<i class='"+itemData.fontA+"'></i>" + itemData.name
+                            }));
+            if (itemData.sub) {
+                var subList = $("<ul>");
+                $.each(itemData.sub, function () {
+                    subList.append(getMenuItem(this));
+                });
+                item.append(subList);
+            }
+            return item;
+        };
+
+        var $menu = $("#dynamicQuickNav");
+        $.each(dataLinks.menu, function () {
+            btnCount++
+            $menu.append(
+                getMenuItem(this)
+            );
+        });
+    }
+    setQuickLinks();
+    //checking booking sites*/
+    function setBookingList(){
+        var sites = system_output.site_list;
+        $.each(sites, function () { 
+            $('#bookingSites').append('<li class=""><i class="fa fa-plane" aria-hidden="true"></i><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank">' + this.display_name + '</a></li>');
+        });
+    }
+    setBookingList();
+
 }
 function setProfilePage(){
     var dataUser = system_output.request_user_data;
@@ -113,9 +233,34 @@ function setProfilePage(){
             }
         }
     },10)
-    $('.plusBtn').on('click', function(){
-        $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
-    })
+    //TSA input check//
+    function tsaFormatter() {
+      $('#tsaInput').on('input', function() {
+        var tsanumber = $(this).val()
+        if (tsanumber.length > 1 && tsanumber.length < 10) {
+            $(this).addClass('error');
+            
+            
+        }else if (tsanumber.length == 10) {
+            $(this).removeClass('error');
+        }
+        else if (tsanumber.length > 10) {
+            $(this).addClass('error');
+            
+        }
+        else if (tsanumber.length == 0) {
+            $(this).removeClass('error');
+        }
+      });
+    };
+    tsaFormatter();
+    //Rewards dynamic code//
+    if(typeof system_output.request_user_data.airline_rewards != "undefined"){
+        var dataUserRewards = system_output.request_user_data.airline_rewards;
+        $.each(dataUserRewards, function (key, value) {
+            $('#'+ value.code).val(value.rewards_num);
+        });
+    }
 }
 function setAllTripsPage(){
     setTimeout(function(){
@@ -178,21 +323,7 @@ function setAllTripsPage(){
     else{
         $('#tripsSideBar').removeClass('hide');
     }
-    /*
-    var newTrips = [];
-    var newTempTrip = {};
-    $.each(data, function(tripkey,tripvalue){
-       $.each(tripvalue.names_arr, function(namekey,namevalue){
-            var newTempTrip = {};
-            newTempTrip = jQuery.extend(true, {}, tripvalue);
-            newTempTrip.email = namevalue.email;
-            newTempTrip.name_first = namevalue.name_first;
-            newTempTrip.name_last = namevalue.name_last;
-            newTrips.push(newTempTrip);
-       })
-    })
-    data = newTrips;
-    */
+    
     var dataNew = []
     $.each(data, function(key,value){
         console.log(key,value)
@@ -222,6 +353,8 @@ function setAllTripsPage(){
             traveler_user_id: value.traveler_user_id,
             user_id: value.user_id,
             pnr_id: value.pnr_id,
+            pnrdata_create_datetime: value.pnrdata_create_datetime,
+            custom_accountingremark_S32: value.custom_accountingremark_S32,
             note_id: value.note_id,
             note: value.note,
             universal_rec_loc: value.universal_rec_loc,
@@ -237,24 +370,24 @@ function setAllTripsPage(){
     //console.log(data);
     var table = $('#allTrips').DataTable({
         "aaData": data_obj,
-        "order": [[ 6, "desc" ]],
+        "order": [[26, "desc"], [12, "asc"]],
         "select":true,
-        "pageLength": 8,
-        "pagingType": "simple",
-        "info": false,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
         "responsive": true,
         "aoColumns": [
             { 
                 "title": "Name",
                 "mDataProp": "name_first",
-                "width" : "20%",
+                "width" : "12.5%",
                 "responsivePriority": 1,
                 "visible": true
             },
             { 
                 "title": "Last Name",
                 "mDataProp": "name_last",
-                "width" : "20%",
+                "width" : "12.5%",
                 "responsivePriority": 3,
                 "visible": true
             },
@@ -278,7 +411,7 @@ function setAllTripsPage(){
                 "visible": true
             },
             { 
-                "title": "Departure Date",
+                "title": "Departure",
                 "mDataProp": "departure_datetime",
                 "width" : "12.5%",
                 "responsivePriority": 2,
@@ -286,7 +419,7 @@ function setAllTripsPage(){
                 render:getTime
             },
             {
-                "title": "Return Date",
+                "title": "Return",
                 "mDataProp": "return_datetime",
                 "visible": false,
                 render:getTime
@@ -313,11 +446,17 @@ function setAllTripsPage(){
                 "visible": false
             },
             { 
-                "title": "Status",
+                "title": "",
                 "mDataProp": "status_id",
-                "width" : "10%",
+                "width" : "12.5%",
                 "visible": true,
                 render:getImg
+            },
+            { 
+                "title": "Status",
+                "mDataProp": "status_id",
+                "visible": true,
+                render:getValText
             },
             { 
                 "title": "Site Display Name",
@@ -370,6 +509,11 @@ function setAllTripsPage(){
                 "visible": false
             },
             { 
+                "title": "Custom Remark | Fire Code",
+                "mDataProp": "custom_accountingremark_S32",
+                "visible": false
+            },
+            { 
                 "title": "Traveler User ID",
                 "mDataProp": "traveler_user_id",
                 "visible": false
@@ -383,6 +527,14 @@ function setAllTripsPage(){
                 "title": "PNR ID",
                 "mDataProp": "pnr_id",
                 "visible": false
+            },
+            { 
+                "title": "Date Booked",
+                "mDataProp": "pnrdata_create_datetime",
+                "visible": true,
+                "width" : "12.5%",
+                "responsivePriority": 6,
+                render:changeBookedDate
             },
             { 
                 "title": "Note ID",
@@ -409,8 +561,16 @@ function setAllTripsPage(){
                 "mDataProp": "note",
                 "visible": false
             }
-        ] //data changes to mDataProp
+        ]//data changes to mDataProp//
     });
+    function createSelectFilter(){
+        $('#allTrips_wrapper .row:first-child .col-sm-6:last-child').append('<div class="filterSelect"><select id="table-filter" class="right"><option value="" selected>Sort by Approval Status</option><option>Pending</option><option>Auto Approved</option><option>Approved</option><option>Denied</option><option>Canceled</option><option>Error</option><option>Voided</option></select></div>');
+    }
+    createSelectFilter();
+    $('#allTrips_filter input').on('focusin', function(){
+        $('#table-filter').prop('selectedIndex',0);
+        this.value = '';
+    })
     function getTime(data,type,full, meta){
         var date_time_convert = new Date(data.replace(/-/g,"/"));
         var newDate = date_time_convert.toLocaleString();
@@ -421,34 +581,67 @@ function setAllTripsPage(){
         var time=result.split(' ')[1];
         return date;
     }
+    function changeBookedDate(data,type,full, meta){
+        var booked_date_time_convert = new Date(data.replace(/-/g,"/"));
+        var newBookedDate = booked_date_time_convert.toLocaleString()
+        return newBookedDate;
+    }
     function getImg(data, type, full, meta) {
         d = parseInt(data);
         var status = d;
         if (status === 1) {
-            return '<span class="fa fa-check-circle" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-check-circle" aria-hidden="true"></span>';
         }
         else if (status === 2) {
-            return '<span class="fa fa-exclamation-triangle" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-exclamation-triangle" aria-hidden="true"></span>';
         }
         else if (status === 3) {
-            return '<span class="fa fa-check-circle-o" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-check-circle-o" aria-hidden="true"></span>';
         }
         else if (status === 4) {
-            return '<span class="fa fa-ban" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-ban" aria-hidden="true"></span>';
         } 
         else if (status === 5) {
-            return '<span class="fa fa-times fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-times fa-6" aria-hidden="true"></span>';
         }
         else if (status === 6) {
-            return '<span class="fa fa-exclamation-circle fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-exclamation-circle fa-6" aria-hidden="true"></span>';
         } 
         else if (status === 7) {
-            return '<span class="fa fa-minus-circle fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-minus-circle fa-6" aria-hidden="true"></span>';
+        }  
+    }
+    function getValText(data, type, full, meta) {
+        d = parseInt(data);
+        var status = d;
+        if (status === 1) {
+            return 'Approved';
+        }
+        else if (status === 2) {
+            return 'Pending';
+        }
+        else if (status === 3) {
+            return 'Auto Approved';
+        }
+        else if (status === 4) {
+            return 'Denied';
+        } 
+        else if (status === 5) {
+            return 'Canceled';
+        }
+        else if (status === 6) {
+            return 'Error';
+        } 
+        else if (status === 7) {
+            return 'Voided';
         }  
     }
     function getName(data, type, full, meta){
 
     }
+    $('#table-filter').on('change', function(){
+       table.search(this.value).draw();   
+    });
     var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
         $('.wait-spinner').addClass('active');
@@ -471,7 +664,7 @@ function setAllTripsPage(){
         $('#approvals .site').attr("href" , "https://"+ data.site_hostedhostname);
         $('#approvals .cost').text('$'+data.total);
         $('#approvals #airConfirm_Number').text(data.airline_confirmation);
-        $('#approvals #custom_code_Number').text(data.pnr_id);
+        $('#approvals #custom_code_Number').text(data.custom_accountingremark_S32);
         //SWitch the hidden fields for the comments box//
         $('#approvals #pnr_id').val(data.pnr_id);
         $('#approvals #note_id').val(data.note_id);
@@ -660,7 +853,7 @@ function setAllTripsPage(){
             });
             $('#pnr_table').append('<p class-card-title>' + pnrNameValue.name_first + ' ' + pnrNameValue.name_last + '</p>')
         });
-        $('.pnr #pnr_Number').text(trip_pnr_id);
+        //$('.pnr #pnr_Number').text(trip_pnr_id);
 
     }
     var countDept = 0
@@ -845,6 +1038,7 @@ function setAddTravelersPage(){
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
+
     $('#fileUpload').change(function(){
         //console.log($('#fileUpload').val())
         var path = $('#fileUpload').val();
@@ -877,10 +1071,10 @@ function setAddTravelersPage(){
         "aaData": data_obj,
         "order": [[ 0, "desc" ]],
         "select":true,
-        "pageLength": 8,
-        "pagingType": "simple",
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
         "responsive": true,
-        "info": false,
+        "info": true,
         "aoColumns": [
             { 
                 "title": "User ID",
@@ -982,8 +1176,9 @@ function setAddTravelersPage(){
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
         $('.gender').val(data.gender);
-        $('.role_name').val(data.role_id);
-        //$('.role').val(data.role_id);
+        $('.role_name').val(data.role_name);
+        $('.role').val(data.role_id);
+        $('#roleID').val(data.role_id);
         $('#email-address').val(data.email);
         $('#phone').val(data.phone);
         $('.status').val(data.status);
@@ -1017,7 +1212,7 @@ function setAddTravelersPage(){
         }
         phoneFormatter(data.phone);
         function phoneFormatter(b) {
-            $('input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+            $('input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
             var number = b.replace(/[^\d]/g, '')
             if (number.length == 7) {
                 number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
@@ -1028,6 +1223,22 @@ function setAddTravelersPage(){
             $('#phone').val(number)
             $('#phone').attr({ maxLength : 10 });
         };
+        setTimeout(function(){
+            checkIfEmpty();
+        },10)
+        function checkIfEmpty(){
+            var empty = false;
+            $('form input').each(function(){
+                if($(this).val().trim()==""){
+                    empty = true;
+                    $(this).removeClass("has-value");
+                }else{
+                    $(this).addClass("has-value");
+                }
+            });
+            return empty;
+        }
+        checkIfEmpty()
 
     });
     function does_role_exist(role_list,my_role){
@@ -1065,28 +1276,6 @@ function setEventsPage(){
     },10)
     var siteCount = 0
     var data = system_output.site_list;
-   /*var site_list = [
-        {
-            e_site_id:'tempotrip',
-            display_name: 'Tempotrip.com',
-            hostedhostname: 'az.dev.andy.wwwtempotrip.optionstravel.com'
-        },
-        {
-            e_site_id:'militarytogo',
-            display_name: 'Militarytogo.com',
-            hostedhostname: 'az.dev.andy.wwwmilitarytogo.optionstravel.com'
-        },
-        {   
-            e_site_id:'sandboxx',
-            display_name: 'Sandboxx.tempotrip.com',
-            hostedhostname: 'sandboxx.tempotrip.com'
-        },
-        {
-            e_site_id:'ena',
-            display_name: 'ENA.tempotrip.com',
-            hostedhostname: 'ena.tempotrip.com'
-        }
-    ];*/
     $.each(data, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');
@@ -1141,7 +1330,7 @@ function checkiFrame(){
 function getLogo(){
     var dataLogo = system_output.file_library.img.logo;
     //var dataAlt = system_output.file_library.img.alt;
-    console.log(dataLogo)
+    //console.log(dataLogo)
     $('.client-logo img').attr("src", dataLogo);
     //$('.client-logo img').attr("alt", dataAlt);
 }
@@ -1160,15 +1349,37 @@ $(document).ready(function(){
         }
       }
     });
+    setTimeout(function(){
+        checkIfEmpty();
+    },10)
+    function checkIfEmpty(){
+        var empty = false;
+        $('form input').each(function(){
+            if($(this).val().trim()==""){
+                empty = true;
+                $(this).removeClass("has-value");
+            }else{
+                $(this).addClass("has-value");
+            }
+        });
+        return empty;
+    }
     function phoneFormatter() {
-     $(' input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+     $(' input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
       $('input[type="tel"]').on('input', function() {
         var number = $(this).val().replace(/[^\d]/g, '')
         if (number.length == 7) {
           number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
-        } else if (number.length == 10) {
+            $(this).removeClass('error');
+            $('button[type="submit"]').removeClass('disabled');
+        }else if (number.length == 10) {
           number = number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
-         
+            $(this).removeClass('error')
+            $('button[type="submit"]').removeClass('disabled')
+        }
+        else if (number.length < 7){
+            $(this).addClass('error');
+            $('button[type="submit"]').addClass('disabled')
         }
         $(this).val(number)
         $('input[type="tel"]').attr({ maxLength : 10 });
@@ -1187,7 +1398,7 @@ $(window).load(function(){
         }else{
             $(this).removeClass("has-content");
         }
-    })
+    });
 });
 
 //Global JS File//

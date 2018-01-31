@@ -1,0 +1,33 @@
+    <div class="row" id="content-pnr-creator">
+        <div class="col-sm-12" id="topBar">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 id='stepOne'>Welcome to Tempotrip PNR Creator</h1>
+                    <p>Any agent created itineraries need to be started here. This tool will create a passive PNR record and provide the record locator which would allow an agent to complete the reservation in Smartpoint or in the Apollo Terminal.</p>
+                </div>
+                <div class="col-sm-12">
+                    <form method="POST" action="">
+                        <input type="hidden" name="a" value="get_sites">
+                        <input type="hidden" name="p" value="pnr_creator_get_sites">
+                        <div class="col-sm-6">
+                            <label>Ticketed Passengers:</label>
+                            <select name='traveler_count' class="form-control">
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id='affiliate_select_carrier'></div>
+                        </div>
+                        <input class="btn" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

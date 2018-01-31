@@ -122,17 +122,18 @@
     			border: 1px solid #ffffff;
     			border-radius:0px 4px 4px 4px;
     			padding:15px 0px;
-    			margin-bottom:10px;
+    			margin-top:10px;
 
     			& #addTravelers_length{
 					position:relative;
 					width:100%;
-					display:none;
+					display:block;
 					& select{
-						width:100%;
-						height:auto;
-						margin:0px 5px;
 						border-radius:3px;
+						margin:5px 5px !important;
+    					padding: 2px 20px;
+    					height: 30px;
+    					line-height:22px;
 						&:focus{
 							background-color: #FFFFFF;
 						    border: 1px solid #AAAAAA;
@@ -202,14 +203,26 @@
 					}
 					& div.dataTables_wrapper div.dataTables_info{
 						padding:8px 10px;
+						margin-top:14px;
+					}
+					& .dataTables_wrapper .dataTables_info{
+						padding:8px 10px;
+						margin-top:14px;
+					}
+					& .dataTables_wrapper .dataTables_paginate .paginate_button{
+						padding: 0.5em 0.25em;
 					}
     			}
     			& .col-sm-5{
-					display:none;
+					display:block;
 				}
 			}
 			#add-travelers-page .body-content .col-sm-12 .table > thead > tr > th:focus{
 				outline: transparent auto 5px;
+			}
+			& #addTravelers_info{
+				padding:8px 10px;
+				margin-top:14px;
 			}
 			& #addTravelers_wrapper .row:last-child .col-sm-7 .dataTables_paginate{
 				width:100%;
@@ -276,10 +289,15 @@
 	    position:relative;
 	    z-index: 5;
 	    transition: 0.3s;
-	    &:focus, &.has-content{
+	    &:focus, &.has-content, &.has-value{
 				border-color:#5DB9BE !important;
-			}
+		}
+		&.error{
+			box-shadow:2px 2px 5px $red, -2px -2px 5px $red;
+			border-color:$red!important;
+		}
 	  }
+
 	  & input:focus ~ label, & input.has-content ~ label {
 	    color: #5DB9BE!important;
 	  }
@@ -345,6 +363,9 @@
 	    left: auto;
 	    right: -3px;
 	  }
+	  input.error.has-content ~ .focus-border:before, input.error.has-content ~ .focus-border:after, input.error.has-content ~ .focus-border i:before, input.error.has-content ~ .focus-border i:after {
+      		background-color: $red;
+    	}
 	  &:last-child{
 	  	margin-bottom:0px;
 	  	& input{

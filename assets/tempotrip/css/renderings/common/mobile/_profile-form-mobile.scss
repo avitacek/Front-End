@@ -3,7 +3,6 @@
 @include max-screen(medium) {
 	#profile-page{
 		& .body-content{
-			padding-top:15px;
 			& .col-sm-12{
 				width:100%;
 				padding-left:0px;
@@ -57,7 +56,6 @@
 	body .ui-tooltip{display:none;}
 	#profile-page{
 		& .body-content{
-			padding-top:15px;
 			& .col-sm-12{
 				width:100%;
 				padding-left:0px;
