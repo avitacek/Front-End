@@ -16,7 +16,11 @@
                                 </div>  
                             </div>
                             <div class="col-sm-6">
-                                 
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 hidden-sm hidden-xs right" id="submit-col">
+                                        <button type="submit" class="">Save</button>    
+                                    </div>      
+                                </div>  
                             </div>
                         </div>
                         <div class="row">
@@ -69,8 +73,9 @@
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     
-                                                        <input type="tel" name="phone" id="phone" class="form-control" value="<?php echo $app->constants->request['phone'];?>"  title="" required="required" placeholder="Cell Phone Number" maxlength="10">
-                                                        <label for="phone-number">Cell Phone Number</label>
+                                                        <input type="tel" name="phone" id="phone" class="form-control" pattern=".{10,14}" value="<?php echo $app->constants->request['phone'];?>" title="" required="required" placeholder="Cell Phone Number" maxlength="10">
+                                                        <label for="phone-number">Cell Phone Number
+                                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Phone Number must be 10 numerical digits and contain no other characters like (-+#.%$&*)"><i class="fa fa-info-circle"></i></a></label>
                                                         <span class="focus-border"><i></i></span>
                                                     
                                                 </div>
@@ -140,11 +145,11 @@
                                                 </div>
                                             </div>-->
                                             <hr class="m-t-5">
-                                            <div class="row">
+                                            <div class="row" id="travelNumbers">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <input type="text" name='known_number' value="<?php echo $app->constants->request['known_number'];?>" placeholder="Enter number">
-                                                        <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
+                                                        <input type="text" id="tsaInput" name='known_number' value="<?php echo $app->constants->request['known_number'];?>" pattern=".{10}" placeholder="Enter your 10 Digit TSA Number" maxlength="10">
+                                                        <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a 10 digit unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
                                                         <span class="focus-border"><i></i></span>
                                                     </div>
                                                 </div>
@@ -157,35 +162,114 @@
                                                 </div>
                                                 <div class="col-sm-12 points">
                                                     <div class="row">
-                                                        <div class="col-sm-10">
-                                                            <label>Airline Travel Points</label>
-                                                        </div>
-                                                        <div class="col-sm-2">
-                                                            <a class="add_field_button"></a>
+                                                        <div class="col-sm-12">
+                                                            <a class="" role="button" data-toggle="collapse" href="#RewardsAccordian" aria-expanded="false" aria-controls="collapseExample">
+                                                                <label>Airline Travel Rewards Points</label>
+                                                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <div class="row travel-points-row">
-                                                        <div class="col-sm-10 form-group">
-                                                            <select id="airline_carriers" class="form-control">
-                                                                <option value="?????">Alaska Airlines – Mileage Plan</option>
-                                                                <option value="?????">American Airlines – AAdvantage</option>
-                                                                <option value="?????">Delta Air Lines – SkyMiles</option>
-                                                                <option value="?????">Frontier Airlines – EarlyReturns</option>
-                                                                <option value="?????">Hawaiian Airlines – HawaiianMiles</option>
-                                                                <option value="?????">JetBlue Airways – TrueBlue</option>
-                                                                <option value="?????">Southwest Airlines – Rapid Rewards</option>
-                                                                <option value="?????">Spirit Airlines – FREE SPIRIT</option>
-                                                                <option value="?????">United Airlines – MileagePlus</option>
-                                                                <option value="?????">Virgin America – eleVAte</option>
-                                                            </select>
+                                                    <div class="row travel-points-row collapse" id="RewardsAccordian">
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 as"></div>
+                                                                <label>Alaskan – Mileage Plan</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" id="AS" name="rewards_as_8" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <a class="remove_field"></a>
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 aa"></div>
+                                                                <label>American – AAdvantage</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" id="AA" name="rewards_aa_1" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div>
+                                                        </div>   
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 dl"></div>
+                                                                <label>Delta – SkyMiles</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" id="DL" name="rewards_dl_3" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div>
+                                                        </div>   
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 f9"></div>
+                                                                <label>Frontier – EarlyReturns</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" id="F9" name="rewards_f9_7" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div> 
+                                                        </div> 
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 ha"></div>
+                                                                <label>Hawaiian  – TrueBlue</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_ha_10" class="airline-points" id="HA" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div> 
+                                                        </div>    
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 b6"></div>
+                                                                <label>JetBlue – TrueBlue</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_b6_9" class="airline-points" id="B6" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div>
+                                                        </div>   
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 wn"></div>
+                                                                <label>Southwest – Rapid Rewards</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_wn_4" class="airline-points" id="WN" value="" placeholder="Airline Rewards Number"> 
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div> 
+                                                        </div>   
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 nk"></div>
+                                                                <label>Spirit – FREE SPIRIT</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_nk_6" class="airline-points" id="NK" value="" placeholder="Airline Rewards Number"> 
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div> 
                                                         </div>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" name="airlinePoints" class="airline-points" autocomplete="off" placeholder="Enter Your Airline Travel Rewards Number">  
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 ua"></div>
+                                                                <label>United – MileagePlus</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_ua_2" class="airline-points" id="UA" value="" placeholder="Airline Rewards Number"> <span class="focus-border"><i></i></span>
+                                                            </div> 
                                                         </div>
-                                                        
+                                                        <div class="col-sm-12">
+                                                            <div class="col-md-7 col-sm-12">
+                                                                <div class="thirty30 vx"></div>
+                                                                <label>Virgin – eleVAte</label>
+                                                            </div>
+                                                            <div class="col-md-5 col-sm-12">
+                                                                <input type="text" name="rewards_vx_5" class="airline-points" id="VX" value="" placeholder="Airline Rewards Number">
+                                                                <span class="focus-border"><i></i></span>
+                                                            </div>
+                                                              
+                                                        </div>         
                                                     </div>
                                                 </div>
                                             </div>
@@ -194,19 +278,10 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12" id="submit-col">
-                                        <button type="submit" class="">Submit</button>    
+                                    <div class="col-sm-12 hidden-md hidden-lg" id="submit-col">
+                                        <button type="submit" class="">Save</button>    
                                     </div>
                                 </div> 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!--<button type="submit" class="">Submit</button>  -->  
                             </div>
                         </div> 
                     </div>

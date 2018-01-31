@@ -376,7 +376,7 @@ body{
 					    	width:85%;
 					    }
 					}
-					&#profile-page{
+					&#dashboard-page{
 						padding-top:45px;
 						&:before{
 							content:'Settings';
@@ -395,6 +395,8 @@ body{
 							text-transform:uppercase;
 							margin-bottom:10px;
 						}
+					}
+					&#profile-page{
 					}
 					&#alltrips-page{
 						padding-top:45px;

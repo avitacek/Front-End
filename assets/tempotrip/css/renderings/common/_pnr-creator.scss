@@ -1,0 +1,117 @@
+@import "../../globals/variables";
+@import "../../globals/mixins";
+/* -----------------------------------------------------
+	dashboard page
+-------------------------------------------------------*/
+#pnr-creator-page{
+	& .body-content{
+		& .row{
+			& .col-sm-8{
+				margin:0px auto;
+    			float:none;
+    			& #content-pnr-creator{
+					& #topBar{
+						border-radius: 4px;
+		    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+		    			background-color: rgba(255, 255, 255, 0.45);
+		    			margin-bottom: 10px;
+		    			padding:15px;
+		    			& .row{
+		    				&:first-child{
+		    					padding:15px;
+		    					background-color: $white;
+		    					border-radius: 4px;
+		    					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+
+		    				}
+		    				& .col-sm-12{
+		    					padding:0px;
+		    					& .col-sm-6{
+									&:nth-child(3){
+										padding-left:0px;
+									}
+									&:nth-child(4){
+										padding-right:0px;
+									}
+		    					}
+		    				}
+
+		    			}
+						& p{
+							color:$grey-blue;
+							width:70%;
+							margin-bottom:20px;
+						}
+						& .col-sm-12{
+							padding:0px 0px 0px 0px;
+							input[type=text], input[type=password], input[type=email], input[type=select], input[type=radio], input[type=date], input[type=number], select, input[type=tel], textarea, input[type=number]{
+								margin-top:0px;
+							}
+							.focus-border{
+								margin-top:-1px;
+							}
+							& .btn{
+								background-color: #f6861f;
+							    text-align: center;
+							    color: white;
+							    padding: 14px 20px;
+							    margin: 8px 0;
+							    border: none;
+							    cursor: pointer;
+							    width: 100%;
+							    display: inline-block;
+							    border-radius: 4px;
+							    letter-spacing: 1.2px;
+							    line-height: 1.5em;
+							}
+							& h1{
+								text-transform:uppercase;
+								font-weight:bold;
+								letter-spacing:2px;
+								color:$grey-blue;
+								margin-bottom:10px;
+								line-height:1em;
+								font-size:32px;
+								margin-top:0px;
+								&#stepOne{
+									&:after{
+										content:'Step 1';
+										background-color: $orange;
+										color:$white;
+										font-weight:bold;
+										font-size:18px;\padding:5px;
+										float:right;
+									}
+								}
+								&#stepTwo{
+									&:after{
+										content:'Step 2';
+										background-color: $orange;
+										color:$white;
+										font-weight:bold;
+										font-size:18px;
+										padding:5px;
+										float:right;
+									}
+								}
+								&#stepThree{
+									&:after{
+										content:'Step 3';
+										background-color: $orange;
+										color:$white;
+										font-weight:bold;
+										font-size:18px;
+										padding:5px;
+										float:right;
+									}
+								}
+							}
+						}
+		    		}
+
+				}
+			}
+		}
+	}
+}
+@import "mobile/pnr-creator-mobile";

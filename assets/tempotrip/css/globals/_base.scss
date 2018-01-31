@@ -25,7 +25,7 @@ p, ul {
 	position:relative;
 	left:0px;
 	transition: 0.5s;
-	padding-top:130px;
+	padding-top:80px;
 	& .row{
 		max-width:1280px;
 		margin:0px auto;
@@ -88,6 +88,45 @@ p, ul {
 	margin-left:5px;
 	height:100%;
 	border:none;
+}
+/*Airline Logos CDN bg url*/
+.thirty30{
+	width:30px;
+	height:30px;
+	max-width:30px;
+	max-height:30px;
+	background-size: cover;
+}
+.aa{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/AA.JPG') no-repeat top left;
+}
+.as{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/AS.JPG') no-repeat top left;
+	background-size: cover;
+}
+.dl{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/DL.JPG') no-repeat top left;
+}
+.f9{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/F9.JPG') no-repeat top left;
+}
+.ha{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/HA.JPG') no-repeat top left;
+}
+.b6{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/B6.JPG') no-repeat top left;
+}
+.wn{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/WN.JPG') no-repeat top left;
+}
+.nk{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/NK.JPG') no-repeat top left;
+}
+.ua{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/UA.JPG') no-repeat top left;
+}
+.vx{
+	background:url('https://d25lpdpogv53oe.cloudfront.net/0/img/airlines/30x30/VX.JPG') no-repeat top left;
 }
 .newWindowIcon{
 	background: url('../images/global/new-window.svg') center center no-repeat;
@@ -317,6 +356,12 @@ input[type=text], input[type=password], input[type=email], input[type=select], i
  
     }
 }
+input[type=text], input[type=password], input[type=email], input[type=select], input[type=radio],input[type=date], input[type=tel],& input[type=number], select{
+	&.error{
+		box-shadow:2px 2px 5px $red, -2px -2px 5px $red;
+		border-color:$red!important;
+	}
+}
 input[type=checkbox]{
     width: auto;
     padding: 12px 20px;
@@ -365,7 +410,12 @@ button, input[type=submit], a#submit, input[type=file] {
 		opacity:1;
 	}
 }
-
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
 /*Common Styles based on Style Guide*/
 h1{
 	font-family:$Source-Sans-Pro-Bold;

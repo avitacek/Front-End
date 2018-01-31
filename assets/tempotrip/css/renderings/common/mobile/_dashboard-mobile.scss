@@ -1,0 +1,44 @@
+@import "../../../globals/variables";
+@import "../../../globals/mixins";
+@include max-screen(xl) {
+    
+}
+@include max-screen(large) {
+
+}
+@include max-screen(mediumLarge){
+	.card{
+    	& .row{
+    		display:block!important;
+    	}
+    }
+    #secondRow{
+    	& .card{
+    		& #searchList{
+    			margin-right:0px;
+    			margin-left:0px;
+    			
+    		}
+    	}
+    }
+}
+@include max-screen(medium) {
+    #dashboard-page .body-content #content-dashboard #topBar .col-md-4{
+        padding:0px 0px;
+    }
+	#dashboard-page .body-content #content-dashboard #topBar .col-md-4 ul li{
+        padding-left:35px;
+        height:auto;
+        padding-bottom:10px;
+        font-size:14px;
+        &:before{
+            margin-left:-35px;
+        }
+    }
+}
+@include max-screen(smallMedium){
+
+}
+@include max-screen(small) {
+	
+}
