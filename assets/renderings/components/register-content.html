@@ -1,0 +1,66 @@
+<div class="row" id="register-form">
+	<div class="col-sm-8" id="register-landing">
+		<div class="row">
+			<div class="col-sm-12 col-md-6">
+				<div class="logo"></div>
+			</div>
+			<div class="col-sm-12 col-md-6">
+				<h4>Register Now</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<p>Register with Tempotripo and begin making travel arrangements.</p>
+				<form action="" id="form-register" method="POST">
+            <input type="hidden" name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                <input type="hidden" name='new_registration' value="true">
+                <input type='hidden' name='a' value="add_traveler">
+			  	<div class="container-fluid">
+			  		<div class="row">
+			  			<div class="col-sm-12">
+			  				<div class="form-group">
+						    	<input type="text" required placeholder="Enter your first name" name="fname" class="firstname" >
+						    	<label>First name</label>
+						    	<span class="focus-border"><i></i></span>
+					    	</div>
+			  			</div>
+			  			<div class="col-sm-12">
+			  				<div class="form-group">
+						    	<input type="text" required placeholder="Enter your last name" name="lname" class="lastname" >
+						    	<label>Last name</label>
+						    	<span class="focus-border"><i></i></span>
+						    </div>
+			  			</div>
+			  			<div class="col-sm-12">
+			  				<div class="form-group">
+						    	<input type="text" required placeholder="Enter your email" name="email" class="email" >
+						    	<label>Email address</label>
+						    	<span class="focus-border"><i></i></span>
+						    </div>
+			  			</div>
+			  			<div class="col-sm-12">
+					    	<button name="submit" type="submit" id="submit">Submit</button>
+			  			</div>                                       
+			    	</div>
+			  	</div>        
+		</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div id="landing-register" >
+			<div class="register-title">
+				<div class="col-sm-12">
+					<div class="logo"></div>
+				</div>
+				<div class="col-sm-12">
+					<h4 id="register-side-title">Already Registered?</h4>
+					<p></p>
+				</div>
+			</div>
+			<div class="button-switch">
+				<button id="login-return">Log in</button>
+			</div>
+		</div>
+	</div>
+</div>

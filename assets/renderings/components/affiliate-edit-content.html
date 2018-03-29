@@ -1,0 +1,150 @@
+
+<div class="row" id="titleRow">
+    <div class="col-sm-12 col-md-7">
+        <h3 id="siteTitle">Affiliate | Account Settings</h3>
+    </div>
+    <div class="col-sm-12 col-md-5">
+        <div class="row">
+            <input type="text" name="siteURL" id="siteURL">
+            <label for="siteURL">Default URL</label>
+            <span class="focus-border"><i></i></span>
+        </div>
+    </div>
+</div>
+<form>
+<input type='hidden' name='p' value="<?php echo $app->constants->affiliate['PAGE_REQUEST'] ?>">
+    <div class="row" id="date-airRow">
+        <div class="col-sm-12 col-md-12">
+            <div class="row">
+                <div class="col-sm-12 col-md-8" id="rangePicker">
+                    <div class="cbs-date form-group field-event-start-date">
+                        <input type="text" class="form-control input-sm" name="affiliate-start-date" id="affiliate-start-date">
+                        <label for="affiliate-start-date" class="cbs-date-label">Default Start Date</label>
+                        <span class="focus-border"><i></i></span>
+                    </div>
+                    <div class="cbs-date form-group field-event-start-date">
+                        <input type="text" class="form-control input-sm" name="affiliate-end-date" id="affiliate-end-date">
+                        <label for="affiliate-end-date" class="cbs-date-label">Default End Date</label>
+                        <span class="focus-border"><i></i></span>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4" id="airport">
+                    <input type="text" name="destAirport" id="destAirport">
+                    <label for="destAirport">Default Airline Airport</label>
+                    <span class="focus-border"><i></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="detailsRow">
+        <div class="col-sm-12">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" id="tabs">
+                    
+                    <li role="presentation" class="active">
+                        <a href="#affiliate-settings" aria-controls="home" role="tab" data-toggle="tab">Account Settings</a>
+                    </li>
+                    <li role="presentation" id="">
+                        <a href="#affiliate-saved-billing"  aria-controls="tab" role="tab" data-toggle="tab">Saved Billing</a>
+                    </li>
+                    <li role="presentation" id="">
+                        <a href="#affiliate-airline-discount"  aria-controls="tab" role="tab" data-toggle="tab">Saved Airline Discounts</a>
+                    </li>
+                    <li role="presentation" id="">
+                        <a href="#affiliate-contact"  id="travelerTab" aria-controls="tab" role="tab" data-toggle="tab">Contact Information</a>
+                    </li>
+                    <li role="presentation" id="">
+                        <a href="#affiliate-events"  id="tripsTab" aria-controls="tab" role="tab" data-toggle="tab">Events List</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="wait-spinner">
+                        <div class="spinner">
+                            <i class="half-circle fa-spin" id="spin-outside"></i>
+                        </div>
+                        <p>Loading Data <span>Please wait</span></p>
+                    </div>
+                    <!--Account Settings Tab-->
+                    <div role="tabpanel" class="tab-pane active" id="affiliate-settings">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4" id="contactInfo">
+                                        <div class="col-sm-12">
+                                            <input type="text" id="mainContact" placeholder="Main Contact Email" name="mainAdmin">
+                                            <label>Main Contact Admin</label>
+                                            <span class="focus-border"><i></i></span>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="tel" id="mainContact" placeholder="Main Contact Phone Number" name="mainAdmin">
+                                            <span class="focus-border"><i></i></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 col-md-4" id="travelerCount">
+                                    </div>
+                                    <div class="col-sm-12 col-md-4" id="logoUpload">
+                                        <input type='hidden' name='a' value="add_account_logo">
+                                        <input type="file" id="fileUpload" name='upfile[]' accept=".jpg,.png, .bpm">
+                                        <label>Upload Account Logo</label>
+                                        <p class="file-return"></p>
+                                        <p>This logo will be the default logo used on your flight search tool and mmeting / events you create if you do not add a custom logo for the meeting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Account Billing Tabe-->
+                    <div role="tabpanel" class="tab-pane" id="affiliate-saved-billing">
+                        <div class="card">
+                            <div class="content">
+                                <div class="col-sm-12">
+                                    <p>Add Central Billing Payment Types</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Events Discounts Tab-->
+                    <div role="tabpanel" class="tab-pane" id="affiliate-airline-discount">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Events Attendees Tab-->
+                    <div role="tabpanel" class="tab-pane" id="affiliate-contact">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Booked TRips Tab-->
+                    <div role="tabpanel" class="tab-pane" id="affiliate-events">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="submit" class="btn" placeholder="Save">
+        </div>
+    </div>
+</form>
+

@@ -9,12 +9,3 @@ $(document).ready(function(){
     	$("#landing-register").removeClass("open");
 	});
 });
-$(window).load(function(){
-    $("input").focusout(function(){
-        if($(this).val() != ""){
-            $(this).addClass("has-content");
-        }else{
-            $(this).removeClass("has-content");
-        }
-    })
-});

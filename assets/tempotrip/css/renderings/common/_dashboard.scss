@@ -1,0 +1,395 @@
+@import "../../globals/variables"; 
+@import "../../globals/mixins";
+/* -----------------------------------------------------
+	dashboard page
+-------------------------------------------------------*/
+#dashboard-page{
+	& .body-content{
+		& #content-dashboard{
+			& #topBar{
+				border-radius: 4px;
+    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+    			background-color: rgba(255, 255, 255, 0.45);
+    			margin-bottom: 10px;
+    			padding:15px;
+    			& .row{
+    				&:first-child{
+    					padding:15px;
+    					background-color: $white;
+    					border-radius: 4px;
+    					box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+    					margin:0px;
+    				}
+    			}
+				& p{
+					color:$grey-blue;
+				}
+				& .col-md-4{
+					padding:0px 0px 0px 15px;
+					& h3{
+						text-transform:uppercase;
+						font-weight:bold;
+						letter-spacing:2px;
+						color:$grey-blue;
+						margin-bottom:10px;
+						line-height:1em;
+						font-size:24px;
+						margin-top:5px;
+					}
+					& ul{
+						padding:0px;
+						margin:0px;
+						list-style-type: none;
+						width:100%;
+						display:table;
+						& li{
+							display:table-cell;
+							width:100%;
+							float:left;
+							height:auto;
+							min-height:30px;
+							padding-left:30px;
+							line-height:1em;
+							padding-bottom:5px;
+							&:before{
+								background-color: $blue;
+								color:$white;
+								border-radius:50%;
+								text-align:center;
+								font-weight:bold;
+								font-size:12px;
+								margin-right:10px;
+								padding:5px 10px;
+								margin-left:-38px;
+								width: 30px;
+							    height: 30px;
+							    display: inline-block;
+							    line-height: 1.75em;
+							}
+							&:first-child{
+								&:before{
+									content:'1';
+									
+								}
+							}
+							&:nth-child(2){
+								&:before{
+									content:'2';
+									
+								}
+							}
+							&:nth-child(3){
+								&:before{
+									content:'3';
+									
+								}
+							}
+							& a{
+								color:$orange;
+								text-decoration:underline;
+							}
+							
+						}
+					}
+				}
+				& .col-md-8{
+					padding:0px 15px 0px 0px;
+					& h1{
+						text-transform:uppercase;
+						font-weight:bold;
+						letter-spacing:2px;
+						color:$grey-blue;
+						margin-bottom:10px;
+						line-height:1em;
+						font-size:32px;
+						margin-top:0px;
+					}
+				}
+    		}
+    		& #secondRow{
+    			border-radius: 4px;
+    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+    			background-color: rgba(255, 255, 255, 0.45);
+    			margin-bottom: 10px;
+    			padding:15px;
+    		}
+			& .card{
+    			margin-bottom:0px;
+    			background-color: transparent;
+    			box-shadow: none;
+    			& .row{
+    				display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+				    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+				    display: -ms-flexbox;      /* TWEENER - IE 10 */
+				    display: -webkit-flex;     /* NEW - Chrome */
+				    display: flex; 
+    				& .col-md-4{
+    					-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+						-moz-box-flex: 1;         /* OLD - Firefox 19- */
+						-webkit-flex: 1;          /* Chrome */
+						 -ms-flex: 1;              /* IE 10 */
+						 flex: 1; 
+						 background-color: #ffffff;
+						 border-radisu:4px;
+						 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+    					&#profileList{
+    						padding:0px 15px;
+    						& h3{
+    							height:46px;
+	    						&:first-child{
+	    							border:1px solid $black-25;
+	    							padding:10px 10px;
+	    							color:$white;
+	    						}
+	    						&.complete{
+	    							&:before{
+		    							content:'Profile Complete';
+		    							text-transform:uppercase;
+		    							text-align:left;
+				    					font-weight:bold;
+				    					letter-spacing:2px;
+				    					color:$white;
+				    					margin-bottom:0px;
+		    							line-height:1em;
+		    							float:left;
+		    							width:80%;
+		    							display:inline-block;
+	    							}
+	    							&:after{
+	    								content: "\f058";
+	    								font-family:$FontAwesome;
+	    								color:$teal;
+	    								float:right;
+	    								margin-top:-2px;
+	    								width:20%;
+	    								text-align:right;
+	    								display:inline-block;
+	    							}
+	    						}
+	    						&.notComplete{
+	    							&:before{
+		    							content:'Finish Profile!';
+		    							text-transform:uppercase;
+		    							text-align:left;
+				    					font-weight:bold;
+				    					letter-spacing:2px;
+				    					color:$white;
+				    					margin-bottom:0px;
+		    							line-height:1em;
+		    							float:left;
+		    							width:80%;
+		    							display:inline-block;
+	    							}
+	    							&:after{
+	    								content: "\f06a";
+	    								font-family:$FontAwesome;
+	    								color:$orange;
+	    								float:right;
+	    								margin-top:-2px;
+	    								width:20%;
+	    								text-align:right;
+	    								display:inline-block;
+	    							}
+	    						}
+	    					}
+	    					& ul{
+	    						margin:0px 10px;
+	    						padding:0px;
+	    						list-style-type: none;
+	    						display:table;
+	    						width:100%;
+	    						& li{
+	    							padding:10px 0px;
+	    							display:table-cell;
+	    							float:left;
+	    							width:100%;
+	    							& i{
+	    								font-size:18px;
+	    								margin-right:10px;
+	    								margin-top:2px;
+	    								&.complete{
+	    									color:$teal;
+	    								}
+	    								&.todo{
+	    									color:$orange;
+	    								}
+
+	    							}
+	    						}
+	    					}
+    					}
+    					& a{
+    						position:relative;
+    						bottom:0px;
+    					}
+    					&#searchList{
+    						margin-left:15px;
+    						margin-right:15px;
+    						border-right:1px solid #ddd;
+    						border-left:1px solid #ddd;
+    						& h3{
+    							height:46px;
+	    						&:first-child{
+	    							border:1px solid $black-25;
+	    							padding:10px 10px;
+	    							&:before{
+		    							content:'Book Now!';
+		    							text-transform:uppercase;
+		    							text-align:left;
+				    					font-weight:bold;
+				    					letter-spacing:2px;
+				    					color:$white;
+				    					margin-bottom:0px;
+		    							line-height:1em;
+		    							float:left;
+		    							width:80%;
+		    							display:inline-block;
+	    							}
+	    							&:after{
+	    								content: "\f072";
+	    								font-family:$FontAwesome;
+	    								color:$teal;
+	    								float:right;
+	    								margin-top:-2px;
+	    								width:20%;
+	    								text-align:right;
+	    								display:inline-block;
+	    							}
+	    						}
+	    					}
+	    					& ul{
+	    						margin:0px 10px;
+	    						padding:0px;
+	    						list-style-type: none;
+	    						& li{
+	    							padding:10px 0px;
+	    							& i{
+	    								font-size:18px;
+	    								margin-right:10px;
+	    								margin-top:2px;
+	    								color:$orange;
+	    							}
+	    							& a{
+	    								text-decoration:none;
+	    								text-transform:uppercase;
+	    								color:$grey-blue;
+	    								padding-bottom:2px;
+	    								border-bottom:1px solid $grey-blue;
+	    								margin-bottom:2px;
+
+	    							}
+	    						}
+	    					}
+    					}
+    					&#tripLink{
+    						padding:0px 15px;
+    						& h3{
+    							height:46px;
+	    						&:first-child{
+	    							border:1px solid $blue;
+	    							padding:10px 10px;
+	    							&:before{
+		    							content:'Quick Links';
+		    							text-transform:uppercase;
+		    							text-align:left;
+				    					font-weight:bold;
+				    					letter-spacing:2px;
+				    					color:$white;
+				    					margin-bottom:0px;
+		    							line-height:1em;
+		    							float:left;
+		    							width:80%;
+		    							display:inline-block;
+	    							}
+	    							&:after{
+	    								content: "\f124";
+	    								font-family:$FontAwesome;
+	    								color:$teal;
+	    								float:right;
+	    								margin-top:-2px;
+	    								width:20%;
+	    								text-align:right;
+	    								display:inline-block;
+	    							}
+	    						}
+	    					}
+	    					& ul{
+	    						list-style-type:none;
+	    						margin:0px;
+	    						padding:0px;
+	    						& li{
+	    							&#dashboard-page, &#logout-page{
+	    								display:none;
+	    							}
+	    						}
+	    					}
+	    					& a{
+	    						&#bt1{
+	    							&.btn{
+	    								background-color: $teal!important;
+	    								color:$orange;
+	    							}
+	    						}
+	    						&#bt2{
+	    							&.btn{
+	    								background-color: $teal!important;
+	    								color:$white!important;
+	    							}
+	    						}
+	    						&#bt3{
+	    							&.btn{
+	    								background-color: $white!important;
+	    								color:$orange!important;
+	    						 		border:1px solid $orange;
+	    							}
+	    						}
+	    						&#bt4{
+	    							&.btn{
+	    								background-color: $grey-blue!important;
+	    								color:$white!important;
+	    							}
+	    						}
+	    						&#bt5{
+	    							&.btn{
+	    								background-color: $blue!important;
+	    								color:$white!important;
+	    							}
+	    						}
+	    						&#bt6{
+	    							&.btn{
+	    								background-color: $orange!important;
+	    								color:$white!important;
+	    							}
+	    						}
+	    						& i{
+	    							margin-right:10px;
+	    						}
+	    					}
+    					}
+    					& h3{
+    						background-color: $grey-blue;
+    						color:$white;
+    						margin-top:10px;
+    						font-size:24px;
+    						padding-top:10px;
+    					}
+    					& a{
+    						&.btn{
+    							width:100%;
+    							background-color: $orange;
+    							color:$white;
+    							line-height: .75em;
+    							border:1px solid $blue;
+    							&:hover{
+    								border:none;
+    								opacity:0.75;
+    							}
+    						}
+    					}
+    				}
+    			}
+			}
+		}
+	}
+}
+@import "mobile/dashboard-mobile";

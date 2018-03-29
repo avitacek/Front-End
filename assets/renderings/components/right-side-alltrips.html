@@ -4,7 +4,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist" id="tabs">
                 <li role="presentation" class="active">
-                    <a href="#approvals" aria-controls="home" role="tab" data-toggle="tab">Approvals</a>
+                    <a href="#approvals" aria-controls="tab" role="tab" data-toggle="tab">Approvals</a>
                 </li>
                 <li role="presentation" id="">
                     <a href="#itinerary"  aria-controls="tab" role="tab" data-toggle="tab">Itinerary</a>
@@ -25,7 +25,7 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-sm-6 travellerName">
-                                    <h4 class="card-title"><span class="traveller_name" id="f_name"></span> <span class="traveller_name" id="l_name"></span></h4>
+                                    <h4 class="card-title"><span class="traveller_name f_name" ></span> <span class="traveller_name l_name"></span></h4>
                                     <div class="col-sm-12">
                                         <a href="mailto:" class="traveller_email"></a>
                                     </div>
@@ -42,14 +42,17 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6" id="costs">
                                     <h4 class="card-title"><span class="cost"></span></h4>
-                                    <p>Price</p>
+                                    <p>Total Price <a href="#" data-toggle="tooltip" data-placement="top" title="This Total Price Includes the Costs of All Travelers Associated with this Ticket"><i class="fa fa-info-circle"></i></a></p>
                                 </div>
                                 <div class="col-sm-12 col-md-6" id="status">
                                     <div class="row">
                                         <div class="col-sm-3 col-md-3" id="approvalID"></div>
                                         <div class="col-sm-9 col-md-9" id="clock">
                                             <p class="approval-card-title"></p>
+                                        </div>
+                                        <div class="col-sm-12">
                                             <p id="timer"></p>
+                                            <p id="approvalTime"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +67,9 @@
                                 <div class="col-sm-12 airConfirm">
                                     <p class="card-title" id="airConfirm_Number"></p>
                                 </div>
-                               
+                                <div class="col-sm-12 customCode">
+                                    <p class="card-title" id="custom_code_Number"></p>
+                                </div>
                                 <div class="col-sm-12 pnr">
                                     <p class="card-title" id="pnr_Number"></p>
                                     <div id="pnr_table"></div>
@@ -73,7 +78,7 @@
                             <div class="row" id="app-status">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="approve">
-                                        <form method="POST" action="">
+                                        <form method="POST">
                                             <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                             <input type='hidden' id="pnr_id2" name='pnr_id' value="">
                                             <input type='hidden' id="universal_rec_loc" name='universal_rec_loc' value="">
@@ -81,24 +86,18 @@
                                             <input type='hidden' name='a' value="approve">
                                             <button type="submit" id="approveBtn">Approve</button>
                                         </form>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
                                     <div class="deny">
-                                        <form method="POST" action="">
-                                            <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
-                                            <input type='hidden' id="pnr_id3" name='pnr_id' value="">
-                                            <input type='hidden' id="universal_rec_loc" name='universal_rec_loc' value="">
-                                            <input type='hidden' id="options_rec_loc" name='options_rec_loc' value="">
-                                            <input type='hidden' name='a' value="deny">
-                                            <button type="submit" id="denyBtn">Deny</button>
-                                        </form>
+                                        <button data-toggle="modal" data-target="#cancelModal" id="denyBtn">Deny</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="row" id="comments">
                                 <div class="col-sm-12">
-                                    <form method="POST" action="">
+                                    <form method="POST">
                                         <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                         <input type='hidden' id="pnr_id" name='pnr_id' value="">
                                         <input type='hidden' id="note_id" name='note_id' value="">
@@ -123,7 +122,7 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-sm-6 travellerName">
-                                    <h4 class="card-title"><span class="traveller_name" id="f_name"></span> <span class="traveller_name" id="l_name"></span></h4>
+                                    <h4 class="card-title"><span class="traveller_name f_name" ></span> <span class="traveller_name l_name" ></span></h4>
                                     <div class="col-sm-12">
                                         <a href="mailto:" class="traveller_email"></a>
                                     </div>

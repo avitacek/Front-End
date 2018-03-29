@@ -1,17 +1,11 @@
-﻿/* -----------------------------------------------------------------------------
-Import BASE
------------------------------------------------------------------------------ */
-@import "variables";
-@import "mixins";
-
-
+﻿/*Import BASE*/
 body {
-    background-color:#eff3f6;
+    background-color:#eff3f6!important;
     overflow-x: hidden;
-    font-family:'Source-Sans-Pro', Helvetica, Arial, sans-serif;
+    font-family:'Source Sans Pro', Helvetica, Arial, sans-serif!important;
 }
 p, ul { 
-	font-family:'Source-Sans-Pro', Helvetica, Arial, sans-serif;
+	font-family:'Source Sans Pro', Helvetica, Arial, sans-serif!important;
 	font-style: normal;
 	font-stretch: normal;
 	line-height:inherit;
@@ -20,191 +14,50 @@ p, ul {
     line-height: 1.5em;
 	
 }
-/*Body content slider*/
-.body-content{
-	position:relative;
-	left:0px;
-	transition: 0.5s;
-	padding-top:130px;
-	& .row{
-		max-width:1280px;
-		margin:0px auto;
-	}
-}
-.logo{
-	margin-top: 0px;
-    width: auto;
-    height: 60px;
-    float: left;
-    margin-left: 0rem;
-    color: #65879c;
-    position: relative;
-    z-index: 5;
-    background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
-    background-size: contain;
-    padding-left: 65px;
-    font-family:$Raleway;
-    position:relative;
-}
-.logo:before {
-    content: 'Tempo';
-    color: #65879c;
-    font-size: 20px;
-    float: left;
-    letter-spacing: 4px;
-    margin-top: 10%;
-}
-.logo:after {
-    content: 'TRIP';
-    color: #FEA34B;
-    font-size: 16px;
-    float: left;
-    letter-spacing: 4px;
-    margin-top: 13%;
-    font-weight: bold;
-}
-.logo span{
-	position:absolute;
-	top:20%;
-	left:-150px;
-	letter-spacing: 4px;
-	font-size: 20px;
-}
-.client-logo{
-	margin-top: 0px;
-    width: auto;
-    height: 55px;
-    float: left;
-    margin-left: 45px;
-    padding-right:0px;
-    color: $grey-blue;
-    letter-spacing:4px;
-    position: relative;
-    z-index: 5;
-    overflow:hidden;
-}
-.client-logo img{
-	width:auto;
-	margin-top:0px;
-	height:100%;
-	border:none;
-}
-.newWindowIcon{
-	background: url('../images/global/new-window.svg') center center no-repeat;
-    background-size: contain;
-    width:35px;
-    height:35px;
-    float:right;
-    padding:10px;
-    border-radius:5px;
-    background-color: #FEA34B;
-    border:1px solid #ffffff;
-    position:absolute;
-    top:-40px;
-    right:0px;
-    z-index: 101;
-    &:before{
-    	content:'open in a new window';
-    	color:#7f8fa4;
-    	font-size:10px;
-    	position:absolute;
-    	top:20%;
-    	right:40px;
-    	width:130px;
-    }
-}
-.tab-content{
-	position:relative;
-}
-.nav-tabs{
-	border-bottom:1px solid transparent;
-}
-.wait-spinner{
-	position: absolute;
-	left:0%;
-	z-index: 100;
-	margin:0% auto;
-	width:100%;
-	height:100%;
-	display:none;
-	opacity:0;
-	border-radius:0px 3px 3px 3px;
-	background-color:rgba(255,255,255,1);
-	transition:opacity .45s 0s linear;
-	-webkit-transition:opacity .45s 0s linear;
-	-moz-transition:opacity .45s 0s linear;
-	&.active{
-		display:block;
-		opacity:1;
-	}
-  & .spinner{
-    background: url('../images/global/logo-spinner.svg') center center no-repeat;
-    background-size: contain;
-    width:60px;
-    height:60px;
-    margin:45% auto 10px;
-    position:relative;
-    #spin-inside.half-circle{
-      width:60px;
-      width:60px;
-    }
-    & .half-circle{
-      width:70px;
-      height:70px;
-    }
-  }
-  & p{
-    text-align:center;
-    & span{
-      clear:both;
-      display:block;
-    }
-  }
-}
 /*tooltip*/
 .ui-tooltip, .arrow:after {
     background:$white;
     border: 2px solid $orange;
-  }
+}
 .ui-tooltip {
-    padding: 10px 20px;
-    color: $orange;
-    border-radius: 0px;
-    text-transform: uppercase;
-    box-shadow: 2px 2px 0px $orange, -2px -2px 0px $orange, 2px -2px 0px $orange, -2px 2px 0px $orange;
-    border: 2px solid $orange;
+	padding: 10px 20px;
+	color: $orange;
+	border-radius: 0px;
+	text-transform: uppercase;
+	box-shadow: 2px 2px 0px $orange, -2px -2px 0px $orange, 2px -2px 0px $orange, -2px 2px 0px $orange;
+	border: 2px solid $orange;
 }
 .arrow {
-    width: 70px;
-    height: 16px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    bottom: -16px;
+	width: 70px;
+	height: 16px;
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	margin-left: -35px;
+	bottom: -16px;
 }
 .arrow.top {
-    top: -16px;
-    bottom: auto;
+	top: -16px;
+	bottom: auto;
 }
 .arrow.left {
-    left: 20%;
+	left: 20%;
 }
 .arrow:after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 25px;
-    height: 25px;
-    box-shadow: none;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+	content: "";
+	position: absolute;
+	left: 20px;
+	top: -20px;
+	width: 25px;
+	height: 25px;
+	box-shadow: none;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 .arrow.top:after {
-    bottom: -20px;
-    top: auto;
+	bottom: -20px;
+	top: auto;
 }
 .modal{
 	& .modal-box{
@@ -245,8 +98,8 @@ p, ul {
 			border:1px solid #333333;
 			position:absolute;
 			color:#333333;
-			top:-20px;
-			right:-10px;
+			top:-15px;
+			right:-15px;
 			padding:10px 9px;
 			box-sizing:border-box;
 			line-height:7px;
@@ -261,6 +114,11 @@ p, ul {
 		}
 		& .success, & .errors{
 			text-align:left;
+		}
+		& p{
+			text-transform:uppercase;
+			font-size:16px;
+			color:$grey-blue;
 		}
 	}
 }
@@ -285,7 +143,7 @@ p, ul {
 		opacity:1;
 	}
 }
-input[type=text], input[type=password], input[type=email], input[type=select], input[type=radio],input[type=date], input[type=tel],& input[type=number], select{
+input[type=text], input[type=password], input[type=email], input[type=select], input[type=radio],input[type=date], input[type=tel], input[type=number], select{
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
@@ -304,7 +162,7 @@ input[type=text], input[type=password], input[type=email], input[type=select], i
     	display:none;
     }
     &:focus{
-    	outline-color:#666666;
+    	outline-color:$grey-blue;
     	&:invalid{ /* when a field is considered invalid by the browser */
 		    outline-color: #b03535;
 		}
@@ -515,14 +373,5 @@ a.cta{
 	}
 	&:focus{
 		text-decoration:none;
-	}
-}
-/*IE10 */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-	a.cta{
-		padding-top:15px;
-	}
-	a.btn{
-		padding-top:15px;
 	}
 }

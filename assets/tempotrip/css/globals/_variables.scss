@@ -15,20 +15,25 @@ $breakpoints: (
 /*Tempotrip Branding */
 $orange:#f6861f;
 $grey-blue:#65879c;
-
 $teal:#5db9be;
 $skyblue:#eff3f6;
 $light-orange:#FEA34B;
-
-/*Blue*/
+/*Orange fades*/
+$orange-05:rgba(246,134,31,0.05);
+$orange-125:rgba(246,134,31,0.125);
+$orange-25:rgba(246,134,31,0.25);
+$orange-50:rgba(246,134,31,0.5);
+$orange-75:rgba(246,134,31,0.75);
+/*Blue Fades*/
 $blue:#1a4666;
 $blue-05:rgba(26, 70, 102, 0.05);
 $blue-125:rgba(26, 70, 102, 0.125);
 $blue-25:rgba(26, 70, 102, 0.25);
-$blue-5:rgba(26, 70, 102, 0.5);
+$blue-50:rgba(26, 70, 102, 0.5);
 $blue-75:rgba(26, 70, 102, 0.75);
 
-
+/*Greys*/
+$border-grey:#dddddd;
 $light-grey:#ececec;
 $medium-grey:#a5aab2;
 $slate-grey:#54565b;
@@ -60,16 +65,9 @@ $red:#af1336;
 
 /*Fonts*/
 /*Fonts*/
-$Raleway: 'Raleway', Helvetica, Arial, sans-serif;
-$Raleway-Light: 'Raleway-Light', Helvetica, Arial, sans-serif;
-$Raleway-ExtraLight: 'Raleway-ExtraLight', Helvetica, Arial, sans-serif;
-$Raleway-Thin: 'Raleway-Thin', Helvetica, Arial, sans-serif;
-$Raleway-Medium: 'Raleway-Medium', Helvetica, Arial, sans-serif;
-$Raleway-Bold: 'Raleway-Bold', Helvetica, Arial, sans-serif;
-$Raleway-Italic: 'Raleway-Italic', Helvetica, Arial, sans-serif;
 
-$Source-Sans-Pro: 'Source-Sans-Pro', Helvetica, Arial, sans-serif;
-$Source-Sans-Pro-Italic: 'Source-Sans-Pro-Italic', Helvetica, Arial, sans-serif;
-$Source-Sans-Pro-Bold: 'Source-Sans-Pro-Bold', Helvetica, Arial, sans-serif;
+$Source-Sans-Pro: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$Source-Sans-Pro-Italic: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$Source-Sans-Pro-Bold: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 
 $FontAwesome: 'FontAwesome';

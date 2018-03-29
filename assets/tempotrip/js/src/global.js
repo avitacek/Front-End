@@ -56,7 +56,9 @@ var START_EV = hasTouch ? 'touchstart' : 'mousedown',
 function checkPage(){
 	if ($('body').attr('id')=== 'landing-page'){
 		
-	}else if ($('body').attr('id') === 'profile-page'){
+	}else if ($('body').attr('id') === 'dashboard-page'){
+        setDashboardPage();
+    }else if ($('body').attr('id') === 'profile-page'){
         setProfilePage();
 		
 	}else if ($('body').attr('id') === 'events-page'){
@@ -77,12 +79,141 @@ function checkPage(){
     else if ($('body').attr('id') === 'affiliate-form-page'){
         setAffiliatePage();
     }
+    else if ($('body').attr('id') === 'affiliate-edit-page'){
+        setAffliateEditPage();
+    }
     else if ($('body').attr('id') === 'helpcenter-admin '){
         setHelpCenterPage();
     }
-   
+    else if ($('body').attr('id') === 'password-page'){
+        createChangePasswordModal();
+    }
+    else if ($('body').attr('id') === 'pnr-creator-page'){
+        createPNR();
+    }
+}
+function createPNR(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#pnr_creator-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+        $('body').find('input').addClass('has-content')
+    },10)
 
-   
+    if(typeof system_output.pnrid != "undefined"){
+        var pnr = system_output.pnrid;
+    }
+    if(typeof system_output.bar != "undefined"){
+        var bar = system_output.bar;
+    }
+    $('body').append('<img src="http://localhost:8080/LocalWebService/?pnr='+pnr+'&bar='+bar+'"/>');
+    $('#pnrid').val(pnr);
+    $('#bar').val(bar);
+}
+function setDashboardPage(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#dashboard-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+    //Checking profile settings//
+    var checkCount = 0;
+    function checkprofileSettings(){
+        var fname = system_output.request_user_data.f_name;
+        var lname = system_output.request_user_data.l_name
+        var dob = system_output.request_user_data.dob
+        var phone = system_output.request_user_data.phone
+        if(fname || lname || dob || phone !==''){
+            $('#completedProfile').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++
+        }else{
+            $('#completedProfile').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+            $('#profileList h3').addClass('notComplete')
+        }
+        checkEmergency()
+    }
+    function checkEmergency(){
+        var ec_fname = system_output.request_user_data.ec_f_name;
+        var ec_lname = system_output.request_user_data.ec_l_name
+        var ec_phone = system_output.request_user_data.ec_phone
+        if(ec_fname || ec_lname || ec_phone !==''){
+            $('#emergencyContact').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++
+        }else{
+            $('#emergencyContact').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+        }
+        checkPreference()
+    }
+    function checkPreference(){
+        var seat = system_output.request_user_data.seat_id;
+        var redress = system_output.request_user_data.redress_number;
+        var known_number = system_output.request_user_data.known_number
+        if(redress || known_number !== ''){
+            $('#travelPreferences').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
+            checkCount++;
+            if(checkCount >= 3){
+                $('#profileList h3').addClass('complete')
+            }else if(checkCount < 3){
+                $('#profileList h3').addClass('notComplete')
+            } 
+        }else{
+            $('#travelPreferences').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+            $('#profileList h3').addClass('notComplete')
+        }
+        
+    }
+    checkprofileSettings();
+
+    //Dynamic link buttons//
+    function setQuickLinks(){
+        var dataLinks = system_output.user_menus;
+        var btnCount = 0;
+        var getMenuItem = function (itemData) {
+            var item = $("<li id='" + itemData.id + "'>")
+                    .append(
+                            /*$("<i>", {
+                                class: itemData.fontA
+                            }),
+                            $("<ul", {
+                                class: itemData.fontA
+                            }),*/
+                            $("<a>", {
+                                id: "bt"+ btnCount,
+                                class: "btn",
+                                target: itemData.target,
+                                href: itemData.link,
+                                html: "<i class='"+itemData.fontA+"'></i>" + itemData.name
+                            }));
+            if (itemData.sub) {
+                var subList = $("<ul>");
+                $.each(itemData.sub, function () {
+                    subList.append(getMenuItem(this));
+                });
+                item.append(subList);
+            }
+            return item;
+        };
+
+        var $menu = $("#dynamicQuickNav");
+        $.each(dataLinks.menu, function () {
+            btnCount++
+            $menu.append(
+                getMenuItem(this)
+            );
+        });
+    }
+    setQuickLinks();
+    //checking booking sites*/
+    function setBookingList(){
+        var sites = system_output.site_list;
+        $.each(sites, function () { 
+            $('#bookingSites').append('<li class=""><i class="fa fa-plane" aria-hidden="true"></i><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank">' + this.display_name + '</a></li>');
+        });
+    }
+    setBookingList();
+
 }
 function setProfilePage(){
     var dataUser = system_output.request_user_data;
@@ -113,9 +244,34 @@ function setProfilePage(){
             }
         }
     },10)
-    $('.plusBtn').on('click', function(){
-        $('#ffSection').append('<div class="col-sm-12 airlineMiles"><select class="form-control" id="airlines" name="known_number" value="" placeholder=""><option base="Airline">Pick an Airline</option><option value="1" id="1">Air Canada | Aeroplan</option><option value="2" id="2">Alaskan Airlines | Milage Plan</option><option value="3" id="3">Hawaiian Airlines HawaiianMiles</option><option value="4" id="4">American Airlines | AA Advantage</option><option value="5" id="5">Delta Airlines | Delta SkyMiles</option><option value="6" id="6">JetBlue | TrueBlue</option><option value="7" id="7">Frontier Airlines | EarlyReturns</option><option value="8" id="8">Southwest | Rapid Rewards</option><option value="9" id="9">Spirit | Free Spirit</option><option value="10" id="10">United Airlines | United Mileage Plus</option><option value="11" id="11">Virgin America | Elevate</option></select><input type="text" name="ff_number" id="ffNumber" value="" placeholder=""><label class="" for="ffNumber">Airline Frequent Flyer Numbers</label><span class="focus-border"><i></i></span></div>');
-    })
+    //TSA input check//
+    function tsaFormatter() {
+      $('#tsaInput').on('input', function() {
+        var tsanumber = $(this).val()
+        if (tsanumber.length > 1 && tsanumber.length < 10) {
+            $(this).addClass('error');
+            
+            
+        }else if (tsanumber.length == 10) {
+            $(this).removeClass('error');
+        }
+        else if (tsanumber.length > 10) {
+            $(this).addClass('error');
+            
+        }
+        else if (tsanumber.length == 0) {
+            $(this).removeClass('error');
+        }
+      });
+    };
+    tsaFormatter();
+    //Rewards dynamic code//
+    if(typeof system_output.request_user_data.airline_rewards != "undefined"){
+        var dataUserRewards = system_output.request_user_data.airline_rewards;
+        $.each(dataUserRewards, function (key, value) {
+            $('#'+ value.code).val(value.rewards_num);
+        });
+    }
 }
 function setAllTripsPage(){
     setTimeout(function(){
@@ -123,6 +279,9 @@ function setAllTripsPage(){
         var dataUser = system_output.request_user_data;
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
+        $('.wait-spinner').addClass('active');
+        $('.wait-spinner p').addClass('hide');
+        $('.wait-spinner').append('<p id="initial">Select a Trip row to see the details</p>');
     },10)
     function tripDates(){
         var from_departure_datetime;
@@ -178,21 +337,7 @@ function setAllTripsPage(){
     else{
         $('#tripsSideBar').removeClass('hide');
     }
-    /*
-    var newTrips = [];
-    var newTempTrip = {};
-    $.each(data, function(tripkey,tripvalue){
-       $.each(tripvalue.names_arr, function(namekey,namevalue){
-            var newTempTrip = {};
-            newTempTrip = jQuery.extend(true, {}, tripvalue);
-            newTempTrip.email = namevalue.email;
-            newTempTrip.name_first = namevalue.name_first;
-            newTempTrip.name_last = namevalue.name_last;
-            newTrips.push(newTempTrip);
-       })
-    })
-    data = newTrips;
-    */
+    
     var dataNew = []
     $.each(data, function(key,value){
         console.log(key,value)
@@ -222,6 +367,8 @@ function setAllTripsPage(){
             traveler_user_id: value.traveler_user_id,
             user_id: value.user_id,
             pnr_id: value.pnr_id,
+            pnrdata_create_datetime: value.pnrdata_create_datetime,
+            custom_accountingremark_S32: value.custom_accountingremark_S32,
             note_id: value.note_id,
             note: value.note,
             universal_rec_loc: value.universal_rec_loc,
@@ -237,24 +384,24 @@ function setAllTripsPage(){
     //console.log(data);
     var table = $('#allTrips').DataTable({
         "aaData": data_obj,
-        "order": [[ 6, "desc" ]],
+        "order": [[26, "desc"], [12, "asc"]],
         "select":true,
-        "pageLength": 8,
-        "pagingType": "simple",
-        "info": false,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
         "responsive": true,
         "aoColumns": [
             { 
                 "title": "Name",
                 "mDataProp": "name_first",
-                "width" : "20%",
+                "width" : "12.5%",
                 "responsivePriority": 1,
                 "visible": true
             },
             { 
                 "title": "Last Name",
                 "mDataProp": "name_last",
-                "width" : "20%",
+                "width" : "12.5%",
                 "responsivePriority": 3,
                 "visible": true
             },
@@ -278,7 +425,7 @@ function setAllTripsPage(){
                 "visible": true
             },
             { 
-                "title": "Departure Date",
+                "title": "Departure",
                 "mDataProp": "departure_datetime",
                 "width" : "12.5%",
                 "responsivePriority": 2,
@@ -286,7 +433,7 @@ function setAllTripsPage(){
                 render:getTime
             },
             {
-                "title": "Return Date",
+                "title": "Return",
                 "mDataProp": "return_datetime",
                 "visible": false,
                 render:getTime
@@ -313,11 +460,17 @@ function setAllTripsPage(){
                 "visible": false
             },
             { 
-                "title": "Status",
+                "title": "",
                 "mDataProp": "status_id",
-                "width" : "10%",
+                "width" : "12.5%",
                 "visible": true,
                 render:getImg
+            },
+            { 
+                "title": "Status",
+                "mDataProp": "status_id",
+                "visible": true,
+                render:getValText
             },
             { 
                 "title": "Site Display Name",
@@ -370,6 +523,11 @@ function setAllTripsPage(){
                 "visible": false
             },
             { 
+                "title": "Custom Remark | Fire Code",
+                "mDataProp": "custom_accountingremark_S32",
+                "visible": false
+            },
+            { 
                 "title": "Traveler User ID",
                 "mDataProp": "traveler_user_id",
                 "visible": false
@@ -383,6 +541,14 @@ function setAllTripsPage(){
                 "title": "PNR ID",
                 "mDataProp": "pnr_id",
                 "visible": false
+            },
+            { 
+                "title": "Date Booked",
+                "mDataProp": "pnrdata_create_datetime",
+                "visible": true,
+                "width" : "12.5%",
+                "responsivePriority": 6,
+                render:changeBookedDate
             },
             { 
                 "title": "Note ID",
@@ -409,8 +575,16 @@ function setAllTripsPage(){
                 "mDataProp": "note",
                 "visible": false
             }
-        ] //data changes to mDataProp
+        ]//data changes to mDataProp//
     });
+    function createSelectFilter(){
+        $('#allTrips_wrapper .row:first-child .col-sm-6:last-child').append('<div class="filterSelect"><select id="table-filter" class="right"><option value="" selected>Sort by Approval Status</option><option>Pending</option><option>Auto Approved</option><option>Approved</option><option>Denied</option><option>Canceled</option><option>Error</option><option>Voided</option></select></div>');
+    }
+    createSelectFilter();
+    $('#allTrips_filter input').on('focusin', function(){
+        $('#table-filter').prop('selectedIndex',0);
+        this.value = '';
+    })
     function getTime(data,type,full, meta){
         var date_time_convert = new Date(data.replace(/-/g,"/"));
         var newDate = date_time_convert.toLocaleString();
@@ -421,37 +595,72 @@ function setAllTripsPage(){
         var time=result.split(' ')[1];
         return date;
     }
+    function changeBookedDate(data,type,full, meta){
+        var booked_date_time_convert = new Date(data.replace(/-/g,"/"));
+        var newBookedDate = booked_date_time_convert.toLocaleString()
+        return newBookedDate;
+    }
     function getImg(data, type, full, meta) {
         d = parseInt(data);
         var status = d;
         if (status === 1) {
-            return '<span class="fa fa-check-circle" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-check-circle" aria-hidden="true"></span>';
         }
         else if (status === 2) {
-            return '<span class="fa fa-exclamation-triangle" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-exclamation-triangle" aria-hidden="true"></span>';
         }
         else if (status === 3) {
-            return '<span class="fa fa-check-circle-o" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-check-circle-o" aria-hidden="true"></span>';
         }
         else if (status === 4) {
-            return '<span class="fa fa-ban" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-ban" aria-hidden="true"></span>';
         } 
         else if (status === 5) {
-            return '<span class="fa fa-times fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-times fa-6" aria-hidden="true"></span>';
         }
         else if (status === 6) {
-            return '<span class="fa fa-exclamation-circle fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-exclamation-circle fa-6" aria-hidden="true"></span>';
         } 
         else if (status === 7) {
-            return '<span class="fa fa-minus-circle fa-6" aria-hidden="true"></span>';
+            return '<span class="stat-val">'+status+'</span> <span class="fa fa-minus-circle fa-6" aria-hidden="true"></span>';
+        }  
+    }
+    function getValText(data, type, full, meta) {
+        d = parseInt(data);
+        var status = d;
+        if (status === 1) {
+            return 'Approved';
+        }
+        else if (status === 2) {
+            return 'Pending';
+        }
+        else if (status === 3) {
+            return 'Auto Approved';
+        }
+        else if (status === 4) {
+            return 'Denied';
+        } 
+        else if (status === 5) {
+            return 'Canceled';
+        }
+        else if (status === 6) {
+            return 'Error';
+        } 
+        else if (status === 7) {
+            return 'Voided';
         }  
     }
     function getName(data, type, full, meta){
 
     }
+    $('#table-filter').on('change', function(){
+       table.search(this.value).draw();   
+    });
     var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
         $('.wait-spinner').addClass('active');
+        $('.wait-spinner p').removeClass('hide');
+        $('.wait-spinner #initial').remove();
         setTimeout(function(){
             $('.wait-spinner').removeClass('active');
         },1500)
@@ -460,8 +669,8 @@ function setAllTripsPage(){
         $('#allTrips tbody tr').removeClass('selected');
         $(this).addClass('selected');
 
-        $('#approvals #f_name').text(data.name_first);
-        $('#approvals #l_name').text(data.name_last);
+        $('#approvals .f_name').text(data.name_first);
+        $('#approvals .l_name').text(data.name_last);
         $('#approvals .traveller_email').text(data.email);
         $('#approvals a.traveller_email').attr("href" , "mailto:"+ data.email);
         $('#approvals .deptHeader').text(data.departCity);
@@ -471,6 +680,7 @@ function setAllTripsPage(){
         $('#approvals .site').attr("href" , "https://"+ data.site_hostedhostname);
         $('#approvals .cost').text('$'+data.total);
         $('#approvals #airConfirm_Number').text(data.airline_confirmation);
+        $('#approvals #custom_code_Number').text(data.custom_accountingremark_S32);
         //SWitch the hidden fields for the comments box//
         $('#approvals #pnr_id').val(data.pnr_id);
         $('#approvals #note_id').val(data.note_id);
@@ -481,12 +691,12 @@ function setAllTripsPage(){
         $('#approvals #universal_rec_loc').val(data.universal_rec_loc);
         $('#approvals #options_rec_loc').val(data.options_rec_loc);
         //SWitch the hidden fields for the Deny BTN box//
-        $('#approvals #pnr_id3').val(data.pnr_id);
-        $('#approvals #universal_rec_loc2').val(data.universal_rec_loc2);
-        $('#approvals #options_rec_loc2').val(data.options_rec_loc);
+        $('#pnr_id3').val(data.pnr_id);
+        $('#universal_rec_loc2').val(data.universal_rec_loc);
+        $('#options_rec_loc2').val(data.options_rec_loc);
 
-        $('#itinerary #f_name').text(data.name_first);
-        $('#itinerary #l_name').text(data.name_last);
+        $('#itinerary .f_name').text(data.name_first);
+        $('#itinerary .l_name').text(data.name_last);
         $('#itinerary .traveller_email').text(data.email);
         $('#itinerary a.traveller_email').attr("href" , "mailto:"+ data.email);
 
@@ -496,8 +706,8 @@ function setAllTripsPage(){
 
 
         //add print data//
-        $('#printdiv #f_name').text(data.name_first);
-        $('#printdiv #l_name').text(data.name_last);
+        $('#printdiv .f_name').text(data.name_first);
+        $('#printdiv .l_name').text(data.name_last);
         $('#printdiv .traveller_email').text(data.email);
         $('#printdiv a.traveller_email').attr("href" , "mailto:"+ data.email);
 
@@ -526,16 +736,19 @@ function setAllTripsPage(){
         var trip_pnr_id = data.pnr_id;
 
         checkTripType(data.airseg_legs_count);
-        changeDepartureDate(data.departure_datetime)
+        changeDepartureDate(data.departure_datetime);
+        changeApprovalDate(data.auto_approve_limit_datetime);
         checkStatus(data.status_id, data.auto_approve_limit_datetime);
         create_itinerary(data/*.legs,data.legOne,data.legTwo*/);
         create_pnrTable(data.names_arr, traveler_name_first, traveler_name_last, trip_pnr_id);
         
     });
+    /*
     setTimeout(function(){
         var tableRow = $('#allTrips tbody tr:first-child');
         $(tableRow).trigger('click');
     },500); 
+    */
     function checkStatus(d, e){
         d = parseInt(d);
         $('#app-status').removeClass().addClass('row')
@@ -547,79 +760,78 @@ function setAllTripsPage(){
             $('#app-status, #clock').addClass('isApproved');
             $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Approved');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Cancel');
+            $('#timer').text('')
+            $('#approvalTime').text('')
         }
         else if ( d === 2){
             $('#app-status, #clock').addClass('isPending');
             $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Pending Approval');
-            //$('#timer').text('');
-            //checkApprovalTime(e);
-            /*function checkApprovalTime(e){
-                var approvalLimitDate = new Date(e);
-                var today = new Date();
-
-                var diff = today.getTime() - approvalLimitDate.getTime();
-                //console.log(diff)
-                var msec = diff;
-                var ss = Math.floor(msec / 1000);
-                msec -= ss * 1000;
-
-                var time = "";
-                //console.log(time);
-                var time = ss;
-                //console.log(time);
-                var newTime = time.toString().replace(/-/g,"");
-                //console.log(time);
-                setButtons(newTime)
-                function setButtons(newTime){
-                    var limitTime = 86400;
-                    if (newTime > limitTime){
-                        $('#approveBtn').text('Auto Approved').addClass('disabled');
-                        $('#denyBtn').text('Cancel').addClass('disabled');
-                        $('#app-status, #clock').addClass('isAutoApproved');
-                        $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
-                        $('.approval-card-title').text('Auto Approved');
-                    }else{
-                        $('#app-status, #clock').addClass('isPending');
-                        $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
-                        $('.approval-card-title').text('Pending Approval');
-                    }
-                    //console.log(newTime + 'vs' + limitTime)
-                }
-            }*/
+            $('#timer').text('Tickets will be auto approved 24hrs after time of purchase.');
+            $('#denyBtn').text('Deny | Cancel');
         } 
         else if ( d === 3){
             $('#app-status, #clock').addClass('isAutoApproved');
             $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
             $('.approval-card-title').text('Auto Approved');
+            $('#approveBtn').text('Auto Approved').addClass('disabled');
+            $('#denyBtn').text('Cancel');
+            $('#timer').text('This ticket was auto approved after 24hrs of purchase because no action was taken.')
         }
         else if ( d === 4){
             $('#app-status, #clock').addClass('isDenied');
             $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
             $('.approval-card-title').text('Denied');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Denied').addClass('disabled');
+            $('#timer').text('This ticket was denied by an approver.')
+            $('#approvalTime').text('')
         }else if ( d === 5){
             $('#app-status, #clock').addClass('isCanceled');
-            $('#approvalID').addClass('isCanceled').append('<i class="fa-times fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isCanceled').append('<i class="fa fa-times fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Canceled');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Canceled').addClass('disabled');
+            $('#timer').text('This ticket was canceled and you may have a credit for future travel.')
+            $('#approvalTime').text('')
         }
         else if ( d === 6){
             $('#app-status, #clock').addClass('isErrored');
-            $('#approvalID').addClass('isErrored').append('<i class="fa-exclamation-circle fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isErrored').append('<i class="fa fa-exclamation-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Error');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Deny').addClass('disabled');
+            $('#timer').text('An error occured please contact support@tempotrip.com.')
+            $('#approvalTime').text('')
         }
         else if ( d === 7){
             $('#app-status, #clock').addClass('isVoided');
-            $('#approvalID').addClass('isVoided').append('<i class="fa-minus-circle fa-6" aria-hidden="true"></i>');
+            $('#approvalID').addClass('isVoided').append('<i class="fa fa-minus-circle fa-6" aria-hidden="true"></i>');
             $('.approval-card-title').text('Voided');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Deny').addClass('disabled');
+            $('#timer').text('This ticket was voided within 24 hours of purchase and the amount will be fully refunded.')
+            $('#approvalTime').text('')
         }    
     }
-    $('#approveBtn').on('click', function(){
+    $('#changeBtn').on('click', function(){
        //console.log('change table and DB status to Approved');
-    })  
+       createModal();
+    }) 
+    $('#cancelBtn').on('click', function(){
+        //console.log('cancel btn clicked');
+    }); 
     function changeDepartureDate(t){
         var date_time_convert = new Date(t.replace(/-/g,"/"));
         var newDate = date_time_convert.toLocaleString()
         $('#departTime, #departTime2, #printdiv #flightInfo #departTime').text(newDate)
+    }
+    function changeApprovalDate(t){
+        var approval_date_time_convert = new Date(t.replace(/-/g,"/"));
+        var newApprovalDate = approval_date_time_convert.toLocaleString()
+        $('#approvalTime').text('Auto Approval time is ' + newApprovalDate)
     }
     function changeDepartDuration(a){
         var dHours = Math.trunc(a/60);
@@ -659,7 +871,7 @@ function setAllTripsPage(){
             });
             $('#pnr_table').append('<p class-card-title>' + pnrNameValue.name_first + ' ' + pnrNameValue.name_last + '</p>')
         });
-        $('.pnr #pnr_Number').text(trip_pnr_id);
+        //$('.pnr #pnr_Number').text(trip_pnr_id);
 
     }
     var countDept = 0
@@ -786,7 +998,7 @@ function setAllTripsPage(){
 
                         $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .City, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .City').text(segvalue.fromcitycode);
 
-                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.tocityname);
+                        $('#departureDetails #itinerary-accordian #return-travel #segReturn'+countReturn+'.list-group .departureTime .leave .cityState, #printdiv .returnDetails .row #segReturn'+countReturn+'.list-group .departureTime .leave .cityState').text(segvalue.fromcityname);
 
                         function splitTime(t){
                             //console.log(t);
@@ -844,43 +1056,13 @@ function setAddTravelersPage(){
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
+
     $('#fileUpload').change(function(){
         //console.log($('#fileUpload').val())
         var path = $('#fileUpload').val();
         var filename = path.match(/[^\\/]*$/)[0];
         $('.file-return').text(filename);
         $("#addBulkTravelersButton").removeClass('hide');
-        /*function makeBulkTable(){
-            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-                if (regex.test($("#fileUpload").val().toLowerCase())) {
-                    if (typeof (FileReader) != "undefined") {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            var table = $("<table id='bulkLoad'/>");
-                            var rows = e.target.result.split("\n");
-                            for (var i = 0; i < rows.length; i++) {
-                                var row = $("<tr />");
-                                var cells = rows[i].split(",");
-                                for (var j = 0; j < cells.length; j++) {
-                                    var cell = $("<td />");
-                                    cell.html(cells[j]);
-                                    row.append(cell);
-                                }
-                                table.append(row);
-                            }
-                            $("#bulkTable").html('');
-                            $("#bulkTable").append(table);
-                            $("#addBulkTravelersButton").removeClass('hide');
-                        }
-                        reader.readAsText($("#fileUpload")[0].files[0]);
-                    } else {
-                        alert("This browser does not support HTML5.");
-                    }
-                } else {
-                    alert("Please upload a valid CSV file.");
-                }
-        }
-        makeBulkTable();*/
     })
     var data = system_output.affiliate_user_list;
     var dataNew = []
@@ -897,6 +1079,7 @@ function setAddTravelersPage(){
             phone: value.phone,
             known_number: value.known_number,
             redress_number: value.redress_number,
+            role_name: value.role_name,
             role_id: value.role_id,
             status: value.status,
         });
@@ -906,10 +1089,10 @@ function setAddTravelersPage(){
         "aaData": data_obj,
         "order": [[ 0, "desc" ]],
         "select":true,
-        "pageLength": 8,
-        "pagingType": "simple",
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
         "responsive": true,
-        "info": false,
+        "info": true,
         "aoColumns": [
             { 
                 "title": "User ID",
@@ -966,6 +1149,11 @@ function setAddTravelersPage(){
                 "mDataProp": "role_id",
                 "visible": false
             },
+            /*{
+                "title": "Role Name",
+                "mDataProp": "role_name",
+                "visible": false
+            },*/
             {
                 "title": "User Status",
                 "mDataProp": "status",
@@ -989,10 +1177,10 @@ function setAddTravelersPage(){
         function checkRows(){
             if($('#addTravelers tbody tr').hasClass('selected')){
                 $('#personal-form, .saveBtn').removeClass('disabled');
-                console.log('has selected')
+                //console.log('has selected')
             }else{
                 $('#personal-form, .saveBtn').addClass('disabled');
-                console.log('none selected')
+                //console.log('none selected')
             }
         }
         checkRows();
@@ -1000,12 +1188,15 @@ function setAddTravelersPage(){
         var data = table.row( this ).data();
         //console.log(data)
         $('#userID').val(data.user_id);
+        $('#userID2').val(data.user_id);
         $('#firstName').val(data.f_name);
         $('#middleName').val(data.m_initial);
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
         $('.gender').val(data.gender);
+        $('.role_name').val(data.role_name);
         $('.role').val(data.role_id);
+        $('#roleID').val(data.role_id);
         $('#email-address').val(data.email);
         $('#phone').val(data.phone);
         $('.status').val(data.status);
@@ -1039,7 +1230,7 @@ function setAddTravelersPage(){
         }
         phoneFormatter(data.phone);
         function phoneFormatter(b) {
-            $('input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+            $('input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
             var number = b.replace(/[^\d]/g, '')
             if (number.length == 7) {
                 number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
@@ -1050,6 +1241,22 @@ function setAddTravelersPage(){
             $('#phone').val(number)
             $('#phone').attr({ maxLength : 10 });
         };
+        setTimeout(function(){
+            checkIfEmpty();
+        },10)
+        function checkIfEmpty(){
+            var empty = false;
+            $('form input').each(function(){
+                if($(this).val().trim()==""){
+                    empty = true;
+                    $(this).removeClass("has-value");
+                }else{
+                    $(this).addClass("has-value");
+                }
+            });
+            return empty;
+        }
+        checkIfEmpty()
 
     });
     function does_role_exist(role_list,my_role){
@@ -1066,10 +1273,8 @@ function setAddTravelersPage(){
         })
        return return_val
     }
-
     $('.yes').click( function () {
-       table.rows('.selected').remove().draw( false );
-       $('.remove').addClass('hide');
+       //table.rows('.selected').remove().draw( false );
        $('.no').trigger('click');
     });
     $('#personal-form').on('click', function(){
@@ -1078,7 +1283,12 @@ function setAddTravelersPage(){
     $('.plusBtn').on('click', function(){
         $('.airlineMiles').clone().appendTo('#ffSection');
     })
-   
+     $('#site_type-1').change(function(){
+        $('#rangePicker').removeClass('hide').addClass('hide'); 
+    })
+    $('.guestCheckBox').on('click', function(){
+        $('.groupSelect').val('guest');
+    })   
 }
 function setEventsPage(){
     setTimeout(function(){
@@ -1089,28 +1299,6 @@ function setEventsPage(){
     },10)
     var siteCount = 0
     var data = system_output.site_list;
-   /*var site_list = [
-        {
-            e_site_id:'tempotrip',
-            display_name: 'Tempotrip.com',
-            hostedhostname: 'az.dev.andy.wwwtempotrip.optionstravel.com'
-        },
-        {
-            e_site_id:'militarytogo',
-            display_name: 'Militarytogo.com',
-            hostedhostname: 'az.dev.andy.wwwmilitarytogo.optionstravel.com'
-        },
-        {   
-            e_site_id:'sandboxx',
-            display_name: 'Sandboxx.tempotrip.com',
-            hostedhostname: 'sandboxx.tempotrip.com'
-        },
-        {
-            e_site_id:'ena',
-            display_name: 'ENA.tempotrip.com',
-            hostedhostname: 'ena.tempotrip.com'
-        }
-    ];*/
     $.each(data, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');
@@ -1143,12 +1331,55 @@ function setAffiliatePage(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
 }
-function setHelpCenterPage(){
-    
+function setHelpCenterPage(){   
+}
+function setAffliateEditPage(){
+    setTimeout(function(){
+        $('body').find('li#affiliate-edit-page').addClass('active')
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+
+    //Date range picker//
+    function affiliateDates(){
+        var dateFormat = "mm/dd/yy",
+          from = $("#affiliate-start-date")
+            .datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 2
+            })
+            .on( "change", function() {
+              to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+          to = $("#affiliate-end-date").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 2
+          })
+          .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+          });
+        function getDate( element ) {
+          var date;
+          try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+          } catch( error ) {
+            date = null;
+          }
+     
+          return date;
+        }
+    }
+    affiliateDates();
 }
 function createModal(){
-    $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"><?php echo $app->output->errorstr ?></p><p class="success"><?php echo $app->output->successstr ?></p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
+    $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"></p><p class="success"></p><p class="message">Please contact a personal travel agent at 1 (800) 544-8785 and we can change the reservation for a better time that accomadates your schedule.</p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
         $('#modalBtn').click();
+}
+function createChangePasswordModal(){
+    $('body').append('<div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><form method="POST"><input type="hidden" name="p" value="profile"><div class="container-fluid"><div class="row"><p class="errors"></p><p class="success"></p><p class="message">Please enter your email address associates with your TempoTrip account</p></div><div class="row"><div class="col-sm-12"><div class="form-group"><input value="" type="text" placeholder="Enter Username | Email" required="" name="username" class="username"><div class="userImage"></div><label>Username | Email</label><span class="focus-border"><i></i></span><button type="submit" id="newPassword">SUBMIT</button></div></div></div></div></form>');
 }
 function checkiFrame(){
     if (window!=window.top) { 
@@ -1162,9 +1393,12 @@ function checkiFrame(){
 function getLogo(){
     var dataLogo = system_output.file_library.img.logo;
     //var dataAlt = system_output.file_library.img.alt;
-    console.log(dataLogo)
+    //console.log(dataLogo)
     $('.client-logo img').attr("src", dataLogo);
     //$('.client-logo img').attr("alt", dataAlt);
+}
+function addMeta(){
+    $('head').prepend('');
 }
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip({
@@ -1181,35 +1415,55 @@ $(document).ready(function(){
         }
       }
     });
+    setTimeout(function(){
+        checkIfEmpty();
+    },10)
+    function checkIfEmpty(){
+        var empty = false;
+        $('form input').each(function(){
+            if($(this).val().trim()==""){
+                empty = true;
+                $(this).removeClass("has-value");
+            }else{
+                $(this).addClass("has-value");
+            }
+        });
+        return empty;
+    }
     function phoneFormatter() {
-     $(' input[type="tel"]').attr({ placeholder : '(___) ___-____' });
+     $(' input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
       $('input[type="tel"]').on('input', function() {
         var number = $(this).val().replace(/[^\d]/g, '')
         if (number.length == 7) {
           number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
-        } else if (number.length == 10) {
+            $(this).removeClass('error');
+            $('button[type="submit"]').removeClass('disabled');
+        }else if (number.length == 10) {
           number = number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
-         
+            $(this).removeClass('error')
+            $('button[type="submit"]').removeClass('disabled')
+        }
+        else if (number.length < 7){
+            $(this).addClass('error');
+            $('button[type="submit"]').addClass('disabled')
         }
         $(this).val(number)
         $('input[type="tel"]').attr({ maxLength : 10 });
         
       });
     };
-
-    phoneFormatter();
-    checkiFrame();
-	checkPage();
-    getLogo();
-});
-$(window).load(function(){
     $("input").focusout(function(){
         if($(this).val() != ""){
             $(this).addClass("has-content");
         }else{
             $(this).removeClass("has-content");
         }
-    })
+    });
+    phoneFormatter();
+    checkiFrame();
+	checkPage();
+    getLogo();
+    addMeta();
 });
 
 //Global JS File//

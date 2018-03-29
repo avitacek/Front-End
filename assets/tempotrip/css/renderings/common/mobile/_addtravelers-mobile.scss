@@ -11,14 +11,20 @@
 }
 @include max-screen(medium) {
 	#add-travelers-page .body-content{
-		padding-top:0px;
 	}
 	#add-travelers-page .body-content .row .col-md-7 .row .col-sm-12 .success, #add-travelers-page .body-content .row .col-md-7 .row .col-sm-12 .errors{
 		margin-bottom:5px
 	}
+	#add-travelers-page .body-content .row .col-md-5{
+		padding:0px!important;
+	}
 	#add-travelers-page .body-content .row .col-md-5 .row .col-sm-12{
 		padding-right:0px;
 		padding-left:0px;
+	}
+	#add-travelers-page .body-content .row #addTravelers_wrapper, #add-travelers-page .body-content .row .addTravelerWrapper{
+		margin-top:0px;
+		margin-bottom:10px!important;
 	}
 }
 @include max-screen(smallMedium){

@@ -1,4 +1,4 @@
-@import "../../globals/variables";
+@import "../../globals/variables"; 
 @import "../../globals/mixins";
 /* -----------------------------------------------------
 	alltrips page
@@ -41,15 +41,20 @@
     			border: 1px solid #ffffff;
     			border-radius:3px;
     			padding:15px 0px;
+    			margin-top:10px;
     			& .dataTables_length{
     				& select{
-    					margin:0px 5px !important;
+    					border-radius:3px;
+    					margin:5px 5px !important;
+    					padding: 2px 20px;
+    					height: 30px;
+    					line-height:22px;
     				}
     			}
     			& .dataTables_filter{
     			}
     			& .dataTables_length{
-    				display:none;
+    				display:block;
     			}
 			}
 			& #pnrTable_wrapper{
@@ -76,7 +81,8 @@
     				}
     			}
     			& .dataTables_info{
-    				display:none;
+    				display:block;
+
     			}
     			& tbody td{
     				padding:10px;
@@ -89,7 +95,6 @@
     			}
 
 			}
-
 			& table.dataTable{
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 			}
@@ -104,6 +109,11 @@
 				padding-left:0px;
 				padding-right:0px;
 			}
+			& table.dataTable thead .sorting_asc, & table.dataTable thead .sorting_desc, & table.dataTable thead .sorting_asc_disabled, & table.dataTable thead .sorting_desc_disabled {
+    			background-repeat: no-repeat;
+    			background-position: right 8px;
+    			padding-right:10px;
+    		}
 			& table.dataTable tbody th, table.dataTable tbody td{
 				padding:15px 10px;
 				text-align:center;
@@ -114,6 +124,13 @@
 			& table.dataTable thead tr{
 				color:#ffffff;
 				background-color:$grey-blue;
+			}
+			& table.dataTable tbody td .stat-val{
+				color:white;
+				opacity:0;
+				font-size:1px;
+				visibility: hidden;
+				display:none;
 			}
 			& table.dataTable tbody td .fa-check-circle{
 				font-size:20px;
@@ -153,10 +170,37 @@
 			}
 			.dataTables_wrapper .dataTables_info{
 				padding:8px 10px;
+				margin-top:14px;
 			}
 			& #allTrips_wrapper .row:last-child .col-md-5, & #allTrips_wrapper .row:last-child .col-m-7{
 				width:100%;
 				float:left;
+			}
+			& #allTrips_wrapper .row:first-child .col-sm-6:first-child{
+				width:30%;
+				padding-right:0px;
+			}
+			& #allTrips_wrapper .row:first-child .col-sm-6:last-child{
+				width:70%;
+				padding-left:0px;
+			}
+			& #allTrips_wrapper .row:first-child .col-sm-6:last-child #allTrips_filter{
+				float:left;
+				width:60%;
+				padding-right:15px;
+			}
+			& #allTrips_wrapper .row:first-child .col-sm-6:last-child .filterSelect{
+				float:left;
+				width:40%;
+			}
+			& #allTrips_wrapper .row:first-child .col-sm-6:last-child #table-filter{
+				margin-top: 0px;
+    			height: 40px;
+    			&:focus{
+    				outline:none;
+    				box-shaow:none;
+    				border:1px solid #5DB9BE !important;
+    			}
 			}
 			#allTrips-page .body-content .col-md-7 .table > thead > tr > th:focus{
 				outline: transparent auto 5px;
@@ -178,11 +222,19 @@
 				background-color: $grey-blue;
 				border-color:$grey-blue;
 			}
+			& .dataTables_wrapper .dataTables_paginate .paginate_button{
+						padding: 0.5em 0.25em;
+			}
 		}
 		& .col-md-5{
 			& .col-sm-12{
 				padding-left:0px;
 				padding-right:0px;
+			}
+			.nav-tabs > li > a{
+				background-color: rgba(255, 255, 255, 0.05);
+				border: 1px solid #ffffff;
+    			border-bottom-color:transparent
 			}
 			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 				background-color: rgba(255, 255, 255, .45);
@@ -219,7 +271,6 @@
 							}
 						}
 						& .travellerName{
-							border-right:1px solid #ddd;
 							& span{
 								clear:both;
 							}
@@ -261,6 +312,7 @@
 								}
 						}
 						& #flightInfo{
+							border-left:1px solid #ddd;
 							.deptHeader{
 								font-family: $Source-Sans-Pro;
 							    font-size: 32px;
@@ -324,7 +376,6 @@
 							margin:0px;
 							width:50%;
 							padding:15px;
-							border-right:1px solid #ddd;
 							& .card-title{
 								margin-top:0px;
 								margin-bottom:0px;
@@ -341,7 +392,9 @@
 						}
 						& #status{
 							margin-bottom:0px;
+							margin-left:0px!important;
 							padding:15px;
+							border-left:1px solid #ddd;
 							& .row{
 								border-bottom:none;
 								& #clock{
@@ -400,17 +453,26 @@
 											line-height:1.0em;
 											
 										}
-										#timer{
-											color:$teal;
-											margin-top:-5px;
-											line-height:0.75em;
-										}
+										
 									}
 								}
-								
+								& #timer, & #approvalTime{
+									color:#54565b;
+									margin-top:0px;
+									line-height:1em;
+									font-size:12px;
+								}
 							}
 						}
 						&#app-status{
+							&:before{
+								content:'All Travelers Associated with this Ticket will be effected by the Action.';
+								    font-size: 12px;
+								    width:100%;
+								    padding:15px 15px 0px;
+								    color:$orange;
+								    text-transform:uppercase;
+							}
 							& .col-sm-12{
 								padding:0px 15px;
 								&:first-child{
@@ -430,15 +492,25 @@
 									}
 								}
 							}
-							&.isApproved{
+							&.isApproved, &.isAutoApproved{
 								& .approve{
-									& button{
+									& #approveBtn{
 										opacity:0.5;
 										cursor:text;
+										
 									}
-									
+									& #changeBtn{
+										display:block;background-color: $orange;
+									}
 								}
 								& .deny{
+									& #denyBtn{
+										
+									}
+									& #cancelBtn{
+										display:block;background-color: $red;
+									}
+
 									
 								}
 							}
@@ -499,6 +571,25 @@
 								}
 							}
 						}
+						& .customCode{
+							margin-bottom:0px;
+							padding:15px 15px;
+							height:53px;
+							border-bottom:1px solid #ddd;
+							& .card-title{
+								margin-top:0px;
+								margin-bottom:0px;
+								font-weight:normal;
+								font-size:18px;
+								text-transform:uppercase;
+								color:$dark-grey;
+								&:before{
+									float:left;
+									content:'Custom Code #:';
+									margin-right:5px;
+								}
+							}
+						}
 						& .pnr{
 							margin-bottom:0px;
 							padding:15px 15px;
@@ -512,14 +603,14 @@
 								color:$dark-grey;
 								&:before{
 									float:left;
-									content:'PNR #';
+									content:'';
 									margin-right:0px;
 								}
 								&:after{
 									float:left;
 									width:100%;
 									font-size:12px;
-									content:'All Travelers Associates with this PNR#';
+									content:'List of All Travelers Associated with this Ticket';
 									margin-bottom:10px;
 								}
 							}
@@ -760,7 +851,7 @@
 															display:table-cell;
 															padding:10px;
 															text-align:center;
-															font-family:$Raleway;
+															font-family:$Source-Sans-Pro;
     														font-size: 14px;
     														color: #54565b;
     														border-bottom:none;float:left
@@ -838,6 +929,24 @@
 						}
 					}
 				}
+			}
+		}
+		& .modal-content{
+			padding-bottom:10px;
+			& .approve{
+				& .no{
+					display:block;background-color: $teal;
+				}
+			}
+			& .deny{
+				& .yes{
+					display:block;background-color: $red;
+				}
+
+				
+			}
+			& p{
+				padding-top:10px;
 			}
 		}
 	}
@@ -1127,6 +1236,5 @@
 						}
 					}
 				}
-			}
-		}
+			}}
 @import "mobile/alltrips-mobile";

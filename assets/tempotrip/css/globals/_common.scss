@@ -1,12 +1,4 @@
-﻿/* -----------------------------------------------------------------------------
-Import COMMON
------------------------------------------------------------------------------ */
-@import "variables";
-@import "mixins";
-
-// don't target this!
-// used to visually align content in adjacent columns by removing the top margin off first elements
-.flush-top-margin {
+﻿.flush-top-margin {
     > h1:first-child,
     > h2:first-child,
     > h3:first-child,

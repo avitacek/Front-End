@@ -1,0 +1,19 @@
+    <div class="row" id="content-pnr-get">
+        <div class="col-sm-12" id="topBar">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 id='stepTwo'>Tempotrip PNR Creator</h1>
+                    <p>Select the event site below for this reservation and continue to finish creating the passive record.</p>
+                </div>
+                <div class="col-sm-12">
+                    <form method="POST" action="">
+                        <input type="hidden" name="a" value="get_sites">
+                        <input type="hidden" name="p" value="pnr_creator_results">
+                        <input type="hidden" id='traveler_count' name="traveler_count" value="">  
+                        <div id='site_select_carrier'></div>
+                        <input class="btn" id="submit" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

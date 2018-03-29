@@ -10,8 +10,8 @@
 	
 }
 @include max-screen(medium) {
-	#all-trips-page .body-content{
-		padding-top:80px;
+	#all-trips-page .body-content #timeRow{
+		padding:0px;
 	}
 	#all-trips-page .body-content #tripsSideBar{
 		margin-top:15px;
@@ -19,6 +19,43 @@
 	#all-trips-page .body-content #tripsSideBar .row .col-sm-12{
 		padding-right:0px;
 		padding-left:0px;
+	}
+	#all-trips-page .body-content{
+		& .row{
+			&:nth-child(4){
+				& .col-sm-12{
+					padding:0px;
+				}
+			}
+		}
+	}
+	#all-trips-page .body-content .col-md-7 #allTrips_wrapper .row:first-child .col-sm-6:last-child, #all-trips-page .body-content .col-md-5 #allTrips_wrapper .row:first-child .col-sm-6:last-child{
+		padding-left:15px;
+		width:100%;
+	}
+	#all-trips-page .body-content .col-md-7 #allTrips_wrapper .row:first-child .col-sm-6:last-child .filterSelect, #all-trips-page .body-content .col-md-5 #allTrips_wrapper .row:first-child .col-sm-6:last-child .filterSelect{
+		float:right;
+		margin-top:0.5em;
+	}
+	#all-trips-page .body-content .col-md-7 #allTrips_wrapper .row:first-child .col-sm-6:last-child #table-filter, #all-trips-page .body-content .col-md-5 #allTrips_wrapper .row:first-child .col-sm-6:last-child #table-filter{
+		padding:10px 5px;
+		text-align:center;
+	}
+	#all-trips-page .body-content .col-md-7 #allTrips_wrapper .row:first-child .col-sm-6:last-child #allTrips_filter label, #all-trips-page .body-content .col-md-5 #allTrips_wrapper .row:first-child .col-sm-6:last-child #allTrips_filter label{
+		float:left;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #costs{
+		padding:15px!important;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row #status .col-sm-12{
+		display:block;
+		margin-top:15px;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row .airConfirm{
+		padding:15px!important;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row#app-status .col-sm-12:first-child{
+		padding-left:15px!important;
 	}
 }
 @include max-screen(smallMedium){
@@ -48,7 +85,7 @@
 		margin-top:15px;
 	}
 	#all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader.Roundtrip:before{
-		margin:-5px 37px 0px;
+		margin:-5px 95px 0px;
 	}
 	#all-trips-page .body-content .col-md-5 #approvals .content .row #sites{
 		display:none;
@@ -61,5 +98,8 @@
 	}
 	#all-trips-page .body-content .col-md-5 #approvals .content .row #status .row #clock{
 		margin-top:10px;
+	}
+	#all-trips-page .body-content .col-md-5 #approvals .content .row#comments .col-sm-12{
+		padding:15px!important;
 	}
 }

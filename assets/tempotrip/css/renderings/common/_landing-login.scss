@@ -1,4 +1,4 @@
-@import "../../globals/variables";
+@import "../../globals/variables"; 
 @import "../../globals/mixins";
 /* -----------------------------------------------------
 	landing-side
@@ -33,14 +33,14 @@
 	    z-index: 5;
 	    transition: 0.3s;
 	    &:focus, &.has-content{
-				border-color:#5DB9BE !important;
+				border-color:$grey-blue !important;
 			}
 	  }
 	  & input:focus ~ label, & input.has-content ~ label {
 	    top: 0px;
 	    left: 0;
 	    font-size: 14px;
-	    color: #5DB9BE!important;
+	    color: $grey-blue!important;
 	    transition: 0.3s;
 	    z-index: 1;
 	  }
@@ -68,7 +68,7 @@
 		    left: 50%;
 		    width: 0;
 		    height: 3px;
-		    background-color: #5DB9BE;
+		    background-color: $grey-blue;
 		    transition: 0.4s;
 	  	}
 	  	& input ~ .focus-border i:before, & input ~ .focus-border i:after {
@@ -78,7 +78,7 @@
 		    left: 0;
 		    width: 3px;
 		    height: 0;
-		    background-color: #5DB9BE;
+		    background-color: $grey-blue;
 		    transition: 0.6s;
 		}
 
@@ -114,7 +114,7 @@
 	  }
 	}
 }
-#flip-form{
+#flip-form, #register-form{
 	background-color:rgba(255,255,255,0.85);
 	border: 1px solid #E3E3E3;
 	border-radius:5px;
@@ -129,7 +129,7 @@
     	margin-bottom: 5px;
     	text-transform: uppercase;
 	}
-	& #landing-login, & #landing-login-request{
+	& #landing-login, & #landing-login-request, & #register-landing{
 		padding:5% 5%;
 		background-color:transparent;
 		position:relative;
@@ -171,7 +171,7 @@
 			color:#ffffff;
 			font-size:12px;
 		}
-		& #login-form{
+		& #login-form, & #form-register{
 			margin-top:20px;
 			& .container-fluid{
 				padding:0px;
@@ -227,7 +227,7 @@
 			    		opacity: 0.8;
 					}
 					&:focus{
-						outline-color:white;
+						outline-color:$white;
 					}
 				}
 				& .container {
@@ -258,6 +258,13 @@
 			}
 		}
 	}
+	& #register-landing{
+		& p{
+			margin-top:0px;
+			color:$blue;
+			text-align:center;
+		}
+	}
 	& .col-sm-4{
 		height:100%;
 		position:absolute;
@@ -275,7 +282,7 @@
 		top:0px;
 		left:0px;
 		z-index: 2;
-		padding:15% 15px;
+		padding:15% 10%;
 		transition:all .5s 0.0s linear;
 		& .register-title{
 			& h4{
@@ -329,7 +336,7 @@
 			background-color:#ffffff!important;
 			transition: 0.3s;
 			&:focus, &.has-content{
-				border-color:#5DB9BE;
+				border-color:$grey-blue;
 			}
 		}
 
@@ -350,7 +357,7 @@
 		    top: 0px;
 		    left: 0;
 		    font-size: 14px;
-		    color: #5DB9BE!important;
+		    color: $grey-blue!important;
 		    transition: 0.3s;
 		    z-index: 1;
 		}
@@ -400,6 +407,103 @@
 		& .button-switch{
 			& button{
 				background-color:#5db9be;
+			}
+		}
+	}
+}
+#register-page{
+	background-color: rgba(255, 255, 255, 0.85);
+	border: 1px solid #e3e3e3;
+	border-radius:5px;
+	margin:0px auto!important;
+	position:relative;
+	overflow:hidden;
+	max-width:75%;
+	padding:0px 0px;
+	& #register-slider{
+		padding:5% 5%;
+		height:100%;
+		width:100%;
+		transition:all .5s 0.0s linear;
+		z-index: 8;
+		& .col-md-6{
+			margin-bottom:15px;
+			& h4 {
+				text-align:right;
+				color:#1a4666;
+				font-weight:normal;
+			}
+			& p{
+				display:block;
+				font-size:10px;
+				text-align:right;
+				font-family:$Source-Sans-Pro;
+				
+			}
+		}
+		& .form-group{
+			margin-bottom:15px;
+		}
+		& input{
+			background-color:#ffffff!important;
+			transition: 0.3s;
+			&:focus, &.has-content{
+				border-color:#5DB9BE;
+			}
+		}
+
+		& label{
+			color:#9A9A9A!important;
+		}
+		& .focus-border{
+		    height: 50px;
+		    margin-top: 23px;
+		    margin-bottom: 0px;
+		    position: absolute;
+		    border-radius:3px;
+		    top: 0px;
+		    left: -2px;
+		    width: 100%;
+		  }
+		& input:focus ~ label, & input.has-content ~ label {
+		    top: 0px;
+		    left: 0;
+		    font-size: 14px;
+		    color: #5DB9BE!important;
+		    transition: 0.3s;
+		    z-index: 1;
+		}
+		& input:focus ~ .focus-border i:after, & input.has-content ~ .focus-border i:after {
+	    	left: auto;
+	    	right: -4px;
+	    	width:6px;
+	    	height:102%
+	  	}
+	  	& input:focus ~ .focus-border i:before, & input.has-content ~ .focus-border i:before {
+	    	left: 0px;
+	    	height:102%
+	  	}
+		& h4{
+			color:#ffffff;
+			font-weight:normal;
+		}
+
+		& .col-sm-12{
+			padding-right:0px;
+			padding-left:0px;
+			& button, & a{
+				background-color:#1a4666;
+			}
+		}
+		& .col-sm-6{
+			padding-left:0px;
+			padding-right:0px;
+			width:49%;
+			&:first-child{
+				margin-right:15px;
+			}
+			&:last-child{
+				margin-left:15px;
 			}
 		}
 	}

@@ -16,12 +16,40 @@
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-body">
+      <div class="modal-header">
         <p>Are you sure you want to remove these travelers</p>
-        <button type="button" class="no" data-dismiss="modal">No</button>
-        <button type="button" class="yes">Yes</button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" role="form">
+          <input type='hidden' id="userID2" name='user_id' value="">
+          <input type='hidden' name='status' value="5">
+          <input type='hidden' name='a' value="delete_user">
+          <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+          <button type="button" class="no" data-dismiss="modal">No</button>
+          <button type="submit" class="yes">Yes</button>
+        </form>
       </div>
     </div>
-
+  </div>
+</div>
+<div id="groupModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>Create a new Traveler Group</p>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" role="form">
+          <input type='hidden' name='status' value="5">
+          <input type='hidden' name='a' value="create_group">
+          <input type="text" class="form-control">
+          <span class="focus-border"><i></i></span>
+          <button type="submit" class="yes">Create Group</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
