@@ -4,3 +4,33 @@
 	    </tr>
     </thead>
 </table>
+<!-- Modal -->
+<div id="cancelModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <form method="POST">
+        	<input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+        	<input type='hidden' id="pnr_id3" name='pnr_id' value="">
+        	<input type='hidden' id="universal_rec_loc2" name='universal_rec_loc' value="">
+        	<input type='hidden' id="options_rec_loc2" name='options_rec_loc' value="">
+        	<input type='hidden' name='a' value="deny">
+        	<div class="row">
+        		<div class="col-sm-12">
+        			<p>Are you sure you want to cancel/deny this trip?</p>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-sm-6 approve">
+        			<button type="button" class="no" data-dismiss="modal">No</button>
+        		</div>
+        		<div class="col-sm-6 deny">
+        			<button type="submit" class="yes">Yes</button>
+        		</div>
+        	</div>
+        	
+    	</form>
+    </div>
+
+  </div>
+</div>

@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var source = require('vinyl-source-stream'); // Converts Browserify stream to a format that can be consumed by other Gulp plugins
+var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -46,9 +46,8 @@ gulp.task('fonts', function() {
 gulp.task('data', function() {
    return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/js/ajax'));
 });
-
-gulp.task('sass', function () {
-  return gulp.src('./assets/tempotrip/css/**/*.scss')
+gulp.task('sass-global', function () {
+  return gulp.src('./assets/tempotrip/css/globals.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -56,7 +55,21 @@ gulp.task('sass', function () {
     .pipe(autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
-    .pipe(concat('tempotrip.css'))
+    .pipe(concat('tempotrip.globals.css'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('../../www/css'))
+    .pipe(notify({ message: "Global Sass compiled, Sourcemaps created."}) );
+});
+gulp.task('sass', function () {
+  return gulp.src('./assets/tempotrip/css/modules.scss')
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(plumber())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 9']
+    }))
+    .pipe(concat('profile.modules.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('../../www/css'))
     .pipe(notify({ message: "Sass compiled, Sourcemaps created."}) );
@@ -69,7 +82,7 @@ gulp.task('js1', function () {
     .on('error', function (e) { 
       gutil.log(e); 
     })
-    .pipe(source('tempotrip.modules.js')) 
+    .pipe(source('profile.modules.js')) 
     .pipe(gulp.dest('../../www/js'))
     .pipe(notify({ message: "JS bundled."}) ); 
 });
@@ -108,6 +121,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.start('images', 'fonts', 'vendors', 'vendorsCSS', 'data', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
+    gulp.start('images', 'fonts', 'vendors', 'vendorsCSS', 'data', 'sass-global', 'sass', 'js1', 'js2','fileinclude', 'change', 'browser-sync', 'watch');
 });
 

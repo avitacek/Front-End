@@ -1,15 +1,15 @@
-@import "../../globals/variables";
+@import "../../globals/variables"; 
 @import "../../globals/mixins";
 /* -----------------------------------------------------
 	dashboard page
 -------------------------------------------------------*/
-#pnr-creator-page{
+#pnr-creator-page, #pnr-creator-start, #pnr-creator-get-sites{
 	& .body-content{
 		& .row{
 			& .col-sm-8{
 				margin:0px auto;
     			float:none;
-    			& #content-pnr-creator{
+    			& #content-pnr-start, #content-pnr-results, & #content-pnr-get{
 					& #topBar{
 						border-radius: 4px;
 		    			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);

@@ -1,3 +1,5 @@
+@import "../../globals/variables"; 
+@import "../../globals/mixins";
 input.form-control.m-t-0 {
     padding: 10px 18px 10px 18px;
     margin: 0px;
@@ -420,7 +422,7 @@ padding:0px;
   position:relative;
 }
 .plusBtn, .minusBtn{
-  color: #5DB9BE!important;
+  color: $grey-blue!important;
   position:absolute;
   right:0px; top:0px;
   font-size:20px;
@@ -439,11 +441,11 @@ padding:0px;
   border-radius:3px;
 }
 .airlineMiles select:focus{
-  border-color: #5DB9BE !important;
+  border-color: $grey-blue !important;
   box-shaow:none;
 }
 .airlineMiles select:focus ~ label{
-  color: #5DB9BE!important;
+  color: $grey-blue!important;
 }
 
 @media (min-width: 992px) {
@@ -527,10 +529,10 @@ textarea ~ label{
       text-transform:none;
 }
 input:focus, &.has-content, & .has-value{
-  border-color:#5DB9BE !important;
+  border-color:$grey-blue !important;
 }
 input:focus ~ label, input.has-content ~ label {
-  color: #5DB9BE!important;
+  color: $grey-blue!important;
 }
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
   background-color: rgba(255,255,255,0.0)!important;
@@ -556,7 +558,7 @@ input ~ .focus-border:before, input ~ .focus-border:after {
   left: 50%;
   width: 0;
   height: 3px;
-  background-color: #5DB9BE;
+  background-color: $grey-blue;
   transition: 0.4s;
 }
 input ~ .focus-border i:before, input ~ .focus-border i:after {
@@ -566,7 +568,7 @@ input ~ .focus-border i:before, input ~ .focus-border i:after {
     left: 0;
     width: 3px;
     height: 0;
-    background-color: #5DB9BE;
+    background-color: $grey-blue;
     transition: 0.6s;
 }
 input ~ .focus-border:after {

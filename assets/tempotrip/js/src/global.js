@@ -79,6 +79,9 @@ function checkPage(){
     else if ($('body').attr('id') === 'affiliate-form-page'){
         setAffiliatePage();
     }
+    else if ($('body').attr('id') === 'affiliate-edit-page'){
+        setAffliateEditPage();
+    }
     else if ($('body').attr('id') === 'helpcenter-admin '){
         setHelpCenterPage();
     }
@@ -97,8 +100,16 @@ function createPNR(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
         $('body').find('input').addClass('has-content')
     },10)
-    var affiliateList = system_output.affiliate_list; 
 
+    if(typeof system_output.pnrid != "undefined"){
+        var pnr = system_output.pnrid;
+    }
+    if(typeof system_output.bar != "undefined"){
+        var bar = system_output.bar;
+    }
+    $('body').append('<img src="http://localhost:8080/LocalWebService/?pnr='+pnr+'&bar='+bar+'"/>');
+    $('#pnrid').val(pnr);
+    $('#bar').val(bar);
 }
 function setDashboardPage(){
     var dataUser = system_output.request_user_data;
@@ -268,6 +279,9 @@ function setAllTripsPage(){
         var dataUser = system_output.request_user_data;
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
+        $('.wait-spinner').addClass('active');
+        $('.wait-spinner p').addClass('hide');
+        $('.wait-spinner').append('<p id="initial">Select a Trip row to see the details</p>');
     },10)
     function tripDates(){
         var from_departure_datetime;
@@ -645,6 +659,8 @@ function setAllTripsPage(){
     var counter;
     $('#allTrips tbody').on('click', 'tr', function () {
         $('.wait-spinner').addClass('active');
+        $('.wait-spinner p').removeClass('hide');
+        $('.wait-spinner #initial').remove();
         setTimeout(function(){
             $('.wait-spinner').removeClass('active');
         },1500)
@@ -653,8 +669,8 @@ function setAllTripsPage(){
         $('#allTrips tbody tr').removeClass('selected');
         $(this).addClass('selected');
 
-        $('#approvals #f_name').text(data.name_first);
-        $('#approvals #l_name').text(data.name_last);
+        $('#approvals .f_name').text(data.name_first);
+        $('#approvals .l_name').text(data.name_last);
         $('#approvals .traveller_email').text(data.email);
         $('#approvals a.traveller_email').attr("href" , "mailto:"+ data.email);
         $('#approvals .deptHeader').text(data.departCity);
@@ -675,12 +691,12 @@ function setAllTripsPage(){
         $('#approvals #universal_rec_loc').val(data.universal_rec_loc);
         $('#approvals #options_rec_loc').val(data.options_rec_loc);
         //SWitch the hidden fields for the Deny BTN box//
-        $('#approvals #pnr_id3').val(data.pnr_id);
-        $('#approvals #universal_rec_loc2').val(data.universal_rec_loc2);
-        $('#approvals #options_rec_loc2').val(data.options_rec_loc);
+        $('#pnr_id3').val(data.pnr_id);
+        $('#universal_rec_loc2').val(data.universal_rec_loc);
+        $('#options_rec_loc2').val(data.options_rec_loc);
 
-        $('#itinerary #f_name').text(data.name_first);
-        $('#itinerary #l_name').text(data.name_last);
+        $('#itinerary .f_name').text(data.name_first);
+        $('#itinerary .l_name').text(data.name_last);
         $('#itinerary .traveller_email').text(data.email);
         $('#itinerary a.traveller_email').attr("href" , "mailto:"+ data.email);
 
@@ -690,8 +706,8 @@ function setAllTripsPage(){
 
 
         //add print data//
-        $('#printdiv #f_name').text(data.name_first);
-        $('#printdiv #l_name').text(data.name_last);
+        $('#printdiv .f_name').text(data.name_first);
+        $('#printdiv .l_name').text(data.name_last);
         $('#printdiv .traveller_email').text(data.email);
         $('#printdiv a.traveller_email').attr("href" , "mailto:"+ data.email);
 
@@ -727,10 +743,12 @@ function setAllTripsPage(){
         create_pnrTable(data.names_arr, traveler_name_first, traveler_name_last, trip_pnr_id);
         
     });
+    /*
     setTimeout(function(){
         var tableRow = $('#allTrips tbody tr:first-child');
         $(tableRow).trigger('click');
     },500); 
+    */
     function checkStatus(d, e){
         d = parseInt(d);
         $('#app-status').removeClass().addClass('row')
@@ -743,7 +761,7 @@ function setAllTripsPage(){
             $('#approvalID').addClass('isApproved').append('<i class="fa fa-check-circle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Approved');
             $('#approveBtn').text('Approve').addClass('disabled');
-            $('#denyBtn').text('Deny');
+            $('#denyBtn').text('Cancel');
             $('#timer').text('')
             $('#approvalTime').text('')
         }
@@ -759,15 +777,15 @@ function setAllTripsPage(){
             $('#approvalID').addClass('isAutoApproved').append('<i class="fa fa-check-circle-o" aria-hidden="true"></i>');
             $('.approval-card-title').text('Auto Approved');
             $('#approveBtn').text('Auto Approved').addClass('disabled');
-            $('#denyBtn').text('Deny');
+            $('#denyBtn').text('Cancel');
             $('#timer').text('This ticket was auto approved after 24hrs of purchase because no action was taken.')
         }
         else if ( d === 4){
             $('#app-status, #clock').addClass('isDenied');
             $('#approvalID').addClass('isDenied').append('<i class="fa fa-ban" aria-hidden="true"></i>');
             $('.approval-card-title').text('Denied');
-            $('#approveBtn').text('Auto Approved').addClass('disabled');
-            $('#denyBtn').text('Deny').addClass('disabled');
+            $('#approveBtn').text('Approve').addClass('disabled');
+            $('#denyBtn').text('Denied').addClass('disabled');
             $('#timer').text('This ticket was denied by an approver.')
             $('#approvalTime').text('')
         }else if ( d === 5){
@@ -1265,7 +1283,12 @@ function setAddTravelersPage(){
     $('.plusBtn').on('click', function(){
         $('.airlineMiles').clone().appendTo('#ffSection');
     })
-   
+     $('#site_type-1').change(function(){
+        $('#rangePicker').removeClass('hide').addClass('hide'); 
+    })
+    $('.guestCheckBox').on('click', function(){
+        $('.groupSelect').val('guest');
+    })   
 }
 function setEventsPage(){
     setTimeout(function(){
@@ -1308,8 +1331,48 @@ function setAffiliatePage(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10)
 }
-function setHelpCenterPage(){
-    
+function setHelpCenterPage(){   
+}
+function setAffliateEditPage(){
+    setTimeout(function(){
+        $('body').find('li#affiliate-edit-page').addClass('active')
+        var dataUser = system_output.request_user_data;
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+
+    //Date range picker//
+    function affiliateDates(){
+        var dateFormat = "mm/dd/yy",
+          from = $("#affiliate-start-date")
+            .datepicker({
+              defaultDate: "+1w",
+              changeMonth: true,
+              numberOfMonths: 2
+            })
+            .on( "change", function() {
+              to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+          to = $("#affiliate-end-date").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 2
+          })
+          .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+          });
+        function getDate( element ) {
+          var date;
+          try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+          } catch( error ) {
+            date = null;
+          }
+     
+          return date;
+        }
+    }
+    affiliateDates();
 }
 function createModal(){
     $('body').append('<!-- set up the modal to start hidden and fade in and out --><div id="dynamicModal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><!-- dialog body --><div class="modal-body"><button type="button" class="close" data-dismiss="modal">&times;</button><p class="errors"></p><p class="success"></p><p class="message">Please contact a personal travel agent at 1 (800) 544-8785 and we can change the reservation for a better time that accomadates your schedule.</p></div></div></div></div><!--Modal Button--><a href="#dynamicModal" id="modalBtn" role="button" data-toggle="modal" style="height:0px; width:0px; opacity:0;"></a/>');
@@ -1333,6 +1396,9 @@ function getLogo(){
     //console.log(dataLogo)
     $('.client-logo img').attr("src", dataLogo);
     //$('.client-logo img').attr("alt", dataAlt);
+}
+function addMeta(){
+    $('head').prepend('');
 }
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip({
@@ -1386,12 +1452,6 @@ $(document).ready(function(){
         
       });
     };
-    phoneFormatter();
-    checkiFrame();
-	checkPage();
-    getLogo();
-});
-$(window).load(function(){
     $("input").focusout(function(){
         if($(this).val() != ""){
             $(this).addClass("has-content");
@@ -1399,6 +1459,11 @@ $(window).load(function(){
             $(this).removeClass("has-content");
         }
     });
+    phoneFormatter();
+    checkiFrame();
+	checkPage();
+    getLogo();
+    addMeta();
 });
 
 //Global JS File//

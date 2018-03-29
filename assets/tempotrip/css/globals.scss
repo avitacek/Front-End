@@ -1,0 +1,19 @@
+﻿/* -----------------------------------------------------------------------------
+Import CORE LIBS, GLOBALS
+----------------------------------------------------------------------------- */
+
+/* BOOTSTRAP ---------------------------------------------------------------- */
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min";
+@import "../../../node_modules/datatables/media/css/jquery.dataTables.min";
+@import "../../../node_modules/selectize/dist/css/selectize.bootstrap3";
+@import "../../../node_modules/font-awesome/css/font-awesome";
+/* CUSTOM ---------------------------------------------------------------- */
+@import "globals/variables"; 
+@import "globals/mixins";
+@import "globals/common";
+@import "globals/rte";
+@import "globals/motion";
+@import "globals/print";
+@import "globals/styles";
+
+

@@ -1,5 +1,146 @@
-@import "../../globals/variables";
+@import "../../globals/variables"; 
 @import "../../globals/mixins";
+/*Body content slider*/
+.body-content{
+	position:relative;
+	left:0px;
+	transition: 0.5s;
+	padding-top:80px;
+	& .row{
+		max-width:1280px;
+		margin:0px auto;
+	}
+}
+.logo{
+	margin-top: 0px;
+    width: auto;
+    height: 60px;
+    float: left;
+    margin-left: 0rem;
+    color: #65879c;
+    position: relative;
+    z-index: 5;
+    background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
+    background-size: contain;
+    padding-left: 65px;
+    font-family:$Source-Sans-Pro;
+    position:relative;
+}
+.logo:before {
+    content: 'Tempo';
+    color: #65879c;
+    font-size: 20px;
+    float: left;
+    letter-spacing: 4px;
+    margin-top: 10%;
+}
+.logo:after {
+    content: 'TRIP';
+    color: #FEA34B;
+    font-size: 16px;
+    float: left;
+    letter-spacing: 4px;
+    margin-top: 13%;
+    font-weight: bold;
+}
+.logo span{
+	position:absolute;
+	top:20%;
+	left:-150px;
+	letter-spacing: 4px;
+	font-size: 20px;
+}
+.client-logo{
+	margin-top: 0px;
+    width: auto;
+    height: 55px;
+    float: left;
+    margin-left: 45px;
+    padding-right:0px;
+    color: $grey-blue;
+    letter-spacing:4px;
+    position: relative;
+    z-index: 5;
+    overflow:hidden;
+}
+.client-logo img{
+	width:auto;
+	margin-top:0px;
+	height:100%;
+	border:none;
+}
+.newWindowIcon{
+	background: url('../images/global/new-window.svg') center center no-repeat;
+    background-size: contain;
+    width:35px;
+    height:35px;
+    float:right;
+    padding:10px;
+    border-radius:5px;
+    background-color: #FEA34B;
+    border:1px solid #ffffff;
+    position:absolute;
+    top:-40px;
+    right:0px;
+    z-index: 101;
+    &:before{
+    	content:'open in a new window';
+    	color:#7f8fa4;
+    	font-size:10px;
+    	position:absolute;
+    	top:20%;
+    	right:40px;
+    	width:130px;
+    }
+}
+.tab-content{
+	position:relative;
+}
+.nav-tabs{
+	border-bottom:1px solid transparent;
+}
+.wait-spinner{
+	position: absolute;
+	left:0%;
+	z-index: 100;
+	margin:0% auto;
+	width:100%;
+	height:100%;
+	display:none;
+	opacity:0;
+	border-radius:0px 3px 3px 3px;
+	background-color:rgba(255,255,255,1);
+	transition:opacity .45s 0s linear;
+	-webkit-transition:opacity .45s 0s linear;
+	-moz-transition:opacity .45s 0s linear;
+	&.active{
+		display:block;
+		opacity:1;
+	}
+  & .spinner{
+    background: url('../images/global/logo-spinner.svg') center center no-repeat;
+    background-size: contain;
+    width:60px;
+    height:60px;
+    margin:45% auto 10px;
+    position:relative;
+    #spin-inside.half-circle{
+      width:60px;
+      width:60px;
+    }
+    & .half-circle{
+      width:70px;
+      height:70px;
+    }
+  }
+  & p{
+    text-align:center;
+    & span{
+      clear:both;
+      display:block;
+    }
+  }
+}
 #landing-page{
  	position:absolute;
  	height:100%;
@@ -9,7 +150,7 @@
  		}
 }
 .image-bg{
-		position:fixed;
+		position:fixed!important;
 		top:0px;
 		left:0px;
 		width:100%;
@@ -36,7 +177,7 @@
 	border-radius:3px;
 	padding:10px;
 }
-#password, #thanks, #notification{
+#password, #thanks, #notification, #register{
 	padding-top:10%;
 }
 #forgot-password {

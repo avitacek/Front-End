@@ -1,38 +1,25 @@
-﻿@import "tempotrip-globals.scss";
-
-/* 
-RENDERINGS 
-**********************************************************************************
-/* -----------------------------------------------------------------------------
-
-1.1 (COMMON)
-
------------------------------------------------------------------------------ */
+﻿@import "globals/variables"; 
+@import "globals/mixins";
+@import "globals/fonts";
+@import "globals/base";
 
 /* 1.1.1 - Header */
 @import "renderings/common/global-header";
 /* 1.1.2 - Footer */
 @import "renderings/common/global-footer";
-
-/* -----------------------------------------------------------------------------
-
-1.2 (HOME PAGE)
-
------------------------------------------------------------------------------ */
-
+/* Shared Branding Elements*/
 @import "renderings/common/shared";
-
-/* 1.2.1 -  */
 @import "renderings/common/landing-sidebar";
 @import "renderings/common/landing-login";
 @import "renderings/common/custom";
 @import "renderings/common/profile-form";
 @import "renderings/common/alltrips";
 @import "renderings/common/right-side-container";
-@import "renderings/common/password-change";
 @import "renderings/common/js-library";
 @import "renderings/common/addtravelers";
 @import "renderings/common/events";
+@import "renderings/common/affiliate";
 @import "renderings/common/dashboard";
 @import "renderings/common/pnr-creator";
+@import "renderings/common/password-change";
 

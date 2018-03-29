@@ -1,4 +1,4 @@
-﻿@import "../../globals/variables";
+﻿@import "../../globals/variables"; 
 @import "../../globals/mixins";
 body{
 	#global-header{
@@ -497,6 +497,6 @@ body{
 }
 
 &.hamburgerNavActive .body-content{
-	left:160px;
+	left:50px;
 }
 @import "mobile/global-header-mobile";

@@ -9,10 +9,12 @@
 			</div>
 		</div>
         <div class="row errors">
-			<p class="errors"><?php echo $app->output->errorstr ?></p>                               
+			<p class="errors"><?php echo $app->output->errorstr ?></p>                         
         </div> 
 		<form action="" id="login-form" method="POST">
-                    <input type="hidden" name='p' value="<?php echo $app->constants->user['DEFAULT_USER_HOME_PAGE'] ?>">
+            <input type="hidden" name='p' value="<?php echo $app->constants->user['DEFAULT_USER_HOME_PAGE'] ?>">
+            <input type="hidden" name='p' value="login">
+			<input type="hidden" name='a' value="check_login">
 		  	<div class="container-fluid">
 		  		<div class="row">
 		  			<div class="col-sm-12">
@@ -30,8 +32,6 @@
 				    	</div>
 		  			</div>
 		  		</div>
-		        
-		    	<!--<button type="submit" id="login" data-toggle="modal" data-target="#password-modal">Login</button>-->
 		    	<div class="row">
 		    		<button>Log in</button>
 		    	</div>
@@ -43,49 +43,6 @@
 		    	
 		  	</div>
 		</form>
-		<div class="col-sm-8" id="register-slider">
-			<!--Register form modal-->
-			<form action="" id="register-form">
-                    <input type="hidden" name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
-                    <input type="hidden" name='new_registration' value="true">
-                    <input type="hidden" name='change_password_page' value="change-password">
-				  	<div class="container-fluid">
-				  		<div class="row">
-				  			<div class="col-sm-12"><div class="text-stay"><h4>Register Now</h4></div></div>
-				  			<div class="col-sm-6">
-				  				<div class="form-group">
-							    	<input type="text" required placeholder="Enter your first name" name="fname" class="firstname" >
-							    	<label>First name</label>
-							    	<span class="focus-border"><i></i></span>
-						    	</div>
-				  			</div>
-				  			<div class="col-sm-6">
-				  				<div class="form-group">
-							    	<input type="text" required placeholder="Enter your last name" name="lname" class="lastname" >
-							    	<label>Last name</label>
-							    	<span class="focus-border"><i></i></span>
-							    </div>
-				  			</div>
-				  			<div class="col-sm-12">
-				  				<div class="form-group">
-							    	<input type="text" required placeholder="Enter your email" name="email" class="email" >
-							    	<label>Email address</label>
-							    	<span class="focus-border"><i></i></span>
-							    </div>
-				  			</div>
-				  			<div class="col-sm-12">
-						    	<button name="submit" type="submit" id="submit">Submit</button>
-				  			</div>
-				 
-                            <div class="col-sm-12">
-				  				<div class="errors"><p><?php echo $app->output->errorstr ?></p></div>
-			    				<div class="success"><p><?php echo $app->output->sucessstr ?></p></div>
-				  			</div>    
-                                                        
-				    	</div>
-				  	</div>
-			</form>		
-		</div>
 	</div>
 	<div class="col-sm-4">
 		<div id="landing-register" >
@@ -100,24 +57,7 @@
 				<button id="login-register" class="hide">REGISTER</button>
 			</div>
 		</div>
-		<div id="login-slider">
-			<div class="register-title">
-				<div class="logo"></div>
-				<h4>Already Registered?</h4>
-				<p>Just login to see you travel arrangements.</p>
-			</div>
-			<div class="button-switch">
-				<button id="login-return">Login</button>
-			</div>
-		</div>
 	</div>
-	
-
-</div>
-<div class="row">
-	<div class="col-sm-12 image-bg">
-		<div class="color-overlay"></div>
-	</div>	
 </div>
 <div class="row">
 	<!--change password modal-->

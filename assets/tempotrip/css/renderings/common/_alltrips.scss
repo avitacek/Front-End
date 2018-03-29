@@ -1,4 +1,4 @@
-@import "../../globals/variables";
+@import "../../globals/variables"; 
 @import "../../globals/mixins";
 /* -----------------------------------------------------
 	alltrips page
@@ -95,7 +95,6 @@
     			}
 
 			}
-
 			& table.dataTable{
 				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
 			}
@@ -496,7 +495,9 @@
 							&.isApproved, &.isAutoApproved{
 								& .approve{
 									& #approveBtn{
-										display:none;
+										opacity:0.5;
+										cursor:text;
+										
 									}
 									& #changeBtn{
 										display:block;background-color: $orange;
@@ -504,7 +505,7 @@
 								}
 								& .deny{
 									& #denyBtn{
-										display:none;
+										
 									}
 									& #cancelBtn{
 										display:block;background-color: $red;
@@ -850,7 +851,7 @@
 															display:table-cell;
 															padding:10px;
 															text-align:center;
-															font-family:$Raleway;
+															font-family:$Source-Sans-Pro;
     														font-size: 14px;
     														color: #54565b;
     														border-bottom:none;float:left
@@ -928,6 +929,24 @@
 						}
 					}
 				}
+			}
+		}
+		& .modal-content{
+			padding-bottom:10px;
+			& .approve{
+				& .no{
+					display:block;background-color: $teal;
+				}
+			}
+			& .deny{
+				& .yes{
+					display:block;background-color: $red;
+				}
+
+				
+			}
+			& p{
+				padding-top:10px;
 			}
 		}
 	}
@@ -1217,6 +1236,5 @@
 						}
 					}
 				}
-			}
-		}
+			}}
 @import "mobile/alltrips-mobile";
