@@ -15,9 +15,12 @@
     #secondRow{
     	& .card{
     		& #searchList{
-    			margin-right:0px;
-    			margin-left:0px;
-    			
+                margin-top:15px!important;
+                margin-bottom:15px!important;
+    			margin-right:0px!important;
+    			margin-left:0px!important;
+                border-right:0px solid #ddd!important;
+    			border-left:0px solid #ddd!important;
     		}
     	}
     }
