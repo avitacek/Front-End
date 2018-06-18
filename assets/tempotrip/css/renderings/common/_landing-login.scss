@@ -187,10 +187,10 @@
 							top:24px;
 							left:0px;
 							z-index: 8;
-							background:url('../images/global/user.svg') left top no-repeat !important;
+							background:url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/user.svg') left top no-repeat !important;
 						}
 						& .passwordImage{
-							background:url('../images/global/key.svg') left top no-repeat !important;
+							background:url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/key.svg') left top no-repeat !important;
 						}
 					}
 				}
@@ -202,7 +202,7 @@
 				    	padding-left:50px;
 				    	position:relative;
 				    	& :invalid{
-				 			background:url('../images/global/user.svg') left top no-repeat, url(../images/global/warning.svg) right top no-repeat ;
+				 			background:url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/user.svg') left top no-repeat, url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/warning.svg') right top no-repeat ;
 				 		}
 				    }
 				    &.password{
@@ -282,7 +282,7 @@
 		top:0px;
 		left:0px;
 		z-index: 2;
-		padding:15% 10%;
+		padding:15% 8%;
 		transition:all .5s 0.0s linear;
 		& .register-title{
 			& h4{
@@ -298,6 +298,10 @@
 			}
 			& .logo{
 				margin-bottom:1rem;
+				float:none;
+				margin-left:auto;
+				margin-right:auto;
+				left:15%;
 				&:before{color:#ffffff}
 			}
 			& .col-sm-12{

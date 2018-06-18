@@ -4,25 +4,60 @@
     
 }
 @include max-screen(large) {
-
-}
-@include max-screen(mediumLarge){
-	.card{
-    	& .row{
-    		display:block!important;
-    	}
+    #dashboard-page{
+        & .body-content{
+            & #content-dashboard{
+                & .card{
+                    & .row{
+                        display:block!important;
+                        & .col-md-4{
+                            width:32%;
+                            & h3{
+                                font-size:18px!important;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
-    #secondRow{
-    	& .card{
-    		& #searchList{
-                margin-top:15px!important;
-                margin-bottom:15px!important;
-    			margin-right:0px!important;
-    			margin-left:0px!important;
-                border-right:0px solid #ddd!important;
-    			border-left:0px solid #ddd!important;
-    		}
-    	}
+}
+@include max-screen(mediumLarge) {
+	#dashboard-page{
+        & .body-content{
+            padding-left:15px!important;
+            & #content-dashboard{
+                & .card{
+                    & .row{
+                        display:block!important;
+                        & .col-md-4{
+                            &#profileList, &#tripLink{
+                                padding-top:15px;
+                                padding-bottom:15px;
+                            }
+                            &#searchList{
+                                margin-top:15px!important;
+                                margin-bottom:15px!important;
+                                margin-right:0px!important;
+                                margin-left:0px!important;
+                                border-right:0px solid #ddd!important;
+                                border-left:0px solid #ddd!important;
+                                padding-top:15px;
+                                padding-bottom:15px;
+
+                            }
+                            width:100%;
+                            & h3{
+                                margin-top:0px;
+                                font-size:18px!important;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 @include max-screen(medium) {

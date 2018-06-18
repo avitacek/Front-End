@@ -1,19 +1,62 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
 @include max-screen(xl) {
-    
+    #all-trips-page .body-content .col-md-7 table.dataTable .dateBooked, #all-trips-page .body-content .col-md-7 table.dataTable .status, #all-trips-page .body-content .col-md-7 table.dataTable .departure{
+    	display:none!important;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row #sites .card-title, #ad-reports-page .body-content .col-md-5 #approvals .content .row #sites .card-title{
+    	font-size:12px;
+    }
+    #all-trips-page .body-content .col-md-5 .col-md-6, #all-trips-page .body-content .col-md-5 #approvals .content .row #costs, #ad-reports-page .body-content .col-md-5 #approvals .content .row #costs{
+    	width:100%;
+    }
+    #all-trips-page .body-content .col-md-5 .travellerName, #all-trips-page .body-content .col-md-5 #costs{
+    	border-bottom:1px solid #dddddd;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader, #all-trips-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 .deptHeader, #ad-reports-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 .deptHeader{
+    	width:60%;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader.Oneway:after, #ad-reports-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader.Oneway:after, #all-trips-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 .deptHeader.Oneway:after, #ad-reports-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 .deptHeader.Oneway:after{
+    	width:45px;
+    	height:35px;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo #departTime, #ad-reports-page .body-content .col-md-5 #approvals .content .row #flightInfo #departTime, #all-trips-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 #departTime2, #ad-reports-page .body-content .col-md-5 #itinerary .content .row #flightInfo2 #departTime2 {
+    	margin-top:-10px;
+    }
+    #approvalID{
+    	width:auto;
+    	margin-bottom:5px;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row #status .row #clock .approval-card-title, #ad-reports-page .body-content .col-md-5 #approvals .content .row #status .row #clock .approval-card-title{
+    	text-align:left;
+    }
+    #all-trips-page .body-content .col-md-5 #approvals .content .row#app-status .col-sm-12:first-child, #all-trips-page .body-content .col-md-5 #approvals .content .row#app-status .col-sm-12:last-child{
+    	padding-left:15px;
+    	padding-right:15px;
+    }
 }
 @include max-screen(large) {
 
 }
-@include max-screen(mediumLarge){
-	
+@include max-screen(mediumLarge) {
+	#all-trips-page .body-content{
+		padding-left:15px;
+	}
+	#all-trips-page .body-content .col-md-7 table.dataTable .departure{
+    	display:inline-block!important;
+    }
+    #all-trips-page .body-content .col-md-7 table.dataTable td, #all-trips-page .body-content .col-md-7 table.dataTable th{
+    	width:14.2857%!important;
+    }
+    #all-trips-page .body-content .col-md-5#tripsSideBar{
+		margin-top:15px;
+	}
 }
 @include max-screen(medium) {
 	#all-trips-page .body-content #timeRow{
 		padding:0px;
 	}
-	#all-trips-page .body-content #tripsSideBar{
+	#all-trips-page .body-content .col-md-5#tripsSideBar{
 		margin-top:15px;
 	}
 	#all-trips-page .body-content #tripsSideBar .row .col-sm-12{
@@ -21,6 +64,8 @@
 		padding-left:0px;
 	}
 	#all-trips-page .body-content{
+		padding-left:1em!important;
+		padding-right:1em!important;
 		& .row{
 			&:nth-child(4){
 				& .col-sm-12{
@@ -58,10 +103,15 @@
 		padding-left:15px!important;
 	}
 }
-@include max-screen(smallMedium){
-
+@include max-screen(smallMedium) {
+	#all-trips-page .body-content .col-md-7 table.dataTable .to, #all-trips-page .body-content .col-md-7 table.dataTable .from, #all-trips-page .body-content .col-md-7 table.dataTable .departure{
+		display:none!important;
+	}
 }
 @include max-screen(small) {
+	#all-trips-page .body-content .row:first-child .col-sm-12:first-child{
+		padding:5px!important;
+	}
 	#all-trips-page .body-content #timeRow #rangePicker .cbs-date{
 		width:100%;
 		float:left;
@@ -85,7 +135,6 @@
 		margin-top:15px;
 	}
 	#all-trips-page .body-content .col-md-5 #approvals .content .row #flightInfo .deptHeader.Roundtrip:before{
-		margin:-5px 95px 0px;
 	}
 	#all-trips-page .body-content .col-md-5 #approvals .content .row #sites{
 		display:none;

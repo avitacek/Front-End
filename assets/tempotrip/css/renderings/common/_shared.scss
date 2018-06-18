@@ -5,11 +5,19 @@
 	position:relative;
 	left:0px;
 	transition: 0.5s;
-	padding-top:80px;
+	padding-top:70px;
+	padding-left:55px;
 	& .row{
 		max-width:1280px;
 		margin:0px auto;
 	}
+}
+.noShow{
+  opacity:0!important;
+  z-index:-1;
+  & #button_title{
+  	cursor:default;
+  }
 }
 .logo{
 	margin-top: 0px;
@@ -20,7 +28,7 @@
     color: #65879c;
     position: relative;
     z-index: 5;
-    background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
+    background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/tempotrip-logo-new.svg') no-repeat top left;
     background-size: contain;
     padding-left: 65px;
     font-family:$Source-Sans-Pro;
@@ -46,7 +54,7 @@
 .logo span{
 	position:absolute;
 	top:20%;
-	left:-150px;
+	left:-143px;
 	letter-spacing: 4px;
 	font-size: 20px;
 }
@@ -56,7 +64,7 @@
     height: 55px;
     float: left;
     margin-left: 45px;
-    padding-right:0px;
+    padding:5px;
     color: $grey-blue;
     letter-spacing:4px;
     position: relative;
@@ -70,7 +78,7 @@
 	border:none;
 }
 .newWindowIcon{
-	background: url('../images/global/new-window.svg') center center no-repeat;
+	background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/new-window.svg') center center no-repeat;
     background-size: contain;
     width:35px;
     height:35px;
@@ -118,7 +126,7 @@
 		opacity:1;
 	}
   & .spinner{
-    background: url('../images/global/logo-spinner.svg') center center no-repeat;
+    background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/logo-spinner.svg') center center no-repeat;
     background-size: contain;
     width:60px;
     height:60px;
@@ -156,7 +164,7 @@
 		width:100%;
 		height:100%;
 		z-index:-1;
-		background: url(../images/photos/AdobeStock_4202599.jpg) center center no-repeat;
+		background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/photos/AdobeStock_4202599.jpg') center center no-repeat;
 		background-size:cover;
 		& .color-overlay{
 			position:absolute;
@@ -165,10 +173,25 @@
 			right:0px;
 			bottom:0px;
 			background-color:rgba(227,227,227,0.90);
+			background-image: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/pattern.png');
 			width:100%;
 			height:100%;
 		}
 }
+#bgvid{
+	position: fixed;
+    left: 0;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    min-height: 100%;
+    z-index: -100;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
 #password-page .row .col-sm-8, #thanks .row .col-sm-8, #notification-page .row .col-sm-8{
 	float:none;
 	margin:0px auto;
@@ -176,6 +199,10 @@
 	border:1px solid $white;
 	border-radius:3px;
 	padding:10px;
+}
+#password-page .row .col-sm-8:first-child{
+	background-color: transparent!important;
+	border:none;
 }
 #password, #thanks, #notification, #register{
 	padding-top:10%;
@@ -272,10 +299,10 @@ ul#tab-menu{
 	}
 }
 table.dataTable thead .sorting_desc{
-	background-image:url("../images/global/sort_desc.png")
+	background-image:url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/sort_desc.png')
 }
 table.dataTable thead .sorting_asc {
-    background-image: url(../images/global/sort_asc.png);
+    background-image: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/sort_asc.png');
 }
 table.dataTable thead .sorting {
     background-image: none;
@@ -412,7 +439,7 @@ table.dataTable tr > th:focus{
 				width:100%;
 				& #q128{
 					& div{
-						background: url(../images/global/tempotrip-logo-new.svg) no-repeat top left;
+						background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/tempotrip-logo-new.svg') no-repeat top left;
     					background-size: contain;
 						& img{
 							display:none;
@@ -422,5 +449,37 @@ table.dataTable tr > th:focus{
 			}
 		}
 	}
+}
+#ad-report-page{
+	& .body-content{
+		& .row{
+			& .col-sm-12{
+				border:1px solid #ffffff;
+				background-color: rgba(255,255,255,0.45);
+				border-radius:3px;
+			}
+		}
+	}
+	& iframe{
+		border:none;
+		& body{
+			& .form-table{
+				border:0px solid #ffffff;
+				width:100%;
+				& #q128{
+					& div{
+						background: url('https://d25lpdpogv53oe.cloudfront.net/0/0/images/global/tempotrip-logo-new.svg') no-repeat top left;
+    					background-size: contain;
+						& img{
+							display:none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
+	width:50%;
 }
 @import "mobile/shared-mobile";

@@ -91,13 +91,61 @@ function checkPage(){
     else if ($('body').attr('id') === 'pnr-creator-page'){
         createPNR();
     }
+    else if ($('body').attr('id') === 'ad-reports-page'){
+        createADReports();
+    }
+    else if ($('body').attr('id') === 'profile-form-page'){
+        setProfileSitePage();
+    }
+    else if ($('body').attr('id') === 'client-info-list-page'){
+        setClientInfoPage();
+    }
+    else if ($('body').attr('id') === 'client-details-page'){
+        setClientDetails();
+    }
+    else if ($('body').attr('id') === 'client-event-details-page'){
+        setClientEventDetailsPage();
+    }
+}
+function setProfileSitePage(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#profilesite-create-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10);
+}
+function setClientInfoPage(){
+    //var clientDataList = system_output.system_output.client_data_list;
+    setTimeout(function(){
+        $('body').find('li#client_info-page').addClass('active')
+        $('body').find('input').addClass('has-content')
+    },10)
+    if(typeof system_output.system_output.client_data_list != "undefined"){
+        var clientDataList = system_output.system_output.client_data_list;
+    } 
+}
+function setClientDetails(){
+    //var clientDetailsData = system_output.client_details;
+    //var clientEventsList = system_output.client_events_list;
+
+    if(typeof system_output.client_details != "undefined"){
+        var clientDetailsData = system_output.client_details;
+    }
+    if(typeof system_output.client_events_list != "undefined"){
+        var clientEventsList = system_output.client_events_list;
+    }
+}
+function setClientEventDetailsPage(){
+    //var eventInfo = system_output.event_info;
+    if(typeof system_output.event_info != "undefined"){
+        var eventInfo = system_output.event_info;
+    } 
 }
 function createPNR(){
     var dataUser = system_output.request_user_data;
     setTimeout(function(){
         $('body').find('li#pnr_creator-page').addClass('active')
-        $('.userName #userTitle .firstName').text(dataUser.f_name);
-        $('.userName #userTitle .lastName').text(dataUser.l_name);
         $('body').find('input').addClass('has-content')
     },10)
 
@@ -111,21 +159,88 @@ function createPNR(){
     $('#pnrid').val(pnr);
     $('#bar').val(bar);
 }
+function createADReports(){
+    var dataUser = system_output.request_user_data;
+    setTimeout(function(){
+        $('body').find('li#ad-report-page').addClass('active')
+        $('.userName #userTitle .firstName').text(dataUser.f_name);
+        $('.userName #userTitle .lastName').text(dataUser.l_name);
+    },10)
+    function tripDates(){
+        var from_departure_datetime;
+        var to_departure_datetime;
+        //console.log(from_departure_datetime);
+        //console.log(to_departure_datetime);
+        var dateFormat = "mm/dd/yy",
+          from = $("#trip-start-date")
+            .datepicker({
+              defaultDate: "+1w",
+              changeMonth: false,
+              changeYear: false,
+              yearRange: "-5:+0",
+              numberOfMonths: 2
+            })
+            .on( "change", function() {
+              to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+          to = $("#trip-end-date").datepicker({
+            defaultDate: "+1w",
+            changeMonth: false,
+            changeYear: false,
+            yearRange: "-5:+0",
+            numberOfMonths: 2
+          })
+          .on( "change", function() {
+            from.datepicker( "option", "maxDate", getDate( this ) );
+          });
+        function getDate( element ) {
+          var date;
+          try {
+            date = $.datepicker.parseDate( dateFormat, element.value );
+          } catch( error ) {
+            date = null;
+          }
+     
+          return date;
+        }
+    }
+    tripDates();
+}
 function setDashboardPage(){
     var dataUser = system_output.request_user_data;
     setTimeout(function(){
         $('body').find('li#dashboard-page').addClass('active')
         $('.userName #userTitle .firstName').text(dataUser.f_name);
         $('.userName #userTitle .lastName').text(dataUser.l_name);
+
+        $('#profilesite-create-page').addClass('hide')
+        console.log('hide create');
     },10)
     //Checking profile settings//
     var checkCount = 0;
     function checkprofileSettings(){
-        var fname = system_output.request_user_data.f_name;
-        var lname = system_output.request_user_data.l_name
-        var dob = system_output.request_user_data.dob
-        var phone = system_output.request_user_data.phone
-        if(fname || lname || dob || phone !==''){
+        if (system_output.request_user_data.f_name !== null || system_output.request_user_data.f_name !== "undefined"){
+            var fname = system_output.request_user_data.f_name;
+        }else{
+            var fname = ''
+        }
+        if (typeof system_output.request_user_data.l_name !== null || typeof system_output.request_user_data.l_name !== "undefined"){
+            var lname = system_output.request_user_data.l_name
+        }else{
+            var lname = ''
+        }
+        if (typeof system_output.request_user_data.dob !== null || typeof system_output.request_user_data.dob !== "undefined"){
+            var dob = system_output.request_user_data.dob
+        }else{
+            var dob = ''
+        }
+        if (typeof system_output.request_user_data.phone !== null || typeof system_output.request_user_data.phone !== "undefined"){
+            var phone = system_output.request_user_data.phone
+        }else{
+            var phone = ''
+        }
+
+        if(fname !=='' || lname !==''  || dob !=='' || phone !==''){
             $('#completedProfile').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
             checkCount++
         }else{
@@ -135,22 +250,46 @@ function setDashboardPage(){
         checkEmergency()
     }
     function checkEmergency(){
-        var ec_fname = system_output.request_user_data.ec_f_name;
-        var ec_lname = system_output.request_user_data.ec_l_name
-        var ec_phone = system_output.request_user_data.ec_phone
-        if(ec_fname || ec_lname || ec_phone !==''){
+        if(typeof system_output.request_user_data.ec_f_name !== null || typeof system_output.request_user_data.ec_f_name !== 'undefined' || typeof system_output.request_user_data.ec_f_name !== ''){
+                var ec_fname = system_output.request_user_data.ec_f_name;
+                console.log(ec_fname)
+            }else{
+                var ec_fname = '';
+                console.log(ec_fname)
+            }
+        if(typeof system_output.request_user_data.ec_l_name !== null || typeof system_output.request_user_data.ec_l_name !== 'undefined' || typeof system_output.request_user_data.ec_l_name !== ''){
+                var ec_lname = system_output.request_user_data.ec_l_name;
+                console.log(ec_lname)
+            }else{
+                var ec_lname = '';
+                console.log(ec_lname)
+            }
+        if(typeof system_output.request_user_data.ec_phone !== null || typeof system_output.request_user_data.ec_phone !== 'undefined' || typeof system_output.request_user_data.ec_phone !== ''){
+                 var ec_phone = system_output.request_user_data.ec_phone;
+                 console.log(ec_phone)
+            }else{
+                var ec_phone = '';
+                console.log(ec_phone)
+            }
+
+        
+        if(ec_fname !=='' && ec_lname !=='' && ec_phone !==''){
             $('#emergencyContact').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
             checkCount++
+            console.log(ec_fname+ec_lname+ec_phone)
         }else{
-            $('#emergencyContact').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
+            $('#emergencyContact').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>');
+            console.log(ec_fname+ec_lname+ec_phone)
         }
         checkPreference()
     }
     function checkPreference(){
-        var seat = system_output.request_user_data.seat_id;
-        var redress = system_output.request_user_data.redress_number;
-        var known_number = system_output.request_user_data.known_number
-        if(redress || known_number !== ''){
+        if(typeof system_output.request_user_data.seat_id !== null || typeof system_output.request_user_data.request_user_data.seat_id !== 'undefined' || typeof system_output.request_user_data.request_user_data.seat_id !== ''){
+                var seat = system_output.request_user_data.seat_id;
+            }else{
+                var seat = '';
+            }
+        if(seat !== ''){
             $('#travelPreferences').prepend('<i class="fa fa-check-circle complete" aria-hidden="true"></i>');
             checkCount++;
             if(checkCount >= 3){
@@ -161,8 +300,7 @@ function setDashboardPage(){
         }else{
             $('#travelPreferences').prepend('<i class="fa fa-exclamation todo" aria-hidden="true"></i>')
             $('#profileList h3').addClass('notComplete')
-        }
-        
+        } 
     }
     checkprofileSettings();
 
@@ -173,12 +311,6 @@ function setDashboardPage(){
         var getMenuItem = function (itemData) {
             var item = $("<li id='" + itemData.id + "'>")
                     .append(
-                            /*$("<i>", {
-                                class: itemData.fontA
-                            }),
-                            $("<ul", {
-                                class: itemData.fontA
-                            }),*/
                             $("<a>", {
                                 id: "bt"+ btnCount,
                                 class: "btn",
@@ -203,6 +335,7 @@ function setDashboardPage(){
                 getMenuItem(this)
             );
         });
+        
     }
     setQuickLinks();
     //checking booking sites*/
@@ -213,7 +346,6 @@ function setDashboardPage(){
         });
     }
     setBookingList();
-
 }
 function setProfilePage(){
     var dataUser = system_output.request_user_data;
@@ -225,11 +357,16 @@ function setProfilePage(){
             dateFormat: "mm/dd/yy",
             changeMonth: true,
             changeYear: true,
+            numberOfMonths: 1,
             yearRange: "-100:+0",
         });
-        $('#datepicker').val(dataUser.dob);
+        if(dataUser.dob !=== null){
+            changeDate(dataUser.dob);
+            
+        }else{
+            $('#datepicker').val('');
+        }
         
-        changeDate(dataUser.dob);
         function changeDate(t){
             var date = new Date(t);
             if (!isNaN(date.getTime())) {
@@ -242,6 +379,12 @@ function setProfilePage(){
                 $('#datepicker').val(newDate)
                 return 
             }
+        }
+        
+        if(dataUser.status === 1){
+
+        }else{
+            
         }
     },10)
     //TSA input check//
@@ -292,20 +435,20 @@ function setAllTripsPage(){
           from = $("#trip-start-date")
             .datepicker({
               defaultDate: "+1w",
-              changeMonth: true,
-              changeYear: true,
+              changeMonth: false,
+              changeYear: false,
               yearRange: "-5:+0",
-              numberOfMonths: 1
+              numberOfMonths: 2
             })
             .on( "change", function() {
               to.datepicker( "option", "minDate", getDate( this ) );
             }),
           to = $("#trip-end-date").datepicker({
             defaultDate: "+1w",
-            changeMonth: true,
-            changeYear: true,
+            changeMonth: false,
+            changeYear: false,
             yearRange: "-5:+0",
-            numberOfMonths: 1
+            numberOfMonths: 2
           })
           .on( "change", function() {
             from.datepicker( "option", "maxDate", getDate( this ) );
@@ -340,7 +483,7 @@ function setAllTripsPage(){
     
     var dataNew = []
     $.each(data, function(key,value){
-        console.log(key,value)
+        //console.log(key,value)
         dataNew.push( {
             name_first: value.name_first,
             name_last: value.name_last,
@@ -414,6 +557,7 @@ function setAllTripsPage(){
                 "title": "From",
                 "mDataProp": "departCity",
                 "width" : "12.5%",
+                "class": "from",
                 "responsivePriority": 4,
                 "visible": true
             },
@@ -421,6 +565,7 @@ function setAllTripsPage(){
                 "title": "To",
                 "mDataProp": "arriveCity",
                 "width" : "12.5%",
+                "class": "to",
                 "responsivePriority": 5,
                 "visible": true
             },
@@ -428,6 +573,7 @@ function setAllTripsPage(){
                 "title": "Departure",
                 "mDataProp": "departure_datetime",
                 "width" : "12.5%",
+                "class": "departure",
                 "responsivePriority": 2,
                 "visible": true,
                 render:getTime
@@ -436,6 +582,7 @@ function setAllTripsPage(){
                 "title": "Return",
                 "mDataProp": "return_datetime",
                 "visible": false,
+                "class": "return",
                 render:getTime
             },
             { 
@@ -464,12 +611,14 @@ function setAllTripsPage(){
                 "mDataProp": "status_id",
                 "width" : "12.5%",
                 "visible": true,
+                "class": "statusImg",
                 render:getImg
             },
             { 
                 "title": "Status",
                 "mDataProp": "status_id",
                 "visible": true,
+                "class": "status",
                 render:getValText
             },
             { 
@@ -547,6 +696,7 @@ function setAllTripsPage(){
                 "mDataProp": "pnrdata_create_datetime",
                 "visible": true,
                 "width" : "12.5%",
+                "class": "dateBooked",
                 "responsivePriority": 6,
                 render:changeBookedDate
             },
@@ -652,6 +802,18 @@ function setAllTripsPage(){
     }
     function getName(data, type, full, meta){
 
+    }
+    var userRole = system_output.request_user_data.role_id
+    checkRole(userRole)
+    function checkRole(u){
+        console.log(u)
+        role = parseInt(u);
+        if (role === 3){
+            $('#approveBtn').addClass('hide');
+        }
+        else{
+            $('#approveBtn').removeClass('hide');
+        }
     }
     $('#table-filter').on('change', function(){
        table.search(this.value).draw();   
@@ -879,6 +1041,10 @@ function setAllTripsPage(){
     function create_itinerary(data) {
         //Set up some divs if needed
         $('#departureDetails #itinerary-accordian').empty();
+        $('#printdiv .departureDetails .row').empty();
+        $('#printdiv .returnDetails .row').empty();
+        countReturn = 0
+        countDept = 0
         create_air_legs(data.legs);
     }
     function create_air_legs(legs) {
@@ -1080,6 +1246,7 @@ function setAddTravelersPage(){
             known_number: value.known_number,
             redress_number: value.redress_number,
             role_name: value.role_name,
+            thisisme: value.thisisme,
             role_id: value.role_id,
             status: value.status,
         });
@@ -1149,11 +1316,11 @@ function setAddTravelersPage(){
                 "mDataProp": "role_id",
                 "visible": false
             },
-            /*{
-                "title": "Role Name",
-                "mDataProp": "role_name",
-                "visible": false
-            },*/
+            {
+                "title": "This is Me",
+                "mDataProp": "thisisme",
+                "visible": false,
+            },
             {
                 "title": "User Status",
                 "mDataProp": "status",
@@ -1161,7 +1328,6 @@ function setAddTravelersPage(){
             }       
         ] //data changes to mDataProp
     });
-    
     //var myRole = system_output.request_user_data.role_id;
     //Add traveler function
     $('#addTravelers tbody').on( 'click', 'tr', function () {
@@ -1213,8 +1379,28 @@ function setAddTravelersPage(){
             //$('#roleID').val(data.role_id);
             //console.log(return_val)
         }
-
-        changeDate(data.dob);
+        //This is me//
+        thisIsMe(data.thisisme)
+        function thisIsMe(m){
+            if (m === null){
+                
+            }
+            else if (m === true) {
+                $('#role_select_carrier').addClass('hide');
+                $('#remove').addClass('hide');
+            }
+            else if (m === false) {
+                $('#role_select_carrier').removeClass('hide');
+                $('#remove').removeClass('hide');
+            }
+        }
+        if(dataUser.dob !=== null){
+            changeDate(dataUser.dob);
+            
+        }else{
+            $('#datepicker').val('');
+        }
+        
         function changeDate(t){
             var date = new Date(t);
             if (!isNaN(date.getTime())) {
@@ -1230,6 +1416,9 @@ function setAddTravelersPage(){
         }
         phoneFormatter(data.phone);
         function phoneFormatter(b) {
+            if(b === null || b === 'undefined'){
+                b = '';
+            }
             $('input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
             var number = b.replace(/[^\d]/g, '')
             if (number.length == 7) {
@@ -1249,9 +1438,9 @@ function setAddTravelersPage(){
             $('form input').each(function(){
                 if($(this).val().trim()==""){
                     empty = true;
-                    $(this).removeClass("has-value");
+                    $(this).removeClass("has-value").removeClass("has-content");
                 }else{
-                    $(this).addClass("has-value");
+                    $(this).addClass("has-value").addClass("has-content");
                 }
             });
             return empty;
@@ -1347,7 +1536,7 @@ function setAffliateEditPage(){
           from = $("#affiliate-start-date")
             .datepicker({
               defaultDate: "+1w",
-              changeMonth: true,
+              changeMonth: false,
               numberOfMonths: 2
             })
             .on( "change", function() {
@@ -1355,7 +1544,7 @@ function setAffliateEditPage(){
             }),
           to = $("#affiliate-end-date").datepicker({
             defaultDate: "+1w",
-            changeMonth: true,
+            changeMonth: false,
             numberOfMonths: 2
           })
           .on( "change", function() {
@@ -1423,9 +1612,9 @@ $(document).ready(function(){
         $('form input').each(function(){
             if($(this).val().trim()==""){
                 empty = true;
-                $(this).removeClass("has-value");
+                $(this).removeClass("has-value").removeClass("has-content");
             }else{
-                $(this).addClass("has-value");
+                $(this).addClass("has-value").addClass("has-content");
             }
         });
         return empty;
@@ -1434,11 +1623,11 @@ $(document).ready(function(){
      $(' input[type="tel"]').attr({ placeholder : '(XXX) XXX-XXXX' });
       $('input[type="tel"]').on('input', function() {
         var number = $(this).val().replace(/[^\d]/g, '')
-        if (number.length == 7) {
+        if (number.length === 7) {
           number = number.replace(/(\d{3})(\d{4})/, "$1-$2");
             $(this).removeClass('error');
             $('button[type="submit"]').removeClass('disabled');
-        }else if (number.length == 10) {
+        }else if (number.length === 10) {
           number = number.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
             $(this).removeClass('error')
             $('button[type="submit"]').removeClass('disabled')

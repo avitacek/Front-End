@@ -2,29 +2,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form action="" method="POST" role="form">
-                    <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                <form action="" method="POST" role="form" autocomplete="off">
+                    <input type='hidden' name='p' value="profile">
                     <input type='hidden' name='a' value="save_profile">
                     <input type='hidden' name='status' value="3">
                     <div role="tabpanel">
                         <!-- Nav tabs -->
                         <div class="row">
-                            <div class="col-sm-6">
-                              <div class="row">
-                                    <div class="col-sm-12"><div class="errors"><?php echo $app->output->errorstr ?></div></div>
-                                    <div class="col-sm-12"><div class="success"><?php echo $app->output->successstr ?></div></div>
-                                </div>  
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 hidden-sm hidden-xs right" id="submit-col">
-                                        <button type="submit" class="">Save</button>    
-                                    </div>      
-                                </div>  
+                            <div class="col-sm-12">
+                                <div class="col-sm-12"><div class="errors"><?php echo $app->output->errorstr ?></div></div>
+                                <div class="col-sm-12"><div class="success"><?php echo $app->output->successstr ?></div></div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-12" id="leftColumn">
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">Traveler Profile</h4>
@@ -52,28 +43,25 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6">
-                                                        <input type="text" id="datepicker" value="<?php echo $app->constants->request['dob'];?>" name="dob" class="form-control form-control-sm" required="required" title="dob">
+                                                        <input type="text" id="datepicker" autocomplete="off" value="<?php echo $app->constants->request['dob'];?>" name="dob" class="form-control form-control-sm" required="required" placeholder="mm/dd/yyyy" title="dob">
                                                         <label for="dob">Date of Birth</label>
                                                         <span class="focus-border"><i></i></span>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
-                                                    
                                                         <div id="gender_select_carrier"></div>
-                                                        
-                                                    
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6">
                                                     
-                                                        <input type="text" name="email" id="email" class="form-control" readonly value="<?php echo $app->constants->request['email'];?>" required="required" title="" placeholder="">
+                                                        <input type="text" name="email" autocomplete="off" id="email" class="form-control" readonly value="<?php echo $app->constants->request['email'];?>" required="required" title="" placeholder="">
                                                         <label for="email">Primary Email Address</label>
                                                         <span class="focus-border"><i></i></span>
                                                     
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     
-                                                        <input type="tel" name="phone" id="phone" class="form-control" pattern=".{10,14}" value="<?php echo $app->constants->request['phone'];?>" title="" required="required" placeholder="Cell Phone Number" maxlength="10">
+                                                        <input type="tel" name="phone" id="phone" class="form-control" pattern=".{10,14}" value="<?php echo $app->constants->request['phone'];?>" title="" placeholder="Cell Phone Number" maxlength="10">
                                                         <label for="phone-number">Cell Phone Number
                                                             <a href="#" data-toggle="tooltip" data-placement="top" title="Phone Number must be 10 numerical digits and contain no other characters like (-+#.%$&*)"><i class="fa fa-info-circle"></i></a></label>
                                                         <span class="focus-border"><i></i></span>
@@ -103,7 +91,7 @@
                                                 </div>
                                                 <div class="col-sm-12 col-sm-12">
                                                     
-                                                        <input type="number" name="ec_phone" id="ec_phone" class="form-control" value="<?php echo $app->constants->request['ec_phone'];?>"  title="" placeholder="Contact Phone Number" maxlength="10">
+                                                        <input type="tel" name="ec_phone" id="ec_phone" class="form-control" pattern=".{10,14}" value="<?php echo $app->constants->request['ec_phone'];?>"  title="" placeholder="Contact Phone Number" maxlength="10">
                                                         <label for="phone-number">Contact Phone Number</label>
                                                         <span class="focus-border"><i></i></span>
                                                     
@@ -112,7 +100,7 @@
                                       </div>
                                 </div> 
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-md-6 col-sm-12" id="rightColumn">
                                 <div class="card">
                                     <div class="header">
                                         <h4 class="title">Traveler Preferences</h4>
@@ -148,14 +136,14 @@
                                             <div class="row" id="travelNumbers">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <input type="text" id="tsaInput" name='known_number' value="<?php echo $app->constants->request['known_number'];?>" pattern=".{10}" placeholder="Enter your 10 Digit TSA Number" maxlength="10">
+                                                        <input type="text" id="tsaInput" name='known_number' class="form-control" value="<?php echo $app->constants->request['known_number'];?>" pattern=".{10}" placeholder="Enter your 10 Digit TSA Number" maxlength="10">
                                                         <label class="">Known Traveler Number <img class="img" style="max-height: 18px;" src="images/logos/precheck-logo-small.png"><span> <a href="#" data-toggle="tooltip" data-placement="top" title="The Known Traveler Number is a 10 digit unique number issued by the U.S Government to identify customers who participate in a known traveler program (e.g Global Entry, SENTRI, NEXUS, TSA, PreCheck Application Process)."><i class="fa fa-info-circle"></i></a></span></label>
                                                         <span class="focus-border"><i></i></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <input type="text" placeholder="Enter Number" name='redress_number' value="<?php echo $app->constants->request['redress_number'];?>">
+                                                        <input type="text" placeholder="Enter Number" name='redress_number' class="form-control" value="<?php echo $app->constants->request['redress_number'];?>">
                                                         <label class="">Redress Number <span> <a href="#" data-toggle="tooltip" data-placement="top" title="This is a unique number the Department of Homeland Security (DHS) assigns to a passenger to promote resolution with previous watch list alerts."><i class="fa fa-info-circle"></i></a></span></label>
                                                         <span class="focus-border"><i></i></span>
                                                     </div>
@@ -176,7 +164,7 @@
                                                                 <label>Alaskan – Mileage Plan</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" id="AS" name="rewards_as_8" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" id="AS" name="rewards_as_8" class="airline-points form-control" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div>
                                                         </div>
@@ -186,7 +174,7 @@
                                                                 <label>American – AAdvantage</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" id="AA" name="rewards_aa_1" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" id="AA" name="rewards_aa_1" class="airline-points form-control" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div>
                                                         </div>   
@@ -196,7 +184,7 @@
                                                                 <label>Delta – SkyMiles</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" id="DL" name="rewards_dl_3" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" id="DL" name="rewards_dl_3" class="airline-points form-control" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div>
                                                         </div>   
@@ -206,7 +194,7 @@
                                                                 <label>Frontier – EarlyReturns</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" id="F9" name="rewards_f9_7" class="airline-points" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" id="F9" name="rewards_f9_7" class="airline-points form-control" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div> 
                                                         </div> 
@@ -216,7 +204,7 @@
                                                                 <label>Hawaiian  – TrueBlue</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_ha_10" class="airline-points" id="HA" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" name="rewards_ha_10" class="airline-points form-control" id="HA" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div> 
                                                         </div>    
@@ -226,7 +214,7 @@
                                                                 <label>JetBlue – TrueBlue</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_b6_9" class="airline-points" id="B6" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" name="rewards_b6_9" class="airline-points form-control" id="B6" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div>
                                                         </div>   
@@ -236,7 +224,7 @@
                                                                 <label>Southwest – Rapid Rewards</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_wn_4" class="airline-points" id="WN" value="" placeholder="Airline Rewards Number"> 
+                                                                <input type="text" name="rewards_wn_4" class="airline-points form-control" id="WN" value="" placeholder="Airline Rewards Number"> 
                                                                 <span class="focus-border"><i></i></span>
                                                             </div> 
                                                         </div>   
@@ -246,7 +234,7 @@
                                                                 <label>Spirit – FREE SPIRIT</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_nk_6" class="airline-points" id="NK" value="" placeholder="Airline Rewards Number"> 
+                                                                <input type="text" name="rewards_nk_6" class="airline-points form-control" id="NK" value="" placeholder="Airline Rewards Number"> 
                                                                 <span class="focus-border"><i></i></span>
                                                             </div> 
                                                         </div>
@@ -256,7 +244,7 @@
                                                                 <label>United – MileagePlus</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_ua_2" class="airline-points" id="UA" value="" placeholder="Airline Rewards Number"> <span class="focus-border"><i></i></span>
+                                                                <input type="text" name="rewards_ua_2" class="airline-points form-control" id="UA" value="" placeholder="Airline Rewards Number"> <span class="focus-border"><i></i></span>
                                                             </div> 
                                                         </div>
                                                         <div class="col-sm-12">
@@ -265,7 +253,7 @@
                                                                 <label>Virgin – eleVAte</label>
                                                             </div>
                                                             <div class="col-md-5 col-sm-12">
-                                                                <input type="text" name="rewards_vx_5" class="airline-points" id="VX" value="" placeholder="Airline Rewards Number">
+                                                                <input type="text" name="rewards_vx_5" class="airline-points form-control" id="VX" value="" placeholder="Airline Rewards Number">
                                                                 <span class="focus-border"><i></i></span>
                                                             </div>
                                                               
@@ -278,8 +266,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 hidden-md hidden-lg" id="submit-col">
+                                    <div class="col-sm-12" id="submit-col">
                                         <button type="submit" class="">Save</button>    
+                                    </div>
+                                     <div class="col-sm-12">
+                                        <p id="profileReminder">Remember to complete filling out your profile to have all the settings in place to begin booking travel arrangements.</p>
                                     </div>
                                 </div> 
                             </div>

@@ -1,5 +1,51 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
+@include max-screen(large) {
+	#flip-form{
+		max-width:90%;
+	}
+}
+@include max-screen(mediumLarge) {
+	#flip-form{
+		max-width:90%;
+		& .col-sm-8{
+			width:100%;
+		}
+		& .col-sm-4{
+			width:100%;
+			position:relative!important;
+			& #landing-register{
+				padding:5% 5%!important;
+				position:relative;
+				& .logo{
+					display:none;
+				}
+			}
+		}
+		& #landing-login{
+			border-right-width: 0px!important;
+			& .row{
+		    	&:first-child{
+		    		& .col-sm-12{
+		    			width:50%!important;
+		    		}
+		    	}
+		    }
+		    & #login-form{
+	    		& .row{
+	    			& .col-sm-12{
+			    		width:100%!important;
+			    		float:left;
+			    		display:block;
+			    		& h4{
+			    			text-align:left;
+			    		}
+			    	}
+	    		}
+	    	}
+		}
+	}
+}
 @include max-screen(medium) {
 	.body-content{
 		padding-left:2rem;padding-right:2rem;
@@ -17,7 +63,6 @@
 		text-align:left;
 	}
 	#flip-form{
-		border:5px solid #5db9be;
 		max-width:95%;
 		& .col-sm8, & .col-sm-4{
 			width:100%;
@@ -25,9 +70,9 @@
 			position:relative;
 			border-left:none; 
 			border-right:none;
-			min-height:250px;
+			min-height:140px;
 		}
-		#landing-login{
+		& #landing-login{
 			padding:20px 5% 5%!important;
 			width:100%;
 			border-right: 0px solid #5db9be;
@@ -46,27 +91,42 @@
 		    	margin: 100px auto;
 		    }
 		    & .row{
-		    	& .col-sm-12{
-		    		width:100%!important;
-		    		float:left;
-		    		display:block
-		    		& h4{
-		    			text-align:left;
+		    	&:first-child{
+		    		& .col-sm-12{
+		    			width:100%!important;
 		    		}
 		    	}
 		    }
+		    & #login-form{
+	    		& .row{
+	    			& .col-sm-12{
+			    		width:100%!important;
+			    		float:left;
+			    		display:block;
+			    		& h4{
+			    			text-align:left;
+			    		}
+			    	}
+	    		}
+	    	}
 		}
 		& #landing-register{
-			padding:10% 15px!important;
+			padding:5% 15px!important;
 			& .logo{
 				display:none;
 			}
 		}
 	}
 }
+@include max-screen(smallMedium) {
+
+}
 @include max-screen(small) {
-	.body-content{
-		padding-left:0px;padding-right:0px;
+	#password-page{
+		& .body-content{
+			padding-left:0px;padding-right:0px;
+			padding-top:10px!important;
+		}
 	}
 	#login{
 		margin-top:0px;
@@ -108,15 +168,27 @@
 		    	margin: 100px auto;
 		    }
 		    & .row{
+		    	&:first-child{
+		    		& .col-md-6{
+		    			width:70%!important;
+		    			&:last-child{
+		    				width:30%!important;
+		    			}
+		    			& h4{
+		    				text-align:right!important;
+		    			}
+		    		}
+		    	}
 		    	& .col-sm-12{
-		    		width:100%!important;
+		    		width:50%!important;
 		    		float:left;
-		    		display:block
+		    		display:block;
 		    		& h4{
-		    			text-align:left;
+		    			text-align:right;
 		    		}
 		    	}
 		    }
+
 		}
 		& #landing-register{
 			padding:15% 5%!important;

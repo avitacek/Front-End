@@ -6,8 +6,19 @@
 			</div>
 			<div class="col-sm-12">
 				<h3>Thank You</h3>
-				<p><?php echo $app->output->successstr ?></p>
-				<footnote style="text-align:center;font-size:12px; margin-top:10px;width:100%;display:block">Please check you junk mail for the reset password email if you do not see it in a couple of minutes.</footnote>
+				<div class="row">
+                    <div class="col-sm-12">
+                        <div class="errors">
+                            <?php echo $app->output->errorstr ?>  
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="success">
+                            <?php echo $app->output->successstr ?>
+                        </div>
+                    </div>
+                </div>  
+				<footnote style="text-align:center;font-size:12px; margin-top:10px;width:100%;display:block">.</footnote>
 			</div>
 		</div>
 	</div>

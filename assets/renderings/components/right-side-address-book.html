@@ -32,7 +32,7 @@
                                       </div>
                                       <div id="collapse1" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <form action="" method="POST" role="form">
+                                            <form action="" method="POST" role="form" autocomplete="off">
                                                 <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                                 <input type='hidden' name='a' value="add_traveler">
                                                 <div class="row">
@@ -51,6 +51,7 @@
                                                         <label for="email">Email</label>
                                                         <span class="focus-border"><i></i></span>
                                                     </div>
+                                                    <!--
                                                     <div class="col-sm-12 addTravelerCheck" id="">
                                                         <div class="col-sm-12 col-md-4 float-right">
                                                             <div class="checkbox-inline">
@@ -58,23 +59,17 @@
                                                             </div>    
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-12 groups" id="">
+                                                    -->
+                                                   <!-- <div class="col-sm-12 groups" id="">
                                                         <div class="col-sm-12 col-md-6">
-                                                            <div class="group_select_carrier"></div>
-                                                                <select class="groupSelect">
-                                                                    <option base>Select a Group</option>
-                                                                    <option value="admin">Admin</option>
-                                                                    <option value="executive">Executives</option>
-                                                                    <option value="guest">Guests</option>
-                                                                    <option value="it">IT</option>
-                                                                </select>
-                                                            <label>Add Traveler(s) to a Group</label> 
+                                                            <div id="profile_site_select_carrier">
+                                                            </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6">
                                                             <label>&nbsp;</label>
-                                                            <a class="btn" data-toggle="modal" data-target="#groupModal">Make a New Group</a> 
+                                                            <a href="?p=profilesite-create" class="btn">Create a New Group</a> 
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="col-sm-12">
                                                         <button type="submit" id="addTravelerButton"/>Add Traveler</button>
                                                     </div>
@@ -109,30 +104,6 @@
                                             <div class="col-sm-12">
                                                 <button type="submit" class="hide" id="addBulkTravelersButton"/>Upload Travelers</button>
                                             </div>
-                                            <div class="col-sm-12 addTravelerCheck" id="">
-                                                <div class="col-sm-12 col-md-4 float-right">
-                                                    <div class="checkbox-inline">
-                                                        <input type="checkbox" class="guestCheckBox" value="">Add all as Guests
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 groups" id="">
-                                                <div class="col-sm-12 col-md-6">
-                                                    <div class="group_select_carrier"></div>
-                                                        <select class="groupSelect">
-                                                            <option base>Select a Group</option>
-                                                            <option value="admin">Admin</option>
-                                                            <option value="executive">Executives</option>
-                                                            <option value="guest">Guests</option>
-                                                            <option value="it">IT</option>
-                                                        </select>
-                                                    <label>Add Traveler(s) to a Group</label> 
-                                                </div>
-                                                <div class="col-sm-12 col-md-6">
-                                                    <label>&nbsp;</label>
-                                                    <a class="btn" data-toggle="modal" data-target="#groupModal">Make a New Group</a> 
-                                                </div>
-                                            </div>
                                         </form>
                                         </div>
                                       </div>
@@ -150,7 +121,7 @@
                 <div role="tabpanel" class="tab-pane" id="personal-info">
                     <div class="card">
                         <div class="content">
-                            <form action="" method="POST" role="form">
+                            <form action="" method="POST" role="form" autocomplete="off">
                                 <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
                                 <input type='hidden' name='a' value="save_profile">
                                 <input type='hidden' id="userID" name='user_id' value="">
@@ -175,6 +146,9 @@
                                         <div class="col-md-12">
                                             <div class="form-group" name="group" id="user_group_select_carrier"></div>
                                         </div>
+                                         <div class="col-md-12">
+                                            <div class="form-group" name="group" id="role_select_carrier"></div>
+                                        </div>
                                         <div class="col-md-12">
                                                 <input type="text" name="role_name" class="role_name" readonly value="" placeholder="User Role">
                                                 <label for="l_name">Role</label>
@@ -185,8 +159,15 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <!--
+                                        <div class="col-md-12">
+                                            <input type="text" name="label" id="label" title="label" value="">
+                                            <label for="label">Group | Category <a href="#" data-toggle="tooltip" data-placement="top" title="You can add a gropu or category label to your travelers to make it easier to sort and filter travelers when inviting them to an event."></i></a></label>
+                                            <span class="focus-border"><i></i></span> 
+                                        </div>
+                                        -->
                                         <div class="col-sm-12 col-md-6">
-                                                <input type="text" name="dob" id="datepicker" required title="dob" value="">
+                                                <input type="text" autocomplete="off" name="dob" id="datepicker" title="dob" value="">
                                                 <label for="dob">Date of Birth</label>
                                         </div>
                                         <div class="col-sm-12 col-md-6">

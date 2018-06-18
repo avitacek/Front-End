@@ -45,16 +45,16 @@
         </div>
         <div class="row" id="timeRow">
             <div class="col-sm-12" id="rangePicker">
-                <form id="tripDates" method="POST">
+                <form id="tripDates" method="POST" autocomplete="off">
                     <input type='hidden' name='p' value="alltrips">
                     <div class="col-sm-12 col-md-8">
                         <div class="cbs-date form-group field-trip-start-date">
-                            <input type="text" class="form-control input-sm" name="from_departure_datetime" id="trip-start-date" placeholder="Start Date">
+                            <input type="text" class="form-control input-sm" name="from_departure_datetime" autocomplete="off" id="trip-start-date" placeholder="Start Date">
                             <label for="from_departure_datetime" class="cbs-date-label">Trips Start Date</label>
                             <span class="focus-border"><i></i></span>
                         </div>
                         <div class="cbs-date form-group field-trip-start-date">
-                            <input type="text" class="form-control input-sm" name="to_departure_datetime" id="trip-end-date" placeholder="End Date">
+                            <input type="text" class="form-control input-sm" name="to_departure_datetime" id="trip-end-date" autocomplete="off" placeholder="End Date">
                             <label for="to_departure_datetime" class="cbs-date-label">Trips End Date</label>
                             <span class="focus-border"><i></i></span>
                         </div>

@@ -27,6 +27,23 @@
 				    border-radius: 3px;
 				    padding: .9375rem;
 				}
+				& #questionBtn{
+					border-radius:50%;
+					width:50px;
+					height:50px;
+					margin-bottom:5px;
+					border:1px solid $white;
+					font-family:$FontAwesome;
+					font-size: 2.5em;
+				    text-align: center;
+				    padding: 0px;
+				    &:focus{
+				    	outline:none!important;
+				    }
+					&:before{
+						content:'\f059';
+					}
+				}
 				& #add-travelers{
 					& .addTravelerCheck{
 						border-bottom:1px solid #dddddd;
@@ -166,7 +183,7 @@
     			border: 1px solid #ffffff;
     			border-radius:0px 4px 4px 4px;
     			padding:15px 0px;
-    			margin-top:10px;
+    			margin-top:0px;
 
     			& #addTravelers_length{
 					position:relative;
@@ -473,6 +490,11 @@
 			left:14px;
 			width:calc(100% - 30px;)
 		}
+	  }
+	  & #myModal{
+	  	.modal-dialog{
+	  		width:70%;
+	  	}
 	  }
 
 

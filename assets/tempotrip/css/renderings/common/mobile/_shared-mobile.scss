@@ -6,7 +6,7 @@
 @include max-screen(large) {
 
 }
-@include max-screen(mediumLarge){
+@include max-screen(mediumLarge) {
 
 }
 @include max-screen(medium) {
@@ -74,6 +74,9 @@
 		background-color: rgba(255, 255, 255, 0.0)!important;
     	border: 0px solid #ffffff!important;
 	}
+	& .body-content{
+		padding-left:0px!important;
+	}
 }
 @include max-screen(small) {
 	.col-sm-8{
@@ -87,7 +90,7 @@
 		display:none;
 	}
 	.body-content{
-		padding-top:55px!important;
+		padding-top:75px!important;
 		& .row{
 			&:first-child{
 				& .col-sm-12{

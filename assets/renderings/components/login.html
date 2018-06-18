@@ -8,8 +8,9 @@
 				<h4>Log in</h4>
 			</div>
 		</div>
-        <div class="row errors">
-			<p class="errors"><?php echo $app->output->errorstr ?></p>                         
+        <div class="row">
+			<p class="errors"><?php echo $app->output->errorstr ?></p> 
+			<p class="success"><?php echo $app->output->successstr ?></p>                        
         </div> 
 		<form action="" id="login-form" method="POST">
             <input type="hidden" name='p' value="<?php echo $app->constants->user['DEFAULT_USER_HOME_PAGE'] ?>">

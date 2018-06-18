@@ -1,7 +1,9 @@
 $(document).ready(function(){
+    $("#save-btn").addClass('disabled')
     $('#pass1, #pass2').on("blur", function(){
         var pass1 = $("#pass1").val();
         var pass2 = $("#pass2").val();
+
         if(pass1 != pass2) {
             $("#pass1").removeClass('match')
             $("#pass2").removeClass('match')

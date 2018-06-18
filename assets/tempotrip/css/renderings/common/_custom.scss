@@ -19,7 +19,10 @@ select::-moz-focus-inner,
 input[type="file"] > input[type="button"]::-moz-focus-inner {
   outline: 0;
 }
-
+.noShow{
+  opacity:0!important;
+  z-index:-1;
+}
 .ui-slider-handle:focus,
 .navbar-toggle,
 input:focus {

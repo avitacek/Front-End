@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-sm-12" id="topRow">
+        <h3 class="card-title">CREATE A NEW TRAVELER GROUP</h3>
+        <p class="col-sm-12 col-md-8">Fill out all required fields to create a new traveler group. A traveler group is any group of people that have something in common, like a department, a team, or group of employees which may have similar travel policies.</p>
+    </div>
+    <div class="col-sm-12 col-md-12">
+        <form id="create_profilesite" method="POST" action="/">
+            <input type='hidden' id="create_profilesite" name='a' value="create_profilesite">
+            <input type='hidden' id="create_profilesite" name='p' value="profilesite-create">
+            <div class="row">
+                <div class="col-sm-12">
+                    <input required id="groupname" name="groupname" title="Group Name" type="text" size="28" />
+                    <label for="groupname">Group Name</label>
+                    <span class="focus-border"><i></i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <b>Assign Travel Arranger</b><br>
+                    This person will have the ability to add travelers to this group and cancel/approve flights.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input required id="f_name" name="f_name" title="f_name" type="text" size="28" />
+                    <label for="f_name">First Name</label>
+                    <span class="focus-border"><i></i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input required id="l_name" name="l_name" title=l_name" type="text" size="28" />
+                    <label for="l_name">Last Name</label>
+                    <span class="focus-border"><i></i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input required id="travel_arranger_email" name="travel_arranger_email" title="Travel Arranger Email" type="text" size="28" />
+                    <label for="travel_arranger_email">Email</label>
+                    <span class="focus-border"><i></i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="submit" value="SUBMIT">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

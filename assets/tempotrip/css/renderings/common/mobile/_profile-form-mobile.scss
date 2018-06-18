@@ -1,5 +1,24 @@
 @import "../../../globals/variables";
 @import "../../../globals/mixins";
+@include max-screen(mediumLarge) {
+	#profile-page{
+		& .body-content{
+			padding-left:0px;
+			padding-right:0px;
+			& .col-sm-12{
+				& .content-profile-form{
+					& .container-fluid{
+						padding-left:0px;
+						padding-right:0px;
+						& #leftColumn, & #rightColumn{
+							width:48.75%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 @include max-screen(medium) {
 	#profile-page{
 		& .body-content{
@@ -12,11 +31,16 @@
 						padding-left:15px;
 						padding-right:15px;
 						& .col-md-12{
+							width:100%!important;
 							padding-left:0px;
 							padding-right:0px;
 							& .row{
 								& .success{
 									margin-bottom:5px;
+								}
+								& #leftColumn, & #rightColumn{
+									width:100%!important;
+									padding:15px!important;
 								}
 								& .card{
 									& .header{
@@ -25,6 +49,10 @@
 										}
 									}
 									& .content {
+										& .col-md-6{
+											width:100%;
+											margin-right:0%!important;
+										}
 										& .form-group{
 											& label{
 												& a{

@@ -12,7 +12,7 @@ $(document).ready(function() {
     }
     function printbox(){
         var content = $('.print').html();
-        var printWindow = '<html><head><title>Flight Itinerary</title><link href="css/tempotrip.css" rel="stylesheet"></head><body>'+ content +'</body></html>';
+        var printWindow = '<html><head><title>Flight Itinerary</title><link href="css/vendors/plugins.css" rel="stylesheet"><link href="css/tempotrip.globals.css" rel="stylesheet"><link href="css/profile.modules.css" rel="stylesheet"></head><body>'+ content +'</body></html>';
 
         mywindow = window.open('', 'print div', 'height=790,width=950');
         mywindow.document.write(printWindow);

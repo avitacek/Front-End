@@ -92,7 +92,7 @@
 						}
 					}
 				}
-				& .col-md-8{
+				& .col-md-12{
 					padding:0px 15px 0px 0px;
 					& h1{
 						text-transform:uppercase;
@@ -133,7 +133,7 @@
 						 border-radisu:4px;
 						 box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
     					&#profileList{
-    						padding:0px 15px;
+    						padding:15px 15px;
     						& h3{
     							height:46px;
 	    						&:first-child{
@@ -225,6 +225,7 @@
     					&#searchList{
     						margin-left:15px;
     						margin-right:15px;
+    						padding:15px 15px;
     						border-right:1px solid #ddd;
     						border-left:1px solid #ddd;
     						& h3{
@@ -282,7 +283,7 @@
 	    					}
     					}
     					&#tripLink{
-    						padding:0px 15px;
+    						padding:15px 15px;
     						& h3{
     							height:46px;
 	    						&:first-child{
@@ -318,7 +319,7 @@
 	    						margin:0px;
 	    						padding:0px;
 	    						& li{
-	    							&#dashboard-page, &#logout-page{
+	    							&#dashboard-page, &#logout-page, &#profilesite-create-page{
 	    								display:none;
 	    							}
 	    						}
@@ -369,7 +370,7 @@
     					& h3{
     						background-color: $grey-blue;
     						color:$white;
-    						margin-top:10px;
+    						margin-top:0px;
     						font-size:24px;
     						padding-top:10px;
     					}
