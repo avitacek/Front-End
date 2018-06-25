@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#save-btn").addClass('disabled')
-    $('#pass1, #pass2').on("blur", function(){
+    $('#pass1, #pass2').on("mouseleave", function(){
         var pass1 = $("#pass1").val();
         var pass2 = $("#pass2").val();
 

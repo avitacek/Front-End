@@ -1,5 +1,10 @@
 ﻿@import "globals/variables"; 
 @import "globals/mixins";
+@import "globals/common";
+@import "globals/rte";
+@import "globals/motion";
+@import "globals/print";
+@import "globals/styles";
 @import "globals/fonts";
 @import "globals/base";
 
@@ -24,5 +29,6 @@
 @import "renderings/common/pnr-creator";
 @import "renderings/common/password-change";
 @import "renderings/common/profilesite_form";
+@import "renderings/common/parent_info";
 
 

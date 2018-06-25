@@ -479,6 +479,26 @@ table.dataTable tr > th:focus{
 		}
 	}
 }
+#breadcrumbs{
+	font-size:12px!important;
+	& ul{
+		list-style-type: none;
+		margin:0px 0px 20px 0px;
+		padding:8px 0px;
+		background-color: transparent!important;
+		font-size:12px!important;
+		& li{
+			float:left;
+			color:$slate-grey;
+			margin:0px 0px 10px 0px;
+			font-size:12px!important;
+			&:active{
+				color:$orange;
+				font-size:12px!important;
+			}
+		}
+	}
+}
 .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
 	width:50%;
 }

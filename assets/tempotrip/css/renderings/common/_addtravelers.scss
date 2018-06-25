@@ -32,11 +32,13 @@
 					width:50px;
 					height:50px;
 					margin-bottom:5px;
-					border:1px solid $white;
+					border:1px solid $grey-blue;
+					color:$grey-blue;
 					font-family:$FontAwesome;
 					font-size: 2.5em;
 				    text-align: center;
 				    padding: 0px;
+				    background-color: rgba(255,255,255,0.45);
 				    &:focus{
 				    	outline:none!important;
 				    }
@@ -342,8 +344,8 @@
 	    letter-spacing: 1.2px;
 	    line-height: 1.5em;
 	    text-transform:uppercase;
-	  }
-	  & input{
+	}
+	& input{
 	    	margin-top:24px;
 		    margin-bottom:0px;
 		    position:relative;
@@ -356,14 +358,13 @@
 			box-shadow:2px 2px 5px $red, -2px -2px 5px $red;
 			border-color:$red!important;
 		}
-	  }
-
-	  & input:focus ~ label, & input.has-content ~ label {
+	}
+	& input:focus ~ label, & input.has-content ~ label{
 	    color: $grey-blue!important;
-	  }
-		input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
-		  	background-color: rgba(255,255,255,0.0)!important;
-		}
+	}
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+		background-color: rgba(255,255,255,0.0)!important;
+	}
 		& .focus-border{
 		    height: 50px;
 		    margin-top: 23px;
@@ -490,10 +491,160 @@
 			left:14px;
 			width:calc(100% - 30px;)
 		}
+		& .yes{
+			background-color: $red!important;
+		}
+		& .no{
+			background-color: $teal!important;
+		}
 	  }
 	  & #myModal{
 	  	.modal-dialog{
 	  		width:70%;
+	  		& .modal-content{
+	  			background-color: transparent!important;
+	  			box-shadow:none!important;
+	  			border:none!important;
+	  			& .col-sm-6{
+					padding-left:0px;
+					padding-right:0px;
+				}
+	  			& a.btn, li a.btn{
+	  				border-radius:4px;
+	  				background-color: $grey-blue;
+	  				color:$white;
+	  				font-weight:bold;
+	  				border:none!important;
+	  				padding:15px 0px;
+	  				position:relative;
+	  				&.next{
+	  					&:before{
+	  						font-family:$FontAwesome;
+		  					content:"\f105";
+		  					position:absolute;
+		  					top:5px;
+		  					right:10px;
+		  					font-size:30px;
+		  					font-weight:bold;
+	  					}
+	  				}
+	  				&.previous{
+	  					&:before{
+	  						font-family:$FontAwesome;
+		  					content:"\f104";
+		  					position:absolute;
+		  					top:5px;
+		  					left:10px;
+		  					font-size:30px;
+		  					font-weight:bold;
+	  					}
+	  				}
+	  			}
+	  			& .card{
+	  				position: relative;
+				    display: -webkit-box;
+				    display: -ms-flexbox;
+				    display: flex;
+				    -webkit-box-orient: vertical;
+				    -webkit-box-direction: normal;
+				    -ms-flex-direction: column;
+				    flex-direction: column;
+				    min-width: 0;
+				    word-wrap: break-word;
+				    background-color: #fff;
+				    background-clip: border-box;
+				    border: 1px solid rgba(0,0,0,.125);
+				    border-radius: .25rem;
+    				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+				    & .align-items-center{
+				    	-webkit-box-align: center!important;
+    					-ms-flex-align: center!important;
+    					align-items: center!important;
+    					display:flex;
+				    }
+					& .card-body {
+					    -webkit-box-flex: 1;
+					    -ms-flex: 1 1 auto;
+					    flex: 1 1 auto;
+					    padding: 20px;
+					}
+					& p, & dt{
+						font-weight:300;
+						color:$slate-grey;
+						text-transform: none;
+						margin-bottom:1rem;
+						font-size:16px;
+					}
+					& dt{
+						font-weight:bold!important;
+						padding-left:0px;
+						text-transform:uppercase;
+					}
+					& ul{
+						list-style-type: none;
+						& li{
+							padding-left:12px;
+							padding-bottom:5px;
+							font-size:16px;
+							display:block;
+							float:left;
+							text-align: left;
+							position:relative;
+							&:before{
+								content:'*';
+								position:absolute;
+								top:0px;
+								left:0px;
+							}
+						}
+					}
+				    & .p-5 {
+					    padding: 3rem!important;
+					}
+				    & .border-right {
+					    border-right: 1px solid #dee2e6!important;
+					}
+				    & .align-self-center {
+					    -ms-flex-item-align: center!important;
+					    align-self: center!important;
+					    padding:0px;
+					}
+					& .card-header{
+						margin-bottom: 0;
+    					background-color: rgba(0,0,0,.03);
+    					border-bottom: 1px solid rgba(0,0,0,.125);
+					}
+					& .p-4{
+						padding: 1.5rem!important;
+					}
+					& h4{
+						font-weight:300;
+						line-height:18px;
+						margin-left:15px;
+					}
+					& h3{
+						margin-top:0px;
+						margin-left:15px;
+					}
+					.rounded-circle {
+					    border-radius: 50%!important;
+					}
+					& .col-sm-4, & .col-md-1{
+						padding:1.5px;
+					}
+					& .col-sm-3, & .col-sm-9{
+						padding:0px;
+					}
+					.img-fluid {
+					    max-width: 100%;
+					    height: auto;
+					}
+					img {
+					    vertical-align: middle;
+					    border-style: none;
+					}
+	  			}
+	  		}
 	  	}
 	  }
 

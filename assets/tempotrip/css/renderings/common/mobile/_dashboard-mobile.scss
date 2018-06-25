@@ -41,8 +41,6 @@
                                 margin-bottom:15px!important;
                                 margin-right:0px!important;
                                 margin-left:0px!important;
-                                border-right:0px solid #ddd!important;
-                                border-left:0px solid #ddd!important;
                                 padding-top:15px;
                                 padding-bottom:15px;
 
@@ -74,8 +72,11 @@
         }
     }
 }
-@include max-screen(smallMedium){
-
+@include max-screen(smallMedium) {
+    #dashboard-page .body-content #content-dashboard .card .row .col-md-4#tripLink ul{
+        padding-left:15px;
+        padding-right:15px;
+    }
 }
 @include max-screen(small) {
 	

@@ -4,7 +4,9 @@
     
 }
 @include max-screen(large) {
-
+	.body-content{
+		padding-left:70px;
+	}
 }
 @include max-screen(mediumLarge) {
 
@@ -75,8 +77,19 @@
     	border: 0px solid #ffffff!important;
 	}
 	& .body-content{
-		padding-left:0px!important;
+		padding-left:15px!important;
+		padding-right:15px!important;
 	}
+    & li.paginate_button.previous {
+        display: inline!important;
+    }
+ 
+    & li.paginate_button.next {
+        display: inline!important;
+    }
+    & li.paginate_button {
+        display: none!important;
+    }
 }
 @include max-screen(small) {
 	.col-sm-8{
@@ -90,7 +103,7 @@
 		display:none;
 	}
 	.body-content{
-		padding-top:75px!important;
+		padding-top:55px!important;
 		& .row{
 			&:first-child{
 				& .col-sm-12{
@@ -104,5 +117,24 @@
 				}
 			}
 		}
+	}
+	#client-event-details-page{
+		& .modal{
+			& .modal-dialog{
+				width:90%;
+			}
+		}
+	}
+	& .dataTables_filter{
+		float: none!important;
+	    display: block!important;
+	    width: 100%!important;
+	    padding-right: 0px!important;
+	}
+	& .dataTables_wrapper .row:first-child .col-sm-6:first-child{
+		width:100%!important;
+	}
+	& .dataTables_wrapper .row:first-child .col-sm-6:last-child{
+		width:100%!important;
 	}
 }

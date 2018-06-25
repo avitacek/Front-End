@@ -97,11 +97,14 @@ function checkPage(){
     else if ($('body').attr('id') === 'profile-form-page'){
         setProfileSitePage();
     }
+    else if ($('body').attr('id') === 'parent-info-list-page'){
+        setParentInfoPage();
+    }
+    else if ($('body').attr('id') === 'client-details-list-page'){
+        setClientDetailsPage();
+    }
     else if ($('body').attr('id') === 'client-info-list-page'){
         setClientInfoPage();
-    }
-    else if ($('body').attr('id') === 'client-details-page'){
-        setClientDetails();
     }
     else if ($('body').attr('id') === 'client-event-details-page'){
         setClientEventDetailsPage();
@@ -115,32 +118,444 @@ function setProfileSitePage(){
         $('.userName #userTitle .lastName').text(dataUser.l_name);
     },10);
 }
-function setClientInfoPage(){
+function setParentInfoPage(){
     //var clientDataList = system_output.system_output.client_data_list;
     setTimeout(function(){
-        $('body').find('li#client_info-page').addClass('active')
+        $('body').find('li#parent_info-page').addClass('active')
         $('body').find('input').addClass('has-content')
     },10)
-    if(typeof system_output.system_output.client_data_list != "undefined"){
-        var clientDataList = system_output.system_output.client_data_list;
+    if(typeof system_output.parent_data_list != "undefined"){
+        var affiliateList = system_output.parent_data_list;
+    }else{
+        var clientDataList = null;
     } 
-}
-function setClientDetails(){
-    //var clientDetailsData = system_output.client_details;
-    //var clientEventsList = system_output.client_events_list;
+    if(typeof system_output.parent_data_list != "undefined"){
+        var clientDataList = system_output.parent_data_list.table_data;
+    }else{
+        var clientDataList = null;
+    } 
+    $('.breadcrumb').append('<li class="active">'+affiliateList.title+'</li>')
+    var dataNew = []
+    $.each(clientDataList, function(key,value){
+        //console.log(key,value)
+        dataNew.push( {
+            id: value.id,
+            name: value.name,
+            root_domain: value.root_domain,
+            globalware_abbv: value.globalware_abbv,
+            pa_service_fee: value.pa_service_fee,
+        });
+    });
+    data_obj = dataNew;
+    //console.log(data);
+    var table = $('#parentInfo').DataTable({
+        "responsive": true,
+        "aaData": data_obj,
+        "order": [2, "desc"],
+        "select":false,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
+        "aoColumns": [
+            { 
+                "title": "Name",
+                "mDataProp": "name",
+                "width" : "20%",
+                "responsivePriority": 1,
+                "class": "name",
+                "visible": true
+            },
+            { 
+                "title": "Domain",
+                "mDataProp": "root_domain",
+                "width" : "20%",
+                "class": "domain",
+                "visible": true
+            },
+            { 
+                "title": "Globalware Abbv",
+                "mDataProp": "globalware_abbv",
+                "width" : "20%",
+                "visible": true
+            },
+            { 
+                "title": "Service Fee",
+                "mDataProp": "pa_service_fee",
+                "width" : "20%",
+                "class": "fee",
+                "visible": true
+            },
+            { 
+                "title": "ID",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "id",
+                "responsivePriority": 2,
+                "visible": true,
+                render:getDetailButton
+            }
+        ]//data changes to mDataProp//
+    });
 
+    function getDetailButton(data, type,full,meta){
+        t = parseInt(data);
+        var id = t;
+        return '<a href="/?p=client_info&id='+id+'" class="btn">Details <i class="fa fa-external-link" aria-hidden="true"></i></a>';
+    }
+}
+function setClientInfoPage(){
+    if(typeof system_output.client_data_list != "undefined"){
+        var clientDetailsData = system_output.client_data_list;
+    }else{
+        var clientDetailsData = null
+    }
+    if(typeof system_output.client_data_list != "undefined"){
+        var clientDetailsDataTitle = system_output.client_data_list.title;
+    }else{
+        var clientDetailsDataTitle = "Affiliate Client"
+    }
+    if(typeof system_output.client_data_list != "undefined"){
+        var clientDetailsDataBreadcrumb = system_output.client_data_list.breadcrumb;
+    }else{
+        var clientDetailsDataBreadcrumb = null
+    }
+    if(typeof system_output.client_data_list != "undefined"){
+        var clientDetailsDataBreadcrumbLink = system_output.client_data_list.breadcrumb.link;
+    }else{
+        var clientDetailsDataBreadcrumbLink = "?p=parent_info"
+    }
+    if(typeof system_output.client_data_list != "undefined"){
+        var clientDetailsTable = system_output.client_data_list.table_data;
+    }else{
+        var clientDetailsTable = null
+    }
+    $('.breadcrumb').append('<li class="active"><a href="'+clientDetailsDataBreadcrumbLink+'">Parent Affiliates</a></li><li>'+clientDetailsDataTitle+'</li>')
+    var dataNew = []
+    $.each(clientDetailsTable, function(key,value){
+        //console.log(key,value)
+        dataNew.push( {
+            backoffice_id: value.backoffice_id,
+            co_name: value.co_name,
+            email: value.email,
+            f_name: value.f_name,
+            id: value.id,
+            l_name: value.l_name
+        });
+    });
+    data_obj = dataNew;
+    //console.log(data);
+    var table = $('#clientInfo').DataTable({
+        "responsive": true,
+        "aaData": data_obj,
+        "order": [0, "desc"],
+        "select":false,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
+        "aoColumns": [
+            { 
+                "title": "Company Name",
+                "mDataProp": "co_name",
+                "width" : "12.5%",
+                "responsivePriority": 1,
+                "class": "company_name",
+                "visible": true
+            },
+            { 
+                "title": "First Name",
+                "mDataProp": "f_name",
+                "class": "fName",
+                "width" : "12.5%",
+                "visible": true
+            },
+            { 
+                "title": "Last Name",
+                "mDataProp": "l_name",
+                "width" : "12.5%",
+                "class": "lname",
+                "visible": true
+            },
+            { 
+                "title": "Contact",
+                "mDataProp": "email",
+                "width" : "12.5%",
+                "class": "contact",
+                "visible": true
+            },
+            { 
+                "title": "Id",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "id",
+                "visible": true,
+            },
+            { 
+                "title": "Backoffice Id",
+                "mDataProp": "backoffice_id",
+                "width" : "12.5%",
+                "class": "backoffice",
+                "visible": true
+            },
+            { 
+                "title": "",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "details",
+                "responsivePriority": 2,
+                "visible": true,
+                render:getDetailButton
+            },
+            { 
+                "title": "",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "events",
+                "responsivePriority": 3,
+                "visible": true,
+                render:getEventsButton
+            }
+        ]//data changes to mDataProp//
+    });
+
+    function getDetailButton(data, type,full,meta){
+        t = parseInt(data);
+        var id = t;
+        return '<a href="/?p=client_details&id='+id+'" class="btn">Client Details <i class="fa fa-external-link" aria-hidden="true"></i></a>';
+    }
+    function getEventsButton(data, type,full,meta){
+        t = parseInt(data);
+        var id = t;
+        return '<a href="/?p=event_details&id='+id+'" class="btn">Client Events <i class="fa fa-external-link" aria-hidden="true"></i></a>';
+    }
+}
+function setClientDetailsPage(){
+    //var eventInfo = system_output.event_info;
     if(typeof system_output.client_details != "undefined"){
-        var clientDetailsData = system_output.client_details;
+        var clientInfoBreadcrumbs = system_output.client_details.breadcrumb;
+    }else{
+        var clientInfoBreadcrumbs = null;
     }
-    if(typeof system_output.client_events_list != "undefined"){
-        var clientEventsList = system_output.client_events_list;
+    if(typeof system_output.client_details != "undefined"){
+        var clientInfoBreadcrumbsTitle = system_output.client_details.title;
+    }else{
+        var clientInfoBreadcrumbsTitle = "Affiliate Client";
     }
+    if(typeof system_output.client_details != "undefined"){
+        var clientInfoBreadcrumbslink = system_output.client_details.breadcrumb.link;
+    }else{
+        var clientInfoBreadcrumbslink = null;
+    }
+    if(typeof system_output.client_details != "undefined"){
+        var clientInfo = system_output.client_details.table_data[0];
+    }else{
+        var clientInfo = null;
+    }
+
+    $('.breadcrumb').append('<li class="active"><a href="?p=parent_info">Parent Affiliates</a></li><li><a href="'+clientInfoBreadcrumbslink+'">'+clientInfoBreadcrumbsTitle+'</a></li><li>Affiliate Client Details</li>')
+    function makeClientDetails(clientInfo){
+        console.log(clientInfo)
+        $('.co_name').text('Company name: '+clientInfo.co_name);
+        $('.address').text('Address: '+clientInfo.address);
+        $('.address2').text('Address 2: '+clientInfo.address2);
+        $('.city').text('City: '+clientInfo.city);
+        $('.state').text('State: '+clientInfo.state);
+        $('.zip').text('Postal Code: '+clientInfo.zip);
+        $('.f_name').text('First Name: '+clientInfo.f_name);
+        $('.l_name').text('Last Name: '+clientInfo.l_name);
+        $('.email').text('Email: '+clientInfo.email);
+        $('.phone').text('Phone Number: '+clientInfo.phone);
+        $('.servicefee').text('Service Fee: '+clientInfo.servicefee);
+        $('.parent_affiliate_id').text('Parent Affiliate ID: '+clientInfo.parent_affiliate_id);
+        $('.backoffice_id').text('Backoffice ID: '+clientInfo.backoffice_id);
+        $('.globalware_status').text('Globalware Status: '+clientInfo.globalware_status);
+        $('.id').text('ID: '+clientInfo.id);
+
+        $('#eventBtn').attr('href', '/?p=event_details&id='+clientInfo.id+'');
+    }
+    makeClientDetails(clientInfo);
 }
 function setClientEventDetailsPage(){
     //var eventInfo = system_output.event_info;
-    if(typeof system_output.event_info != "undefined"){
-        var eventInfo = system_output.event_info;
-    } 
+    if(typeof system_output.event_details != "undefined"){
+        var eventBreadcrumbs = system_output.event_details.breadcrumb;
+    }else{
+        var eventBreadcrumbs = null;
+    }
+    if(typeof system_output.event_details != "undefined"){
+        var eventBreadcrumbsLink = system_output.event_details.breadcrumb.link;
+    }else{
+        var eventBreadcrumbsLink = null;
+    }
+    if(typeof system_output.event_details != "undefined"){
+        var eventBreadcrumbsTitle = system_output.event_details.title;
+    }else{
+        var eventBreadcrumbsTitle = null;
+    }
+    if(typeof system_output.event_details != "undefined"){
+        var eventDetails = system_output.event_details.table_data;
+    }else{
+        var eventDetails = null;
+    }
+
+    $('.breadcrumb').append('<li class="active"><a href="?p=parent_info">Parent Affiliates</a></li><li><a href="'+eventBreadcrumbsLink+'">Affiliate Client</a></li><li>'+eventBreadcrumbsTitle+'</li>')
+    var dataNew = []
+    console.log('calling page')
+    $.each(eventDetails, function(key,value){
+        //console.log(key,value)
+        dataNew.push( {
+            affiliate_id: value.affiliate_id,
+            bar_record_name: value.bar_record_name,
+            company_cc: value.company_cc,
+            contact_email: value.contact_email,
+            contact_fname: value.contact_fname,
+            contact_lname: value.contact_lname,
+            contact_phone: value.contact_phone,
+            display_name: value.display_name,
+            event_type_id: value.event_type_id,
+            hostedhostname: value.hostedhostname,
+            id: value.id,
+            login_type_id: value.login_type_id,
+            servicefee: value.servicefee
+        });
+    });
+    data_obj = dataNew;
+    console.log(dataNew)
+    //console.log(data);
+    var table = $('#eventDetails').DataTable({
+        "responsive": true,
+        "aaData": data_obj,
+        "order": [0, "desc"],
+        "select":true,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
+        "aoColumns": [
+            { 
+                "title": "Display Name",
+                "mDataProp": "display_name",
+                "width" : "12.5%",
+                "responsivePriority": 1,
+                "class": "company_name",
+                "visible": true
+            },
+            { 
+                "title": "Company CC",
+                "mDataProp": "company_cc",
+                "class": "fName",
+                "width" : "12.5%",
+                "visible": false
+            },
+            { 
+                "title": "Contact Email",
+                "mDataProp": "contact_email",
+                "width" : "12.5%",
+                "class": "lname",
+                "visible": false
+            },
+            { 
+                "title": "Contact First Name",
+                "mDataProp": "contact_fname",
+                "width" : "12.5%",
+                "class": "contact",
+                "visible": false
+            },
+            { 
+                "title": "Contact Last Name",
+                "mDataProp": "contact_lname",
+                "width" : "12.5%",
+                "class": "id",
+                "visible": false,
+            },
+            { 
+                "title": "Contact Phone",
+                "mDataProp": "contact_phone",
+                "width" : "12.5%",
+                "class": "backoffice",
+                "visible": false
+            },
+            { 
+                "title": "Event URL",
+                "mDataProp": "hostedhostname",
+                "width" : "12.5%",
+                "class": "details",
+                "visible": true
+            },
+            { 
+                "title": "Service Fee",
+                "mDataProp": "servicefee",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": false
+            },
+            { 
+                "title": "Bar Record Name",
+                "mDataProp": "bar_record_name",
+                "width" : "12.5%",
+                "class": "events",
+                
+                "visible": true
+            },
+            { 
+                "title": "Affiliate ID",
+                "mDataProp": "affiliate_id",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": false
+            },
+            { 
+                "title": "Event Type ID",
+                "mDataProp": "event_type_id",
+                "width" : "12.5%",
+                "class": "details",
+                "visible": false
+            },
+            { 
+                "title": "ID",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": false
+            },
+            { 
+                "title": "Login Type",
+                "mDataProp": "login_type_id",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": false
+            },
+            {
+                "title": "",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": true,
+                "responsivePriority": 2,
+                render:getEventsDetailsButton
+            }
+        ]//data changes to mDataProp//
+    });
+    $('#eventDetails').on('click', '.btn', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        $("#eventDetailsModal").modal('show')
+        $('.display_name').text('Display Name: '+data.display_name);
+        $('.hostedhostname').text('Event URL: '+data.hostedhostname);
+        $('.bar_record_name').text('Bar Record Name: '+data.bar_record_name);
+        $('.servicefee').text('Service Fee: '+data.servicefee);
+        $('.event_type_id').text('Event Type: '+data.event_type_id);
+        $('.login_type_id').text('Login Type: '+data.login_type_id);
+        $('.company_cc').text('Company CC: '+data.company_cc);
+        $('.contact_fname').text('Contact First Name: '+data.contact_fname);
+        $('.contact_lname').text('Contact Last Name: '+data.contact_lname);
+        $('.contact_email').text('Contact Email: '+data.contact_email);
+        $('.contact_phone').text('Contact Phone: '+data.contact_phone);
+        $('.affiliate_id').text('Affiliate ID: '+data.affiliate_id);
+        $('.id').text('ID: '+data.id);   
+    });
+    function getEventsDetailsButton(data, type,full,meta){
+        t = parseInt(full);
+        var id = t;
+        return '<div role="button" class="btn" id="detailsBtn">View Event Details</div>';
+    }
 }
 function createPNR(){
     var dataUser = system_output.request_user_data;
@@ -360,7 +775,7 @@ function setProfilePage(){
             numberOfMonths: 1,
             yearRange: "-100:+0",
         });
-        if(dataUser.dob !=== null){
+        if(dataUser.dob !== null){
             changeDate(dataUser.dob);
             
         }else{
@@ -526,13 +941,13 @@ function setAllTripsPage(){
     data_obj = dataNew;
     //console.log(data);
     var table = $('#allTrips').DataTable({
+        "responsive": true,
         "aaData": data_obj,
-        "order": [[26, "desc"], [12, "asc"]],
+        "order": [1, "desc"],
         "select":true,
         "pageLength": 10,
         "pagingType": "simple_numbers",
         "info": true,
-        "responsive": true,
         "aoColumns": [
             { 
                 "title": "Name",
@@ -545,7 +960,7 @@ function setAllTripsPage(){
                 "title": "Last Name",
                 "mDataProp": "name_last",
                 "width" : "12.5%",
-                "responsivePriority": 3,
+                "responsivePriority": 2,
                 "visible": true
             },
             { 
@@ -558,7 +973,6 @@ function setAllTripsPage(){
                 "mDataProp": "departCity",
                 "width" : "12.5%",
                 "class": "from",
-                "responsivePriority": 4,
                 "visible": true
             },
             { 
@@ -566,7 +980,6 @@ function setAllTripsPage(){
                 "mDataProp": "arriveCity",
                 "width" : "12.5%",
                 "class": "to",
-                "responsivePriority": 5,
                 "visible": true
             },
             { 
@@ -574,8 +987,7 @@ function setAllTripsPage(){
                 "mDataProp": "departure_datetime",
                 "width" : "12.5%",
                 "class": "departure",
-                "responsivePriority": 2,
-                "visible": true,
+                "visible": false,
                 render:getTime
             },
             {
@@ -611,6 +1023,7 @@ function setAllTripsPage(){
                 "mDataProp": "status_id",
                 "width" : "12.5%",
                 "visible": true,
+                "responsivePriority": 3,
                 "class": "statusImg",
                 render:getImg
             },
@@ -697,7 +1110,6 @@ function setAllTripsPage(){
                 "visible": true,
                 "width" : "12.5%",
                 "class": "dateBooked",
-                "responsivePriority": 6,
                 render:changeBookedDate
             },
             { 
@@ -728,7 +1140,7 @@ function setAllTripsPage(){
         ]//data changes to mDataProp//
     });
     function createSelectFilter(){
-        $('#allTrips_wrapper .row:first-child .col-sm-6:last-child').append('<div class="filterSelect"><select id="table-filter" class="right"><option value="" selected>Sort by Approval Status</option><option>Pending</option><option>Auto Approved</option><option>Approved</option><option>Denied</option><option>Canceled</option><option>Error</option><option>Voided</option></select></div>');
+        $('#allTrips_wrapper .row:first-child .col-sm-6:last-child').append('<div class="filterSelect"><select id="table-filter" class="right"><option value="" selected>Approval Status</option><option>Pending</option><option>Auto Approved</option><option>Approved</option><option>Denied</option><option>Canceled</option><option>Error</option><option>Voided</option></select></div>');
     }
     createSelectFilter();
     $('#allTrips_filter input').on('focusin', function(){
@@ -965,7 +1377,7 @@ function setAllTripsPage(){
             $('.approval-card-title').text('Error');
             $('#approveBtn').text('Approve').addClass('disabled');
             $('#denyBtn').text('Deny').addClass('disabled');
-            $('#timer').text('An error occured please contact support@tempotrip.com.')
+            $('#timer').text('An error occurred please contact support@tempotrip.com.')
             $('#approvalTime').text('')
         }
         else if ( d === 7){
@@ -1394,8 +1806,8 @@ function setAddTravelersPage(){
                 $('#remove').removeClass('hide');
             }
         }
-        if(dataUser.dob !=== null){
-            changeDate(dataUser.dob);
+        if(data.dob !== null){
+            changeDate(data.dob);
             
         }else{
             $('#datepicker').val('');
