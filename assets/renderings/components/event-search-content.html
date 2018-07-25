@@ -1,0 +1,58 @@
+<div class="col-sm-6"><h1>Event Search</h1></div>
+<div class="col-sm-6 float-right"><div class="openBtn">Search</div></div>
+<div class="col-sm-8" id="instructions">
+	<p>This feature will search on partial words or information. For instance, searching for "Jone" in the contact last name, will return all events that have "Jones" or "Jonet" as the last name contact. The more search criteria you enter, the fewer results will be returned.</p>
+</div>
+<div class="col-sm-12" id="eventSearchForm">
+	<form action="/" method="POST" class="">
+		<div class="form-group">
+			<input type="hidden" name="a" class="" value='search'>
+			<input type="hidden" name="p" class="" value='event_search'>
+			<input type="text" name="contact_fname" value="" class="contact_fname" placeholder="Contact First Name">
+			<input type="text" name="contact_lname" value="" class="contact_lname" placeholder="Contact Last Name">
+			<input type="text" name="contact_email" value="" class="contact_email" placeholder="Contact Email">
+			<input type="text" name="display_name" value="" class="display_name" placeholder="Event Name">
+			<input type="text" name="co_name" value="" class="" placeholder="Company Name">
+			<input name="submit" type="submit" id="submit" value="Submit">
+		</div>
+	</form>
+</div>
+<table id="eventSearch" class="table table-striped table-bordered" cellspacing="0" width="100%" style="width:100%">
+    <thead>
+        <tr>
+        </tr>
+    </thead>
+</table>
+
+<div id="eventSearchModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    	<div class='row'>
+    		<div class="col-sm-12">
+    			<div class="card">
+					<div class="col-sm-12">
+						<p class="title">Event Details</p>
+						<p class="display_name"></p>
+						<p class="hostedhostname"></p>
+						<div class="bar_record_name"></div>
+						<p class="servicefee"></p>
+						<p class="event_type_id"></p>
+						<p class="login_type_id"></p>
+						<p class="title">Company Information</p>
+						<p class="company_name"></p>
+						<p class="company_cc"></p>
+						<p class="title">Event Contact</p>
+						<p class="contact_fname"></p>
+						<p class="contact_lname"></p>
+						<p class="contact_email"></p>
+						<p class="affiliate_id hide"></p>
+						<p class="id hide"></p>
+					</div>
+				</div>
+    		</div>
+    	</div>
+    </div>
+
+  </div>
+</div>

@@ -109,6 +109,15 @@ function checkPage(){
     else if ($('body').attr('id') === 'client-event-details-page'){
         setClientEventDetailsPage();
     }
+    else if ($('body').attr('id') === 'event-search-page'){
+        setEventSearchPage();
+    }
+    else if ($('body').attr('id') === 'traveler-search-page'){
+        setTravelerSearchPage();
+    }
+    else if ($('body').attr('id') === 'traveler-detail-page'){
+        setTravelerDetailPage();
+    }
 }
 function setProfileSitePage(){
     var dataUser = system_output.request_user_data;
@@ -186,7 +195,7 @@ function setParentInfoPage(){
                 "visible": true
             },
             { 
-                "title": "ID",
+                "title": "",
                 "mDataProp": "id",
                 "width" : "12.5%",
                 "class": "id",
@@ -287,10 +296,10 @@ function setClientInfoPage(){
                 "mDataProp": "id",
                 "width" : "12.5%",
                 "class": "id",
-                "visible": true,
+                "visible": false,
             },
             { 
-                "title": "Backoffice Id",
+                "title": "BAR | Globalware ID",
                 "mDataProp": "backoffice_id",
                 "width" : "12.5%",
                 "class": "backoffice",
@@ -364,9 +373,10 @@ function setClientDetailsPage(){
         $('.l_name').text('Last Name: '+clientInfo.l_name);
         $('.email').text('Email: '+clientInfo.email);
         $('.phone').text('Phone Number: '+clientInfo.phone);
-        $('.servicefee').text('Service Fee: '+clientInfo.servicefee);
+        $('.servicefee').text('Service Fee: $'+clientInfo.servicefee);
         $('.parent_affiliate_id').text('Parent Affiliate ID: '+clientInfo.parent_affiliate_id);
-        $('.backoffice_id').text('Backoffice ID: '+clientInfo.backoffice_id);
+        $('.backoffice_id').empty()
+        $('.backoffice_id').append('<span>Bar | Globalware ID:</span> '+ clientInfo.backoffice_id);
         $('.globalware_status').text('Globalware Status: '+clientInfo.globalware_status);
         $('.id').text('ID: '+clientInfo.id);
 
@@ -488,7 +498,7 @@ function setClientEventDetailsPage(){
                 "visible": false
             },
             { 
-                "title": "Bar Record Name",
+                "title": "BAR-PAR Name",
                 "mDataProp": "bar_record_name",
                 "width" : "12.5%",
                 "class": "events",
@@ -539,7 +549,7 @@ function setClientEventDetailsPage(){
         $("#eventDetailsModal").modal('show')
         $('.display_name').text('Display Name: '+data.display_name);
         $('.hostedhostname').text('Event URL: '+data.hostedhostname);
-        $('.bar_record_name').text('Bar Record Name: '+data.bar_record_name);
+        $('.bar_record_name').append('<span>Bar | Par Links:</span> '+ data.bar_record_name);
         $('.servicefee').text('Service Fee: '+data.servicefee);
         $('.event_type_id').text('Event Type: '+data.event_type_id);
         $('.login_type_id').text('Login Type: '+data.login_type_id);
@@ -556,6 +566,320 @@ function setClientEventDetailsPage(){
         var id = t;
         return '<div role="button" class="btn" id="detailsBtn">View Event Details</div>';
     }
+}
+function setEventSearchPage(){
+    //var eventInfo = system_output.event_info;
+    if(typeof system_output.event_search_list != "undefined"){
+        var eventSearchList = system_output.event_search_list;
+        setTimeout(function(){
+            $('#eventSearch_wrapper').removeClass('hide');
+        }, 200)
+        $('#eventSearchForm').addClass('hide');
+
+    }else{
+        var eventSearchList = null;
+        setTimeout(function(){
+            $('#eventSearch_wrapper').addClass('hide');
+        }, 200)
+        $('#eventSearchForm').removeClass('fold');
+        $('.openBtn').addClass('hide');
+    }    
+    var dataNew = []
+    $.each(eventSearchList, function(key,value){
+        //console.log(key,value)
+        dataNew.push( {
+            affiliate_id: value.affiliate_id,
+            bar_record_name: value.bar_record_name,
+            co_name: value.co_name,
+            hostedhostname: value.hostedhostname,
+            company_cc: value.company_cc,
+            contact_email: value.contact_email,
+            contact_fname: value.contact_fname,
+            contact_lname: value.contact_lname,
+            display_name: value.display_name,
+            event_type_id: value.event_type_id,
+            hostedhostname: value.hostedhostname,
+            id: value.id,
+            login_type_id: value.login_type_id,
+            servicefee: value.servicefee
+        });
+    });
+    data_obj = dataNew;
+    console.log(dataNew)
+    //console.log(data);
+    var table = $('#eventSearch').DataTable({
+        "responsive": true,
+        "aaData": data_obj,
+        "order": [0, "desc"],
+        "select":true,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
+        "aoColumns": [
+            { 
+                "title": "Event Name",
+                "mDataProp": "display_name",
+                "width" : "12.5%",
+                "responsivePriority": 1,
+                "class": "company_name_table",
+                "visible": true
+            },
+            { 
+                "title": "BAR-PAR Name",
+                "mDataProp": "bar_record_name",
+                "width" : "12.5%",
+                "class": "bar_table",          
+                "visible": false
+            },
+            { 
+                "title": "Company Name",
+                "mDataProp": "co_name",
+                "class": "cname_table",
+                "width" : "12.5%",
+                "visible": true
+            },
+            { 
+                "title": "Company Credit Card",
+                "mDataProp": "company_cc",
+                "width" : "12.5%",
+                "class": "cc_table",
+                "visible": false
+            },
+            { 
+                "title": "Contact Email",
+                "mDataProp": "contact_email",
+                "width" : "12.5%",
+                "class": "email_table",
+                "visible": false
+            },
+            { 
+                "title": "Contact First Name",
+                "mDataProp": "contact_fname",
+                "width" : "12.5%",
+                "class": "fname_table",
+                "visible": true
+            },
+            { 
+                "title": "Contact Last Name",
+                "mDataProp": "contact_lname",
+                "width" : "12.5%",
+                "class": "lname_table",
+                "visible": true,
+            },
+            { 
+                "title": "Event URL",
+                "mDataProp": "hostedhostname",
+                "width" : "12.5%",
+                "class": "url_table",
+                "visible": false
+            },
+            { 
+                "title": "Service Fee",
+                "mDataProp": "servicefee",
+                "width" : "12.5%",
+                "class": "fee_table",
+                "visible": false
+            },
+            { 
+                "title": "Affiliate ID",
+                "mDataProp": "affiliate_id",
+                "width" : "12.5%",
+                "class": "affiliate_table",
+                "visible": false
+            },
+            { 
+                "title": "Event Type ID",
+                "mDataProp": "event_type_id",
+                "width" : "12.5%",
+                "class": "event_id_table",
+                "visible": false
+            },
+            { 
+                "title": "ID",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "id_table",
+                "visible": false
+            },
+            { 
+                "title": "Login Type",
+                "mDataProp": "login_type_id",
+                "width" : "12.5%",
+                "class": "login_type",
+                "visible": false
+            },
+            {
+                "title": "",
+                "mDataProp": "id",
+                "width" : "12.5%",
+                "class": "events",
+                "visible": true,
+                "responsivePriority": 2,
+                render:getEventsDetailsButton
+            }
+        ]//data changes to mDataProp//
+    });
+    $('.openBtn').on('click', function(){
+        $('#eventSearchForm').toggleClass('hide');
+    });
+    $('#eventSearch').on('click', '.btn', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        if (data.company_cc === null){
+            data = "";
+        }
+        $("#eventSearchModal").modal('show')
+        $('.display_name').text('Event Name: '+data.display_name);
+        $('.hostedhostname').text('Event URL: '+data.hostedhostname);
+        $('.bar_record_name').empty();
+        $('.bar_record_name').append('<span>Bar | Par Links:</span> '+ data.bar_record_name);
+        $('.servicefee').text('Service Fee: '+data.servicefee);
+        $('.event_type_id').text('Event Type: '+data.event_type_id);
+        $('.login_type_id').text('Login Type: '+data.login_type_id);
+        $('.company_name').text('Company Name: '+data.co_name);
+        $('.company_cc').text('Contact Credit Card: '+data.company_cc);
+        $('.contact_fname').text('Contact First Name: '+data.contact_fname);
+        $('.contact_lname').text('Contact Last Name: '+data.contact_lname);
+        $('.contact_email').text('Contact Email: '+data.contact_email);
+        $('.affiliate_id').text('Affiliate ID: '+data.affiliate_id);
+        $('.id').text('ID: '+data.id);  
+
+    });
+    function getEventsDetailsButton(data, type,full,meta){
+        t = parseInt(full);
+        var id = t;
+        return '<div role="button" class="btn" id="detailsBtn">View Event Details</div>';
+    }
+}
+function setTravelerSearchPage(){
+    if(typeof system_output.traveler_search_list != "undefined"){
+        var traveler_search_list = system_output.traveler_search_list;
+        setTimeout(function(){
+            $('#travelerSearch_wrapper').removeClass('hide');
+        }, 200)
+        $('#travelerSearchForm').addClass('hide');
+
+    }else{
+        var traveler_search_list = null;
+        setTimeout(function(){
+            $('#travelerSearch_wrapper').addClass('hide');
+        }, 200)
+        $('#travelerSearchForm').removeClass('fold');
+        $('.openBtn').addClass('hide');
+    }    
+    var dataNew = []
+    $.each(traveler_search_list, function(key,value){
+        //console.log(key,value)
+        dataNew.push( {
+            co_name: value.co_name,
+            username: value.username,
+            f_name: value.f_name,
+            user_id: value.user_id,
+            l_name: value.l_name,
+            user_phone: value.user_phone,
+        });
+    });
+    data_obj = dataNew;
+    console.log(dataNew)
+    //console.log(data);
+    var table = $('#travelerSearch').DataTable({
+        "responsive": true,
+        "aaData": data_obj,
+        "order": [0, "desc"],
+        "select":true,
+        "pageLength": 10,
+        "pagingType": "simple_numbers",
+        "info": true,
+        "aoColumns": [
+            { 
+                "title": "Company Name",
+                "mDataProp": "co_name",
+                "width" : "12.5%",
+                "responsivePriority": 1,
+                "class": "company_name_table",
+                "visible": true
+            },
+            { 
+                "title": "First Name",
+                "mDataProp": "f_name",
+                "width" : "12.5%",
+                "class": "fname_table",
+                "visible": true
+            },
+            { 
+                "title": "Last Name",
+                "mDataProp": "l_name",
+                "width" : "12.5%",
+                "class": "lname_table",
+                "visible": true,
+            },
+            { 
+                "title": "Email",
+                "mDataProp": "username",
+                "width" : "12.5%",
+                "class": "email_table",
+                "visible": true
+            },
+            { 
+                "title": "Phone Number",
+                "mDataProp": "user_phone",
+                "width" : "12.5%",
+                "class": "fee_table",
+                "visible": true
+            },
+            { 
+                "title": "ID",
+                "mDataProp": "user_id",
+                "width" : "12.5%",
+                "class": "id_table",
+                "visible": false
+            },
+            {
+                "title": "",
+                "mDataProp": "user_id",
+                "width" : "12.5%",
+                "class": "id_table_btn",
+                "visible": true,
+                "responsivePriority": 2,
+                render:getTravelerDetailButton
+            }
+        ]//data changes to mDataProp//
+    });
+    $('.openBtn').on('click', function(){
+        $('#travelerSearchForm').toggleClass('hide');
+    });
+    $('#travelerSearch').on('click', '.btn', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        if (data.company_cc === null){
+            data = "";
+        }
+    });
+    function getTravelerDetailButton(data, type,full,meta){
+        t = parseInt(data);
+        var id = t;
+        return '<a href="/?p=traveler-detail&a=get_detail&id='+id+'" class="btn">Traveler Details <i class="fa fa-external-link" aria-hidden="true"></i></a>';
+    }
+}
+function setTravelerDetailPage(){
+    //var eventInfo = system_output.event_info;
+    if(typeof system_output.traveler_data_detail != "undefined"){
+        var travelerDetail = system_output.traveler_data_detail;
+    }else{
+        var travelerDetail = null;
+    }
+    function makeTravelerDetails(travelerDetail){
+        console.log(travelerDetail)
+        $('.f_name').text('First Name: '+travelerDetail.f_name);
+        $('.m_initial').text('Middle Initial: '+travelerDetail.n_initial);
+        $('.l_name').text('Last Name: '+travelerDetail.l_name);
+        $('.email').text('Email | Username: '+travelerDetail.email);
+        $('.phone').text('Phone: '+travelerDetail.phone);
+        $('.dob').text('DOB: '+travelerDetail.dob);
+        $('.gender').text('Gender: '+travelerDetail.gender_word);
+        $('.known_number').text('Known #: '+travelerDetail.known_number);
+        $('.redress').text('Redress #: '+travelerDetail.redress_number);
+        $('.role_name').text('Role: '+travelerDetail.role_name);
+    }
+    makeTravelerDetails(travelerDetail);
 }
 function createPNR(){
     var dataUser = system_output.request_user_data;
@@ -633,6 +957,26 @@ function setDashboardPage(){
     },10)
     //Checking profile settings//
     var checkCount = 0;
+
+    var dataUserRole = system_output.request_user_data.role_id;
+    roleID = parseInt(dataUserRole);
+    function setupDashboard(roleID){
+        if(roleID === 3){
+            $('.adminBox').addClass('hide');
+            setTimeout(function(){
+                $('#dynamicQuickNav #alltrips-page a').html('<i class="fa fa-suitcase fa-lg"></i>My Trips');
+                $('#dynamic-menu #alltrips-page a').html('My Trips');
+            }, 200)
+        }else{
+            $('.travelerBox').addClass('hide');
+            setTimeout(function(){
+                $('#dynamicQuickNav #alltrips-page a').html('<i class="fa fa-suitcase fa-lg"></i>All Trips');
+                $('#dynamic-menu #alltrips-page a').html('All Trips');
+            }, 200)
+        }
+    }
+    setupDashboard(roleID)
+
     function checkprofileSettings(){
         if (system_output.request_user_data.f_name !== null || system_output.request_user_data.f_name !== "undefined"){
             var fname = system_output.request_user_data.f_name;
@@ -755,10 +1099,14 @@ function setDashboardPage(){
     setQuickLinks();
     //checking booking sites*/
     function setBookingList(){
-        var sites = system_output.site_list;
-        $.each(sites, function () { 
-            $('#bookingSites').append('<li class=""><i class="fa fa-plane" aria-hidden="true"></i><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank">' + this.display_name + '</a></li>');
-        });
+        if(system_output.site_list !== null || typeof system_output.site_list != 'undefined'){
+            var sites = system_output.site_list;
+            $.each(sites, function () { 
+                $('#bookingSites').append('<li class=""><i class="fa fa-plane" aria-hidden="true"></i><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank">' + this.display_name + '</a></li>');
+            });
+        }else{
+            $('#bookingSites').append('<li>You are not currently invited to book. Please contact your program administrator and ask them to invite you.</li>')
+        }
     }
     setBookingList();
 }
@@ -847,8 +1195,7 @@ function setAllTripsPage(){
         //console.log(from_departure_datetime);
         //console.log(to_departure_datetime);
         var dateFormat = "mm/dd/yy",
-          from = $("#trip-start-date")
-            .datepicker({
+          from = $("#trip-start-date").datepicker({
               defaultDate: "+1w",
               changeMonth: false,
               changeYear: false,
@@ -880,9 +1227,49 @@ function setAllTripsPage(){
         }
     }
     tripDates();
-
-    var data = system_output.trip_data.trips;
+    if(typeof system_output.trip_data.trips != "undefined" && system_output.trip_data.trips !=null && system_output.trip_data.trips !=""){
+            var data = system_output.trip_data.trips;
+        }else{
+            var data = null
+    }
     var tripsLength = Object.keys(data).length;
+
+    if(typeof system_output.trip_data.search_params.from_departure_datetime != "undefined" && system_output.trip_data.search_params.from_departure_datetime !=null && system_output.trip_data.search_params.from_departure_datetime !=""){
+            var tripStartDate = system_output.trip_data.search_params.from_departure_datetime;
+        }else{
+            var tripStartDate = null
+    }
+
+    if(typeof system_output.trip_data.search_params.to_departure_datetime!= "undefined" && system_output.trip_data.search_params.to_departure_datetime !=null && system_output.trip_data.search_params.to_departure_datetime !=""){
+            var tripsEndDate = system_output.trip_data.search_params.to_departure_datetime;
+        }else{
+            var tripsEndDate = null
+    }
+    console.log(tripStartDate)
+    console.log(tripsEndDate)
+    $( "#trip-end-date" ).datepicker( "setDate", tripsEndDate );
+    function changeStartSearchDate(tripStartDate){
+        if(tripStartDate != null){
+            console.log('not null') 
+            var start_time_convert = new Date(tripStartDate.replace(/-/g,"/"));
+            var newStartDate = start_time_convert
+            $( "#trip-start-date" ).datepicker( "setDate", newStartDate );
+        }else{
+            $( "#trip-start-date" ).datepicker().val('');
+        }
+    }
+    changeStartSearchDate(tripStartDate);
+    function changeEndSearchDate(tripEndDate){
+        if(tripEndDate != null){
+            var end_time_convert = new Date(tripEndDate.replace(/-/g,"/"));
+            var newEndDate = end_time_convert
+            $( "#trip-end-date" ).datepicker( "setDate", newEndDate );
+        }else{
+            $( "#trip-end-date" ).val(''); 
+        }
+        
+    }
+    changeEndSearchDate(tripsEndDate)
     //console.log(tripsLength)
     if (data === null){
         //console.log('no trips')
@@ -1107,7 +1494,7 @@ function setAllTripsPage(){
             { 
                 "title": "Date Booked",
                 "mDataProp": "pnrdata_create_datetime",
-                "visible": true,
+                "visible": false,
                 "width" : "12.5%",
                 "class": "dateBooked",
                 render:changeBookedDate
@@ -1343,7 +1730,7 @@ function setAllTripsPage(){
             $('#app-status, #clock').addClass('isPending');
             $('#approvalID').addClass('isPending').append('<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>');
             $('.approval-card-title').text('Pending Approval');
-            $('#timer').text('Tickets will be auto approved 24hrs after time of purchase.');
+            $('#timer').text('Tickets will be auto approved at 11:59pm EST [Booked date + 1 day date | 11:59PM ]');
             $('#denyBtn').text('Deny | Cancel');
         } 
         else if ( d === 3){
@@ -1352,7 +1739,7 @@ function setAllTripsPage(){
             $('.approval-card-title').text('Auto Approved');
             $('#approveBtn').text('Auto Approved').addClass('disabled');
             $('#denyBtn').text('Cancel');
-            $('#timer').text('This ticket was auto approved after 24hrs of purchase because no action was taken.')
+            $('#timer').text('This ticket was auto approved at 11:59pm EST [Booked date + 1 day date | 11:59PM ]')
         }
         else if ( d === 4){
             $('#app-status, #clock').addClass('isDenied');
@@ -1642,7 +2029,13 @@ function setAddTravelersPage(){
         $('.file-return').text(filename);
         $("#addBulkTravelersButton").removeClass('hide');
     })
-    var data = system_output.affiliate_user_list;
+    if(system_output.affiliate_user_list != null || typeof system_output.affiliate_user_list != 'undefined'){
+         var data = system_output.affiliate_user_list;
+    }
+    else{
+        var data = '';
+    }
+    
     var dataNew = []
     $.each(data, function(key,value){
         //console.log(key,value)
@@ -1655,6 +2048,8 @@ function setAddTravelersPage(){
             gender : value.gender, 
             email: value.email,
             phone: value.phone,
+            group_name: value.group_name,
+            group_id: value.group_id,
             known_number: value.known_number,
             redress_number: value.redress_number,
             role_name: value.role_name,
@@ -1711,6 +2106,16 @@ function setAddTravelersPage(){
             { 
                 "title": "Phone Number",
                 "mDataProp": "phone",
+                "visible": false
+            },
+            { 
+                "title": "Category ID",
+                "mDataProp": "group_id",
+                "visible": false
+            },
+            { 
+                "title": "Category Group",
+                "mDataProp": "group_name",
                 "visible": true
             },
             { 
@@ -1771,6 +2176,7 @@ function setAddTravelersPage(){
         $('#middleName').val(data.m_initial);
         $('#lastName').val(data.l_name);
         $('#datepicker').val(data.dob);
+        $('.group_select').trigger('change').val(data.group_id)
         $('.gender').val(data.gender);
         $('.role_name').val(data.role_name);
         $('.role').val(data.role_id);
@@ -1889,7 +2295,39 @@ function setAddTravelersPage(){
     })
     $('.guestCheckBox').on('click', function(){
         $('.groupSelect').val('guest');
-    })   
+    })
+
+    if(system_output.group_list.data != null || typeof system_output.group_list.data != 'undefined'){
+         var groupCategories = system_output.group_list.data;
+    }
+    else{
+        var groupCategories = '';
+    }
+    var categoryCount = 0
+    $.each(groupCategories, function(key,value){
+        categoryCount++
+        console.log(value.name);
+        $('#categoryList').append('<div class="col-sm-12 category"><form action="" method="POST"><input type="hidden" name="p" value="address-book"><input id="catAction" type="hidden" name="a" value="delete_group"><input type="hidden" name="group_id" value="'+value.id+'"/><input type="text" class="form-group categoryInput disabled" id="categoryInput'+categoryCount+'" readonly="readonly" name="group_name" placeholder="" value="'+value.name+'"><button id="saveBtn'+categoryCount+'" type="submit" class="save hide float-left" type="submit">Save</button><div id="editCategory'+categoryCount+'" class="editBtn btn float-left">Edit</div><button class="delete float-right" id="deleteCategory'+categoryCount+'">Delete</button><div id="cancelCategory'+categoryCount+'" class="cancelBtn btn hide float-right">Cancel</div></form></div>');
+    });
+    var saveBtn = $('#saveBtn');
+    var categoryInput = $('#categoryInput');
+    var catAction = $('#catAction');
+    $('.editBtn').on('click', function(){
+        $(this).closest('.category').find('.save').removeClass('hide');
+        $(this).closest('.category').find('.cancelBtn').removeClass('hide')
+        $(this).closest('.category').find('.categoryInput').attr("readonly", false).addClass('edit').removeClass('disabled');
+        $(this).closest('.category').find('#catAction').val('save_group');
+        $(this).closest('.category').find('.delete').addClass('hide');
+        $(this).addClass('hide');
+    });
+    $('.cancelBtn').on('click', function(){
+        $(this).closest('.category').find('.save').addClass('hide')
+        $(this).closest('.category').find('.editBtn').removeClass('hide');
+        $(this).closest('.category').find('.delete').removeClass('hide');
+        $(this).closest('.category').find('.categoryInput').attr("readonly", true).addClass('edit').addClass('disabled');
+        $(this).closest('.category').find('#catAction').val('delete_group');
+        $(this).addClass('hide');
+    })
 }
 function setEventsPage(){
     setTimeout(function(){
@@ -1900,11 +2338,16 @@ function setEventsPage(){
     },10)
     var siteCount = 0
     var data = system_output.site_list;
-    $.each(data, function () {
+    if(data !== null){
+        $.each(data, function () {
         siteCount++
         $('#tabs').append('<li role="presentation" class="" id="'+ siteCount +'"><a href="#'+ this.e_site_id + '" aria-controls="home" role="tab" data-toggle="tab">' + this.display_name + '</a></li>');
         $('.tab-content').append('<div role="tabpanel" class="tab-pane active" id="' + this.e_site_id + '"><div class="card"><iframe src="" width="100%" style="overflow:hidden;height:100%;" frameBorder="0" scrolling="true" id="iframe'+siteCount+'"></iframe><a href="' + location.protocol + '//' + this.hostedhostname + '" target="_blank" class="newWindowIcon"></a></div></div>')
-    });
+        });
+    }else{
+        $('.content-events').append('<p>You are not currently invited to book. Please contact your program administrator and ask them to invite you.</p>');
+        $('#tabs, .tab-content, .newWindowIcon').addClass('hide');
+    }
     
     $('.nav-tabs li a').on('click', function(){
         var id = $(this).attr('id');

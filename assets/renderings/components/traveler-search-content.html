@@ -1,0 +1,23 @@
+<div class="col-sm-6"><h1>Traveler Search</h1></div>
+<div class="col-sm-6 float-right"><div class="openBtn">Search</div></div>
+<div class="col-sm-8" id="instructions">
+	<p>This feature will search on partial words or information. For instance, searching for "Jone" in the last name, will return all travelers that have "Jones" or "Jonet" as the last name. The more search criteria you enter, the fewer results will be returned.</p>
+</div>
+<div class="col-sm-12" id="travelerSearchForm">
+	<form action="/" method="POST" class="">
+		<div class="form-group">
+			<input type="hidden" name="a" class="" value='search'>
+			<input type="hidden" name="p" class="" value='traveler-search'>
+			<input type="text" name="f_name" value="" class="f_name" placeholder="First Name">
+			<input type="text" name="l_name" value="" class="l_name" placeholder="Last Name">
+			<input type="text" name="email" value="" class="email" placeholder="Email">
+			<input name="submit" type="submit" id="submit" value="Submit">
+		</div>
+	</form>
+</div>
+<table id="travelerSearch" class="table table-striped table-bordered" cellspacing="0" width="100%" style="width:100%">
+    <thead>
+        <tr>
+        </tr>
+    </thead>
+</table>

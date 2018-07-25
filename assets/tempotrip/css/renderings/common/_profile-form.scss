@@ -576,6 +576,8 @@ padding:0px;
   font-size: 12px;
   margin-bottom: 5px;
   text-transform: uppercase;
+  position:relative;
+  z-index: 6;
 }
 .card .title {
   margin: 0;

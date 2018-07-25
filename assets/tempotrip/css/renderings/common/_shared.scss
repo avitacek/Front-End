@@ -19,6 +19,30 @@
   	cursor:default;
   }
 }
+.openBtn{
+	background-color: $grey-blue;
+    color: #ffffff;
+    border: 1px solid transparent;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px 20px;
+    margin: 0px 0px 10px 0px;
+    width: 245px;
+    float:right;
+    text-align:center;
+    border-radius: 3px;
+    text-decoration: none !important;	
+}
+.fold{
+	height:0px!important;
+	-webkit-transition-property:all;
+    -moz-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+	overflow:hidden;
+}
 .logo{
 	margin-top: 0px;
     width: auto;

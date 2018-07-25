@@ -6,9 +6,13 @@
                 <li role="presentation" class="active">
                     <a href="#add-travelers" aria-controls="home" role="tab" data-toggle="tab">Add Traveler(s)</a>
                 </li>
+                <li role="presentation" id="category-form" class="">
+                    <a href="#category-info"  aria-controls="tab" role="tab" data-toggle="tab">Manage Categories</a>
+                </li>
                 <li role="presentation" id="personal-form" class="disabled">
                     <a href="#personal-info"  aria-controls="tab" role="tab" data-toggle="tab">Traveler Profile</a>
                 </li>
+                
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -144,9 +148,12 @@
                                                 <span class="focus-border"><i></i></span> 
                                         </div>
                                         <div class="col-md-12">
+                                            <div class="form-group" name="group" id="category_select_carrier"></div>
+                                        </div>
+                                        <div class="col-md-12">
                                             <div class="form-group" name="group" id="user_group_select_carrier"></div>
                                         </div>
-                                         <div class="col-md-12">
+                                        <div class="col-md-12">
                                             <div class="form-group" name="group" id="role_select_carrier"></div>
                                         </div>
                                         <div class="col-md-12">
@@ -159,13 +166,6 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <!--
-                                        <div class="col-md-12">
-                                            <input type="text" name="label" id="label" title="label" value="">
-                                            <label for="label">Group | Category <a href="#" data-toggle="tooltip" data-placement="top" title="You can add a gropu or category label to your travelers to make it easier to sort and filter travelers when inviting them to an event."></i></a></label>
-                                            <span class="focus-border"><i></i></span> 
-                                        </div>
-                                        -->
                                         <div class="col-sm-12 col-md-6">
                                                 <input type="text" autocomplete="off" name="dob" id="datepicker" title="dob" value="">
                                                 <label for="dob">Date of Birth</label>
@@ -211,6 +211,30 @@
                                 <div class="col-sm-12" id="remove">
                                     <button type="submit" class="remove" data-toggle="modal" data-target="#confirmModal"/>Remove Traveler</button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Manage Category TAB-->
+                <div role="tabpanel" class="tab-pane" id="category-info">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-sm-12" id="create_category">
+                                    <form method=POST action="" role="form" autocomplete="off">
+                                        <input type='hidden' name='p' value="<?php echo $app->constants->user['PAGE_REQUEST'] ?>">
+                                        <input type='hidden' name='a' value="save_group">
+                                        
+                                        <input type="text" name="group_name" placeholder="Create a Traveler Category">
+                                        <label>Create a New Category</label>
+                                        <span class="focus-border"><i></i></span>
+                                        <input type="submit">
+                                    </form>
+                                </div>   
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12" id="categoryList">
+                                </div>   
                             </div>
                         </div>
                     </div>

@@ -22,29 +22,29 @@ gulp.task('fileinclude', function() {
       prefix: '@@',
       basepath: './assets/renderings/components'
     }))
-    .pipe(gulp.dest('../../www/'))
+    .pipe(gulp.dest('../../profile.tempotrip.com/www/'))
     .pipe(notify({ message: "fileInclude tasks done."}) );
 });
 gulp.task('change', function() {
-  return gulp.src('../../www/*.html')
+  return gulp.src('../../profile.tempotrip.com/www/*.html')
       .pipe(ext_replace('.php'))
-      .pipe(gulp.dest('../../www/'))
+      .pipe(gulp.dest('../../profile.tempotrip.com/www/'))
 });
 
 gulp.task('images', function() {
-   return gulp.src(['./assets/tempotrip/images/**/*']).pipe(gulp.dest('../../www/images'));
+   return gulp.src(['./assets/tempotrip/images/**/*']).pipe(gulp.dest('../../profile.tempotrip.com/www/images'));
 });
 gulp.task('vendors', function() {
-   return gulp.src(['./assets/tempotrip/js/vendors/**/*']).pipe(gulp.dest('../../www/js/vendors'));
+   return gulp.src(['./assets/tempotrip/js/vendors/**/*']).pipe(gulp.dest('../../profile.tempotrip.com/www/js/vendors'));
 });
 gulp.task('vendorsCSS', function() {
-   return gulp.src(['./assets/tempotrip/css/vendors/**/*']).pipe(gulp.dest('../../www/css/vendors'));
+   return gulp.src(['./assets/tempotrip/css/vendors/**/*']).pipe(gulp.dest('../../profile.tempotrip.com/www/css/vendors'));
 });
 gulp.task('fonts', function() {
-   return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../www/fonts'));
+   return gulp.src(['./assets/tempotrip/fonts/**/*']).pipe(gulp.dest('../../profile.tempotrip.com/www/fonts'));
 });
 gulp.task('data', function() {
-   return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../www/js/ajax'));
+   return gulp.src(['./assets/tempotrip/js/ajax/**/*']).pipe(gulp.dest('../../profile.tempotrip.com/www/js/ajax'));
 });
 gulp.task('sass-global', function () {
   return gulp.src('./assets/tempotrip/css/globals.scss')
@@ -57,7 +57,7 @@ gulp.task('sass-global', function () {
     }))
     .pipe(concat('tempotrip.globals.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('../../www/css'))
+    .pipe(gulp.dest('../../profile.tempotrip.com/www/css'))
     .pipe(notify({ message: "Global Sass compiled, Sourcemaps created."}) );
 });
 gulp.task('sass', function () {
@@ -71,7 +71,7 @@ gulp.task('sass', function () {
     }))
     .pipe(concat('profile.modules.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('../../www/css'))
+    .pipe(gulp.dest('../../profile.tempotrip.com/www/css'))
     .pipe(notify({ message: "Sass compiled, Sourcemaps created."}) );
 });
 
@@ -83,7 +83,7 @@ gulp.task('js1', function () {
       gutil.log(e); 
     })
     .pipe(source('profile.modules.js')) 
-    .pipe(gulp.dest('../../www/js'))
+    .pipe(gulp.dest('../../profile.tempotrip.com/www/js'))
     .pipe(notify({ message: "JS bundled."}) ); 
 });
 
@@ -95,14 +95,14 @@ gulp.task('js2', function () {
       gutil.log(e); 
     })
     .pipe(source('tempotrip.globals.js')) 
-    .pipe(gulp.dest('../../www/js'))
+    .pipe(gulp.dest('../../profile.tempotrip.com/www/js'))
     .pipe(notify({ message: "Global JS bundled."}) ); 
 });
 
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-          baseDir: "../../www/"
+          baseDir: "../../profile.tempotrip.com/www/"
         }
     });
 });

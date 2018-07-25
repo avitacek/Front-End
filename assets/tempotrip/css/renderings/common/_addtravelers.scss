@@ -21,7 +21,7 @@
     				border: 1px solid #ffffff;
     				border-bottom-color: transparent;
 				}
-				& #add-travelers, & #personal-info{
+				& #add-travelers, & #personal-info, & #category-info{
 					background-color: rgba(255, 255, 255, 0.45);
 				    border: 1px solid #ffffff;
 				    border-radius: 3px;
@@ -44,6 +44,84 @@
 				    }
 					&:before{
 						content:'\f059';
+					}
+				}
+				& #create_category{
+					position:relative;
+					border:1px solid #ddd;
+					border-radius:4px;
+					padding:15px;
+					& input{
+						margin-top:0px;
+						&:nth-child(3){
+							margin-top:10px;
+						}
+					}
+					& label{
+						left:15px;
+						top:5px;
+					}
+					& .focus-border{
+						width:calc(100% - 30px);
+						left:14px;
+						display:none;
+					}
+				}
+				& #categoryList{
+					& .category{
+						position:relative;
+						border:1px solid #ddd;
+						border-radius:4px;
+						padding:15px;
+						margin-bottom:5px;
+						& input{
+							margin-top:0px;
+							width:100%;
+							position:relative;
+							float:left;
+							margin-bottom:0px;
+						}
+						input ~ .focus-border{
+							width:calc(100% - 30px);
+							left:14px;
+							top:14px;
+							margin-top:0px;
+						}
+						& button, .btn{
+							width:calc(50% - 7.5px);
+							margin-bottom:0px;
+							margin-top:5px;
+							background-color: #f6861f;
+						    text-align: center;
+						    color: white;
+						    padding: 14px 20px;
+						    margin: 0px 0;
+						    border: none;
+						    cursor: pointer;
+						    display: inline-block;
+						    border-radius: 2px;
+						    border:1px solid $orange;
+						    letter-spacing: 1.2px;
+						    line-height: 1.5em;
+						    &:focus{
+						    	outline:none!important;
+						    	box-shadow:none!important
+						    }
+						}
+						& .btn{
+							background-color:$white;
+							border:1px solid $slate-grey;
+							color:$slate-grey;
+						}
+						& .delete{
+							background-color:$red;
+							border:1px solid $red;
+						}
+						& .save{
+							background-color:$teal;
+							border:1px solid $teal;
+						}
+
 					}
 				}
 				& #add-travelers{
@@ -313,6 +391,11 @@
 	}
 	.card form [class*="col-"] {
     	padding: 0px;
+    	& input{
+    		&#dob{
+    			border-right:none;
+    		}
+    	}
   	}
   	.card form [class*="col-"]:first-child {
     	padding-left: 0px;
